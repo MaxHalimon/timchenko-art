@@ -30,22 +30,52 @@
 
 /* Unlike SiteHeader, this nav is ALWAYS a dropdown (hamburger-only) —
    even on desktop — since the homepage stays menu-free at a glance
-   regardless of viewport width. */
+   regardless of viewport width. Compact, "organic" card sized to its
+   content, anchored under the hamburger — not a full-width bar with a
+   lot of empty space. */
 .nav {
   display: none;
   position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
+  top: calc(100% + 8px);
+  right: var(--space-2);
+  left: auto;
+  width: max-content;
+  min-width: 180px;
+  max-width: calc(100vw - var(--space-3));
   flex-direction: column;
-  align-items: flex-start;
-  gap: var(--space-2);
+  align-items: stretch;
+  gap: 2px;
   background-color: var(--color-bg);
-  border-bottom: 1px solid var(--color-border);
-  padding: var(--space-2) var(--space-4) var(--space-3);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 6px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 
 .navOpen {
   display: flex;
+}
+
+.navLink {
+  color: var(--color-text);
+  padding: 8px 10px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.navLink:hover {
+  background-color: var(--color-bg-muted);
+}
+
+.navDivider {
+  height: 1px;
+  background-color: var(--color-border);
+  margin: 4px 6px;
+}
+
+.switchers {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 2px 6px 0;
 }

@@ -11,7 +11,7 @@ export function ManifestoStatement() {
       <p className={styles.eyebrow}>{t("eyebrow")}</p>
       <h1 className={styles.title}>{t("title")}</h1>
       <p className={styles.description}>{t("description")}</p>
-      <Link href="/catalog" className={buttonStyles.catalogButton}>
+      <Link href="/gallery" className={buttonStyles.galleryButton}>
         {t("cta")}
       </Link>
     </section>

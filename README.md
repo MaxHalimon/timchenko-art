@@ -43,10 +43,10 @@ tymchenko-art/
 │   │   │   │   ├── ProductCard.tsx
 │   │   │   │   └── ProductCard.module.css
 │   │   │   └── shared/                    # НЕ компонент — спільні CSS Modules без власного .tsx
-│   │   │       ├── Buttons.module.css        # .catalogButton / .catalogButtonOutline
+│   │   │       ├── Buttons.module.css        # .galleryButton / .galleryButtonOutline
 │   │   │       ├── HeaderSelect.module.css   # спільний стиль <select> для обох switcher'ів
-│   │   │       └── ProductGrid.module.css    # сітка карток, спільна для home/catalog
-│   │   ├── catalog/
+│   │   │       └── ProductGrid.module.css    # сітка карток, спільна для home/gallery
+│   │   ├── gallery/
 │   │   │   ├── page.tsx + .module.css             # сітка + фільтри (розмір/тема/статус)
 │   │   │   └── FilterBar.tsx + .module.css
 │   │   ├── product/[slug]/            # (наступний крок) сторінка товару
@@ -69,21 +69,22 @@ tymchenko-art/
 ## Що вже готово
 
 - **Стилі — CSS Modules, один компонент = одна папка.** Кожен компонент живе у своїй підпапці разом зі своїм `ComponentName.module.css` (напр. `components/AgeGate/AgeGate.tsx` + `components/AgeGate/AgeGate.module.css`). Спільні шматки, що не належать одному компоненту, лежать окремо в `components/shared/`:
-  - `shared/Buttons.module.css` — `.catalogButton` / `.catalogButtonOutline` (як у ТЗ, з hover-ефектом).
+  - `shared/Buttons.module.css` — `.galleryButton` / `.galleryButtonOutline` (як у ТЗ, з hover-ефектом).
   - `shared/HeaderSelect.module.css` — спільний стиль `<select>` для `LanguageSwitcher` і `CurrencySwitcher`.
-  - `shared/ProductGrid.module.css` — сітка карток, спільна для головної й каталогу.
+  - `shared/ProductGrid.module.css` — сітка карток, спільна для головної й галереї.
   - `globals.css` лишається тільки для CSS-змінних палітри (`--color-*`, `--font-*`, `--space-*`) і base-стилів (`body`, `h1-h4`, `img`) — жодних утилітарних класів там більше немає, все або в модулі компонента, або токен.
 - Дизайн-система зафіксована як CSS-змінні в `globals.css` — колір, шрифти, spacing. Незмінна.
-- **Мультимовність (next-intl):** 4 мови зараз (`uk`, `en`, `de`, `ja`), маршрутизація через префікс (`/uk/catalog`, `/en/catalog`, `/ja/catalog`...). Додати ще одну мову — 3 кроки: код у `i18n/config.ts` → `locales`, новий `messages/<code>.json`, підпис у `LOCALE_LABELS`. Все інше підхоплюється автоматично.
+- **Мультимовність (next-intl):** 4 мови зараз (`uk`, `en`, `de`, `ja`), маршрутизація через префікс (`/uk/gallery`, `/en/gallery`, `/ja/gallery`...). Додати ще одну мову — 3 кроки: код у `i18n/config.ts` → `locales`, новий `messages/<code>.json`, підпис у `LOCALE_LABELS`. Все інше підхоплюється автоматично.
 - **Вибір валюти:** middleware читає заголовок `x-vercel-ip-country` (Vercel виставляє його автоматично в проді) і виставляє cookie `tymchenko-art-currency` з валютою за замовчуванням для країни відвідувача (включно з JPY для Японії). `CurrencySwitcher` дозволяє ручний вибір, який теж пишеться в ту саму cookie і відтоді має пріоритет над геолокацією. `PriceTag` рендерить ціну в обраній валюті.
 - `AgeGate` — модалка при першому вході, стан у `localStorage`.
-- **Мобільна адаптація:** хедер стає бургер-меню на екранах ≤720px (`SiteHeader.tsx`, клієнтський компонент зі станом відкриття); фільтри каталогу стають вертикальними на ≤480px; `--space-4/5/6` токени в `globals.css` автоматично звужуються на ≤480px, тож усі контейнери (hero, каталог, футер) підтягуються без окремих правок.
+- **Мобільна адаптація:** хедер стає бургер-меню на екранах ≤720px (`SiteHeader.tsx`, клієнтський компонент зі станом відкриття); фільтри галереї стають вертикальними на ≤480px; `--space-4/5/6` токени в `globals.css` автоматично звужуються на ≤480px, тож усі контейнери (hero, галерея, футер) підтягуються без окремих правок.
 - **Головна-маніфест (натхненна особистими сайтами Kusama/Murakami):** замінена стандартна hero-секція на повноекранне слайд-шоу (`HeroSlideshow`), яке автоматично тягне останні картини з бази (`prisma.product.findMany`, будь-який статус — це портфоліо-вітрина, не список "до купівлі"). Крос-фейд кожні 5с, точки-навігація, скрол-підказка внизу; при порожній базі — акуратний градієнтний фолбек з назвою сайту замість зламаного зображення. Респектує `prefers-reduced-motion` (автозміна слайдів вимикається).
   - На головній навігація повністю інша: `ImmersiveNav` — лише логотип + бургер-іконка поверх зображень (прозорий фон із градієнтом для читабельності), **завжди** у форматі "меню-по-кліку" незалежно від ширини екрана (на відміну від звичайного `SiteHeader`, де на десктопі меню одразу видно). `SiteHeaderSwitch` вибирає, який хедер рендерити, за поточним шляхом (`usePathname() === "/"`).
   - Під слайд-шоу — `ManifestoStatement`: текстова секція з тим самим копірайтингом (`hero.eyebrow/title/description/cta` у перекладах), яка раніше сиділа поверх зображення в старій `HeroSection`. `HeroSection.tsx` лишився в проєкті невикористаним — може знадобитись для сторінки "Про художницю".
 - `BackToTop` — кнопка "нагору" внизу справа, з'являється після прокрутки ~400px, плавний скрол нагору.
+- **Навігація:** пункти меню — Home / Gallery / Tracking (раніше Catalog/Process/Delivery — "Process" прибрано, "Catalog" перейменовано на "Gallery" по всьому проєкту — маршрут, назви компонентів, неймспейс перекладів `gallery.*`, посилання в UI-текстах; "Delivery" перейменовано на "Tracking" і веде на `/shipping-policy`, де вже описано трек-номери). Випадне меню (і на десктопі для головної, і на мобільних для решти сторінок) — компактна картка, "прилипла" під бургер-іконкою по ширині контенту, а не повношиткова панель з великими відступами.
 - **Футер із меню** — посилання на 4 юридичні сторінки (Privacy Policy, Terms of Service, Shipping Policy, Returns & Refunds), локалізовані, з мобільним стеканням у стовпчик. Сам текст сторінок — шаблонний, дивіться `LEGAL_PAGES_GUIDE.md` у корені проєкту щодо того, що обов'язково треба заповнити/перевірити з юристом перед запуском (включно з вимогою Impressum для німецького ринку).
-- `ProductCard`, `FilterBar`, каталог, юридичні сторінки — усі тексти локалізовані через `useTranslations`/`getTranslations`.
+- `ProductCard`, `FilterBar`, галерея, юридичні сторінки — усі тексти локалізовані через `useTranslations`/`getTranslations`.
 - `prisma/schema.prisma` — `users` (ADMIN/ARTIST), `products`, `orders` (state machine PREVIEW → PAID → IN_PROGRESS → SHIPPED → DELIVERED), `payments` (STRIPE/NOWPAYMENTS/Cryptomus/Monobank), `progress_photos`.
 - `lib/constants.ts` — платформна комісія зафіксована як глобальна константа 20% (`PLATFORM_COMMISSION_PCT`) — ваш заробіток; решта 80% (`calculateArtistPayoutUsd`) належить художниці.
 - `app/api/orders/route.ts` — створює `Order` (статус `PREVIEW`), приймає `locale` для локалізованих success/cancel URL, розгалужується за `paymentMethod`:
@@ -91,7 +92,7 @@ tymchenko-art/
   - `"crypto"` → NOWPayments invoice, як опція, яку клієнт обирає сам.
   - В обох випадках — rollback замовлення, якщо запит до гейтвею впав.
 - `app/api/webhooks/stripe/route.ts` і `.../nowpayments/route.ts` — перевірка підпису, ідемпотентний перехід `Order → PAID` (+ розрахунок комісії) і `Product → SOLD`.
-- `prisma/seed.ts` + `prisma/paintings.json` — заповнення каталогу вашими реальними картинами без написання коду. Інструкція: `prisma/PAINTINGS_GUIDE.md`. Запуск: `npm run prisma:seed`.
+- `prisma/seed.ts` + `prisma/paintings.json` — заповнення галереї вашими реальними картинами без написання коду. Інструкція: `prisma/PAINTINGS_GUIDE.md`. Запуск: `npm run prisma:seed`.
 
 ## Наступні кроки (не зроблено ще)
 
@@ -112,4 +113,4 @@ tymchenko-art/
 1. **Валюта показу ≠ валюта списання.** Зараз `PriceTag` показує ціну в обраній валюті (UAH/EUR/GBP/USD), але фактичне списання через Stripe/NOWPayments все ще відбувається в USD — курс конвертації, який побачить клієнт на чекауті, залежатиме від банку/картки. Якщо потрібне списання саме в локальній валюті (Stripe підтримує multi-currency Prices) — це окремий крок, скажіть, чи він потрібен на цьому етапі.
 2. **Гостьове замовлення чи акаунт клієнта?** — зараз гостьовий чекаут (email/ім'я прямо в `Order`).
 3. **Якщо Stripe відмовить** — план Б: CCBill/Segpay/Verotel. До "card-to-crypto" сервісів на кшталт агресивно прорекламованого NexaPay варто ставитись з обережністю.
-4. **Назви й описи картин** (`Product.title`, `description`) зараз зберігаються однією мовою (одне поле в БД), а не окремо для uk/en/de. Якщо потрібен переклад самого контенту каталогу (не тільки інтерфейсу) — знадобиться або окремі поля на мову, або таблиця перекладів.
+4. **Назви й описи картин** (`Product.title`, `description`) зараз зберігаються однією мовою (одне поле в БД), а не окремо для uk/en/de. Якщо потрібен переклад самого контенту галереї (не тільки інтерфейсу) — знадобиться або окремі поля на мову, або таблиця перекладів.

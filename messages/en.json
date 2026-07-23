@@ -2,9 +2,9 @@
   "common": {
     "siteName": "Tymchenko Art",
     "nav": {
-      "catalog": "Catalog",
-      "process": "Process",
-      "delivery": "Delivery",
+      "home": "Home",
+      "gallery": "Gallery",
+      "tracking": "Tracking",
       "openMenu": "Open menu",
       "closeMenu": "Close menu"
     },
@@ -19,9 +19,9 @@
   },
   "hero": {
     "eyebrow": "Oil on canvas. Hand-painted.",
-    "title": "Choose a finished piece from the catalog — or commission one that will never be repeated.",
-    "description": "Marina paints every piece by hand, in oil, on natural canvas. Some catalog pieces can be repainted on request; custom commissions are painted as one-of-a-kind originals.",
-    "cta": "Browse the catalog"
+    "title": "Choose a finished piece from the gallery — or commission one that will never be repeated.",
+    "description": "Marina paints every piece by hand, in oil, on natural canvas. Some gallery pieces can be repainted on request; custom commissions are painted as one-of-a-kind originals.",
+    "cta": "Browse the gallery"
   },
   "home": {
     "featuredHeading": "Latest works"
@@ -34,19 +34,6 @@
     },
     "dimensions": "{width} × {height} cm",
     "material": "oil on canvas"
-  },
-  "catalog": {
-    "heading": "Catalog",
-    "count": "{count, plural, one {# piece} other {# pieces}}",
-    "empty": "No paintings match these filters. Try removing one.",
-    "filters": {
-      "sizeAll": "Size: all",
-      "themeAll": "Theme: all",
-      "statusAll": "Status: all",
-      "sizeSmall": "Up to 50 cm",
-      "sizeMedium": "50–80 cm",
-      "sizeLarge": "Over 80 cm"
-    }
   },
   "languageSwitcher": {
     "label": "Language"
@@ -93,7 +80,7 @@
         },
         {
           "heading": "Paintings and uniqueness",
-          "body": "Some catalog pieces may be repainted by the artist on request. Custom commissions are painted as one-of-a-kind originals and are not reproduced afterward."
+          "body": "Some gallery pieces may be repainted by the artist on request. Custom commissions are painted as one-of-a-kind originals and are not reproduced afterward."
         },
         {
           "heading": "Pricing and payment",
@@ -138,7 +125,7 @@
       "intro": "This policy explains the terms for returning paintings and receiving refunds.",
       "sections": [
         {
-          "heading": "Ready-made catalog pieces",
+          "heading": "Ready-made gallery pieces",
           "body": "For paintings purchased ready-made (status \"Ready\" at the time of order), returns are accepted within [X] days of delivery, provided the item is in its original condition."
         },
         {
@@ -154,6 +141,19 @@
           "body": "Email [contact email] with your order number and the reason for the return. We'll respond within [X] business days."
         }
       ]
+    }
+  },
+  "gallery": {
+    "heading": "Gallery",
+    "count": "{count, plural, one {# piece} other {# pieces}}",
+    "empty": "No paintings match these filters. Try removing one.",
+    "filters": {
+      "sizeAll": "Size: all",
+      "themeAll": "Theme: all",
+      "statusAll": "Status: all",
+      "sizeSmall": "Up to 50 cm",
+      "sizeMedium": "50–80 cm",
+      "sizeLarge": "Over 80 cm"
     }
   }
 }

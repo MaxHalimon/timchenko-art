@@ -1,4 +1,4 @@
-.catalogButton {
+.galleryButton {
   background-color: var(--color-primary);
   color: #ffffff;
   border-radius: var(--radius-button);
@@ -15,18 +15,18 @@
   gap: 8px;
 }
 
-.catalogButton:hover {
+.galleryButton:hover {
   background-color: var(--color-primary-hover);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px #1a1a1a;
 }
 
-.catalogButton:focus-visible {
+.galleryButton:focus-visible {
   outline: 2px solid var(--color-primary);
   outline-offset: 3px;
 }
 
-.catalogButton:disabled {
+.galleryButton:disabled {
   background-color: var(--color-border);
   color: var(--color-text-light);
   cursor: not-allowed;
@@ -35,7 +35,7 @@
 }
 
 /* Secondary / outline variant, used for lower-emphasis actions */
-.catalogButtonOutline {
+.galleryButtonOutline {
   background-color: transparent;
   color: var(--color-text);
   border: 1px solid var(--color-border);
@@ -48,7 +48,7 @@
   font-family: var(--font-sans);
 }
 
-.catalogButtonOutline:hover {
+.galleryButtonOutline:hover {
   border-color: var(--color-primary);
   color: var(--color-primary);
 }

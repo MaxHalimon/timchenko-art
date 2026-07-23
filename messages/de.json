@@ -2,9 +2,9 @@
   "common": {
     "siteName": "Tymchenko Art",
     "nav": {
-      "catalog": "Katalog",
-      "process": "Entstehung",
-      "delivery": "Versand",
+      "home": "Start",
+      "gallery": "Galerie",
+      "tracking": "Tracking",
       "openMenu": "Menü öffnen",
       "closeMenu": "Menü schließen"
     },
@@ -19,9 +19,9 @@
   },
   "hero": {
     "eyebrow": "Öl auf Leinwand. Von Hand gemalt.",
-    "title": "Wählen Sie ein fertiges Werk aus dem Katalog — oder bestellen Sie ein Unikat, das sich nie wiederholt.",
-    "description": "Marina malt jedes Werk von Hand, in Öl, auf naturbelassener Leinwand. Manche Katalogwerke können auf Wunsch erneut gemalt werden; individuelle Auftragsarbeiten entstehen als einzigartige Originale.",
-    "cta": "Katalog durchsehen"
+    "title": "Wählen Sie ein fertiges Werk aus der Galerie — oder bestellen Sie ein Unikat, das sich nie wiederholt.",
+    "description": "Marina malt jedes Werk von Hand, in Öl, auf naturbelassener Leinwand. Manche Galeriewerke können auf Wunsch erneut gemalt werden; individuelle Auftragsarbeiten entstehen als einzigartige Originale.",
+    "cta": "Galerie durchsehen"
   },
   "home": {
     "featuredHeading": "Neueste Werke"
@@ -34,19 +34,6 @@
     },
     "dimensions": "{width} × {height} cm",
     "material": "Öl auf Leinwand"
-  },
-  "catalog": {
-    "heading": "Katalog",
-    "count": "{count, plural, one {# Werk} other {# Werke}}",
-    "empty": "Keine Werke entsprechen diesen Filtern. Entfernen Sie einen davon.",
-    "filters": {
-      "sizeAll": "Größe: alle",
-      "themeAll": "Thema: alle",
-      "statusAll": "Status: alle",
-      "sizeSmall": "Bis 50 cm",
-      "sizeMedium": "50–80 cm",
-      "sizeLarge": "Über 80 cm"
-    }
   },
   "languageSwitcher": {
     "label": "Sprache"
@@ -93,7 +80,7 @@
         },
         {
           "heading": "Gemälde und Einzigartigkeit",
-          "body": "Manche Katalogwerke können von der Künstlerin auf Wunsch erneut gemalt werden. Individuelle Auftragsarbeiten werden als einzigartige Originale gemalt und danach nicht erneut angefertigt."
+          "body": "Manche Galeriewerke können von der Künstlerin auf Wunsch erneut gemalt werden. Individuelle Auftragsarbeiten werden als einzigartige Originale gemalt und danach nicht erneut angefertigt."
         },
         {
           "heading": "Preise und Zahlung",
@@ -138,7 +125,7 @@
       "intro": "Diese Richtlinie beschreibt die Bedingungen für die Rückgabe von Gemälden und die Erstattung von Zahlungen.",
       "sections": [
         {
-          "heading": "Fertige Katalogwerke",
+          "heading": "Fertige Galeriewerke",
           "body": "Für bereits fertige Gemälde (Status „Verfügbar“ zum Bestellzeitpunkt) ist eine Rückgabe innerhalb von [X] Tagen nach Erhalt möglich, sofern sich das Werk im Originalzustand befindet."
         },
         {
@@ -154,6 +141,19 @@
           "body": "Schreiben Sie an [Kontakt-E-Mail] mit Ihrer Bestellnummer und dem Grund der Rückgabe. Wir antworten innerhalb von [X] Werktagen."
         }
       ]
+    }
+  },
+  "gallery": {
+    "heading": "Galerie",
+    "count": "{count, plural, one {# Werk} other {# Werke}}",
+    "empty": "Keine Werke entsprechen diesen Filtern. Entfernen Sie einen davon.",
+    "filters": {
+      "sizeAll": "Größe: alle",
+      "themeAll": "Thema: alle",
+      "statusAll": "Status: alle",
+      "sizeSmall": "Bis 50 cm",
+      "sizeMedium": "50–80 cm",
+      "sizeLarge": "Über 80 cm"
     }
   }
 }

@@ -24,6 +24,20 @@
   font-size: 14px;
 }
 
+.navLink {
+  color: var(--color-text);
+}
+
+.navDivider {
+  display: none; /* only shown inside the compact mobile dropdown, see below */
+}
+
+.switchers {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 .hamburger {
   display: none;
   border: none;
@@ -36,7 +50,6 @@
 @media (max-width: 720px) {
   .header {
     position: relative; /* anchors the dropdown nav below via .nav's absolute positioning */
-    flex-wrap: wrap;
   }
 
   .hamburger {
@@ -45,22 +58,50 @@
     justify-content: center;
   }
 
+  /* Compact, "organic" dropdown: a small card anchored under the hamburger
+     button, sized to its content — not a full-width bar with lots of empty
+     space. */
   .nav {
     display: none;
     position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
+    top: calc(100% + 8px);
+    right: var(--space-2);
+    left: auto;
+    width: max-content;
+    min-width: 180px;
+    max-width: calc(100vw - var(--space-3));
     flex-direction: column;
-    align-items: flex-start;
-    gap: var(--space-2);
+    align-items: stretch;
+    gap: 2px;
     background-color: var(--color-bg);
-    border-bottom: 1px solid var(--color-border);
-    padding: var(--space-2) var(--space-4) var(--space-3);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    padding: 6px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
   }
 
   .navOpen {
     display: flex;
+  }
+
+  .navLink {
+    padding: 8px 10px;
+    border-radius: 6px;
+    font-size: 14px;
+  }
+
+  .navLink:hover {
+    background-color: var(--color-bg-muted);
+  }
+
+  .navDivider {
+    display: block;
+    height: 1px;
+    background-color: var(--color-border);
+    margin: 4px 6px;
+  }
+
+  .switchers {
+    padding: 2px 6px 0;
   }
 }

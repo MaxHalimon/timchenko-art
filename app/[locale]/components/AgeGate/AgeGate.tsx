@@ -38,10 +38,10 @@ export function AgeGate() {
         </h2>
         <p className={styles.description}>{t("description")}</p>
         <div className={styles.actions}>
-          <button className={buttonStyles.catalogButton} onClick={confirmAge}>
+          <button className={buttonStyles.galleryButton} onClick={confirmAge}>
             {t("confirm")}
           </button>
-          <button className={buttonStyles.catalogButtonOutline} onClick={declineAge}>
+          <button className={buttonStyles.galleryButtonOutline} onClick={declineAge}>
             {t("decline")}
           </button>
         </div>

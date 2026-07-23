@@ -30,28 +30,31 @@ export function SiteHeader() {
         onClick={() => setMenuOpen((open) => !open)}
       >
         {menuOpen ? (
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
           </svg>
         ) : (
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
             <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
           </svg>
         )}
       </button>
 
       <nav id="site-nav" className={menuOpen ? `${styles.nav} ${styles.navOpen}` : styles.nav}>
-        <Link href="/catalog" onClick={closeMenu}>
-          {t("nav.catalog")}
+        <Link href="/" className={styles.navLink} onClick={closeMenu}>
+          {t("nav.home")}
         </Link>
-        <Link href="/#process" onClick={closeMenu}>
-          {t("nav.process")}
+        <Link href="/gallery" className={styles.navLink} onClick={closeMenu}>
+          {t("nav.gallery")}
         </Link>
-        <Link href="/#delivery" onClick={closeMenu}>
-          {t("nav.delivery")}
+        <Link href="/shipping-policy" className={styles.navLink} onClick={closeMenu}>
+          {t("nav.tracking")}
         </Link>
-        <LanguageSwitcher />
-        <CurrencySwitcher />
+        <div className={styles.navDivider} />
+        <div className={styles.switchers}>
+          <LanguageSwitcher />
+          <CurrencySwitcher />
+        </div>
       </nav>
     </header>
   );
