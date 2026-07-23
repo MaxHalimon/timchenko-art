@@ -1,0 +1,24 @@
+[
+  {
+    "slug": "misty-morning-fields",
+    "title": "Ранковий туман над полем",
+    "description": "Олія на холсті. Ранковий пейзаж із м'яким світлом і туманом над полями.",
+    "widthCm": 60,
+    "heightCm": 80,
+    "priceUsd": 480,
+    "theme": "пейзаж",
+    "status": "AVAILABLE",
+    "previewImageFile": "misty-morning-fields.jpg"
+  },
+  {
+    "slug": "quiet-harbor",
+    "title": "Тиха гавань",
+    "description": "Олія на холсті. Вечірній настрій невеликої гавані.",
+    "widthCm": 70,
+    "heightCm": 90,
+    "priceUsd": 620,
+    "theme": "морський пейзаж",
+    "status": "IN_PROGRESS",
+    "previewImageFile": "quiet-harbor.jpg"
+  }
+]

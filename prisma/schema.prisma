@@ -1,0 +1,179 @@
+// Tymchenko Art — Prisma schema
+// Postgres (Supabase / Neon). Run `npx prisma migrate dev` after editing.
+//
+// Supabase note: DATABASE_URL should be the pooled connection (port 6543,
+// pgbouncer) — used for normal app queries. DIRECT_URL should be the direct
+// connection (port 5432) — Prisma needs this for migrations, since
+// migrations don't work through the pgbouncer pooler. Get both from
+// Supabase dashboard → "Connect" button → ORMs → Prisma.
+// (Neon doesn't need directUrl — if using Neon, DATABASE_URL alone is fine,
+// just set DIRECT_URL to the same value.)
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+// ────────────────────────────────────────────────────────────
+// Enums
+// ────────────────────────────────────────────────────────────
+
+enum UserRole {
+  ADMIN   // You — full access: finances, commissions, settings
+  ARTIST  // Marina — sees orders, updates status, uploads progress photos
+}
+
+/// Availability of a painting in the catalog (independent from any one order,
+/// since a painting can be "in progress" before it's ever attached to an order).
+enum ProductStatus {
+  AVAILABLE    // "Готова" — finished, listed, purchasable
+  IN_PROGRESS  // "В процесі" — being painted, visible but not yet purchasable
+  SOLD         // "Продано" — attached to a PAID+ order, hidden from checkout
+}
+
+/// Order state machine, in strict forward order.
+enum OrderStatus {
+  PREVIEW      // Client viewing watermarked preview, cart/checkout not yet paid
+  PAID         // Payment confirmed via webhook
+  IN_PROGRESS  // Marina is painting / preparing the physical piece
+  SHIPPED      // Tracking number added
+  DELIVERED    // Client confirmed receipt; artist commission released
+}
+
+enum PaymentProvider {
+  STRIPE       // primary — card, Apple Pay, Google Pay
+  NOWPAYMENTS  // crypto — offered as a customer-chosen alternative
+  CRYPTOMUS
+  MONOBANK
+}
+
+enum PaymentStatus {
+  PENDING
+  CONFIRMED
+  FAILED
+  EXPIRED
+}
+
+// ────────────────────────────────────────────────────────────
+// Core models
+// ────────────────────────────────────────────────────────────
+
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  role         UserRole
+  name         String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  // Progress photos uploaded by the artist for a given order
+  uploadedProgressPhotos ProgressPhoto[]
+
+  @@map("users")
+}
+
+model Product {
+  id          String        @id @default(cuid())
+  slug        String        @unique
+  title       String
+  description String        @db.Text
+  status      ProductStatus @default(IN_PROGRESS)
+
+  widthCm  Int
+  heightCm Int
+  material String  @default("Олія, полотно")
+  theme    String? // for catalog filtering
+
+  priceUsd Decimal @db.Decimal(10, 2)
+  // Commission is a fixed global constant (20%), not per-product —
+  // see ARTIST_COMMISSION_PCT in lib/constants.ts. Not stored here so
+  // there is a single source of truth if it's ever revisited.
+
+  // Private S3 keys — never exposed directly; original requires a presigned URL
+  // issued only after the related order reaches PAID.
+  previewImageKey String // watermarked, public via CDN
+  originalImageKey String // full-res original, private bucket
+  processVideoKey  String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  order Order? // a product maps to at most one (non-cancelled) order once sold
+
+  @@index([status])
+  @@map("products")
+}
+
+model Order {
+  id        String      @id @default(cuid())
+  status    OrderStatus @default(PREVIEW)
+
+  productId String  @unique
+  product   Product @relation(fields: [productId], references: [id])
+
+  customerEmail String
+  customerName  String
+  shippingAddress Json // { country, city, postalCode, line1, line2?, phone }
+
+  amountUsd            Decimal @db.Decimal(10, 2) // snapshot of product.priceUsd at time of order
+  platformCommissionUsd Decimal @db.Decimal(10, 2) // your cut = amountUsd * PLATFORM_COMMISSION_PCT (20%)
+  artistPayoutUsd       Decimal @db.Decimal(10, 2) // what's owed to the artist = amountUsd - platformCommissionUsd (80%)
+  // Both snapshotted once, when status → PAID, so a later price/rate change
+  // never silently rewrites what's owed on an already-placed order.
+
+  trackingNumber   String?
+  trackingCarrier  String?
+
+  artistPayoutSent Boolean   @default(false) // true once you've actually paid the artist her 80%
+  artistPayoutSentAt  DateTime?
+
+  payment         Payment?
+  progressPhotos  ProgressPhoto[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([status])
+  @@map("orders")
+}
+
+model Payment {
+  id       String          @id @default(cuid())
+  orderId  String          @unique
+  order    Order           @relation(fields: [orderId], references: [id])
+
+  provider       PaymentProvider
+  status         PaymentStatus @default(PENDING)
+  providerRef    String        @unique // payment_id / invoice_id from the gateway
+  rawWebhookPayload Json?      // last webhook body received, for audit/debug
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([provider, status])
+  @@map("payments")
+}
+
+/// Photos of a piece at a given production stage, uploaded by the artist
+/// and visible to the customer in their order timeline.
+model ProgressPhoto {
+  id      String @id @default(cuid())
+  orderId String
+  order   Order  @relation(fields: [orderId], references: [id])
+
+  imageKey String
+  caption  String?
+
+  uploadedById String
+  uploadedBy   User   @relation(fields: [uploadedById], references: [id])
+
+  createdAt DateTime @default(now())
+
+  @@map("progress_photos")
+}

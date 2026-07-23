@@ -1,0 +1,159 @@
+{
+  "common": {
+    "siteName": "Tymchenko Art",
+    "nav": {
+      "catalog": "Katalog",
+      "process": "Entstehung",
+      "delivery": "Versand",
+      "openMenu": "Menü öffnen",
+      "closeMenu": "Menü schließen"
+    },
+    "footer": "Jedes Werk wird von Hand gemalt.",
+    "scrollHint": "Nach unten scrollen"
+  },
+  "ageGate": {
+    "title": "Sind Sie 18 Jahre oder älter?",
+    "description": "Diese Website zeigt Kunstwerke für ein erwachsenes Publikum. Bitte bestätigen Sie Ihr Alter, um fortzufahren.",
+    "confirm": "Ja, ich bin 18+",
+    "decline": "Nein"
+  },
+  "hero": {
+    "eyebrow": "Öl auf Leinwand. Von Hand gemalt.",
+    "title": "Wählen Sie ein fertiges Werk aus dem Katalog — oder bestellen Sie ein Unikat, das sich nie wiederholt.",
+    "description": "Marina malt jedes Werk von Hand, in Öl, auf naturbelassener Leinwand. Manche Katalogwerke können auf Wunsch erneut gemalt werden; individuelle Auftragsarbeiten entstehen als einzigartige Originale.",
+    "cta": "Katalog durchsehen"
+  },
+  "home": {
+    "featuredHeading": "Neueste Werke"
+  },
+  "productCard": {
+    "status": {
+      "AVAILABLE": "Verfügbar",
+      "IN_PROGRESS": "In Arbeit",
+      "SOLD": "Verkauft"
+    },
+    "dimensions": "{width} × {height} cm",
+    "material": "Öl auf Leinwand"
+  },
+  "catalog": {
+    "heading": "Katalog",
+    "count": "{count, plural, one {# Werk} other {# Werke}}",
+    "empty": "Keine Werke entsprechen diesen Filtern. Entfernen Sie einen davon.",
+    "filters": {
+      "sizeAll": "Größe: alle",
+      "themeAll": "Thema: alle",
+      "statusAll": "Status: alle",
+      "sizeSmall": "Bis 50 cm",
+      "sizeMedium": "50–80 cm",
+      "sizeLarge": "Über 80 cm"
+    }
+  },
+  "languageSwitcher": {
+    "label": "Sprache"
+  },
+  "backToTop": {
+    "label": "Nach oben"
+  },
+  "legal": {
+    "privacyPolicy": {
+      "title": "Datenschutzerklärung",
+      "lastUpdated": "Zuletzt aktualisiert: [Datum]",
+      "intro": "Diese Datenschutzerklärung beschreibt, welche personenbezogenen Daten Tymchenko Art bei der Nutzung dieser Website erhebt, wie wir sie verwenden und welche Rechte Sie in Bezug auf Ihre Daten haben.",
+      "sections": [
+        {
+          "heading": "Welche Daten wir erheben",
+          "body": "Bei der Bestellung erheben wir Ihren Namen, Ihre E-Mail-Adresse, Telefonnummer und Lieferadresse. Zahlungskartendaten speichern wir nicht — diese werden ausschließlich von unseren Zahlungspartnern (Stripe, NOWPayments) gemäß deren eigenen Sicherheitsrichtlinien verarbeitet."
+        },
+        {
+          "heading": "Wie wir Ihre Daten verwenden",
+          "body": "Wir verwenden Ihre Daten zur Abwicklung Ihrer Bestellung, zur Kommunikation über den Versandstatus sowie zur Erfüllung gesetzlicher Pflichten, einschließlich steuerlicher Aufzeichnungen."
+        },
+        {
+          "heading": "Weitergabe an Dritte",
+          "body": "Wir geben nur das notwendige Minimum an Daten an Zahlungsdienstleister und Versanddienste weiter — ausschließlich zur Erfüllung Ihrer Bestellung. Wir verkaufen oder teilen Ihre Daten nicht mit Werbenetzwerken."
+        },
+        {
+          "heading": "Cookies",
+          "body": "Diese Website verwendet funktionale Cookies, um Ihre gewählte Sprache, Währung und Altersbestätigung zu speichern. Wir verwenden keine Werbe- oder Tracking-Cookies."
+        },
+        {
+          "heading": "Ihre Rechte",
+          "body": "Gemäß geltendem Datenschutzrecht (einschließlich der DSGVO für Kunden aus der EU) haben Sie das Recht auf Auskunft, Berichtigung und Löschung Ihrer personenbezogenen Daten. Kontaktieren Sie uns dazu unter [Kontakt-E-Mail]."
+        }
+      ]
+    },
+    "termsOfService": {
+      "title": "Allgemeine Geschäftsbedingungen",
+      "lastUpdated": "Zuletzt aktualisiert: [Datum]",
+      "intro": "Diese Bedingungen regeln die Nutzung der Website Tymchenko Art sowie den Kauf der dort angebotenen Gemälde.",
+      "sections": [
+        {
+          "heading": "Über diese Website",
+          "body": "Tymchenko Art ist der Verkäufer (Merchant of Record) der Original-Ölgemälde der Künstlerin Marina. Die Künstlerin fertigt die Werke und bereitet sie für den Versand vor; sämtliche Kundentransaktionen werden über die Website abgewickelt."
+        },
+        {
+          "heading": "Gemälde und Einzigartigkeit",
+          "body": "Manche Katalogwerke können von der Künstlerin auf Wunsch erneut gemalt werden. Individuelle Auftragsarbeiten werden als einzigartige Originale gemalt und danach nicht erneut angefertigt."
+        },
+        {
+          "heading": "Preise und Zahlung",
+          "body": "Preise können zur besseren Übersicht in Ihrer gewählten Währung angezeigt werden; die tatsächliche Abbuchung erfolgt über unseren Zahlungsanbieter (Stripe oder NOWPayments) und kann je nach Umrechnungskurs zum Zahlungszeitpunkt leicht abweichen."
+        },
+        {
+          "heading": "Altersbeschränkung",
+          "body": "Diese Website richtet sich an erwachsene Besucher (18+), da einige gezeigte Kunstwerke Aktdarstellungen enthalten können."
+        },
+        {
+          "heading": "Anwendbares Recht",
+          "body": "Diese Bedingungen unterliegen dem Recht [Gerichtsstand — zu bestätigen]."
+        }
+      ]
+    },
+    "shippingPolicy": {
+      "title": "Versandrichtlinie",
+      "lastUpdated": "Zuletzt aktualisiert: [Datum]",
+      "intro": "Diese Seite beschreibt, wie wir Ihre Bestellung verpacken, versenden und nachverfolgen.",
+      "sections": [
+        {
+          "heading": "Bearbeitungszeit",
+          "body": "Als „Verfügbar“ markierte Gemälde werden in der Regel innerhalb von [X] Werktagen nach Zahlungseingang versandt. Individuelle Auftragsarbeiten benötigen Zeit für die Fertigstellung durch die Künstlerin — eine geschätzte Zeitspanne wird bei der Bestellung gesondert angegeben."
+        },
+        {
+          "heading": "Verpackung",
+          "body": "Gemälde werden unter Berücksichtigung ihrer Zerbrechlichkeit verpackt: stabiler Rahmenschutz, Eckenschutz und feuchtigkeitsbeständige Verpackung."
+        },
+        {
+          "heading": "Internationaler Versand",
+          "body": "Wir versenden in die Ukraine, EU-Länder, nach Japan und darüber hinaus. Zölle und Einfuhrsteuern (falls zutreffend) trägt der Empfänger."
+        },
+        {
+          "heading": "Sendungsverfolgung",
+          "body": "Nach dem Versand erhalten Sie eine Sendungsnummer per E-Mail. Eine Sendungsverfolgung direkt auf der Website befindet sich derzeit in Entwicklung."
+        }
+      ]
+    },
+    "returnsRefunds": {
+      "title": "Rückgabe & Erstattung",
+      "lastUpdated": "Zuletzt aktualisiert: [Datum]",
+      "intro": "Diese Richtlinie beschreibt die Bedingungen für die Rückgabe von Gemälden und die Erstattung von Zahlungen.",
+      "sections": [
+        {
+          "heading": "Fertige Katalogwerke",
+          "body": "Für bereits fertige Gemälde (Status „Verfügbar“ zum Bestellzeitpunkt) ist eine Rückgabe innerhalb von [X] Tagen nach Erhalt möglich, sofern sich das Werk im Originalzustand befindet."
+        },
+        {
+          "heading": "Individuelle Auftragsarbeiten",
+          "body": "Auf individuelle Bestellung angefertigte Gemälde sind aufgrund ihres personalisierten Charakters grundsätzlich von der Rückgabe ausgeschlossen — außer bei Transportschäden."
+        },
+        {
+          "heading": "Transportschäden",
+          "body": "Sollte Ihr Gemälde beschädigt ankommen, kontaktieren Sie uns innerhalb von 48 Stunden mit Fotos des Schadens — wir bieten Ersatz oder vollständige Erstattung an."
+        },
+        {
+          "heading": "So beantragen Sie eine Rückgabe",
+          "body": "Schreiben Sie an [Kontakt-E-Mail] mit Ihrer Bestellnummer und dem Grund der Rückgabe. Wir antworten innerhalb von [X] Werktagen."
+        }
+      ]
+    }
+  }
+}

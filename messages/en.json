@@ -1,0 +1,159 @@
+{
+  "common": {
+    "siteName": "Tymchenko Art",
+    "nav": {
+      "catalog": "Catalog",
+      "process": "Process",
+      "delivery": "Delivery",
+      "openMenu": "Open menu",
+      "closeMenu": "Close menu"
+    },
+    "footer": "Every piece is hand-painted by the artist.",
+    "scrollHint": "Scroll down"
+  },
+  "ageGate": {
+    "title": "Are you 18 or older?",
+    "description": "This site features artwork intended for an adult audience. Please confirm your age to continue.",
+    "confirm": "Yes, I'm 18+",
+    "decline": "No"
+  },
+  "hero": {
+    "eyebrow": "Oil on canvas. Hand-painted.",
+    "title": "Choose a finished piece from the catalog — or commission one that will never be repeated.",
+    "description": "Marina paints every piece by hand, in oil, on natural canvas. Some catalog pieces can be repainted on request; custom commissions are painted as one-of-a-kind originals.",
+    "cta": "Browse the catalog"
+  },
+  "home": {
+    "featuredHeading": "Latest works"
+  },
+  "productCard": {
+    "status": {
+      "AVAILABLE": "Ready",
+      "IN_PROGRESS": "In progress",
+      "SOLD": "Sold"
+    },
+    "dimensions": "{width} × {height} cm",
+    "material": "oil on canvas"
+  },
+  "catalog": {
+    "heading": "Catalog",
+    "count": "{count, plural, one {# piece} other {# pieces}}",
+    "empty": "No paintings match these filters. Try removing one.",
+    "filters": {
+      "sizeAll": "Size: all",
+      "themeAll": "Theme: all",
+      "statusAll": "Status: all",
+      "sizeSmall": "Up to 50 cm",
+      "sizeMedium": "50–80 cm",
+      "sizeLarge": "Over 80 cm"
+    }
+  },
+  "languageSwitcher": {
+    "label": "Language"
+  },
+  "backToTop": {
+    "label": "Back to top"
+  },
+  "legal": {
+    "privacyPolicy": {
+      "title": "Privacy Policy",
+      "lastUpdated": "Last updated: [date]",
+      "intro": "This Privacy Policy explains what personal data Tymchenko Art collects when you use this site, how we use it, and what rights you have over your data.",
+      "sections": [
+        {
+          "heading": "What data we collect",
+          "body": "When you place an order, we collect your name, email address, phone number, and shipping address. We do not store payment card details — these are handled exclusively by our payment partners (Stripe, NOWPayments) under their own security policies."
+        },
+        {
+          "heading": "How we use your data",
+          "body": "We use your data to process your order, communicate about shipping status, and meet legal obligations, including tax record-keeping."
+        },
+        {
+          "heading": "Sharing with third parties",
+          "body": "We share only the minimum necessary data with payment providers and shipping carriers — solely to fulfill your order. We do not sell or share your data with advertising networks."
+        },
+        {
+          "heading": "Cookies",
+          "body": "This site uses functional cookies to remember your selected language, currency, and age confirmation. We do not use advertising or tracking cookies."
+        },
+        {
+          "heading": "Your rights",
+          "body": "Under applicable data protection law (including GDPR for EU customers), you have the right to access, correct, and delete your personal data. Contact us at [contact email] to exercise these rights."
+        }
+      ]
+    },
+    "termsOfService": {
+      "title": "Terms of Service",
+      "lastUpdated": "Last updated: [date]",
+      "intro": "These Terms govern your use of the Tymchenko Art website and the purchase of paintings offered on it.",
+      "sections": [
+        {
+          "heading": "About this site",
+          "body": "Tymchenko Art is the Merchant of Record for original oil paintings by the artist Marina. The artist creates the works and prepares them for shipment; all customer transactions are handled by the site."
+        },
+        {
+          "heading": "Paintings and uniqueness",
+          "body": "Some catalog pieces may be repainted by the artist on request. Custom commissions are painted as one-of-a-kind originals and are not reproduced afterward."
+        },
+        {
+          "heading": "Pricing and payment",
+          "body": "Prices may be displayed in your selected currency for convenience; the actual charge is processed through our payment provider (Stripe or NOWPayments) and may vary slightly depending on the conversion rate at the time of payment."
+        },
+        {
+          "heading": "Age restriction",
+          "body": "This site is intended for adult visitors (18+), as some of the artwork shown may include nude subjects."
+        },
+        {
+          "heading": "Governing law",
+          "body": "These Terms are governed by the laws of [jurisdiction — to confirm]."
+        }
+      ]
+    },
+    "shippingPolicy": {
+      "title": "Shipping Policy",
+      "lastUpdated": "Last updated: [date]",
+      "intro": "This page explains how we pack, ship, and track your order.",
+      "sections": [
+        {
+          "heading": "Processing time",
+          "body": "Paintings marked \"Ready\" are typically shipped within [X] business days of payment. Custom commissions require time for the artist to complete the work — an estimated timeline is provided separately when you place the order."
+        },
+        {
+          "heading": "Packaging",
+          "body": "Paintings are packed with their fragility in mind: rigid framing, protective corner guards, and moisture-resistant wrapping."
+        },
+        {
+          "heading": "International shipping",
+          "body": "We ship to Ukraine, EU countries, Japan, and elsewhere. Customs duties and import taxes (where applicable) are the recipient's responsibility."
+        },
+        {
+          "heading": "Order tracking",
+          "body": "Once your order ships, you'll receive a tracking number by email. On-site package tracking is currently in development."
+        }
+      ]
+    },
+    "returnsRefunds": {
+      "title": "Returns & Refunds",
+      "lastUpdated": "Last updated: [date]",
+      "intro": "This policy explains the terms for returning paintings and receiving refunds.",
+      "sections": [
+        {
+          "heading": "Ready-made catalog pieces",
+          "body": "For paintings purchased ready-made (status \"Ready\" at the time of order), returns are accepted within [X] days of delivery, provided the item is in its original condition."
+        },
+        {
+          "heading": "Custom commissions",
+          "body": "Paintings made to a custom order are generally non-returnable given their personalized nature — except in cases of damage during shipping."
+        },
+        {
+          "heading": "Damage in transit",
+          "body": "If your painting arrives damaged, contact us within 48 hours with photos of the damage — we'll arrange a replacement or a full refund."
+        },
+        {
+          "heading": "How to request a return",
+          "body": "Email [contact email] with your order number and the reason for the return. We'll respond within [X] business days."
+        }
+      ]
+    }
+  }
+}

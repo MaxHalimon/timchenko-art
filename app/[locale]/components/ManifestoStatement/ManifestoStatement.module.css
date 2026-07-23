@@ -1,0 +1,27 @@
+.section {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: var(--space-6) var(--space-4);
+  text-align: center;
+}
+
+.eyebrow {
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: var(--space-2);
+  font-weight: 500;
+}
+
+.title {
+  font-size: clamp(28px, 4vw, 42px);
+  line-height: 1.25;
+  margin-bottom: var(--space-3);
+}
+
+.description {
+  font-size: 17px;
+  color: var(--color-text-light);
+  margin-bottom: var(--space-4);
+}

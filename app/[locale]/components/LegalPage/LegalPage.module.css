@@ -1,0 +1,37 @@
+.page {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: var(--space-5) var(--space-4);
+}
+
+.title {
+  font-size: 32px;
+  margin-bottom: 4px;
+}
+
+.lastUpdated {
+  font-size: 13px;
+  color: var(--color-text-light);
+  margin-bottom: var(--space-3);
+}
+
+.intro {
+  font-size: 16px;
+  color: var(--color-text-light);
+  margin-bottom: var(--space-4);
+}
+
+.section {
+  margin-bottom: var(--space-3);
+}
+
+.heading {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.body {
+  font-size: 15px;
+  color: var(--color-text-light);
+  line-height: 1.7;
+}

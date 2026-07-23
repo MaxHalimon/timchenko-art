@@ -1,0 +1,54 @@
+.catalogButton {
+  background-color: var(--color-primary);
+  color: #ffffff;
+  border-radius: var(--radius-button);
+  font-size: 16px;
+  font-weight: 500;
+  padding: 12px 24px;
+  transition: var(--transition-base);
+  cursor: pointer;
+  border: none;
+  font-family: var(--font-sans);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.catalogButton:hover {
+  background-color: var(--color-primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px #1a1a1a;
+}
+
+.catalogButton:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+.catalogButton:disabled {
+  background-color: var(--color-border);
+  color: var(--color-text-light);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Secondary / outline variant, used for lower-emphasis actions */
+.catalogButtonOutline {
+  background-color: transparent;
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-button);
+  font-size: 16px;
+  font-weight: 500;
+  padding: 12px 24px;
+  transition: var(--transition-base);
+  cursor: pointer;
+  font-family: var(--font-sans);
+}
+
+.catalogButtonOutline:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
