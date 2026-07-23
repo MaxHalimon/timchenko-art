@@ -1,4 +1,5 @@
 import { getTranslations } from "next-intl/server";
+import { Prisma } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 import { ProductCard, type ProductStatus } from "../components/ProductCard/ProductCard";
 import { FilterBar } from "./FilterBar";
@@ -30,7 +31,7 @@ export default async function GalleryPage({
   const { size, theme, status } = await searchParams;
   const t = await getTranslations("gallery");
 
-  const where: Record<string, unknown> = {};
+  const where: Prisma.ProductWhereInput = {};
 
   if (status) {
     where.status = status;

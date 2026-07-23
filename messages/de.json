@@ -6,7 +6,8 @@
       "gallery": "Galerie",
       "tracking": "Tracking",
       "openMenu": "Menü öffnen",
-      "closeMenu": "Menü schließen"
+      "closeMenu": "Menü schließen",
+      "contact": "Kontakt"
     },
     "footer": "Jedes Werk wird von Hand gemalt.",
     "scrollHint": "Nach unten scrollen"
@@ -65,7 +66,7 @@
         },
         {
           "heading": "Ihre Rechte",
-          "body": "Gemäß geltendem Datenschutzrecht (einschließlich der DSGVO für Kunden aus der EU) haben Sie das Recht auf Auskunft, Berichtigung und Löschung Ihrer personenbezogenen Daten. Kontaktieren Sie uns dazu unter [Kontakt-E-Mail]."
+          "body": "Gemäß geltendem Datenschutzrecht (einschließlich der DSGVO für Kunden aus der EU) haben Sie das Recht auf Auskunft, Berichtigung und Löschung Ihrer personenbezogenen Daten. Kontaktieren Sie uns dazu unter m.tymchenko.art@gmail.com."
         }
       ]
     },
@@ -77,6 +78,10 @@
         {
           "heading": "Über diese Website",
           "body": "Tymchenko Art ist der Verkäufer (Merchant of Record) der Original-Ölgemälde der Künstlerin Marina. Die Künstlerin fertigt die Werke und bereitet sie für den Versand vor; sämtliche Kundentransaktionen werden über die Website abgewickelt."
+        },
+        {
+          "heading": "Bestellbeschränkungen",
+          "body": "Wir nehmen keine Bestellungen von Kunden mit Sitz in der Russischen Föderation an oder bearbeiten diese, in Übereinstimmung mit unserer Haltung zur andauernden militärischen Aggression gegen die Ukraine."
         },
         {
           "heading": "Gemälde und Einzigartigkeit",
@@ -138,7 +143,7 @@
         },
         {
           "heading": "So beantragen Sie eine Rückgabe",
-          "body": "Schreiben Sie an [Kontakt-E-Mail] mit Ihrer Bestellnummer und dem Grund der Rückgabe. Wir antworten innerhalb von [X] Werktagen."
+          "body": "Schreiben Sie an m.tymchenko.art@gmail.com mit Ihrer Bestellnummer und dem Grund der Rückgabe. Wir antworten innerhalb von [X] Werktagen."
         }
       ]
     }
@@ -155,5 +160,26 @@
       "sizeMedium": "50–80 cm",
       "sizeLarge": "Über 80 cm"
     }
+  },
+  "contact": {
+    "title": "Kontakt",
+    "intro": "Haben Sie eine Frage zu einem Gemälde, zum Versand oder zu einer individuellen Auftragsarbeit? Schreiben Sie uns — wir antworten persönlich, ohne Standardtexte.",
+    "emailLabel": "Oder schreiben Sie einfach an",
+    "form": {
+      "nameLabel": "Name",
+      "namePlaceholder": "Wie dürfen wir Sie ansprechen",
+      "emailLabel": "E-Mail",
+      "emailPlaceholder": "ihre@email.com",
+      "messageLabel": "Nachricht",
+      "messagePlaceholder": "Erzählen Sie uns, wie wir helfen können...",
+      "submit": "Senden",
+      "sending": "Wird gesendet...",
+      "success": "Vielen Dank! Wir melden uns so schnell wie möglich.",
+      "error": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut oder schreiben Sie uns direkt an die obige E-Mail-Adresse."
+    }
+  },
+  "solidarity": {
+    "heading": "Unsere Haltung",
+    "body": "Wir sind Tymchenko Art, und wir schweigen nicht. Wir verurteilen die militärische Aggression der Russischen Föderation gegen die Ukraine sowie gegen andere Länder, die sie in der Vergangenheit angegriffen hat, aufs Schärfste. Aus diesem Grund nehmen wir keine Bestellungen von Kunden aus Russland an."
   }
 }

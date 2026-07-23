@@ -50,6 +50,9 @@ export function SiteHeader() {
         <Link href="/shipping-policy" className={styles.navLink} onClick={closeMenu}>
           {t("nav.tracking")}
         </Link>
+        <Link href="/contacts" className={styles.navLink} onClick={closeMenu}>
+          {t("nav.contact")}
+        </Link>
         <div className={styles.navDivider} />
         <div className={styles.switchers}>
           <LanguageSwitcher />

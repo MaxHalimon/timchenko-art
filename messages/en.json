@@ -6,7 +6,8 @@
       "gallery": "Gallery",
       "tracking": "Tracking",
       "openMenu": "Open menu",
-      "closeMenu": "Close menu"
+      "closeMenu": "Close menu",
+      "contact": "Contacts"
     },
     "footer": "Every piece is hand-painted by the artist.",
     "scrollHint": "Scroll down"
@@ -65,7 +66,7 @@
         },
         {
           "heading": "Your rights",
-          "body": "Under applicable data protection law (including GDPR for EU customers), you have the right to access, correct, and delete your personal data. Contact us at [contact email] to exercise these rights."
+          "body": "Under applicable data protection law (including GDPR for EU customers), you have the right to access, correct, and delete your personal data. Contact us at m.tymchenko.art@gmail.com to exercise these rights."
         }
       ]
     },
@@ -77,6 +78,10 @@
         {
           "heading": "About this site",
           "body": "Tymchenko Art is the Merchant of Record for original oil paintings by the artist Marina. The artist creates the works and prepares them for shipment; all customer transactions are handled by the site."
+        },
+        {
+          "heading": "Order restrictions",
+          "body": "We do not accept or process orders from customers located in the Russian Federation, in line with our position on its ongoing armed aggression against Ukraine."
         },
         {
           "heading": "Paintings and uniqueness",
@@ -138,7 +143,7 @@
         },
         {
           "heading": "How to request a return",
-          "body": "Email [contact email] with your order number and the reason for the return. We'll respond within [X] business days."
+          "body": "Email m.tymchenko.art@gmail.com with your order number and the reason for the return. We'll respond within [X] business days."
         }
       ]
     }
@@ -155,5 +160,26 @@
       "sizeMedium": "50–80 cm",
       "sizeLarge": "Over 80 cm"
     }
+  },
+  "contact": {
+    "title": "Contacts",
+    "intro": "Got a question about a painting, shipping, or a custom commission? Write to us — we reply personally, no canned responses.",
+    "emailLabel": "Or simply email us at",
+    "form": {
+      "nameLabel": "Name",
+      "namePlaceholder": "How should we address you",
+      "emailLabel": "Email",
+      "emailPlaceholder": "your@email.com",
+      "messageLabel": "Message",
+      "messagePlaceholder": "Tell us how we can help...",
+      "submit": "Send",
+      "sending": "Sending...",
+      "success": "Thank you! We'll get back to you as soon as we can.",
+      "error": "Something went wrong. Please try again, or email us directly at the address above."
+    }
+  },
+  "solidarity": {
+    "heading": "Our position",
+    "body": "We are Tymchenko Art, and we don't stay silent. We openly condemn the Russian Federation's armed aggression against Ukraine and the other countries it has attacked in the past. In light of this, we do not accept orders from customers based in Russia."
   }
 }
