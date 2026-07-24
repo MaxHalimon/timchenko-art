@@ -31,7 +31,7 @@ export function HeroSlideshow({ images }: { images: SlideImage[] }) {
   }, [images.length]);
 
   function scrollToNextSection() {
-    window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
+    window.scrollTo({ top: window.innerHeight * 0.75, behavior: "smooth" });
   }
 
   if (images.length === 0) {

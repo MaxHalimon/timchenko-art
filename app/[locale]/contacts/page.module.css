@@ -1,35 +1,85 @@
 .page {
-  max-width: 620px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: var(--space-5) var(--space-4);
 }
 
 .title {
-  font-size: 48px;
+  font-size: 40px;
+  margin-bottom: var(--space-4);
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-5);
+  align-items: start;
+}
+
+.columnHeading {
+  font-size: 22px;
   margin-bottom: var(--space-2);
 }
 
-.intro {
-  font-size: 17px;
-  color: var(--color-text-light);
-  margin-bottom: var(--space-3);
+/* Left: the form, set apart as a quiet card — mirrors the reference
+   layout's shaded panel, but in our own palette (muted bg, not gray-blue). */
+.formCard {
+  background-color: var(--color-bg-muted);
+  border-radius: 12px;
+  padding: var(--space-4);
 }
 
-.emailRow {
+/* Right: intro copy + email block, plain background */
+.infoColumn {
+  padding-top: 4px;
+}
+
+.intro {
+  font-size: 16px;
+  color: var(--color-text-light);
   margin-bottom: var(--space-4);
-  font-size: 15px;
+  line-height: 1.6;
+}
+
+.emailBlock {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.emailIcon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .emailLabel {
-  color: var(--color-text-light);
-  margin-right: 6px;
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text);
+  margin-bottom: 2px;
 }
 
 .emailLink {
   color: var(--color-primary);
   font-weight: 500;
+  font-size: 15px;
 }
 
 .emailLink:hover {
   color: var(--color-primary-hover);
+}
+
+@media (max-width: 780px) {
+  .columns {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
 }

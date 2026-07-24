@@ -164,7 +164,7 @@
   "contact": {
     "title": "Kontakt",
     "intro": "Haben Sie eine Frage zu einem Gemälde, zum Versand oder zu einer individuellen Auftragsarbeit? Schreiben Sie uns — wir antworten persönlich, ohne Standardtexte.",
-    "emailLabel": "Oder schreiben Sie einfach an",
+    "emailLabel": "E-Mail",
     "form": {
       "nameLabel": "Name",
       "namePlaceholder": "Wie dürfen wir Sie ansprechen",
@@ -176,7 +176,9 @@
       "sending": "Wird gesendet...",
       "success": "Vielen Dank! Wir melden uns so schnell wie möglich.",
       "error": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut oder schreiben Sie uns direkt an die obige E-Mail-Adresse."
-    }
+    },
+    "formHeading": "Nachricht senden",
+    "getInTouchHeading": "Kontaktieren Sie uns"
   },
   "solidarity": {
     "heading": "Unsere Haltung",

@@ -1,11 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { LanguageSwitcher } from "../LanguageSwitcher/LanguageSwitcher";
 import { CurrencySwitcher } from "../CurrencySwitcher/CurrencySwitcher";
 import styles from "./ImmersiveNav.module.css";
+
+const SOLID_AFTER_PX = 40;
 
 /**
  * Homepage-only nav: logo + hamburger, transparent over the hero image,
@@ -13,17 +15,33 @@ import styles from "./ImmersiveNav.module.css";
  * width — unlike SiteHeader, which shows an inline nav on desktop. This
  * keeps the homepage's first screen free of a visible menu bar per the
  * "manifesto" brief, while still giving full navigation one click away.
+ *
+ * Stays fixed on screen while scrolling (like SiteHeader elsewhere), and
+ * switches from a transparent overlay to a solid background once the
+ * visitor scrolls past the hero — a transparent header with light text
+ * would be unreadable once the page underneath turns white.
  */
 export function ImmersiveNav() {
   const t = useTranslations("common");
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    function handleScroll() {
+      setScrolled(window.scrollY > SOLID_AFTER_PX);
+    }
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   function closeMenu() {
     setMenuOpen(false);
   }
 
   return (
-    <header className={styles.header}>
+    <header className={scrolled ? `${styles.header} ${styles.headerSolid}` : styles.header}>
       <Link href="/" className={styles.logo} onClick={closeMenu}>
         {t("siteName")}
       </Link>

@@ -164,7 +164,7 @@
   "contact": {
     "title": "Contacts",
     "intro": "Got a question about a painting, shipping, or a custom commission? Write to us — we reply personally, no canned responses.",
-    "emailLabel": "Or simply email us at",
+    "emailLabel": "Email",
     "form": {
       "nameLabel": "Name",
       "namePlaceholder": "How should we address you",
@@ -176,7 +176,9 @@
       "sending": "Sending...",
       "success": "Thank you! We'll get back to you as soon as we can.",
       "error": "Something went wrong. Please try again, or email us directly at the address above."
-    }
+    },
+    "formHeading": "Send a Message",
+    "getInTouchHeading": "Get in Touch"
   },
   "solidarity": {
     "heading": "Our position",

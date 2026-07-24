@@ -1,7 +1,7 @@
 .slideshow {
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 99.9vh;
   overflow: hidden;
   background-color: var(--color-text); /* dark fallback while images load */
 }
