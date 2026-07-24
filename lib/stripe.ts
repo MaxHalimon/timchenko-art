@@ -8,6 +8,7 @@ if (!STRIPE_SECRET_KEY && process.env.NODE_ENV === "production") {
   console.error("STRIPE_SECRET_KEY is not set");
 }
 
+// lib/stripe.ts
 export const stripe = new Stripe(STRIPE_SECRET_KEY ?? "sk_test_placeholder", {
-  apiVersion: "2024-06-24.dahlia",
-});
+  apiVersion: "2026-06-24.dahlia",
+});   
