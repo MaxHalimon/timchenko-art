@@ -92,7 +92,7 @@ async function createStripeCheckout(
           quantity: 1,
         },
       ],
-      automatic_payment_methods: { enabled: true },
+      // automatic_payment_methods: { enabled: true },   
       metadata: { orderId },
       success_url: `${process.env.NEXT_PUBLIC_SITE_URL}/${locale}/order/${orderId}/success`,
       cancel_url: `${process.env.NEXT_PUBLIC_SITE_URL}/${locale}/product/${product.slug}`,
