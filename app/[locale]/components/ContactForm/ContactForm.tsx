@@ -92,7 +92,11 @@ export function ContactForm() {
       </div>
 
       <div className={styles.submitRow}>
-        <button type="submit" className={buttonStyles.galleryButton} disabled={state === "sending"}>
+        <button
+          type="submit"
+          className={`${buttonStyles.galleryButton} ${styles.submitButton}`}
+          disabled={state === "sending"}
+        >
           {state === "sending" ? t("sending") : t("submit")}
         </button>
       </div>

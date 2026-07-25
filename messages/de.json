@@ -182,6 +182,54 @@
   },
   "solidarity": {
     "heading": "Unsere Haltung",
-    "body": "Wir sind Timchenko Art, und wir schweigen nicht. Wir verurteilen die militärische Aggression der Russischen Föderation gegen die Ukraine sowie gegen andere Länder, die sie in der Vergangenheit angegriffen hat, aufs Schärfste. Aus diesem Grund nehmen wir keine Bestellungen von Kunden aus Russland an."
+    "body": "Wir verurteilen Russlands militärische Aggression gegen die Ukraine und andere Länder und nehmen keine Bestellungen aus Russland an."
+  },
+  "artistIntro": {
+    "heading": "Maryna Timchenko: Kunst, die Grenzen überschreitet",
+    "paragraphs": [
+      "Maryna Timchenko ist eine zeitgenössische ukrainische Künstlerin, deren Werk über konventionelle Vorstellungen von Ästhetik hinausgeht. Sie wählt das erotische Genre nicht als Provokation, sondern als Weg, tiefere Aspekte der menschlichen Natur, Körperlichkeit und emotionalen Freiheit zu erforschen.",
+      "Geboren in der Ukraine, führte Marynas Weg von einer klassischen künstlerischen Ausbildung zu einem unverwechselbaren, persönlichen Stil, in dem der Körper zur Sprache und die Emotion zur Farbe wird. Ihre Arbeiten balancieren zwischen Zärtlichkeit und Leidenschaft, zwischen Realismus und Abstraktion, zwischen dem Privaten und dem Universellen.",
+      "2022 zwang sie der Krieg in der Ukraine, ihre Heimat zu verlassen. Heute lebt sie in Deutschland, wo sie weiterhin schafft, Inspiration in ihrer neuen Umgebung findet und gleichzeitig eine tiefe Verbindung zur ukrainischen Kultur und Identität bewahrt. Ihre Kunst ist zu einer Art geworden, sich selbst und die Stimme der Ukraine in der Welt zu bewahren."
+    ],
+    "featuresHeading": "Merkmale ihres Schaffens:",
+    "features": [
+      {
+        "label": "Unverwechselbarer Stil",
+        "text": "Realismus verbunden mit emotionaler Abstraktion."
+      },
+      {
+        "label": "Tiefe der Motive",
+        "text": "Jedes Werk erzählt eine Geschichte über menschliche Beziehungen, Verlangen und Verletzlichkeit."
+      },
+      {
+        "label": "Technik",
+        "text": "Arbeit mit verschiedenen Materialien — von Öl und Aquarell bis zu digitalen Techniken."
+      },
+      {
+        "label": "Zeitgenössisch",
+        "text": "Kunst, die die Sprache der Gegenwart spricht und zugleich zeitlose Themen bewahrt."
+      }
+    ],
+    "exhibitions": "Maryna Timchenkos Werke wurden in der Ukraine, Deutschland und den Niederlanden gezeigt, darunter internationale Veranstaltungen wie das Gogolfest (Kyjiw), das Shibari Fest Ukraine und die A'DAM INT'L ART FAIR (Amsterdam). 2024 fand ihre Einzelausstellung in Karlsruhe (Deutschland) in der Galerie DCS Contemporary statt.",
+    "whyBuyHeading": "Warum ein Werk von Maryna Timchenko erwerben?",
+    "whyBuy": [
+      {
+        "label": "Exklusivität",
+        "text": "Jedes Gemälde ist ein Unikat."
+      },
+      {
+        "label": "Emotionale Wirkung",
+        "text": "Ihre Werke lösen tiefe Empfindungen und Nachdenken aus."
+      },
+      {
+        "label": "Eine Investition in zeitgenössische Kunst",
+        "text": "Ihr Schaffen entwickelt sich stetig weiter und gewinnt dabei an Wert."
+      },
+      {
+        "label": "Unterstützung ukrainischer Kunst",
+        "text": "Mit dem Kauf ihrer Werke helfen Sie, der ukrainischen Kultur weltweit Gehör zu verschaffen."
+      }
+    ],
+    "closing": "Entdecken Sie die Welt von Maryna Timchenko — Kunst, die die Seele berührt und echte Emotionen weckt."
   }
 }

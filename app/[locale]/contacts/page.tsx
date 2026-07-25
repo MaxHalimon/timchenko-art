@@ -40,10 +40,10 @@ export default async function ContactsPage() {
               </a>
             </div>
           </div>
+
+          <SolidarityStatement />
         </div>
       </div>
-
-      <SolidarityStatement />
     </div>
   );
 }
