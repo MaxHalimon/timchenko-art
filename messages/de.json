@@ -22,10 +22,12 @@
     "eyebrow": "Öl auf Leinwand. Von Hand gemalt.",
     "title": "Wählen Sie ein fertiges Werk aus der Galerie — oder bestellen Sie ein Unikat, das sich nie wiederholt.",
     "description": "Marina malt jedes Werk von Hand, in Öl, auf naturbelassener Leinwand. Manche Galeriewerke können auf Wunsch erneut gemalt werden; individuelle Auftragsarbeiten entstehen als einzigartige Originale.",
-    "cta": "Galerie durchsehen"
+    "cta": "Zur Galerie"
   },
   "home": {
-    "featuredHeading": "Neueste Werke"
+    "featuredHeading": "Neueste Werke",
+    "carouselPrev": "Vorheriges Werk",
+    "carouselNext": "Nächstes Werk"
   },
   "productCard": {
     "status": {

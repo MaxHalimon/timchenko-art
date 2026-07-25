@@ -17,7 +17,6 @@ export function SolidarityStatement() {
 
   return (
     <section className={styles.section}>
-      <h2 className={styles.heading}>{t("heading")}</h2>
       <p className={styles.body}>{t("body")}</p>
     </section>
   );

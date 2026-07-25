@@ -25,11 +25,11 @@ export function HeroVideo({ src, poster }: { src: string; poster?: string }) {
   }, [reducedMotion]);
 
   function scrollToNextSection() {
-    window.scrollTo({ top: window.innerHeight * 0.999, behavior: "smooth" });
+    window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
   }
 
   return (
-    <div className={styles.hero}>
+    <div className={styles.hero} data-hero-video>
       <video
         ref={videoRef}
         className={styles.video}

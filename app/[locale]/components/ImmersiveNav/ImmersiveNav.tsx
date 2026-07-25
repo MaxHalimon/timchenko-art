@@ -7,8 +7,6 @@ import { LanguageSwitcher } from "../LanguageSwitcher/LanguageSwitcher";
 import { CurrencySwitcher } from "../CurrencySwitcher/CurrencySwitcher";
 import styles from "./ImmersiveNav.module.css";
 
-const SOLID_AFTER_PX = 40;
-
 /**
  * Homepage-only nav: logo + hamburger, transparent over the hero image,
  * with the full nav tucked into a compact dropdown regardless of screen
@@ -17,9 +15,10 @@ const SOLID_AFTER_PX = 40;
  * "manifesto" brief, while still giving full navigation one click away.
  *
  * Stays fixed on screen while scrolling (like SiteHeader elsewhere), and
- * switches from a transparent overlay to a solid background once the
- * visitor scrolls past the hero — a transparent header with light text
- * would be unreadable once the page underneath turns white.
+ * switches from a transparent overlay to a solid background exactly when
+ * the video hero block (marked with data-hero-video) scrolls out of view —
+ * a transparent header with light text would be unreadable once the page
+ * underneath turns white.
  */
 export function ImmersiveNav() {
   const t = useTranslations("common");
@@ -28,7 +27,12 @@ export function ImmersiveNav() {
 
   useEffect(() => {
     function handleScroll() {
-      setScrolled(window.scrollY > SOLID_AFTER_PX);
+      const heroEl = document.querySelector("[data-hero-video]");
+      if (heroEl) {
+        setScrolled(heroEl.getBoundingClientRect().bottom <= 0);
+      } else {
+        setScrolled(window.scrollY > 40);
+      }
     }
 
     handleScroll();

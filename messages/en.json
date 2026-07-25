@@ -22,10 +22,12 @@
     "eyebrow": "Oil on canvas. Hand-painted.",
     "title": "Choose a finished piece from the gallery — or commission one that will never be repeated.",
     "description": "Marina paints every piece by hand, in oil, on natural canvas. Some gallery pieces can be repainted on request; custom commissions are painted as one-of-a-kind originals.",
-    "cta": "Browse the gallery"
+    "cta": "Go to the gallery"
   },
   "home": {
-    "featuredHeading": "Latest works"
+    "featuredHeading": "Latest works",
+    "carouselPrev": "Previous piece",
+    "carouselNext": "Next piece"
   },
   "productCard": {
     "status": {

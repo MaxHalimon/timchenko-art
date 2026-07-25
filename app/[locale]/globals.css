@@ -50,6 +50,7 @@ html {
 }
 
 body {
+  position: relative;
   background-color: var(--color-bg);
   color: var(--color-text-light);
   font-family: var(--font-sans);

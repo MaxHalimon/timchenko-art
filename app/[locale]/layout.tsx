@@ -11,6 +11,7 @@ import { AgeGate } from "./components/AgeGate/AgeGate";
 import { SiteHeaderSwitch } from "./components/SiteHeaderSwitch/SiteHeaderSwitch";
 import { SiteFooter } from "./components/SiteFooter/SiteFooter";
 import { BackToTop } from "./components/BackToTop/BackToTop";
+import { AmbientBackground } from "./components/AmbientBackground/AmbientBackground";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -50,6 +51,7 @@ export default async function LocaleLayout({
       <body>
         <NextIntlClientProvider messages={messages}>
           <CurrencyProvider initialCurrency={initialCurrency}>
+            <AmbientBackground />
             {/* Blocks interaction until the visitor confirms they are 18+.
                 State is persisted client-side (see AgeGate.tsx). */}
             <AgeGate />

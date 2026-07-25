@@ -3,6 +3,7 @@ import { Prisma } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 import { ProductCard, type ProductStatus } from "../components/ProductCard/ProductCard";
 import { FilterBar } from "./FilterBar";
+import { AccentText } from "../components/AccentText/AccentText";
 import styles from "./page.module.css";
 
 // Size buckets used for filtering — matches on the painting's larger side.
@@ -71,7 +72,9 @@ export default async function GalleryPage({
 
   return (
     <div className={styles.page}>
-      <h1 className={styles.heading}>{t("heading")}</h1>
+      <h1 className={styles.heading}>
+        <AccentText text={t("heading")} />
+      </h1>
       <p className={styles.count}>{t("count", { count: products.length })}</p>
 
       <FilterBar

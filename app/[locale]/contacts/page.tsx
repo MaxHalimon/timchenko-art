@@ -1,6 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import { ContactForm } from "../components/ContactForm/ContactForm";
 import { SolidarityStatement } from "../components/SolidarityStatement/SolidarityStatement";
+import { AccentText } from "../components/AccentText/AccentText";
 import styles from "./page.module.css";
 
 const ARTIST_EMAIL = "maryna.timchenko.art@gmail.com";
@@ -10,16 +11,22 @@ export default async function ContactsPage() {
 
   return (
     <div className={styles.page}>
-      <h1 className={styles.title}>{t("title")}</h1>
+      <h1 className={styles.title}>
+        <AccentText text={t("title")} />
+      </h1>
 
       <div className={styles.columns}>
         <div className={styles.formCard}>
-          <h2 className={styles.columnHeading}>{t("formHeading")}</h2>
+          <h2 className={styles.columnHeading}>
+            <AccentText text={t("formHeading")} />
+          </h2>
           <ContactForm />
         </div>
 
         <div className={styles.infoColumn}>
-          <h2 className={styles.columnHeading}>{t("getInTouchHeading")}</h2>
+          <h2 className={styles.columnHeading}>
+            <AccentText text={t("getInTouchHeading")} />
+          </h2>
           <p className={styles.intro}>{t("intro")}</p>
 
           <div className={styles.emailBlock}>

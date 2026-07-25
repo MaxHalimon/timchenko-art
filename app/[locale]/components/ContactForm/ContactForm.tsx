@@ -51,12 +51,12 @@ export function ContactForm() {
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
       <div className={styles.field}>
-        <label className={styles.label} htmlFor="name">
+        <label className={styles.label} htmlFor="from_name">
           {t("nameLabel")}
         </label>
         <input
-          id="name"
-          name="name"
+          id="from_name"
+          name="from_name"
           type="text"
           required
           placeholder={t("namePlaceholder")}
@@ -65,12 +65,12 @@ export function ContactForm() {
       </div>
 
       <div className={styles.field}>
-        <label className={styles.label} htmlFor="email">
+        <label className={styles.label} htmlFor="reply_to">
           {t("emailLabel")}
         </label>
         <input
-          id="email"
-          name="email"
+          id="reply_to"
+          name="reply_to"
           type="email"
           required
           placeholder={t("emailPlaceholder")}
