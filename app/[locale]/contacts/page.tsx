@@ -3,7 +3,7 @@ import { ContactForm } from "../components/ContactForm/ContactForm";
 import { SolidarityStatement } from "../components/SolidarityStatement/SolidarityStatement";
 import styles from "./page.module.css";
 
-const ARTIST_EMAIL = "m.tymchenko.art@gmail.com";
+const ARTIST_EMAIL = "maryna.timchenko.art@gmail.com";
 
 export default async function ContactsPage() {
   const t = await getTranslations("contact");

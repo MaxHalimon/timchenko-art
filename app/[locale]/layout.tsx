@@ -17,7 +17,7 @@ export function generateStaticParams() {
 }
 
 export const metadata: Metadata = {
-  title: "Tymchenko Art",
+  title: "Timchenko Art",
   description: "Hand-painted oil paintings by Marina — from the catalog or made to order.",
 };
 

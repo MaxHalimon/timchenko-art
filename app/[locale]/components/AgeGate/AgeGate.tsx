@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 import styles from "./AgeGate.module.css";
 import buttonStyles from "../shared/Buttons.module.css";
 
-const STORAGE_KEY = "tymchenko-art:age-verified";
+const STORAGE_KEY = "timchenko-art:age-verified";
 
 export function AgeGate() {
   const t = useTranslations("ageGate");

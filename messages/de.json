@@ -1,6 +1,6 @@
 {
   "common": {
-    "siteName": "Tymchenko Art",
+    "siteName": "Timchenko Art",
     "nav": {
       "home": "Start",
       "gallery": "Galerie",
@@ -46,7 +46,7 @@
     "privacyPolicy": {
       "title": "Datenschutzerklärung",
       "lastUpdated": "Zuletzt aktualisiert: [Datum]",
-      "intro": "Diese Datenschutzerklärung beschreibt, welche personenbezogenen Daten Tymchenko Art bei der Nutzung dieser Website erhebt, wie wir sie verwenden und welche Rechte Sie in Bezug auf Ihre Daten haben.",
+      "intro": "Diese Datenschutzerklärung beschreibt, welche personenbezogenen Daten Timchenko Art bei der Nutzung dieser Website erhebt, wie wir sie verwenden und welche Rechte Sie in Bezug auf Ihre Daten haben.",
       "sections": [
         {
           "heading": "Welche Daten wir erheben",
@@ -66,18 +66,18 @@
         },
         {
           "heading": "Ihre Rechte",
-          "body": "Gemäß geltendem Datenschutzrecht (einschließlich der DSGVO für Kunden aus der EU) haben Sie das Recht auf Auskunft, Berichtigung und Löschung Ihrer personenbezogenen Daten. Kontaktieren Sie uns dazu unter m.tymchenko.art@gmail.com."
+          "body": "Gemäß geltendem Datenschutzrecht (einschließlich der DSGVO für Kunden aus der EU) haben Sie das Recht auf Auskunft, Berichtigung und Löschung Ihrer personenbezogenen Daten. Kontaktieren Sie uns dazu unter maryna.timchenko.art@gmail.com."
         }
       ]
     },
     "termsOfService": {
       "title": "Allgemeine Geschäftsbedingungen",
       "lastUpdated": "Zuletzt aktualisiert: [Datum]",
-      "intro": "Diese Bedingungen regeln die Nutzung der Website Tymchenko Art sowie den Kauf der dort angebotenen Gemälde.",
+      "intro": "Diese Bedingungen regeln die Nutzung der Website Timchenko Art sowie den Kauf der dort angebotenen Gemälde.",
       "sections": [
         {
           "heading": "Über diese Website",
-          "body": "Tymchenko Art ist der Verkäufer (Merchant of Record) der Original-Ölgemälde der Künstlerin Marina. Die Künstlerin fertigt die Werke und bereitet sie für den Versand vor; sämtliche Kundentransaktionen werden über die Website abgewickelt."
+          "body": "Timchenko Art ist der Verkäufer (Merchant of Record) der Original-Ölgemälde der Künstlerin Marina. Die Künstlerin fertigt die Werke und bereitet sie für den Versand vor; sämtliche Kundentransaktionen werden über die Website abgewickelt."
         },
         {
           "heading": "Bestellbeschränkungen",
@@ -143,7 +143,7 @@
         },
         {
           "heading": "So beantragen Sie eine Rückgabe",
-          "body": "Schreiben Sie an m.tymchenko.art@gmail.com mit Ihrer Bestellnummer und dem Grund der Rückgabe. Wir antworten innerhalb von [X] Werktagen."
+          "body": "Schreiben Sie an maryna.timchenko.art@gmail.com mit Ihrer Bestellnummer und dem Grund der Rückgabe. Wir antworten innerhalb von [X] Werktagen."
         }
       ]
     }
@@ -182,6 +182,6 @@
   },
   "solidarity": {
     "heading": "Unsere Haltung",
-    "body": "Wir sind Tymchenko Art, und wir schweigen nicht. Wir verurteilen die militärische Aggression der Russischen Föderation gegen die Ukraine sowie gegen andere Länder, die sie in der Vergangenheit angegriffen hat, aufs Schärfste. Aus diesem Grund nehmen wir keine Bestellungen von Kunden aus Russland an."
+    "body": "Wir sind Timchenko Art, und wir schweigen nicht. Wir verurteilen die militärische Aggression der Russischen Föderation gegen die Ukraine sowie gegen andere Länder, die sie in der Vergangenheit angegriffen hat, aufs Schärfste. Aus diesem Grund nehmen wir keine Bestellungen von Kunden aus Russland an."
   }
 }

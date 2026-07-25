@@ -14,7 +14,7 @@ export type CurrencyCode = (typeof SUPPORTED_CURRENCIES)[number];
 
 /** Cookie shared between middleware (initial geo guess) and the client-side
  * CurrencySwitcher (manual override) — same key, single source of truth. */
-export const CURRENCY_COOKIE = "tymchenko-art-currency";
+export const CURRENCY_COOKIE = "timchenko-art-currency";
 
 export const CURRENCY_SYMBOLS: Record<CurrencyCode, string> = {
   USD: "$",

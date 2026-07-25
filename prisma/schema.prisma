@@ -1,4 +1,4 @@
-// Tymchenko Art — Prisma schema
+// Timchenko Art — Prisma schema
 // Postgres (Supabase / Neon). Run `npx prisma migrate dev` after editing.
 //
 // Supabase note: DATABASE_URL should be the pooled connection (port 6543,

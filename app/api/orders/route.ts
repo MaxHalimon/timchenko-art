@@ -87,7 +87,7 @@ async function createStripeCheckout(
           price_data: {
             currency: "usd",
             unit_amount: Math.round(amountUsd * 100),
-            product_data: { name: `Tymchenko Art — ${product.title}` },
+            product_data: { name: `Timchenko Art — ${product.title}` },
           },
           quantity: 1,
         },
@@ -141,7 +141,7 @@ async function createNowPaymentsInvoice(
       price_amount: amountUsd,
       price_currency: "usd",
       order_id: orderId,
-      order_description: `Tymchenko Art — ${product.title}`,
+      order_description: `Timchenko Art — ${product.title}`,
       ipn_callback_url: `${process.env.NEXT_PUBLIC_SITE_URL}/api/webhooks/nowpayments`,
       success_url: `${process.env.NEXT_PUBLIC_SITE_URL}/${locale}/order/${orderId}/success`,
       cancel_url: `${process.env.NEXT_PUBLIC_SITE_URL}/${locale}/product/${product.slug}`,

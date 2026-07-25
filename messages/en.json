@@ -1,6 +1,6 @@
 {
   "common": {
-    "siteName": "Tymchenko Art",
+    "siteName": "Timchenko Art",
     "nav": {
       "home": "Home",
       "gallery": "Gallery",
@@ -46,7 +46,7 @@
     "privacyPolicy": {
       "title": "Privacy Policy",
       "lastUpdated": "Last updated: [date]",
-      "intro": "This Privacy Policy explains what personal data Tymchenko Art collects when you use this site, how we use it, and what rights you have over your data.",
+      "intro": "This Privacy Policy explains what personal data Timchenko Art collects when you use this site, how we use it, and what rights you have over your data.",
       "sections": [
         {
           "heading": "What data we collect",
@@ -66,18 +66,18 @@
         },
         {
           "heading": "Your rights",
-          "body": "Under applicable data protection law (including GDPR for EU customers), you have the right to access, correct, and delete your personal data. Contact us at m.tymchenko.art@gmail.com to exercise these rights."
+          "body": "Under applicable data protection law (including GDPR for EU customers), you have the right to access, correct, and delete your personal data. Contact us at maryna.timchenko.art@gmail.com to exercise these rights."
         }
       ]
     },
     "termsOfService": {
       "title": "Terms of Service",
       "lastUpdated": "Last updated: [date]",
-      "intro": "These Terms govern your use of the Tymchenko Art website and the purchase of paintings offered on it.",
+      "intro": "These Terms govern your use of the Timchenko Art website and the purchase of paintings offered on it.",
       "sections": [
         {
           "heading": "About this site",
-          "body": "Tymchenko Art is the Merchant of Record for original oil paintings by the artist Marina. The artist creates the works and prepares them for shipment; all customer transactions are handled by the site."
+          "body": "Timchenko Art is the Merchant of Record for original oil paintings by the artist Marina. The artist creates the works and prepares them for shipment; all customer transactions are handled by the site."
         },
         {
           "heading": "Order restrictions",
@@ -143,7 +143,7 @@
         },
         {
           "heading": "How to request a return",
-          "body": "Email m.tymchenko.art@gmail.com with your order number and the reason for the return. We'll respond within [X] business days."
+          "body": "Email maryna.timchenko.art@gmail.com with your order number and the reason for the return. We'll respond within [X] business days."
         }
       ]
     }
@@ -182,6 +182,6 @@
   },
   "solidarity": {
     "heading": "Our position",
-    "body": "We are Tymchenko Art, and we don't stay silent. We openly condemn the Russian Federation's armed aggression against Ukraine and the other countries it has attacked in the past. In light of this, we do not accept orders from customers based in Russia."
+    "body": "We are Timchenko Art, and we don't stay silent. We openly condemn the Russian Federation's armed aggression against Ukraine and the other countries it has attacked in the past. In light of this, we do not accept orders from customers based in Russia."
   }
 }

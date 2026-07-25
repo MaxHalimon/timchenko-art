@@ -21,8 +21,8 @@ export function calculateArtistPayoutUsd(amountUsd: number): number {
 
 /** Preview images always carry a watermark; originals are private-bucket only. */
 export const S3_BUCKETS = {
-  previews: process.env.S3_PREVIEWS_BUCKET ?? "tymchenko-art-previews",
-  originals: process.env.S3_ORIGINALS_BUCKET ?? "tymchenko-art-originals",
+  previews: process.env.S3_PREVIEWS_BUCKET ?? "timchenko-art-previews",
+  originals: process.env.S3_ORIGINALS_BUCKET ?? "timchenko-art-originals",
 } as const;
 
 /** How long a presigned URL to the original artwork stays valid. */
