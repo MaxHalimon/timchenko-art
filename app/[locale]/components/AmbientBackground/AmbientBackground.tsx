@@ -63,7 +63,42 @@ function PencilIcon() {
   );
 }
 
-const ICONS = [PaintbrushIcon, EaselIcon, PaletteIcon, FrameIcon, PencilIcon];
+// Classic, instantly-recognizable brush silhouette (outline style, matching
+// the rest of the icon set): a rounded rectangular handle, a wider ferrule
+// band, and a teardrop bristle tip — assembled from simple shapes (not one
+// freeform curve) and rotated 45° for the diagonal handle-to-tip look.
+function ClassicBrushIcon() {
+  return (
+    <svg viewBox="0 0 48 48" fill="none" width="100%" height="100%">
+      <g transform="rotate(45 24 24)">
+        <rect x="21" y="1" width="6" height="25" rx="3" stroke="currentColor" strokeWidth="2" />
+        <rect x="19" y="25" width="10" height="4" rx="1" stroke="currentColor" strokeWidth="2" />
+        <path
+          d="M19 29C17 36 18 42 24 46 30 42 31 36 29 29Z"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinejoin="round"
+        />
+      </g>
+    </svg>
+  );
+}
+
+// Rectangular (non-square) picture frame — same family as FrameIcon above
+// but in a horizontal (landscape) ratio, for visual variety among the
+// frame icons.
+function RectangleFrameIcon() {
+  return (
+    <svg viewBox="0 0 48 48" fill="none" width="100%" height="100%">
+      <rect x="4" y="12" width="40" height="24" rx="1" stroke="currentColor" strokeWidth="2" />
+      <rect x="9" y="17" width="30" height="14" rx="1" stroke="currentColor" strokeWidth="1.5" />
+      <circle cx="16" cy="24" r="2" fill="currentColor" />
+      <path d="M12 29l6-4 3 3 7-4 5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+const ICONS = [PaintbrushIcon, EaselIcon, PaletteIcon, FrameIcon, PencilIcon, ClassicBrushIcon, RectangleFrameIcon];
 const GRID_COLS = 4;
 const GRID_ROWS = 6;
 const REPEL_RADIUS = 140;

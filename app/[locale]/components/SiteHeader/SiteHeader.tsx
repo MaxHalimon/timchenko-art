@@ -47,7 +47,7 @@ export function SiteHeader() {
         <Link href="/gallery" className={styles.navLink} onClick={closeMenu}>
           {t("nav.gallery")}
         </Link>
-        <Link href="/shipping-policy" className={styles.navLink} onClick={closeMenu}>
+        <Link href="/tracking" className={styles.navLink} onClick={closeMenu}>
           {t("nav.tracking")}
         </Link>
         <Link href="/contacts" className={styles.navLink} onClick={closeMenu}>

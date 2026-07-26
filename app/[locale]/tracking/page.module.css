@@ -1,0 +1,43 @@
+.page {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: var(--space-5) var(--space-4);
+}
+
+.title {
+  font-size: 40px;
+  margin-bottom: var(--space-2);
+}
+
+.intro {
+  font-size: 16px;
+  color: var(--color-text-light);
+  margin-bottom: var(--space-4);
+  line-height: 1.6;
+}
+
+.filler {
+  margin-top: var(--space-5);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-border);
+}
+
+.fillerHeading {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.fillerText {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--color-text-light);
+}
+
+.fillerLink {
+  color: var(--color-primary);
+  font-weight: 500;
+}
+
+.fillerLink:hover {
+  color: var(--color-primary-hover);
+}

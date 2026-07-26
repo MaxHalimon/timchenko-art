@@ -9,7 +9,7 @@
 .floatWrapper {
   position: absolute;
   color: var(--color-text);
-  opacity: 0.18;
+  opacity: 0.15;
   animation-name: float;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;

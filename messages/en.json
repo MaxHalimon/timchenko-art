@@ -233,5 +233,29 @@
       }
     ],
     "closing": "Discover the world of Maryna Timchenko — art that touches the soul and stirs real emotion."
+  },
+  "tracking": {
+    "title": "Tracking",
+    "intro": "Enter your order number or the tracking number you received after payment to see where your painting is right now — from the first brushstroke to the moment it reaches you.",
+    "inputLabel": "Order number or tracking number",
+    "inputPlaceholder": "Enter number",
+    "submit": "Check status",
+    "checking": "Checking...",
+    "notFound": "No order found with that number. Please check it and try again.",
+    "error": "Something went wrong. Please try again shortly.",
+    "resultHeading": "Your order status",
+    "paintingLabel": "Painting",
+    "trackingNumberLabel": "Tracking number",
+    "carrierLabel": "Carrier",
+    "status": {
+      "PREVIEW": "Awaiting payment",
+      "PAID": "Paid — getting ready",
+      "IN_PROGRESS": "Marina is working on your painting",
+      "SHIPPED": "Shipped",
+      "DELIVERED": "Delivered"
+    },
+    "fillerHeading": "How we care for your painting in transit",
+    "fillerText": "Before it travels to you, every piece is packed by hand — with the same care it was painted with. Rigid framing, protective corner guards, moisture-resistant wrapping. For full details on timelines and international shipping, see the",
+    "fillerLinkText": "Shipping Policy"
   }
 }

@@ -233,5 +233,29 @@
       }
     ],
     "closing": "Entdecken Sie die Welt von Maryna Timchenko — Kunst, die die Seele berührt und echte Emotionen weckt."
+  },
+  "tracking": {
+    "title": "Tracking",
+    "intro": "Geben Sie Ihre Bestellnummer oder die nach der Zahlung erhaltene Sendungsnummer ein, um zu sehen, wo sich Ihr Gemälde gerade befindet — vom ersten Pinselstrich bis zu dem Moment, in dem es bei Ihnen ankommt.",
+    "inputLabel": "Bestellnummer oder Sendungsnummer",
+    "inputPlaceholder": "Nummer eingeben",
+    "submit": "Status prüfen",
+    "checking": "Wird geprüft...",
+    "notFound": "Keine Bestellung mit dieser Nummer gefunden. Bitte überprüfen Sie die Nummer und versuchen Sie es erneut.",
+    "error": "Etwas ist schiefgelaufen. Bitte versuchen Sie es in Kürze erneut.",
+    "resultHeading": "Ihr Bestellstatus",
+    "paintingLabel": "Gemälde",
+    "trackingNumberLabel": "Sendungsnummer",
+    "carrierLabel": "Versanddienst",
+    "status": {
+      "PREVIEW": "Zahlung ausstehend",
+      "PAID": "Bezahlt — wird vorbereitet",
+      "IN_PROGRESS": "Marina arbeitet an Ihrem Gemälde",
+      "SHIPPED": "Versandt",
+      "DELIVERED": "Zugestellt"
+    },
+    "fillerHeading": "So sorgen wir für Ihr Gemälde unterwegs",
+    "fillerText": "Bevor es zu Ihnen reist, wird jedes Werk von Hand verpackt — mit derselben Sorgfalt, mit der es gemalt wurde. Stabiler Rahmenschutz, Eckenschutz, feuchtigkeitsbeständige Verpackung. Alle Details zu Fristen und internationalem Versand finden Sie in der",
+    "fillerLinkText": "Versandrichtlinie"
   }
 }
