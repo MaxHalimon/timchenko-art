@@ -104,24 +104,27 @@ model Product {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  order Order? // a product maps to at most one (non-cancelled) order once sold
+  orderItem OrderItem? // a product maps to at most one (non-cancelled) order item once reserved/sold
 
   @@index([status])
   @@map("products")
 }
 
+/// One order can hold several paintings at once (the "Мольберт" / easel —
+/// pieces the customer has set aside before checking out). Each painting
+/// still only ever belongs to one active order — see OrderItem.productId's
+/// unique constraint below.
 model Order {
   id        String      @id @default(cuid())
   status    OrderStatus @default(PREVIEW)
 
-  productId String  @unique
-  product   Product @relation(fields: [productId], references: [id])
+  items OrderItem[]
 
   customerEmail String
   customerName  String
   shippingAddress Json // { country, city, postalCode, line1, line2?, phone }
 
-  amountUsd            Decimal @db.Decimal(10, 2) // snapshot of product.priceUsd at time of order
+  amountUsd            Decimal @db.Decimal(10, 2) // sum of all items' priceUsd at time of order
   platformCommissionUsd Decimal @db.Decimal(10, 2) // your cut = amountUsd * PLATFORM_COMMISSION_PCT (20%)
   artistPayoutUsd       Decimal @db.Decimal(10, 2) // what's owed to the artist = amountUsd - platformCommissionUsd (80%)
   // Both snapshotted once, when status → PAID, so a later price/rate change
@@ -141,6 +144,30 @@ model Order {
 
   @@index([status])
   @@map("orders")
+}
+
+/// One painting within an order. productId is unique — a painting can be
+/// in at most one (active) order's easel/checkout at a time, which is what
+/// stops two customers from both buying the same one-of-a-kind piece.
+///
+/// ⚠️ Known gap, same as before this model existed: an abandoned PREVIEW
+/// order (customer starts checkout, never pays) permanently reserves its
+/// items unless someone deletes that order — there's no automatic
+/// expiry/cleanup job yet. Worth adding before relying on this at scale.
+model OrderItem {
+  id String @id @default(cuid())
+
+  orderId String
+  order   Order  @relation(fields: [orderId], references: [id], onDelete: Cascade)
+
+  productId String  @unique
+  product   Product @relation(fields: [productId], references: [id])
+
+  priceUsd Decimal @db.Decimal(10, 2) // snapshot of product.priceUsd when placed on the easel
+
+  createdAt DateTime @default(now())
+
+  @@map("order_items")
 }
 
 model Payment {

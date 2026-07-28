@@ -2,17 +2,24 @@
 
 import { useState } from "react";
 import { useTranslations } from "next-intl";
-import { Link } from "@/i18n/navigation";
+import { Link, usePathname } from "@/i18n/navigation";
 import { LanguageSwitcher } from "../LanguageSwitcher/LanguageSwitcher";
 import { CurrencySwitcher } from "../CurrencySwitcher/CurrencySwitcher";
+import { useEasel } from "../../providers/EaselProvider";
 import styles from "./SiteHeader.module.css";
 
 export function SiteHeader() {
   const t = useTranslations("common");
   const [menuOpen, setMenuOpen] = useState(false);
+  const { slugs } = useEasel();
+  const pathname = usePathname();
 
   function closeMenu() {
     setMenuOpen(false);
+  }
+
+  function linkClass(href: string) {
+    return pathname === href ? `${styles.navLink} ${styles.navLinkActive}` : styles.navLink;
   }
 
   return (
@@ -41,17 +48,21 @@ export function SiteHeader() {
       </button>
 
       <nav id="site-nav" className={menuOpen ? `${styles.nav} ${styles.navOpen}` : styles.nav}>
-        <Link href="/" className={styles.navLink} onClick={closeMenu}>
+        <Link href="/" className={linkClass("/")} onClick={closeMenu}>
           {t("nav.home")}
         </Link>
-        <Link href="/gallery" className={styles.navLink} onClick={closeMenu}>
+        <Link href="/gallery" className={linkClass("/gallery")} onClick={closeMenu}>
           {t("nav.gallery")}
         </Link>
-        <Link href="/tracking" className={styles.navLink} onClick={closeMenu}>
+        <Link href="/tracking" className={linkClass("/tracking")} onClick={closeMenu}>
           {t("nav.tracking")}
         </Link>
-        <Link href="/contacts" className={styles.navLink} onClick={closeMenu}>
+        <Link href="/contacts" className={linkClass("/contacts")} onClick={closeMenu}>
           {t("nav.contact")}
+        </Link>
+        <Link href="/easel" className={linkClass("/easel")} onClick={closeMenu}>
+          {t("nav.easel")}
+          {slugs.length > 0 && <span className={styles.easelCount}>{slugs.length}</span>}
         </Link>
         <div className={styles.navDivider} />
         <div className={styles.switchers}>

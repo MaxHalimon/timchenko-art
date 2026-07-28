@@ -7,7 +7,8 @@
       "tracking": "Tracking",
       "openMenu": "Menü öffnen",
       "closeMenu": "Menü schließen",
-      "contact": "Kontakt"
+      "contact": "Kontakt",
+      "easel": "Staffelei"
     },
     "footer": "Jedes Werk wird von Hand gemalt.",
     "scrollHint": "Nach unten scrollen"
@@ -25,7 +26,7 @@
     "cta": "Zur Galerie"
   },
   "home": {
-    "featuredHeading": "Neueste Werke",
+    "featuredHeading": "Schaufenster",
     "carouselPrev": "Vorheriges Werk",
     "carouselNext": "Nächstes Werk"
   },
@@ -257,5 +258,31 @@
     "fillerHeading": "So sorgen wir für Ihr Gemälde unterwegs",
     "fillerText": "Bevor es zu Ihnen reist, wird jedes Werk von Hand verpackt — mit derselben Sorgfalt, mit der es gemalt wurde. Stabiler Rahmenschutz, Eckenschutz, feuchtigkeitsbeständige Verpackung. Alle Details zu Fristen und internationalem Versand finden Sie in der",
     "fillerLinkText": "Versandrichtlinie"
+  },
+  "easel": {
+    "add": "Auf die Staffelei stellen",
+    "onEasel": "Auf der Staffelei",
+    "remove": "Entfernen",
+    "unavailable": "Nicht mehr verfügbar",
+    "title": "Staffelei",
+    "empty": "Ihre Staffelei ist momentan leer.",
+    "browseGallery": "Zur Galerie",
+    "itemsHeading": "Werke auf der Staffelei",
+    "total": "Gesamt",
+    "checkoutHeading": "Bestellung abschließen",
+    "form": {
+      "name": "Name",
+      "email": "E-Mail",
+      "country": "Land",
+      "city": "Stadt",
+      "postalCode": "Postleitzahl",
+      "addressLine1": "Adresse",
+      "addressLine2": "Wohnung, Etage usw. (optional)",
+      "phone": "Telefon",
+      "submit": "Bestellung aufgeben",
+      "submitting": "Wird bestellt..."
+    },
+    "error": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.",
+    "itemUnavailableError": "Eines der Werke ist nicht mehr verfügbar — bitte aktualisieren Sie Ihre Staffelei."
   }
 }

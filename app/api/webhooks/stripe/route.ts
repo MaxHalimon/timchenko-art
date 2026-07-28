@@ -36,7 +36,7 @@ export async function POST(req: NextRequest) {
 
     const payment = await prisma.payment.findUnique({
       where: { providerRef: session.id },
-      include: { order: true },
+      include: { order: { include: { items: true } } },
     });
 
     if (!payment) {
@@ -63,8 +63,8 @@ export async function POST(req: NextRequest) {
             artistPayoutUsd: calculateArtistPayoutUsd(amountUsd),
           },
         }),
-        prisma.product.update({
-          where: { id: payment.order.productId },
+        prisma.product.updateMany({
+          where: { id: { in: payment.order.items.map((item) => item.productId) } },
           data: { status: "SOLD" },
         }),
       ]);

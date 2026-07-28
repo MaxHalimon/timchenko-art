@@ -7,7 +7,8 @@
       "tracking": "Tracking",
       "openMenu": "Open menu",
       "closeMenu": "Close menu",
-      "contact": "Contacts"
+      "contact": "Contacts",
+      "easel": "Easel"
     },
     "footer": "Every piece is hand-painted by the artist.",
     "scrollHint": "Scroll down"
@@ -25,7 +26,7 @@
     "cta": "Go to the gallery"
   },
   "home": {
-    "featuredHeading": "Latest works",
+    "featuredHeading": "Showcase",
     "carouselPrev": "Previous piece",
     "carouselNext": "Next piece"
   },
@@ -257,5 +258,31 @@
     "fillerHeading": "How we care for your painting in transit",
     "fillerText": "Before it travels to you, every piece is packed by hand — with the same care it was painted with. Rigid framing, protective corner guards, moisture-resistant wrapping. For full details on timelines and international shipping, see the",
     "fillerLinkText": "Shipping Policy"
+  },
+  "easel": {
+    "add": "Put on the easel",
+    "onEasel": "On the easel",
+    "remove": "Remove",
+    "unavailable": "No longer available",
+    "title": "Easel",
+    "empty": "Your easel is empty for now.",
+    "browseGallery": "Go to the gallery",
+    "itemsHeading": "Pieces on the easel",
+    "total": "Total",
+    "checkoutHeading": "Checkout",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "country": "Country",
+      "city": "City",
+      "postalCode": "Postal code",
+      "addressLine1": "Address",
+      "addressLine2": "Apartment, suite, etc. (optional)",
+      "phone": "Phone",
+      "submit": "Place order",
+      "submitting": "Placing order..."
+    },
+    "error": "Something went wrong. Please try again.",
+    "itemUnavailableError": "One of the pieces is no longer available — please refresh your easel."
   }
 }

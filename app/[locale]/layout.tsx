@@ -7,6 +7,7 @@ import "./globals.css";
 import { locales, type Locale } from "@/i18n/config";
 import { CURRENCY_COOKIE, SUPPORTED_CURRENCIES, type CurrencyCode } from "@/lib/currency";
 import { CurrencyProvider } from "./providers/CurrencyProvider";
+import { EaselProvider } from "./providers/EaselProvider";
 import { AgeGate } from "./components/AgeGate/AgeGate";
 import { SiteHeaderSwitch } from "./components/SiteHeaderSwitch/SiteHeaderSwitch";
 import { SiteFooter } from "./components/SiteFooter/SiteFooter";
@@ -51,14 +52,16 @@ export default async function LocaleLayout({
       <body>
         <NextIntlClientProvider messages={messages}>
           <CurrencyProvider initialCurrency={initialCurrency}>
-            <AmbientBackground />
-            {/* Blocks interaction until the visitor confirms they are 18+.
-                State is persisted client-side (see AgeGate.tsx). */}
-            <AgeGate />
-            <SiteHeaderSwitch />
-            <main>{children}</main>
-            <SiteFooter />
-            <BackToTop />
+            <EaselProvider>
+              <AmbientBackground />
+              {/* Blocks interaction until the visitor confirms they are 18+.
+                  State is persisted client-side (see AgeGate.tsx). */}
+              <AgeGate />
+              <SiteHeaderSwitch />
+              <main>{children}</main>
+              <SiteFooter />
+              <BackToTop />
+            </EaselProvider>
           </CurrencyProvider>
         </NextIntlClientProvider>
       </body>

@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { LanguageSwitcher } from "../LanguageSwitcher/LanguageSwitcher";
 import { CurrencySwitcher } from "../CurrencySwitcher/CurrencySwitcher";
+import { useEasel } from "../../providers/EaselProvider";
 import styles from "./ImmersiveNav.module.css";
 
 /**
@@ -24,6 +25,7 @@ export function ImmersiveNav() {
   const t = useTranslations("common");
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { slugs } = useEasel();
 
   useEffect(() => {
     function handleScroll() {
@@ -70,9 +72,6 @@ export function ImmersiveNav() {
       </button>
 
       <nav id="immersive-nav" className={menuOpen ? `${styles.nav} ${styles.navOpen}` : styles.nav}>
-        <Link href="/" className={styles.navLink} onClick={closeMenu}>
-          {t("nav.home")}
-        </Link>
         <Link href="/gallery" className={styles.navLink} onClick={closeMenu}>
           {t("nav.gallery")}
         </Link>
@@ -81,6 +80,10 @@ export function ImmersiveNav() {
         </Link>
         <Link href="/contacts" className={styles.navLink} onClick={closeMenu}>
           {t("nav.contact")}
+        </Link>
+        <Link href="/easel" className={styles.navLink} onClick={closeMenu}>
+          {t("nav.easel")}
+          {slugs.length > 0 && <span className={styles.easelCount}>{slugs.length}</span>}
         </Link>
         <div className={styles.navDivider} />
         <div className={styles.switchers}>

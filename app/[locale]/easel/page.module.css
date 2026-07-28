@@ -1,0 +1,199 @@
+.page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: var(--space-5) var(--space-4);
+}
+
+.title {
+  font-size: 40px;
+  margin-bottom: var(--space-4);
+}
+
+.empty {
+  text-align: center;
+  padding: var(--space-6) 0;
+  color: var(--color-text-light);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: var(--space-5);
+  align-items: start;
+}
+
+.itemsHeading {
+  font-size: 20px;
+  margin-bottom: var(--space-2);
+}
+
+.itemList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 10px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+}
+
+.itemImage {
+  width: 56px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.itemInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.itemTitle {
+  font-size: 15px;
+  margin-bottom: 2px;
+}
+
+.itemMeta {
+  font-size: 13px;
+  color: var(--color-text-light);
+}
+
+.itemUnavailable {
+  font-size: 12px;
+  color: var(--color-primary);
+  font-weight: 500;
+}
+
+.removeButton {
+  border: none;
+  background: none;
+  color: var(--color-text-light);
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.removeButton:hover {
+  color: var(--color-primary);
+  background-color: var(--color-bg-muted);
+}
+
+.totalRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: var(--space-2);
+  border-top: 1px solid var(--color-border);
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: var(--space-4);
+}
+
+.checkoutCard {
+  background-color: var(--color-bg-muted);
+  border-radius: 12px;
+  padding: var(--space-3);
+}
+
+.checkoutHeading {
+  font-size: 18px;
+  margin-bottom: var(--space-2);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.input {
+  padding: 9px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+}
+
+.input:focus-visible {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+.paymentChoice {
+  display: flex;
+  gap: 8px;
+  margin: 4px 0;
+}
+
+.paymentOption {
+  flex: 1;
+  padding: 9px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-size: 13px;
+  cursor: pointer;
+  transition: var(--transition-base);
+}
+
+.paymentOptionActive {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  font-weight: 500;
+}
+
+.submitButton {
+  width: 100%;
+  margin-top: 6px;
+}
+
+.statusMessage {
+  font-size: 14px;
+  padding: 10px 14px;
+  border-radius: 6px;
+  margin-top: var(--space-2);
+}
+
+.statusError {
+  background-color: #fbeaea;
+  color: var(--color-primary-hover);
+}
+
+@media (max-width: 720px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+  .row {
+    flex-direction: column;
+  }
+}

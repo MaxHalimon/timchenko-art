@@ -84,6 +84,42 @@ function ClassicBrushIcon() {
   );
 }
 
+// The original single-freeform-path brush — brought back by request after
+// being replaced by ClassicBrushIcon above; kept as a separate, distinct
+// icon rather than swapped back in, since both are now wanted in the pool.
+function FreeformBrushIcon() {
+  return (
+    <svg viewBox="0 0 100 100" fill="none" width="100%" height="100%">
+      <path
+        d="M76 6
+           C85 2 95 9 95 19
+           C95 27 89 33 82 34
+           L52 61
+           L58 67
+           C60 69 60 72 58 74
+           L53 79
+           C51 81 48 81 46 79
+           L40 74
+           L13 89
+           C7 92 2 88 4 82
+           C5 78 8 75 12 73
+           L39 58
+           L34 53
+           C32 51 32 48 34 46
+           L39 41
+           C41 39 44 39 46 41
+           L52 47
+           L72 27
+           Z"
+        stroke="currentColor"
+        strokeWidth="4"
+        strokeLinejoin="round"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
 // Rectangular (non-square) picture frame — same family as FrameIcon above
 // but in a horizontal (landscape) ratio, for visual variety among the
 // frame icons.
@@ -98,7 +134,7 @@ function RectangleFrameIcon() {
   );
 }
 
-const ICONS = [PaintbrushIcon, EaselIcon, PaletteIcon, FrameIcon, PencilIcon, ClassicBrushIcon, RectangleFrameIcon];
+const ICONS = [PaintbrushIcon, EaselIcon, PaletteIcon, FrameIcon, PencilIcon, ClassicBrushIcon, RectangleFrameIcon, FreeformBrushIcon];
 const GRID_COLS = 4;
 const GRID_ROWS = 6;
 const REPEL_RADIUS = 140;

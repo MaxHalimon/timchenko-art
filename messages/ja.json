@@ -7,7 +7,8 @@
       "tracking": "追跡",
       "openMenu": "メニューを開く",
       "closeMenu": "メニューを閉じる",
-      "contact": "お問い合わせ"
+      "contact": "お問い合わせ",
+      "easel": "イーゼル"
     },
     "footer": "すべての作品はアーティストによる手描きです。",
     "scrollHint": "下にスクロール"
@@ -25,7 +26,7 @@
     "cta": "ギャラリーへ"
   },
   "home": {
-    "featuredHeading": "新着作品",
+    "featuredHeading": "ショーケース",
     "carouselPrev": "前の作品",
     "carouselNext": "次の作品"
   },
@@ -257,5 +258,31 @@
     "fillerHeading": "配送中の作品を大切にお届けするために",
     "fillerText": "発送前に、すべての作品は制作時と同じ丁寧さで手作業により梱包されます。頑丈な枠、コーナープロテクター、防湿仕様の梱包材を使用しています。納期や国際配送の詳細については、",
     "fillerLinkText": "配送ポリシー"
+  },
+  "easel": {
+    "add": "イーゼルに置く",
+    "onEasel": "イーゼルに置いています",
+    "remove": "削除",
+    "unavailable": "販売終了",
+    "title": "イーゼル",
+    "empty": "イーゼルにはまだ何もありません。",
+    "browseGallery": "ギャラリーへ",
+    "itemsHeading": "イーゼルの上の作品",
+    "total": "合計",
+    "checkoutHeading": "ご注文手続き",
+    "form": {
+      "name": "お名前",
+      "email": "メールアドレス",
+      "country": "国",
+      "city": "市区町村",
+      "postalCode": "郵便番号",
+      "addressLine1": "住所",
+      "addressLine2": "建物名・部屋番号など(任意)",
+      "phone": "電話番号",
+      "submit": "注文を確定する",
+      "submitting": "処理中..."
+    },
+    "error": "エラーが発生しました。もう一度お試しください。",
+    "itemUnavailableError": "一部の作品はすでに購入できません。イーゼルを更新してください。"
   }
 }
