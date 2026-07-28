@@ -21,7 +21,7 @@ export async function POST(req: NextRequest) {
       OR: [{ id: reference }, { trackingNumber: reference }],
     },
     include: {
-      product: { select: { title: true } },
+      items: { include: { product: { select: { title: true } } } },
     },
   });
 
@@ -34,6 +34,6 @@ export async function POST(req: NextRequest) {
     status: order.status,
     trackingNumber: order.trackingNumber,
     trackingCarrier: order.trackingCarrier,
-    paintingTitle: order.product.title,
+    paintingTitles: order.items.map((item) => item.product.title),
   });
 }

@@ -18,9 +18,17 @@ export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
+// Keeps the whole site out of search engines until launch — flip
+// NEXT_PUBLIC_ALLOW_INDEXING to "true" in .env (and on Vercel) when ready
+// to go live. Needed right now because the age gate isn't enforced
+// server-side for every region yet, and an indexed-too-early site risks
+// being flagged/blocked before that's sorted out.
+const ALLOW_INDEXING = process.env.NEXT_PUBLIC_ALLOW_INDEXING === "true";
+
 export const metadata: Metadata = {
   title: "Timchenko Art",
   description: "Hand-painted oil paintings by Marina — from the catalog or made to order.",
+  robots: ALLOW_INDEXING ? undefined : { index: false, follow: false },
 };
 
 export default async function LocaleLayout({

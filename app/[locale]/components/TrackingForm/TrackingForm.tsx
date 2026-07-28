@@ -12,7 +12,7 @@ interface TrackResult {
   status?: OrderStatus;
   trackingNumber?: string | null;
   trackingCarrier?: string | null;
-  paintingTitle?: string;
+  paintingTitles?: string[];
 }
 
 type SubmitState = "idle" | "checking" | "done" | "error";
@@ -82,9 +82,9 @@ export function TrackingForm() {
           <h2 className={styles.resultHeading}>{t("resultHeading")}</h2>
           <span className={styles.statusBadge}>{t(`status.${result.status}`)}</span>
 
-          {result.paintingTitle && (
+          {result.paintingTitles && result.paintingTitles.length > 0 && (
             <p className={styles.resultRow}>
-              <strong>{t("paintingLabel")}:</strong> {result.paintingTitle}
+              <strong>{t("paintingLabel")}:</strong> {result.paintingTitles.join(", ")}
             </p>
           )}
           {result.trackingCarrier && (
