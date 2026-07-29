@@ -284,6 +284,7 @@
     },
     "error": "Something went wrong. Please try again.",
     "itemUnavailableError": "One of the pieces is no longer available — please refresh your easel.",
-    "intro": "Here are the pieces you've given a little time to sit with. When you're ready, tell us where to send them."
+    "intro": "Here are the pieces you've given a little time to sit with. When you're ready, tell us where to send them.",
+    "loading": "Loading your easel..."
   }
 }

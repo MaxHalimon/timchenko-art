@@ -284,6 +284,7 @@
     },
     "error": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.",
     "itemUnavailableError": "Eines der Werke ist nicht mehr verfügbar — bitte aktualisieren Sie Ihre Staffelei.",
-    "intro": "Hier sind die Werke, denen Sie etwas Zeit gegeben haben, bei Ihnen zu verweilen. Wenn Sie bereit sind, sagen Sie uns, wohin wir sie schicken sollen."
+    "intro": "Hier sind die Werke, denen Sie etwas Zeit gegeben haben, bei Ihnen zu verweilen. Wenn Sie bereit sind, sagen Sie uns, wohin wir sie schicken sollen.",
+    "loading": "Ihre Staffelei wird geladen..."
   }
 }

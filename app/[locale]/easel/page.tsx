@@ -106,9 +106,17 @@ export default function EaselPage() {
 
   if (!loaded) {
     // Still resolving the easel's real contents (localStorage read +
-    // product fetch) — render nothing rather than momentarily falling
-    // through to the full checkout view with an empty/zero-total cart.
-    return null;
+    // product fetch). Keep the title on screen and show a small loading
+    // line — an empty gap between header and footer reads as broken,
+    // and guessing "empty" here risks briefly misreporting a real cart.
+    return (
+      <div className={styles.page}>
+        <h1 className={styles.title}>
+          <AccentText text={t("title")} />
+        </h1>
+        <p className={styles.empty}>{t("loading")}</p>
+      </div>
+    );
   }
 
   if (slugs.length === 0) {
