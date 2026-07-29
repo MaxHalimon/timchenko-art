@@ -2,12 +2,12 @@
   "common": {
     "siteName": "Timchenko Art",
     "nav": {
-      "home": "Home",
+      "home": "Showcase",
       "gallery": "Gallery",
       "tracking": "Tracking",
       "openMenu": "Open menu",
       "closeMenu": "Close menu",
-      "contact": "Contacts",
+      "contact": "Write to the Artist",
       "easel": "Easel"
     },
     "footer": "Every piece is hand-painted by the artist.",
@@ -26,7 +26,7 @@
     "cta": "Go to the gallery"
   },
   "home": {
-    "featuredHeading": "Showcase",
+    "featuredHeading": "Showcase of Most Loved Works",
     "carouselPrev": "Previous piece",
     "carouselNext": "Next piece"
   },
@@ -165,7 +165,7 @@
     }
   },
   "contact": {
-    "title": "Contacts",
+    "title": "Write to the Artist",
     "intro": "Got a question about a painting, shipping, or a custom commission? Write to us — we reply personally, no canned responses.",
     "emailLabel": "Email",
     "form": {

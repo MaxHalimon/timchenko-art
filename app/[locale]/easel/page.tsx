@@ -26,7 +26,7 @@ export default function EaselPage() {
   const t = useTranslations("easel");
   const tProductCard = useTranslations("productCard");
   const locale = useLocale();
-  const { slugs, removeFromEasel } = useEasel();
+  const { slugs, hydrated, removeFromEasel } = useEasel();
 
   const [products, setProducts] = useState<EaselProduct[]>([]);
   const [loaded, setLoaded] = useState(false);
@@ -34,6 +34,11 @@ export default function EaselPage() {
   const [submitState, setSubmitState] = useState<SubmitState>("idle");
 
   useEffect(() => {
+    // Wait for EaselProvider to finish reading localStorage — otherwise
+    // this fires once with the placeholder empty `slugs` array (before
+    // hydration) and wrongly concludes the easel has nothing on it.
+    if (!hydrated) return;
+
     if (slugs.length === 0) {
       setProducts([]);
       setLoaded(true);
@@ -52,7 +57,7 @@ export default function EaselPage() {
         setLoaded(true);
       })
       .catch(() => setLoaded(true));
-  }, [slugs]);
+  }, [slugs, hydrated]);
 
   const availableProducts = products.filter((p) => p.status === "AVAILABLE");
   const totalUsd = availableProducts.reduce((sum, p) => sum + p.priceUsd, 0);
@@ -99,7 +104,14 @@ export default function EaselPage() {
     }
   }
 
-  if (loaded && slugs.length === 0) {
+  if (!loaded) {
+    // Still resolving the easel's real contents (localStorage read +
+    // product fetch) — render nothing rather than momentarily falling
+    // through to the full checkout view with an empty/zero-total cart.
+    return null;
+  }
+
+  if (slugs.length === 0) {
     return (
       <div className={styles.page}>
         <h1 className={styles.title}>

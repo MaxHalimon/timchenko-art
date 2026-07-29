@@ -6,6 +6,7 @@ const EASEL_STORAGE_KEY = "timchenko-art:easel";
 
 interface EaselContextValue {
   slugs: string[];
+  hydrated: boolean;
   addToEasel: (slug: string) => void;
   removeFromEasel: (slug: string) => void;
   isOnEasel: (slug: string) => boolean;
@@ -60,7 +61,7 @@ export function EaselProvider({ children }: { children: ReactNode }) {
   }
 
   return (
-    <EaselContext.Provider value={{ slugs, addToEasel, removeFromEasel, isOnEasel, clearEasel }}>
+    <EaselContext.Provider value={{ slugs, hydrated, addToEasel, removeFromEasel, isOnEasel, clearEasel }}>
       {children}
     </EaselContext.Provider>
   );

@@ -2,12 +2,12 @@
   "common": {
     "siteName": "Timchenko Art",
     "nav": {
-      "home": "ホーム",
+      "home": "ショーケース",
       "gallery": "ギャラリー",
       "tracking": "追跡",
       "openMenu": "メニューを開く",
       "closeMenu": "メニューを閉じる",
-      "contact": "お問い合わせ",
+      "contact": "作家にメッセージを送る",
       "easel": "イーゼル"
     },
     "footer": "すべての作品はアーティストによる手描きです。",
@@ -26,7 +26,7 @@
     "cta": "ギャラリーへ"
   },
   "home": {
-    "featuredHeading": "ショーケース",
+    "featuredHeading": "人気作品のショーケース",
     "carouselPrev": "前の作品",
     "carouselNext": "次の作品"
   },
@@ -165,7 +165,7 @@
     }
   },
   "contact": {
-    "title": "お問い合わせ",
+    "title": "作家にメッセージを送る",
     "intro": "作品について、配送について、あるいはオーダーメイド作品についてご質問がありますか?ぜひご連絡ください — 定型文ではなく、私たち自身がお返事します。",
     "emailLabel": "メール",
     "form": {

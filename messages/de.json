@@ -2,12 +2,12 @@
   "common": {
     "siteName": "Timchenko Art",
     "nav": {
-      "home": "Start",
+      "home": "Schaufenster",
       "gallery": "Galerie",
       "tracking": "Tracking",
       "openMenu": "Menü öffnen",
       "closeMenu": "Menü schließen",
-      "contact": "Kontakt",
+      "contact": "Schreiben Sie der Künstlerin",
       "easel": "Staffelei"
     },
     "footer": "Jedes Werk wird von Hand gemalt.",
@@ -26,7 +26,7 @@
     "cta": "Zur Galerie"
   },
   "home": {
-    "featuredHeading": "Schaufenster",
+    "featuredHeading": "Schaufenster der beliebtesten Werke",
     "carouselPrev": "Vorheriges Werk",
     "carouselNext": "Nächstes Werk"
   },
@@ -165,7 +165,7 @@
     }
   },
   "contact": {
-    "title": "Kontakt",
+    "title": "Schreiben Sie der Künstlerin",
     "intro": "Haben Sie eine Frage zu einem Gemälde, zum Versand oder zu einer individuellen Auftragsarbeit? Schreiben Sie uns — wir antworten persönlich, ohne Standardtexte.",
     "emailLabel": "E-Mail",
     "form": {
