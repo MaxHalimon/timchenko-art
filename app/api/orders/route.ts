@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { stripe } from "@/lib/stripe";
+import { localizedText } from "@/lib/localizedText";
 import { locales, defaultLocale, type Locale } from "@/i18n/config";
 
 const NOWPAYMENTS_API_KEY = process.env.NOWPAYMENTS_API_KEY;
@@ -76,10 +77,19 @@ export async function POST(req: NextRequest) {
   });
 
   if (paymentMethod === "card") {
-    return createStripeCheckout(order.id, products, locale);
+    return createStripeCheckout(
+      order.id,
+      products.map((p) => ({ ...p, title: localizedText(p.title, locale) })),
+      locale,
+    );
   }
 
-  return createNowPaymentsInvoice(order.id, products, amountUsd, locale);
+  return createNowPaymentsInvoice(
+    order.id,
+    products.map((p) => ({ ...p, title: localizedText(p.title, locale) })),
+    amountUsd,
+    locale,
+  );
 }
 
 async function createStripeCheckout(

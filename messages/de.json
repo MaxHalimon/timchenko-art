@@ -39,6 +39,19 @@
     "dimensions": "{width} × {height} cm",
     "material": "Öl auf Leinwand"
   },
+  "product": {
+    "backToGallery": "← Zurück zur Galerie",
+    "descriptionHeading": "Über dieses Werk",
+    "detailsHeading": "Details",
+    "dimensionsLabel": "Maße",
+    "materialLabel": "Material",
+    "themeLabel": "Thema",
+    "statusLabel": "Status",
+    "relatedHeading": "Das könnte Ihnen auch gefallen",
+    "notFoundTitle": "Gemälde nicht gefunden",
+    "notFoundBody": "Dieses Werk wurde möglicherweise aus dem Katalog entfernt, oder der Link ist fehlerhaft.",
+    "notFoundCta": "Zur Galerie"
+  },
   "languageSwitcher": {
     "label": "Sprache"
   },

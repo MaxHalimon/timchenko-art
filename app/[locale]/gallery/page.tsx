@@ -1,6 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import { Prisma } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
+import { localizedText } from "@/lib/localizedText";
 import { ProductCard, type ProductStatus } from "../components/ProductCard/ProductCard";
 import { FilterBar } from "./FilterBar";
 import { AccentText } from "../components/AccentText/AccentText";
@@ -25,10 +26,13 @@ interface GallerySearchParams {
 }
 
 export default async function GalleryPage({
+  params,
   searchParams,
 }: {
+  params: Promise<{ locale: string }>;
   searchParams: Promise<GallerySearchParams>;
 }) {
+  const { locale } = await params;
   const { size, theme, status } = await searchParams;
   const t = await getTranslations("gallery");
 
@@ -90,7 +94,7 @@ export default async function GalleryPage({
             <ProductCard
               key={product.id}
               slug={product.slug}
-              title={product.title}
+              title={localizedText(product.title, locale)}
               previewImageUrl={product.previewImageKey}
               widthCm={product.widthCm}
               heightCm={product.heightCm}

@@ -49,7 +49,7 @@ export default function EaselPage() {
     fetch("/api/products/by-slugs", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ slugs }),
+      body: JSON.stringify({ slugs, locale }),
     })
       .then((res) => res.json())
       .then((data) => {
@@ -57,7 +57,7 @@ export default function EaselPage() {
         setLoaded(true);
       })
       .catch(() => setLoaded(true));
-  }, [slugs, hydrated]);
+  }, [slugs, hydrated, locale]);
 
   const availableProducts = products.filter((p) => p.status === "AVAILABLE");
   const totalUsd = availableProducts.reduce((sum, p) => sum + p.priceUsd, 0);

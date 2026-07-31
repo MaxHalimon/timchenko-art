@@ -4,8 +4,8 @@
 має точно збігатися з полем `previewImageFile` у `prisma/paintings.json`.
 
 Приклад:
-- `prisma/paintings.json` містить `"previewImageFile": "misty-morning-fields.jpg"`
-- тоді файл має лежати тут: `public/paintings/misty-morning-fields.jpg`
+- `prisma/paintings.json` містить `"previewImageFile": "amber-still-life.jpg"`
+- тоді файл має лежати тут: `public/paintings/amber-still-life.jpg`
 
 ⚠️ **Це тимчасове рішення для локальної розробки.** Ці файли будуть публічно
 доступні (як і все в `/public`), без водяного знаку і без обмеження доступу

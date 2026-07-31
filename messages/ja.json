@@ -39,6 +39,19 @@
     "dimensions": "{width} × {height} cm",
     "material": "油彩、キャンバス"
   },
+  "product": {
+    "backToGallery": "← ギャラリーに戻る",
+    "descriptionHeading": "この作品について",
+    "detailsHeading": "詳細",
+    "dimensionsLabel": "サイズ",
+    "materialLabel": "素材",
+    "themeLabel": "テーマ",
+    "statusLabel": "状態",
+    "relatedHeading": "こちらもおすすめです",
+    "notFoundTitle": "作品が見つかりません",
+    "notFoundBody": "この作品はカタログから削除されたか、リンクが正しくない可能性があります。",
+    "notFoundCta": "ギャラリーへ"
+  },
   "languageSwitcher": {
     "label": "言語"
   },

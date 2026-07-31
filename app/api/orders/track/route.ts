@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
+import { localizedText } from "@/lib/localizedText";
+import { locales, defaultLocale, type Locale } from "@/i18n/config";
 
 /**
  * Looks up an order by its own ID (given to the customer at checkout, e.g.
@@ -11,6 +13,7 @@ import { prisma } from "@/lib/prisma";
 export async function POST(req: NextRequest) {
   const body = await req.json();
   const reference = typeof body.reference === "string" ? body.reference.trim() : "";
+  const locale: Locale = locales.includes(body.locale as Locale) ? (body.locale as Locale) : defaultLocale;
 
   if (!reference) {
     return NextResponse.json({ error: "Missing reference" }, { status: 400 });
@@ -34,6 +37,6 @@ export async function POST(req: NextRequest) {
     status: order.status,
     trackingNumber: order.trackingNumber,
     trackingCarrier: order.trackingCarrier,
-    paintingTitles: order.items.map((item) => item.product.title),
+    paintingTitles: order.items.map((item) => localizedText(item.product.title, locale)),
   });
 }

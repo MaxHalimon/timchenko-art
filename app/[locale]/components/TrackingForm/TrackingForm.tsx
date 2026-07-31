@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import styles from "./TrackingForm.module.css";
 import buttonStyles from "../shared/Buttons.module.css";
 
@@ -19,6 +19,7 @@ type SubmitState = "idle" | "checking" | "done" | "error";
 
 export function TrackingForm() {
   const t = useTranslations("tracking");
+  const locale = useLocale();
   const [reference, setReference] = useState("");
   const [state, setState] = useState<SubmitState>("idle");
   const [result, setResult] = useState<TrackResult | null>(null);
@@ -34,7 +35,7 @@ export function TrackingForm() {
       const response = await fetch("/api/orders/track", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ reference: reference.trim() }),
+        body: JSON.stringify({ reference: reference.trim(), locale }),
       });
 
       if (!response.ok) throw new Error("Request failed");

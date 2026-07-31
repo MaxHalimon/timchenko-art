@@ -39,6 +39,19 @@
     "dimensions": "{width} × {height} см",
     "material": "олія, полотно"
   },
+  "product": {
+    "backToGallery": "← До галереї",
+    "descriptionHeading": "Про цю роботу",
+    "detailsHeading": "Деталі",
+    "dimensionsLabel": "Розміри",
+    "materialLabel": "Матеріал",
+    "themeLabel": "Тема",
+    "statusLabel": "Статус",
+    "relatedHeading": "Вам може сподобатися",
+    "notFoundTitle": "Картину не знайдено",
+    "notFoundBody": "Можливо, цю роботу вже прибрано з каталогу, або посилання неправильне.",
+    "notFoundCta": "До галереї"
+  },
   "languageSwitcher": {
     "label": "Мова"
   },

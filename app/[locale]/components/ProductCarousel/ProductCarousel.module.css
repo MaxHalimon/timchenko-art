@@ -1,29 +1,33 @@
 .wrapper {
   position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+/* The visible window: clips the sliding track so cards never render
+   under the arrows, and keeps the row visually centered between them
+   (previously the track had no side clearance, so the leftmost card sat
+   right underneath the left arrow and the row read as shifted left). */
+.viewport {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .track {
   display: flex;
   gap: var(--space-3);
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  padding-bottom: 8px;
-  scrollbar-width: none;
-}
-
-.track::-webkit-scrollbar {
-  display: none;
+  will-change: transform;
 }
 
 .item {
   flex: 0 0 260px;
-  scroll-snap-align: start;
 }
 
 .arrow {
-  position: absolute;
-  top: 45%;
-  transform: translateY(-50%);
+  position: relative;
+  flex: 0 0 auto;
   z-index: 5;
   width: 40px;
   height: 40px;
@@ -44,12 +48,20 @@
   color: var(--color-primary);
 }
 
-.arrowLeft {
-  left: -8px;
+/* Click feedback only — a brief 0.5s color flash, independent of hover.
+   Comes after .arrow:hover in the stylesheet so it wins while the flash
+   is active, then transitions back to whatever state (hover or not)
+   applies once the flash class is removed. */
+.arrowFlash {
+  background-color: var(--color-primary);
+  color: #ffffff;
+  border-color: var(--color-primary);
 }
 
-.arrowRight {
-  right: -8px;
+@media (prefers-reduced-motion: reduce) {
+  .track {
+    transition: none !important;
+  }
 }
 
 @media (max-width: 640px) {

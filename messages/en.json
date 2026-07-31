@@ -39,6 +39,19 @@
     "dimensions": "{width} × {height} cm",
     "material": "oil on canvas"
   },
+  "product": {
+    "backToGallery": "← Back to gallery",
+    "descriptionHeading": "About this piece",
+    "detailsHeading": "Details",
+    "dimensionsLabel": "Dimensions",
+    "materialLabel": "Material",
+    "themeLabel": "Theme",
+    "statusLabel": "Status",
+    "relatedHeading": "You might also like",
+    "notFoundTitle": "Painting not found",
+    "notFoundBody": "This piece may have been removed from the catalog, or the link is incorrect.",
+    "notFoundCta": "Go to the gallery"
+  },
   "languageSwitcher": {
     "label": "Language"
   },

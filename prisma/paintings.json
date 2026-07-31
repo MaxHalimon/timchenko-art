@@ -1,24 +1,87 @@
 [
   {
-    "slug": "misty-morning-fields",
-    "title": "Ранковий туман над полем",
-    "description": "Олія на холсті. Ранковий пейзаж із м'яким світлом і туманом над полями.",
+    "slug": "amber-still-life",
+    "title": {
+      "uk": "Бурштинова тиша",
+      "en": "Amber Silence",
+      "de": "Bernsteinstille",
+      "fr": "Silence ambré",
+      "ja": "琥珀の静寂"
+    },
+    "description": "Олія на холсті. Тепла натюрмортна композиція у бурштинових і карамельних тонах — тимчасовий опис-заглушка, буде замінено після завантаження реального Excel-файлу.",
     "widthCm": 60,
-    "heightCm": 80,
+    "heightCm": 75,
     "priceUsd": 480,
-    "theme": "пейзаж",
+    "theme": "натюрморт",
     "status": "AVAILABLE",
-    "previewImageFile": "misty-morning-fields.jpg"
+    "previewImageFile": "amber-still-life.jpg"
   },
   {
-    "slug": "quiet-harbor",
-    "title": "Тиха гавань",
-    "description": "Олія на холсті. Вечірній настрій невеликої гавані.",
+    "slug": "azure-reverie",
+    "title": {
+      "uk": "Блакитна мрійливість",
+      "en": "Azure Reverie",
+      "de": "Azurblaue Träumerei",
+      "fr": "Rêverie azurée",
+      "ja": "紺碧の夢想"
+    },
+    "description": "Олія на холсті. Прохолодна блакитно-синя гама, спокійний споглядальний настрій — тимчасовий опис-заглушка.",
     "widthCm": 70,
     "heightCm": 90,
     "priceUsd": 620,
-    "theme": "морський пейзаж",
+    "theme": "абстракція",
+    "status": "AVAILABLE",
+    "previewImageFile": "azure-reverie.jpg"
+  },
+  {
+    "slug": "crimson-hour",
+    "title": {
+      "uk": "Багряна година",
+      "en": "Crimson Hour",
+      "de": "Purpurstunde",
+      "fr": "L'heure pourpre",
+      "ja": "紅の刻"
+    },
+    "description": "Олія на холсті. Насичена червоно-бордова палітра, драматичне освітлення — тимчасовий опис-заглушка.",
+    "widthCm": 80,
+    "heightCm": 100,
+    "priceUsd": 950,
+    "theme": "портрет",
+    "status": "SOLD",
+    "previewImageFile": "crimson-hour.jpg"
+  },
+  {
+    "slug": "verdant-study",
+    "title": {
+      "uk": "Зелений етюд",
+      "en": "Verdant Study",
+      "de": "Grüne Studie",
+      "fr": "Étude verdoyante",
+      "ja": "緑の習作"
+    },
+    "description": "Олія на холсті. Пейзажний етюд у відтінках зеленого, ще в роботі — тимчасовий опис-заглушка.",
+    "widthCm": 50,
+    "heightCm": 65,
+    "priceUsd": 390,
+    "theme": "пейзаж",
     "status": "IN_PROGRESS",
-    "previewImageFile": "quiet-harbor.jpg"
+    "previewImageFile": "verdant-study.jpg"
+  },
+  {
+    "slug": "twilight-figure",
+    "title": {
+      "uk": "Сутінкова постать",
+      "en": "Twilight Figure",
+      "de": "Dämmerungsgestalt",
+      "fr": "Silhouette crépusculaire",
+      "ja": "たそがれの人影"
+    },
+    "description": "Олія на холсті. Фіолетово-сутінкова гама, м'які контури силуету — тимчасовий опис-заглушка.",
+    "widthCm": 65,
+    "heightCm": 85,
+    "priceUsd": 540,
+    "theme": "портрет",
+    "status": "AVAILABLE",
+    "previewImageFile": "twilight-figure.jpg"
   }
 ]

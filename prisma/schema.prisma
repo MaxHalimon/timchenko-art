@@ -81,7 +81,11 @@ model User {
 model Product {
   id          String        @id @default(cuid())
   slug        String        @unique
-  title       String
+  /// Localized: { "uk": "...", "en": "...", "de": "...", "fr": "...", "ja": "..." }
+  /// — one name per storefront language. Resolved via lib/localizedText.ts.
+  /// (description stays a single, untranslated string for now — same
+  /// known gap as always, see PAINTINGS_GUIDE.md.)
+  title       Json
   description String        @db.Text
   status      ProductStatus @default(IN_PROGRESS)
 

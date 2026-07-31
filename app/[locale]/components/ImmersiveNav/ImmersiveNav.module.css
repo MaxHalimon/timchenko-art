@@ -81,18 +81,12 @@
 }
 
 .easelCount {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 16px;
-  height: 16px;
-  padding: 0 4px;
-  margin-left: 6px;
-  border-radius: 999px;
-  background-color: var(--color-primary);
-  color: #ffffff;
+  vertical-align: super;
   font-size: 11px;
   font-weight: 600;
+  line-height: 1;
+  color: var(--color-primary);
+  margin-left: 2px;
 }
 
 .navLink:hover,
@@ -113,4 +107,50 @@
   align-items: center;
   gap: 8px;
   padding: 2px 6px 0;
+}
+
+/* Once the header has turned solid (past the video hero), unfurl the nav
+   into a normal inline bar — same look as SiteHeader's desktop nav —
+   instead of staying a click-to-open dropdown. Hamburger-only behavior is
+   kept for narrow screens, where there's no room for an inline nav even
+   once the header is solid (matches SiteHeader's own ≤720px breakpoint). */
+@media (min-width: 721px) {
+  .headerSolid .hamburger {
+    display: none;
+  }
+
+  .headerSolid .nav {
+    display: flex;
+    position: static;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-3);
+    width: auto;
+    min-width: 0;
+    max-width: none;
+    background: none;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    box-shadow: none;
+    font-size: 14px;
+  }
+
+  .headerSolid .navLink {
+    padding: 0;
+    border-radius: 0;
+  }
+
+  .headerSolid .navLink:hover,
+  .headerSolid .navLink:focus-visible {
+    background-color: transparent;
+  }
+
+  .headerSolid .navDivider {
+    display: none;
+  }
+
+  .headerSolid .switchers {
+    padding: 0;
+  }
 }

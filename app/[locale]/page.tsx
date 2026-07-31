@@ -1,5 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import { prisma } from "@/lib/prisma";
+import { localizedText } from "@/lib/localizedText";
 import { HeroVideo } from "./components/HeroVideo/HeroVideo";
 import { ArtistIntro } from "./components/ArtistIntro/ArtistIntro";
 import { ManifestoStatement } from "./components/ManifestoStatement/ManifestoStatement";
@@ -17,7 +18,12 @@ function shuffle<T>(items: T[]): T[] {
   return result;
 }
 
-export default async function HomePage() {
+interface HomePageProps {
+  params: Promise<{ locale: string }>;
+}
+
+export default async function HomePage({ params }: HomePageProps) {
+  const { locale } = await params;
   const t = await getTranslations("home");
 
   // "Останні роботи" carousel: a random selection of purchasable/in-progress
@@ -33,7 +39,7 @@ export default async function HomePage() {
     .slice(0, 10)
     .map((product) => ({
       slug: product.slug,
-      title: product.title,
+      title: localizedText(product.title, locale),
       previewImageUrl: product.previewImageKey,
       widthCm: product.widthCm,
       heightCm: product.heightCm,

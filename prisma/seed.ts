@@ -25,7 +25,7 @@ const prisma = new PrismaClient();
 
 interface PaintingInput {
   slug: string;
-  title: string;
+  title: Record<string, string>; // e.g. { uk: "...", en: "...", de: "...", fr: "...", ja: "..." }
   description: string;
   widthCm: number;
   heightCm: number;
@@ -37,6 +37,11 @@ interface PaintingInput {
 
 const DATA_PATH = path.join(__dirname, "paintings.json");
 const IMAGES_DIR = path.join(__dirname, "..", "public", "paintings");
+
+/** For console logs only — picks any one name to display, preferring Ukrainian. */
+function displayTitle(title: Record<string, string>): string {
+  return title.uk ?? title.en ?? Object.values(title)[0] ?? "(без назви)";
+}
 
 async function main() {
   if (!fs.existsSync(DATA_PATH)) {
@@ -55,7 +60,9 @@ async function main() {
   for (const painting of paintings) {
     const imagePath = path.join(IMAGES_DIR, painting.previewImageFile);
     if (!fs.existsSync(imagePath)) {
-      console.warn(`⚠️  Файл не знайдено: public/paintings/${painting.previewImageFile} (картина "${painting.title}")`);
+      console.warn(
+        `⚠️  Файл не знайдено: public/paintings/${painting.previewImageFile} (картина "${displayTitle(painting.title)}")`,
+      );
       missingImages++;
     }
 
@@ -86,7 +93,7 @@ async function main() {
       },
     });
 
-    console.log(`✓ ${painting.title} (${painting.slug})`);
+    console.log(`✓ ${displayTitle(painting.title)} (${painting.slug})`);
   }
 
   console.log(`\nГотово: ${paintings.length} картин(и) у базі.`);

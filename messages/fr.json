@@ -1,0 +1,303 @@
+{
+  "common": {
+    "siteName": "Timchenko Art",
+    "nav": {
+      "home": "Vitrine",
+      "gallery": "Galerie",
+      "tracking": "Suivi",
+      "openMenu": "Ouvrir le menu",
+      "closeMenu": "Fermer le menu",
+      "contact": "Écrire à l'artiste",
+      "easel": "Chevalet"
+    },
+    "footer": "Chaque œuvre est peinte à la main par l'artiste.",
+    "scrollHint": "Faites défiler"
+  },
+  "ageGate": {
+    "title": "Avez-vous 18 ans ou plus ?",
+    "description": "Ce site présente des œuvres destinées à un public adulte. Merci de confirmer votre âge pour continuer.",
+    "confirm": "Oui, j'ai 18 ans ou plus",
+    "decline": "Non"
+  },
+  "hero": {
+    "eyebrow": "Huile sur toile. Peint à la main.",
+    "title": "Choisissez une œuvre achevée dans la galerie — ou faites créer une pièce unique qui ne sera jamais reproduite.",
+    "description": "Marina peint chaque œuvre à la main, à l'huile, sur toile naturelle. Certaines pièces de la galerie peuvent être repeintes sur demande ; les commandes personnalisées sont peintes comme des originaux uniques.",
+    "cta": "Voir la galerie"
+  },
+  "home": {
+    "featuredHeading": "Vitrine des œuvres les plus appréciées",
+    "carouselPrev": "Œuvre précédente",
+    "carouselNext": "Œuvre suivante"
+  },
+  "productCard": {
+    "status": {
+      "AVAILABLE": "Disponible",
+      "IN_PROGRESS": "En cours",
+      "SOLD": "Vendu"
+    },
+    "dimensions": "{width} × {height} cm",
+    "material": "huile sur toile"
+  },
+  "product": {
+    "backToGallery": "← Retour à la galerie",
+    "descriptionHeading": "À propos de cette œuvre",
+    "detailsHeading": "Détails",
+    "dimensionsLabel": "Dimensions",
+    "materialLabel": "Matériau",
+    "themeLabel": "Thème",
+    "statusLabel": "Statut",
+    "relatedHeading": "Vous pourriez aussi aimer",
+    "notFoundTitle": "Peinture introuvable",
+    "notFoundBody": "Cette œuvre a peut-être été retirée du catalogue, ou le lien est incorrect.",
+    "notFoundCta": "Voir la galerie"
+  },
+  "languageSwitcher": {
+    "label": "Langue"
+  },
+  "backToTop": {
+    "label": "Retour en haut"
+  },
+  "legal": {
+    "privacyPolicy": {
+      "title": "Politique de confidentialité",
+      "lastUpdated": "Dernière mise à jour : [date]",
+      "intro": "Cette politique de confidentialité explique quelles données personnelles Timchenko Art collecte lorsque vous utilisez ce site, comment nous les utilisons et quels droits vous avez sur vos données.",
+      "sections": [
+        {
+          "heading": "Quelles données nous collectons",
+          "body": "Lorsque vous passez une commande, nous collectons votre nom, votre adresse e-mail, votre numéro de téléphone et votre adresse de livraison. Nous ne conservons pas les détails de votre carte bancaire — ceux-ci sont traités exclusivement par nos partenaires de paiement (Stripe, NOWPayments) selon leurs propres politiques de sécurité."
+        },
+        {
+          "heading": "Comment nous utilisons vos données",
+          "body": "Nous utilisons vos données pour traiter votre commande, communiquer sur le statut de livraison, et respecter nos obligations légales, y compris la tenue de registres fiscaux."
+        },
+        {
+          "heading": "Partage avec des tiers",
+          "body": "Nous ne partageons que le minimum de données nécessaire avec les prestataires de paiement et les transporteurs — uniquement pour exécuter votre commande. Nous ne vendons ni ne partageons vos données avec des réseaux publicitaires."
+        },
+        {
+          "heading": "Cookies",
+          "body": "Ce site utilise des cookies fonctionnels pour mémoriser votre langue, votre devise et votre confirmation d'âge. Nous n'utilisons pas de cookies publicitaires ou de suivi."
+        },
+        {
+          "heading": "Vos droits",
+          "body": "Conformément à la législation applicable en matière de protection des données (y compris le RGPD pour les clients de l'UE), vous avez le droit d'accéder à vos données personnelles, de les corriger et de les supprimer. Contactez-nous à maryna.timchenko.art@gmail.com pour exercer ces droits."
+        }
+      ]
+    },
+    "termsOfService": {
+      "title": "Conditions générales de vente",
+      "lastUpdated": "Dernière mise à jour : [date]",
+      "intro": "Ces conditions régissent votre utilisation du site Timchenko Art et l'achat des peintures qui y sont proposées.",
+      "sections": [
+        {
+          "heading": "À propos de ce site",
+          "body": "Timchenko Art est le vendeur officiel (Merchant of Record) des peintures à l'huile originales de l'artiste Marina. L'artiste crée les œuvres et les prépare pour l'expédition ; toutes les transactions clients sont gérées par le site."
+        },
+        {
+          "heading": "Restrictions de commande",
+          "body": "Nous n'acceptons ni ne traitons de commandes provenant de clients situés en Fédération de Russie, conformément à notre position sur son agression armée en cours contre l'Ukraine."
+        },
+        {
+          "heading": "Peintures et unicité",
+          "body": "Certaines pièces de la galerie peuvent être repeintes par l'artiste sur demande. Les commandes personnalisées sont peintes comme des originaux uniques et ne sont pas reproduites par la suite."
+        },
+        {
+          "heading": "Prix et paiement",
+          "body": "Les prix peuvent être affichés dans la devise de votre choix pour plus de commodité ; le débit effectif est traité par notre prestataire de paiement (Stripe ou NOWPayments) et peut varier légèrement selon le taux de conversion au moment du paiement."
+        },
+        {
+          "heading": "Restriction d'âge",
+          "body": "Ce site est destiné à un public adulte (18 ans et plus), certaines œuvres présentées pouvant inclure des sujets dénudés."
+        },
+        {
+          "heading": "Loi applicable",
+          "body": "Ces conditions sont régies par les lois de [juridiction — à confirmer]."
+        }
+      ]
+    },
+    "shippingPolicy": {
+      "title": "Politique d'expédition",
+      "lastUpdated": "Dernière mise à jour : [date]",
+      "intro": "Cette page explique comment nous emballons, expédions et suivons votre commande.",
+      "sections": [
+        {
+          "heading": "Délai de traitement",
+          "body": "Les peintures marquées « Disponible » sont généralement expédiées sous [X] jours ouvrés après paiement. Les commandes personnalisées nécessitent un délai supplémentaire pour que l'artiste achève l'œuvre — une estimation vous est communiquée séparément lors de la commande."
+        },
+        {
+          "heading": "Emballage",
+          "body": "Les peintures sont emballées en tenant compte de leur fragilité : encadrement rigide, protections d'angle et emballage résistant à l'humidité."
+        },
+        {
+          "heading": "Expédition internationale",
+          "body": "Nous expédions vers l'Ukraine, les pays de l'UE, le Japon et ailleurs. Les droits de douane et taxes d'importation (le cas échéant) sont à la charge du destinataire."
+        },
+        {
+          "heading": "Suivi de commande",
+          "body": "Une fois votre commande expédiée, vous recevrez un numéro de suivi par e-mail. Le suivi de colis sur le site est actuellement en cours de développement."
+        }
+      ]
+    },
+    "returnsRefunds": {
+      "title": "Retours et remboursements",
+      "lastUpdated": "Dernière mise à jour : [date]",
+      "intro": "Cette politique explique les conditions de retour des peintures et de remboursement.",
+      "sections": [
+        {
+          "heading": "Pièces de galerie déjà réalisées",
+          "body": "Pour les peintures achetées déjà réalisées (statut « Disponible » au moment de la commande), les retours sont acceptés dans les [X] jours suivant la livraison, à condition que l'article soit dans son état d'origine."
+        },
+        {
+          "heading": "Commandes personnalisées",
+          "body": "Les peintures réalisées sur commande personnalisée ne sont généralement pas remboursables en raison de leur caractère personnalisé — sauf en cas de dommage pendant le transport."
+        },
+        {
+          "heading": "Dommage pendant le transport",
+          "body": "Si votre peinture arrive endommagée, contactez-nous dans les 48 heures avec des photos des dommages — nous organiserons un remplacement ou un remboursement intégral."
+        },
+        {
+          "heading": "Comment demander un retour",
+          "body": "Envoyez un e-mail à maryna.timchenko.art@gmail.com avec votre numéro de commande et le motif du retour. Nous répondrons sous [X] jours ouvrés."
+        }
+      ]
+    }
+  },
+  "gallery": {
+    "heading": "Galerie",
+    "count": "{count, plural, one {# œuvre} other {# œuvres}}",
+    "empty": "Aucune peinture ne correspond à ces filtres. Essayez d'en retirer un.",
+    "filters": {
+      "sizeAll": "Taille : toutes",
+      "themeAll": "Thème : tous",
+      "statusAll": "Statut : tous",
+      "sizeSmall": "Jusqu'à 50 cm",
+      "sizeMedium": "50–80 cm",
+      "sizeLarge": "Plus de 80 cm"
+    }
+  },
+  "contact": {
+    "title": "Écrire à l'artiste",
+    "intro": "Une question sur une peinture, une expédition ou une commande personnalisée ? Écrivez-nous — nous répondons personnellement, sans réponses automatiques.",
+    "emailLabel": "E-mail",
+    "form": {
+      "nameLabel": "Nom",
+      "namePlaceholder": "Comment devons-nous vous appeler",
+      "emailLabel": "E-mail",
+      "emailPlaceholder": "votre@email.com",
+      "messageLabel": "Message",
+      "messagePlaceholder": "Dites-nous comment nous pouvons vous aider...",
+      "submit": "Envoyer",
+      "sending": "Envoi en cours...",
+      "success": "Merci ! Nous vous répondrons dès que possible.",
+      "error": "Une erreur s'est produite. Veuillez réessayer, ou nous écrire directement à l'adresse ci-dessus."
+    },
+    "formHeading": "Envoyer un message",
+    "getInTouchHeading": "Nous contacter"
+  },
+  "solidarity": {
+    "heading": "Notre position",
+    "body": "Nous condamnons ouvertement l'agression armée de la Russie contre l'Ukraine et d'autres nations, et n'acceptons pas de commandes de clients situés en Russie."
+  },
+  "artistIntro": {
+    "heading": "Maryna Timchenko : un art qui dépasse les frontières",
+    "paragraphs": [
+      "Maryna Timchenko est une artiste ukrainienne contemporaine dont le travail dépasse les idées conventionnelles de la beauté. Elle travaille dans le genre érotique non pas par provocation, mais comme une façon d'explorer les aspects plus profonds de la nature humaine, de la corporalité et de la liberté émotionnelle.",
+      "Née en Ukraine, le parcours de Maryna l'a menée d'une formation artistique classique à un style personnel distinctif, où le corps devient langage et l'émotion devient couleur. Son travail équilibre tendresse et passion, réalisme et abstraction, l'intime et l'universel.",
+      "En 2022, la guerre en Ukraine l'a forcée à quitter son pays natal. Elle vit désormais en Allemagne, où elle continue de créer, puisant son inspiration dans son nouvel environnement tout en gardant un lien profond avec la culture et l'identité ukrainiennes. Son art est devenu une façon de préserver à la fois elle-même et la voix de l'Ukraine dans le monde."
+    ],
+    "featuresHeading": "Caractéristiques de son travail :",
+    "features": [
+      {
+        "label": "Un style distinctif",
+        "text": "Le réalisme combiné à une abstraction émotionnelle."
+      },
+      {
+        "label": "Profondeur du sujet",
+        "text": "Chaque œuvre raconte une histoire sur les relations humaines, le désir et la vulnérabilité."
+      },
+      {
+        "label": "Technique",
+        "text": "Un travail à travers différents matériaux, de l'huile et l'aquarelle aux outils numériques."
+      },
+      {
+        "label": "Une voix contemporaine",
+        "text": "Un art qui parle le langage d'aujourd'hui tout en conservant des thèmes intemporels."
+      }
+    ],
+    "exhibitions": "Le travail de Maryna Timchenko a été exposé en Ukraine, en Allemagne et aux Pays-Bas, notamment lors d'événements internationaux tels que le Gogolfest (Kyiv), le Shibari Fest Ukraine et l'A'DAM INT'L ART FAIR (Amsterdam). En 2024, elle a tenu une exposition solo à Karlsruhe, en Allemagne, à la galerie DCS Contemporary.",
+    "whyBuyHeading": "Pourquoi acquérir une œuvre de Maryna Timchenko ?",
+    "whyBuy": [
+      {
+        "label": "Exclusivité",
+        "text": "Chaque peinture est unique en son genre."
+      },
+      {
+        "label": "Impact émotionnel",
+        "text": "Son travail invite à une réflexion profonde et à une émotion sincère."
+      },
+      {
+        "label": "Un investissement dans l'art contemporain",
+        "text": "Sa pratique continue d'évoluer, et sa valeur augmente avec elle."
+      },
+      {
+        "label": "Soutenir l'art ukrainien",
+        "text": "Acheter son travail aide la culture ukrainienne à se faire entendre dans le monde."
+      }
+    ],
+    "closing": "Découvrez l'univers de Maryna Timchenko — un art qui touche l'âme et suscite une émotion sincère."
+  },
+  "tracking": {
+    "title": "Suivi",
+    "intro": "Saisissez votre numéro de commande ou le numéro de suivi reçu après le paiement pour voir où se trouve votre peinture en ce moment — du premier coup de pinceau jusqu'à sa livraison.",
+    "inputLabel": "Numéro de commande ou numéro de suivi",
+    "inputPlaceholder": "Saisissez le numéro",
+    "submit": "Vérifier le statut",
+    "checking": "Vérification...",
+    "notFound": "Aucune commande trouvée avec ce numéro. Veuillez le vérifier et réessayer.",
+    "error": "Une erreur s'est produite. Veuillez réessayer dans quelques instants.",
+    "resultHeading": "Statut de votre commande",
+    "paintingLabel": "Peinture",
+    "trackingNumberLabel": "Numéro de suivi",
+    "carrierLabel": "Transporteur",
+    "status": {
+      "PREVIEW": "En attente de paiement",
+      "PAID": "Payé — en préparation",
+      "IN_PROGRESS": "Marina travaille sur votre peinture",
+      "SHIPPED": "Expédié",
+      "DELIVERED": "Livré"
+    },
+    "fillerHeading": "Comment nous prenons soin de votre peinture en transit",
+    "fillerText": "Avant de voyager jusqu'à vous, chaque œuvre est emballée à la main — avec le même soin qu'elle a été peinte. Encadrement rigide, protections d'angle, emballage résistant à l'humidité. Pour tous les détails sur les délais et l'expédition internationale, consultez la",
+    "fillerLinkText": "Politique d'expédition"
+  },
+  "easel": {
+    "add": "Poser sur le chevalet",
+    "onEasel": "Sur le chevalet",
+    "remove": "Retirer",
+    "unavailable": "Plus disponible",
+    "title": "Chevalet",
+    "empty": "Votre chevalet est vide pour l'instant.",
+    "browseGallery": "Voir la galerie",
+    "itemsHeading": "Œuvres sur le chevalet",
+    "total": "Total",
+    "checkoutHeading": "Commande",
+    "form": {
+      "name": "Nom",
+      "email": "E-mail",
+      "country": "Pays",
+      "city": "Ville",
+      "postalCode": "Code postal",
+      "addressLine1": "Adresse",
+      "addressLine2": "Appartement, étage, etc. (facultatif)",
+      "phone": "Téléphone",
+      "submit": "Passer la commande",
+      "submitting": "Commande en cours..."
+    },
+    "error": "Une erreur s'est produite. Veuillez réessayer.",
+    "itemUnavailableError": "Une des œuvres n'est plus disponible — veuillez actualiser votre chevalet.",
+    "intro": "Voici les œuvres que vous avez pris le temps d'apprécier. Quand vous serez prêt, dites-nous où les envoyer.",
+    "loading": "Chargement de votre chevalet..."
+  }
+}
