@@ -14,6 +14,7 @@ const STATUS_VALUES = ["AVAILABLE", "IN_PROGRESS", "SOLD"] as const;
 
 export function FilterBar({ themeOptions, current }: FilterBarProps) {
   const t = useTranslations("gallery.filters");
+  const tThemes = useTranslations("gallery.themes");
   const tStatus = useTranslations("productCard.status");
   const router = useRouter();
   const pathname = usePathname();
@@ -60,7 +61,7 @@ export function FilterBar({ themeOptions, current }: FilterBarProps) {
         <option value="">{t("themeAll")}</option>
         {themeOptions.map((theme) => (
           <option key={theme} value={theme}>
-            {theme}
+            {tThemes.has(theme) ? tThemes(theme) : theme}
           </option>
         ))}
       </select>

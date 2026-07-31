@@ -15,7 +15,7 @@ export function LanguageSwitcher() {
     <select
       aria-label={t("label")}
       value={locale}
-      onChange={(e) => router.replace(pathname, { locale: e.target.value as Locale })}
+      onChange={(e) => router.replace(pathname, { locale: e.target.value as Locale, scroll: false })}
       className={styles.select}
     >
       {locales.map((code) => (

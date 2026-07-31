@@ -175,6 +175,12 @@
       "sizeSmall": "50cm以下",
       "sizeMedium": "50〜80cm",
       "sizeLarge": "80cm以上"
+    },
+    "themes": {
+      "landscape": "風景",
+      "portrait": "肖像画",
+      "stillLife": "静物画",
+      "abstract": "抽象画"
     }
   },
   "contact": {

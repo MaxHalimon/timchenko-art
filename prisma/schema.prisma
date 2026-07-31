@@ -83,15 +83,19 @@ model Product {
   slug        String        @unique
   /// Localized: { "uk": "...", "en": "...", "de": "...", "fr": "...", "ja": "..." }
   /// — one name per storefront language. Resolved via lib/localizedText.ts.
-  /// (description stays a single, untranslated string for now — same
-  /// known gap as always, see PAINTINGS_GUIDE.md.)
   title       Json
-  description String        @db.Text
+  /// Localized the same way as `title` — one description per storefront
+  /// language, same fallback via lib/localizedText.ts.
+  description Json
   status      ProductStatus @default(IN_PROGRESS)
 
   widthCm  Int
   heightCm Int
-  material String  @default("Олія, полотно")
+  material String  @default("Олія, полотно") // not shown directly yet — every piece currently displays the same translated productCard.material string; revisit if pieces in different media need distinct labels
+  /// Stable, language-independent slug used for catalog filtering (see
+  /// gallery.themes.* in messages/*.json for the translated label shown
+  /// to visitors). Free text is still accepted — untranslated themes just
+  /// display as-is (see FilterBar.tsx / product/[slug]/page.tsx).
   theme    String? // for catalog filtering
 
   priceUsd Decimal @db.Decimal(10, 2)

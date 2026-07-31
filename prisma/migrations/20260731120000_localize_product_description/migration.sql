@@ -1,0 +1,15 @@
+-- Product.description: TEXT -> JSONB, same treatment as the earlier
+-- title migration (20260730203000_localize_product_title) — each
+-- painting gets one description per storefront language
+-- ({ "uk": "...", "en": "...", "de": "...", "fr": "...", "ja": "..." }).
+--
+-- Existing plain-text values are wrapped as a JSON string via to_jsonb()
+-- (not an object) — lib/localizedText.ts already handles that shape as a
+-- fallback. Re-running `npm run prisma:seed` with the updated
+-- prisma/paintings.json (description as a { locale: text } object)
+-- replaces these with proper per-locale objects.
+--
+-- IMPORTANT: run `npx prisma generate` before reseeding — see the note in
+-- the previous title migration for why (a stale client silently
+-- serializes the object into a plain string instead of storing real JSON).
+ALTER TABLE "products" ALTER COLUMN "description" TYPE JSONB USING to_jsonb("description");

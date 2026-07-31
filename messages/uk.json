@@ -175,6 +175,12 @@
       "sizeSmall": "До 50 см",
       "sizeMedium": "50–80 см",
       "sizeLarge": "Понад 80 см"
+    },
+    "themes": {
+      "landscape": "пейзаж",
+      "portrait": "портрет",
+      "stillLife": "натюрморт",
+      "abstract": "абстракція"
     }
   },
   "contact": {

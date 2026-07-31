@@ -175,6 +175,12 @@
       "sizeSmall": "Jusqu'à 50 cm",
       "sizeMedium": "50–80 cm",
       "sizeLarge": "Plus de 80 cm"
+    },
+    "themes": {
+      "landscape": "paysage",
+      "portrait": "portrait",
+      "stillLife": "nature morte",
+      "abstract": "abstrait"
     }
   },
   "contact": {

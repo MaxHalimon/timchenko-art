@@ -147,18 +147,20 @@ export default function EaselPage() {
           <div className={styles.itemList}>
             {products.map((product) => (
               <div className={styles.item} key={product.slug}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={product.previewImageUrl} alt={product.title} className={styles.itemImage} />
-                <div className={styles.itemInfo}>
-                  <p className={styles.itemTitle}>{product.title}</p>
-                  {product.status === "AVAILABLE" ? (
-                    <p className={styles.itemMeta}>
-                      {product.widthCm} × {product.heightCm} cm · <PriceTag amountUsd={product.priceUsd} />
-                    </p>
-                  ) : (
-                    <p className={styles.itemUnavailable}>{tProductCard(`status.${product.status}`)}</p>
-                  )}
-                </div>
+                <Link href={`/product/${product.slug}`} className={styles.itemLink}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={product.previewImageUrl} alt={product.title} className={styles.itemImage} />
+                  <div className={styles.itemInfo}>
+                    <p className={styles.itemTitle}>{product.title}</p>
+                    {product.status === "AVAILABLE" ? (
+                      <p className={styles.itemMeta}>
+                        {product.widthCm} × {product.heightCm} cm · <PriceTag amountUsd={product.priceUsd} />
+                      </p>
+                    ) : (
+                      <p className={styles.itemUnavailable}>{tProductCard(`status.${product.status}`)}</p>
+                    )}
+                  </div>
+                </Link>
                 <button
                   type="button"
                   className={styles.removeButton}

@@ -8,11 +8,17 @@
       "fr": "Silence ambré",
       "ja": "琥珀の静寂"
     },
-    "description": "Олія на холсті. Тепла натюрмортна композиція у бурштинових і карамельних тонах — тимчасовий опис-заглушка, буде замінено після завантаження реального Excel-файлу.",
+    "description": {
+      "uk": "Олія на холсті. Тепла натюрмортна композиція у бурштинових і карамельних тонах — тимчасовий опис-заглушка, буде замінено після завантаження реального Excel-файлу.",
+      "en": "Oil on canvas. A warm still-life composition in amber and caramel tones — a temporary placeholder description, to be replaced once the real Excel file is uploaded.",
+      "de": "Öl auf Leinwand. Eine warme Stillleben-Komposition in Bernstein- und Karamelltönen — eine vorläufige Platzhalterbeschreibung, die nach dem Hochladen der echten Excel-Datei ersetzt wird.",
+      "fr": "Huile sur toile. Une composition de nature morte chaleureuse dans des tons ambrés et caramel — description provisoire, qui sera remplacée une fois le fichier Excel réel importé.",
+      "ja": "油彩、キャンバス。琥珀とキャラメルの色調で描かれた温かみのある静物画 — これは仮の説明文で、実際のExcelファイルがアップロードされ次第、差し替えられます。"
+    },
     "widthCm": 60,
     "heightCm": 75,
     "priceUsd": 480,
-    "theme": "натюрморт",
+    "theme": "stillLife",
     "status": "AVAILABLE",
     "previewImageFile": "amber-still-life.jpg"
   },
@@ -25,11 +31,17 @@
       "fr": "Rêverie azurée",
       "ja": "紺碧の夢想"
     },
-    "description": "Олія на холсті. Прохолодна блакитно-синя гама, спокійний споглядальний настрій — тимчасовий опис-заглушка.",
+    "description": {
+      "uk": "Олія на холсті. Прохолодна блакитно-синя гама, спокійний споглядальний настрій — тимчасовий опис-заглушка.",
+      "en": "Oil on canvas. A cool blue-and-azure palette, a calm, contemplative mood — a temporary placeholder description.",
+      "de": "Öl auf Leinwand. Eine kühle Blau-Azur-Palette, eine ruhige, kontemplative Stimmung — eine vorläufige Platzhalterbeschreibung.",
+      "fr": "Huile sur toile. Une palette bleu-azur fraîche, une ambiance calme et contemplative — description provisoire.",
+      "ja": "油彩、キャンバス。涼しげな青と紺碧の配色、静かで瞑想的な雰囲気 — 仮の説明文です。"
+    },
     "widthCm": 70,
     "heightCm": 90,
     "priceUsd": 620,
-    "theme": "абстракція",
+    "theme": "abstract",
     "status": "AVAILABLE",
     "previewImageFile": "azure-reverie.jpg"
   },
@@ -42,11 +54,17 @@
       "fr": "L'heure pourpre",
       "ja": "紅の刻"
     },
-    "description": "Олія на холсті. Насичена червоно-бордова палітра, драматичне освітлення — тимчасовий опис-заглушка.",
+    "description": {
+      "uk": "Олія на холсті. Насичена червоно-бордова палітра, драматичне освітлення — тимчасовий опис-заглушка.",
+      "en": "Oil on canvas. A rich red-and-burgundy palette, dramatic lighting — a temporary placeholder description.",
+      "de": "Öl auf Leinwand. Eine satte Rot-Bordeaux-Palette, dramatische Beleuchtung — eine vorläufige Platzhalterbeschreibung.",
+      "fr": "Huile sur toile. Une palette riche de rouge et bordeaux, un éclairage dramatique — description provisoire.",
+      "ja": "油彩、キャンバス。深みのある赤とボルドーの配色、ドラマチックな光の演出 — 仮の説明文です。"
+    },
     "widthCm": 80,
     "heightCm": 100,
     "priceUsd": 950,
-    "theme": "портрет",
+    "theme": "portrait",
     "status": "SOLD",
     "previewImageFile": "crimson-hour.jpg"
   },
@@ -59,11 +77,17 @@
       "fr": "Étude verdoyante",
       "ja": "緑の習作"
     },
-    "description": "Олія на холсті. Пейзажний етюд у відтінках зеленого, ще в роботі — тимчасовий опис-заглушка.",
+    "description": {
+      "uk": "Олія на холсті. Пейзажний етюд у відтінках зеленого, ще в роботі — тимчасовий опис-заглушка.",
+      "en": "Oil on canvas. A landscape study in shades of green, still in progress — a temporary placeholder description.",
+      "de": "Öl auf Leinwand. Eine Landschaftsstudie in Grüntönen, noch in Arbeit — eine vorläufige Platzhalterbeschreibung.",
+      "fr": "Huile sur toile. Une étude de paysage dans des tons de vert, encore en cours — description provisoire.",
+      "ja": "油彩、キャンバス。緑の濃淡で描かれた風景習作、現在制作中 — 仮の説明文です。"
+    },
     "widthCm": 50,
     "heightCm": 65,
     "priceUsd": 390,
-    "theme": "пейзаж",
+    "theme": "landscape",
     "status": "IN_PROGRESS",
     "previewImageFile": "verdant-study.jpg"
   },
@@ -76,11 +100,17 @@
       "fr": "Silhouette crépusculaire",
       "ja": "たそがれの人影"
     },
-    "description": "Олія на холсті. Фіолетово-сутінкова гама, м'які контури силуету — тимчасовий опис-заглушка.",
+    "description": {
+      "uk": "Олія на холсті. Фіолетово-сутінкова гама, м'які контури силуету — тимчасовий опис-заглушка.",
+      "en": "Oil on canvas. A violet, twilight-toned palette, softly outlined silhouette — a temporary placeholder description.",
+      "de": "Öl auf Leinwand. Eine violette Dämmerungspalette, weich konturierte Silhouette — eine vorläufige Platzhalterbeschreibung.",
+      "fr": "Huile sur toile. Une palette violette crépusculaire, silhouette aux contours doux — description provisoire.",
+      "ja": "油彩、キャンバス。紫がかった黄昏色の配色、柔らかな輪郭のシルエット — 仮の説明文です。"
+    },
     "widthCm": 65,
     "heightCm": 85,
     "priceUsd": 540,
-    "theme": "портрет",
+    "theme": "portrait",
     "status": "AVAILABLE",
     "previewImageFile": "twilight-figure.jpg"
   }

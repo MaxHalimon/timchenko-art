@@ -26,7 +26,7 @@ const prisma = new PrismaClient();
 interface PaintingInput {
   slug: string;
   title: Record<string, string>; // e.g. { uk: "...", en: "...", de: "...", fr: "...", ja: "..." }
-  description: string;
+  description: Record<string, string>; // same shape as title
   widthCm: number;
   heightCm: number;
   priceUsd: number;

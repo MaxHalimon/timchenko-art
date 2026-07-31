@@ -2,17 +2,12 @@ import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
-import { cookies } from "next/headers";
-import "./globals.css";
 import { locales, type Locale } from "@/i18n/config";
-import { CURRENCY_COOKIE, SUPPORTED_CURRENCIES, type CurrencyCode } from "@/lib/currency";
-import { CurrencyProvider } from "./providers/CurrencyProvider";
-import { EaselProvider } from "./providers/EaselProvider";
 import { AgeGate } from "./components/AgeGate/AgeGate";
 import { SiteHeaderSwitch } from "./components/SiteHeaderSwitch/SiteHeaderSwitch";
 import { SiteFooter } from "./components/SiteFooter/SiteFooter";
 import { BackToTop } from "./components/BackToTop/BackToTop";
-import { AmbientBackground } from "./components/AmbientBackground/AmbientBackground";
+import { HtmlLangSync } from "./components/HtmlLangSync/HtmlLangSync";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -31,6 +26,14 @@ export const metadata: Metadata = {
   robots: ALLOW_INDEXING ? undefined : { index: false, follow: false },
 };
 
+/**
+ * Everything here — header/nav, age gate, footer — needs translated text,
+ * which means it must sit below NextIntlClientProvider, which means it
+ * must sit inside this `[locale]` segment. That in turn means all of it
+ * remounts on a locale switch (see app/layout.tsx for why). Cart state,
+ * currency, and the decorative background live one level up specifically
+ * to avoid being part of that remount.
+ */
 export default async function LocaleLayout({
   children,
   params,
@@ -46,33 +49,16 @@ export default async function LocaleLayout({
 
   const messages = await getMessages();
 
-  // Middleware already set this cookie (geo guess or a prior manual choice)
-  // before this request ever reached a page — read it here so the very
-  // first server-rendered paint already shows the right currency, no flash.
-  const cookieStore = await cookies();
-  const cookieCurrency = cookieStore.get(CURRENCY_COOKIE)?.value as CurrencyCode | undefined;
-  const initialCurrency: CurrencyCode = SUPPORTED_CURRENCIES.includes(cookieCurrency as CurrencyCode)
-    ? (cookieCurrency as CurrencyCode)
-    : "USD";
-
   return (
-    <html lang={locale}>
-      <body>
-        <NextIntlClientProvider messages={messages}>
-          <CurrencyProvider initialCurrency={initialCurrency}>
-            <EaselProvider>
-              <AmbientBackground />
-              {/* Blocks interaction until the visitor confirms they are 18+.
-                  State is persisted client-side (see AgeGate.tsx). */}
-              <AgeGate />
-              <SiteHeaderSwitch />
-              <main>{children}</main>
-              <SiteFooter />
-              <BackToTop />
-            </EaselProvider>
-          </CurrencyProvider>
-        </NextIntlClientProvider>
-      </body>
-    </html>
+    <NextIntlClientProvider messages={messages}>
+      <HtmlLangSync locale={locale} />
+      {/* Blocks interaction until the visitor confirms they are 18+.
+          State is persisted client-side (see AgeGate.tsx). */}
+      <AgeGate />
+      <SiteHeaderSwitch />
+      <main>{children}</main>
+      <SiteFooter />
+      <BackToTop />
+    </NextIntlClientProvider>
   );
 }

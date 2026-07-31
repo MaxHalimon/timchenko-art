@@ -62,15 +62,16 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
 
   return {
     title: `${localizedText(product.title, locale)} — Timchenko Art`,
-    description: product.description,
+    description: localizedText(product.description, locale),
   };
 }
 
 export default async function ProductPage({ params }: ProductPageProps) {
   const { slug, locale } = await params;
-  const [t, tCard, product] = await Promise.all([
+  const [t, tCard, tThemes, product] = await Promise.all([
     getTranslations("product"),
     getTranslations("productCard"),
+    getTranslations("gallery.themes"),
     getProduct(slug),
   ]);
 
@@ -80,6 +81,8 @@ export default async function ProductPage({ params }: ProductPageProps) {
   const isSold = product.status === "SOLD";
   const status = product.status as ProductStatus;
   const title = localizedText(product.title, locale);
+  const description = localizedText(product.description, locale);
+  const themeLabel = product.theme ? (tThemes.has(product.theme) ? tThemes(product.theme) : product.theme) : null;
 
   return (
     <div className={styles.page}>
@@ -109,10 +112,10 @@ export default async function ProductPage({ params }: ProductPageProps) {
             <EaselButton slug={product.slug} disabled={isSold} />
           </div>
 
-          {product.description && (
+          {description && (
             <section className={styles.section}>
               <h2 className={styles.sectionHeading}>{t("descriptionHeading")}</h2>
-              <p className={styles.description}>{product.description}</p>
+              <p className={styles.description}>{description}</p>
             </section>
           )}
 
@@ -125,12 +128,12 @@ export default async function ProductPage({ params }: ProductPageProps) {
               </div>
               <div className={styles.detailRow}>
                 <dt>{t("materialLabel")}</dt>
-                <dd>{product.material}</dd>
+                <dd>{tCard("material")}</dd>
               </div>
-              {product.theme && (
+              {themeLabel && (
                 <div className={styles.detailRow}>
                   <dt>{t("themeLabel")}</dt>
-                  <dd>{product.theme}</dd>
+                  <dd>{themeLabel}</dd>
                 </div>
               )}
               <div className={styles.detailRow}>

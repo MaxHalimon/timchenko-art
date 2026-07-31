@@ -49,10 +49,15 @@
 }
 
 /* Click feedback only — a brief 0.5s color flash, independent of hover.
-   Comes after .arrow:hover in the stylesheet so it wins while the flash
-   is active, then transitions back to whatever state (hover or not)
-   applies once the flash class is removed. */
-.arrowFlash {
+   The second selector (.arrow:hover.arrowFlash) exists purely to win the
+   specificity fight with .arrow:hover above: without it, as long as the
+   cursor stays on the button after the click, :hover's `color` rule
+   outranks this one (same class-count, but :hover adds a pseudo-class),
+   so only the background would flash and the icon stayed accent-colored
+   instead of turning white — this makes the flash consistent regardless
+   of whether the cursor is still on the button. */
+.arrowFlash,
+.arrow:hover.arrowFlash {
   background-color: var(--color-primary);
   color: #ffffff;
   border-color: var(--color-primary);
