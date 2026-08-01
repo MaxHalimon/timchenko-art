@@ -1,0 +1,91 @@
+.wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.viewport {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.track {
+  display: flex;
+  gap: var(--space-3);
+  will-change: transform;
+}
+
+/* Every painting renders at exactly the same box size, whatever its own
+   real aspect ratio — object-fit: cover crops to fill it — so the row
+   reads as a clean, uniform strip of images rather than a mix of shapes. */
+.item {
+  flex: 0 0 220px;
+  aspect-ratio: 4 / 5;
+  border: none;
+  padding: 0;
+  background: none;
+  cursor: pointer;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: var(--transition-base);
+}
+
+.item:hover,
+.item:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.arrow {
+  position: relative;
+  flex: 0 0 auto;
+  z-index: 5;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  color: var(--color-text);
+  transition: var(--transition-base);
+}
+
+.arrow:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.arrowFlash,
+.arrow:hover.arrowFlash {
+  background-color: var(--color-primary);
+  color: #ffffff;
+  border-color: var(--color-primary);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track {
+    transition: none !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .arrow {
+    display: none;
+  }
+
+  .item {
+    flex-basis: 160px;
+  }
+}

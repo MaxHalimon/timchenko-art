@@ -30,6 +30,15 @@
     "carouselPrev": "Œuvre précédente",
     "carouselNext": "Œuvre suivante"
   },
+  "slideshow": {
+    "close": "Fermer",
+    "play": "Lancer le diaporama",
+    "pause": "Mettre en pause le diaporama",
+    "prev": "Image précédente",
+    "next": "Image suivante",
+    "goToGallery": "Voir la galerie",
+    "counter": "{current} sur {total}"
+  },
   "productCard": {
     "status": {
       "AVAILABLE": "Disponible",

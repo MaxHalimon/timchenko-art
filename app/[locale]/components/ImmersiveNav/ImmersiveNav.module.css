@@ -112,8 +112,8 @@
    into a normal inline bar — same look as SiteHeader's desktop nav —
    instead of staying a click-to-open dropdown. Hamburger-only behavior is
    kept for narrow screens, where there's no room for an inline nav even
-   once the header is solid (matches SiteHeader's own ≤720px breakpoint). */
-@media (min-width: 721px) {
+   once the header is solid (matches SiteHeader's own ≤940px breakpoint). */
+@media (min-width: 941px) {
   .headerSolid .hamburger {
     display: none;
   }

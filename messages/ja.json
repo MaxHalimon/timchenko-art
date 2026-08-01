@@ -30,6 +30,15 @@
     "carouselPrev": "前の作品",
     "carouselNext": "次の作品"
   },
+  "slideshow": {
+    "close": "閉じる",
+    "play": "スライドショーを再生",
+    "pause": "スライドショーを一時停止",
+    "prev": "前の画像",
+    "next": "次の画像",
+    "goToGallery": "ギャラリーへ",
+    "counter": "{total}件中{current}件目"
+  },
   "productCard": {
     "status": {
       "AVAILABLE": "在庫あり",

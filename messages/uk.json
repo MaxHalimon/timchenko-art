@@ -30,6 +30,15 @@
     "carouselPrev": "Попередня робота",
     "carouselNext": "Наступна робота"
   },
+  "slideshow": {
+    "close": "Закрити",
+    "play": "Відтворити слайд-шоу",
+    "pause": "Призупинити слайд-шоу",
+    "prev": "Попереднє зображення",
+    "next": "Наступне зображення",
+    "goToGallery": "Перейти до галереї",
+    "counter": "{current} з {total}"
+  },
   "productCard": {
     "status": {
       "AVAILABLE": "Готова",

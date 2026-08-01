@@ -67,7 +67,7 @@
   cursor: pointer;
 }
 
-@media (max-width: 720px) {
+@media (max-width: 940px) {
   .header {
     position: relative; /* anchors the dropdown nav below via .nav's absolute positioning */
   }

@@ -30,6 +30,15 @@
     "carouselPrev": "Previous piece",
     "carouselNext": "Next piece"
   },
+  "slideshow": {
+    "close": "Close",
+    "play": "Play slideshow",
+    "pause": "Pause slideshow",
+    "prev": "Previous image",
+    "next": "Next image",
+    "goToGallery": "Go to gallery",
+    "counter": "{current} of {total}"
+  },
   "productCard": {
     "status": {
       "AVAILABLE": "Ready",

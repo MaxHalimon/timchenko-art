@@ -4,9 +4,8 @@ import { localizedText } from "@/lib/localizedText";
 import { HeroVideo } from "./components/HeroVideo/HeroVideo";
 import { ArtistIntro } from "./components/ArtistIntro/ArtistIntro";
 import { ManifestoStatement } from "./components/ManifestoStatement/ManifestoStatement";
-import { ProductCarousel } from "./components/ProductCarousel/ProductCarousel";
+import { ShowcaseCarousel } from "./components/ShowcaseCarousel/ShowcaseCarousel";
 import { AccentText } from "./components/AccentText/AccentText";
-import type { ProductStatus } from "./components/ProductCard/ProductCard";
 import styles from "./components/shared/ProductGrid.module.css";
 
 function shuffle<T>(items: T[]): T[] {
@@ -26,7 +25,7 @@ export default async function HomePage({ params }: HomePageProps) {
   const { locale } = await params;
   const t = await getTranslations("home");
 
-  // "Останні роботи" carousel: a random selection of purchasable/in-progress
+  // "Вітрина" carousel: a random selection of purchasable/in-progress
   // pieces (SOLD stays out) — pulled fresh from a bounded recent pool and
   // shuffled per page load, so it's not the same lineup every visit.
   const pool = await prisma.product.findMany({
@@ -35,16 +34,12 @@ export default async function HomePage({ params }: HomePageProps) {
     take: 20,
   });
 
-  const carouselProducts = shuffle(pool)
+  const showcaseImages = shuffle(pool)
     .slice(0, 10)
     .map((product) => ({
       slug: product.slug,
       title: localizedText(product.title, locale),
       previewImageUrl: product.previewImageKey,
-      widthCm: product.widthCm,
-      heightCm: product.heightCm,
-      priceUsd: Number(product.priceUsd),
-      status: product.status as ProductStatus,
     }));
 
   return (
@@ -55,7 +50,7 @@ export default async function HomePage({ params }: HomePageProps) {
         <h2 className={styles.heading}>
           <AccentText text={t("featuredHeading")} />
         </h2>
-        <ProductCarousel products={carouselProducts} />
+        <ShowcaseCarousel images={showcaseImages} />
       </section>
       <ArtistIntro />
     </>
