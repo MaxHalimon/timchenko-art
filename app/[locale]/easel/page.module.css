@@ -94,6 +94,7 @@
   padding: 6px;
   border-radius: 6px;
   flex-shrink: 0;
+  font-family: inherit;
 }
 
 .removeButton:hover {
@@ -151,7 +152,7 @@
   padding: 9px 12px;
   border: 1px solid var(--color-border);
   border-radius: 6px;
-  font-family: var(--font-sans);
+  font-family: inherit;
   font-size: 14px;
   color: var(--color-text);
   background-color: var(--color-bg);
@@ -175,6 +176,7 @@
   border-radius: 6px;
   background-color: var(--color-bg);
   color: var(--color-text);
+  font-family: inherit;
   font-size: 13px;
   cursor: pointer;
   transition: var(--transition-base);

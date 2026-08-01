@@ -5,7 +5,7 @@
 }
 
 .heading {
-  font-size: 28px;
+  font-size: clamp(28px, 3.2vw, 34px);
   margin-bottom: var(--space-3);
 }
 

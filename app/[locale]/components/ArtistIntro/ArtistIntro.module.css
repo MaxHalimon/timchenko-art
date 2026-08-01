@@ -5,20 +5,20 @@
 }
 
 .heading {
-  font-size: clamp(28px, 4vw, 40px);
+  font-size: clamp(28px, 3.2vw, 34px);
   margin-bottom: var(--space-3);
   text-align: center;
 }
 
 .paragraph {
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1.75;
   color: var(--color-text-light);
   margin-bottom: var(--space-2);
 }
 
 .subheading {
-  font-size: 20px;
+  font-size: 22px;
   margin-top: var(--space-4);
   margin-bottom: var(--space-2);
 }
@@ -29,7 +29,7 @@
 }
 
 .listItem {
-  font-size: 15px;
+  font-size: 17px;
   line-height: 1.7;
   color: var(--color-text-light);
   margin-bottom: 10px;
@@ -54,7 +54,7 @@
 }
 
 .exhibitions {
-  font-size: 15px;
+  font-size: 17px;
   line-height: 1.7;
   color: var(--color-text-light);
   margin-bottom: var(--space-2);
@@ -62,7 +62,6 @@
 
 .closing {
   font-size: 17px;
-  font-family: var(--font-serif);
   color: var(--color-text);
   text-align: center;
   margin-top: var(--space-4);
