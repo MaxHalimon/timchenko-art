@@ -2,21 +2,26 @@
   margin-bottom: var(--space-5);
 }
 
+/* A compact "welcome strip", not a full wall — more, smaller tiles, and
+   the whole thing capped to a modest height (extra rows a taller natural
+   layout would produce are simply clipped, which is fine for a teaser). */
 .masonry {
-  columns: 3;
-  column-gap: var(--space-3);
+  columns: 6;
+  column-gap: var(--space-2);
+  max-height: 220px;
+  overflow: hidden;
 }
 
 .tile {
   display: block;
   width: 100%;
   break-inside: avoid;
-  margin-bottom: var(--space-3);
+  margin-bottom: var(--space-2);
   border: none;
   padding: 0;
   background: none;
   cursor: pointer;
-  border-radius: 8px;
+  border-radius: 6px;
   overflow: hidden;
   transition: var(--transition-base);
 }
@@ -41,12 +46,14 @@
 
 @media (max-width: 900px) {
   .masonry {
-    columns: 2;
+    columns: 4;
+    max-height: 180px;
   }
 }
 
 @media (max-width: 480px) {
   .masonry {
-    columns: 1;
+    columns: 3;
+    max-height: 150px;
   }
 }
