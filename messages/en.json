@@ -37,7 +37,12 @@
     "prev": "Previous image",
     "next": "Next image",
     "goToGallery": "Go to gallery",
+    "buyThisPainting": "Buy this painting",
     "counter": "{current} of {total}"
+  },
+  "focusCard": {
+    "close": "Close",
+    "viewInGallery": "View in gallery"
   },
   "productCard": {
     "status": {
@@ -177,6 +182,11 @@
     "heading": "Gallery",
     "count": "{count, plural, one {# piece} other {# pieces}}",
     "empty": "No paintings match these filters. Try removing one.",
+    "launchTour": "Launch the interactive tour",
+    "viewExhibition": "Exhibition mode",
+    "viewGrid": "Product cards",
+    "showingCount": "Showing {shown} of {total}",
+    "loadMore": "Show more",
     "filters": {
       "sizeAll": "Size: all",
       "themeAll": "Theme: all",

@@ -37,7 +37,12 @@
     "prev": "前の画像",
     "next": "次の画像",
     "goToGallery": "ギャラリーへ",
+    "buyThisPainting": "この作品を購入",
     "counter": "{total}件中{current}件目"
+  },
+  "focusCard": {
+    "close": "閉じる",
+    "viewInGallery": "ギャラリーで見る"
   },
   "productCard": {
     "status": {
@@ -177,6 +182,11 @@
     "heading": "ギャラリー",
     "count": "{count, plural, other {作品数: #}}",
     "empty": "条件に一致する作品が見つかりません。フィルターを一つ解除してみてください。",
+    "launchTour": "インタラクティブツアーを開始",
+    "viewExhibition": "展示モード",
+    "viewGrid": "商品カード",
+    "showingCount": "{total}件中{shown}件を表示",
+    "loadMore": "もっと見る",
     "filters": {
       "sizeAll": "サイズ: すべて",
       "themeAll": "テーマ: すべて",

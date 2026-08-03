@@ -19,15 +19,32 @@
   outline: none;
 }
 
+/* One consistent look for every icon-only control in the modal (close,
+   prev/next, play/pause) — same circle, same border, same hover — so
+   they read as one family instead of three slightly different styles. */
+.circleButton {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background-color: rgba(0, 0, 0, 0.35);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition-base);
+}
+
+.circleButton:hover {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
 .closeButton {
   position: absolute;
   top: 16px;
   right: 16px;
-  border: none;
-  background: none;
-  color: #ffffff;
-  cursor: pointer;
-  padding: 8px;
   z-index: 2;
 }
 
@@ -52,23 +69,7 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  background-color: rgba(0, 0, 0, 0.35);
-  color: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: var(--transition-base);
   z-index: 2;
-}
-
-.navArrow:hover {
-  background-color: var(--color-primary);
-  border-color: var(--color-primary);
 }
 
 .navArrowLeft {
@@ -89,22 +90,6 @@
 
 .playButton {
   flex: 0 0 auto;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  background-color: transparent;
-  color: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: var(--transition-base);
-}
-
-.playButton:hover {
-  background-color: var(--color-primary);
-  border-color: var(--color-primary);
 }
 
 .caption {
@@ -125,8 +110,19 @@
   color: rgba(255, 255, 255, 0.6);
 }
 
-.galleryLink {
+/* Both footer action links share this base (sizing/flex behavior);
+   .galleryButton/.galleryButtonOutline (from the shared Buttons module)
+   already give them the exact same shape/padding/weight as every other
+   button on the site — "Buy this painting" as the solid primary action,
+   "Go to gallery" as the outline secondary one, the same primary/
+   secondary pairing used elsewhere in the project (e.g. the easel
+   checkout). */
+.footerButton {
   flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+.galleryLink {
   border-color: rgba(255, 255, 255, 0.4);
   color: #ffffff;
 }
@@ -138,7 +134,7 @@
 }
 
 @media (max-width: 640px) {
-  .navArrow {
+  .circleButton {
     width: 36px;
     height: 36px;
   }

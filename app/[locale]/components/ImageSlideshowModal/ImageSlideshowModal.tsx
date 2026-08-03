@@ -104,8 +104,8 @@ export function ImageSlideshowModal({
         if (e.target === e.currentTarget) onClose();
       }}
     >
-      <button type="button" className={styles.closeButton} aria-label={t("close")} onClick={onClose}>
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <button type="button" className={`${styles.circleButton} ${styles.closeButton}`} aria-label={t("close")} onClick={onClose}>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
           <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
         </svg>
       </button>
@@ -124,11 +124,11 @@ export function ImageSlideshowModal({
         <div className={styles.imageArea}>
           <button
             type="button"
-            className={`${styles.navArrow} ${styles.navArrowLeft}`}
+            className={`${styles.circleButton} ${styles.navArrow} ${styles.navArrowLeft}`}
             aria-label={t("prev")}
             onClick={() => goTo(index - 1)}
           >
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path d="M15 18l-6-6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </button>
@@ -138,11 +138,11 @@ export function ImageSlideshowModal({
 
           <button
             type="button"
-            className={`${styles.navArrow} ${styles.navArrowRight}`}
+            className={`${styles.circleButton} ${styles.navArrow} ${styles.navArrowRight}`}
             aria-label={t("next")}
             onClick={() => goTo(index + 1)}
           >
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path d="M9 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </button>
@@ -151,7 +151,7 @@ export function ImageSlideshowModal({
         <div className={styles.footer}>
           <button
             type="button"
-            className={styles.playButton}
+            className={`${styles.circleButton} ${styles.playButton}`}
             aria-label={isPlaying ? t("pause") : t("play")}
             onClick={() => setIsPlaying((p) => !p)}
           >
@@ -172,7 +172,19 @@ export function ImageSlideshowModal({
             <p className={styles.counter}>{t("counter", { current: index + 1, total: count })}</p>
           </div>
 
-          <Link href="/gallery" className={`${buttonStyles.galleryButtonOutline} ${styles.galleryLink}`} onClick={onClose}>
+          <Link
+            href={`/product/${current.slug}`}
+            className={`${buttonStyles.galleryButton} ${styles.footerButton}`}
+            onClick={onClose}
+          >
+            {t("buyThisPainting")}
+          </Link>
+
+          <Link
+            href="/gallery"
+            className={`${buttonStyles.galleryButtonOutline} ${styles.galleryLink} ${styles.footerButton}`}
+            onClick={onClose}
+          >
             {t("goToGallery")}
           </Link>
         </div>

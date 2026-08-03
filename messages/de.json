@@ -37,7 +37,12 @@
     "prev": "Vorheriges Bild",
     "next": "Nächstes Bild",
     "goToGallery": "Zur Galerie",
+    "buyThisPainting": "Dieses Gemälde kaufen",
     "counter": "{current} von {total}"
+  },
+  "focusCard": {
+    "close": "Schließen",
+    "viewInGallery": "In der Galerie ansehen"
   },
   "productCard": {
     "status": {
@@ -177,6 +182,11 @@
     "heading": "Galerie",
     "count": "{count, plural, one {# Werk} other {# Werke}}",
     "empty": "Keine Werke entsprechen diesen Filtern. Entfernen Sie einen davon.",
+    "launchTour": "Interaktive Tour starten",
+    "viewExhibition": "Ausstellungsmodus",
+    "viewGrid": "Produktkarten",
+    "showingCount": "{shown} von {total} angezeigt",
+    "loadMore": "Mehr anzeigen",
     "filters": {
       "sizeAll": "Größe: alle",
       "themeAll": "Thema: alle",

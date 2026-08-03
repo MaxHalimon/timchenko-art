@@ -37,7 +37,12 @@
     "prev": "Image précédente",
     "next": "Image suivante",
     "goToGallery": "Voir la galerie",
+    "buyThisPainting": "Acheter cette œuvre",
     "counter": "{current} sur {total}"
+  },
+  "focusCard": {
+    "close": "Fermer",
+    "viewInGallery": "Voir dans la galerie"
   },
   "productCard": {
     "status": {
@@ -177,6 +182,11 @@
     "heading": "Galerie",
     "count": "{count, plural, one {# œuvre} other {# œuvres}}",
     "empty": "Aucune peinture ne correspond à ces filtres. Essayez d'en retirer un.",
+    "launchTour": "Lancer la visite interactive",
+    "viewExhibition": "Mode exposition",
+    "viewGrid": "Fiches produits",
+    "showingCount": "{shown} sur {total} affichées",
+    "loadMore": "Voir plus",
     "filters": {
       "sizeAll": "Taille : toutes",
       "themeAll": "Thème : tous",

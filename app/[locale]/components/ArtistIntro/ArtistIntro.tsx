@@ -1,5 +1,7 @@
 import { getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
 import { AccentText } from "../AccentText/AccentText";
+import buttonStyles from "../shared/Buttons.module.css";
 import styles from "./ArtistIntro.module.css";
 
 interface FeatureItem {
@@ -9,6 +11,7 @@ interface FeatureItem {
 
 export async function ArtistIntro() {
   const t = await getTranslations("artistIntro");
+  const tHero = await getTranslations("hero");
   const paragraphs = t.raw("paragraphs") as string[];
   const features = t.raw("features") as FeatureItem[];
   const whyBuy = t.raw("whyBuy") as FeatureItem[];
@@ -50,6 +53,10 @@ export async function ArtistIntro() {
       </ul>
 
       <p className={styles.closing}>{t("closing")}</p>
+
+      <Link href="/gallery" className={`${buttonStyles.galleryButton} ${styles.endCta}`}>
+        {tHero("cta")}
+      </Link>
     </section>
   );
 }

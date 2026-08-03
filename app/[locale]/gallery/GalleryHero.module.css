@@ -1,0 +1,52 @@
+.wrapper {
+  margin-bottom: var(--space-5);
+}
+
+.masonry {
+  columns: 3;
+  column-gap: var(--space-3);
+}
+
+.tile {
+  display: block;
+  width: 100%;
+  break-inside: avoid;
+  margin-bottom: var(--space-3);
+  border: none;
+  padding: 0;
+  background: none;
+  cursor: pointer;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: var(--transition-base);
+}
+
+.tile:hover,
+.tile:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.14);
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ctaRow {
+  text-align: center;
+  margin-top: var(--space-4);
+}
+
+@media (max-width: 900px) {
+  .masonry {
+    columns: 2;
+  }
+}
+
+@media (max-width: 480px) {
+  .masonry {
+    columns: 1;
+  }
+}

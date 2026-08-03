@@ -1,0 +1,94 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: var(--color-overlay);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-3);
+}
+
+.dialog {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  max-height: min(600px, 85vh);
+  background-color: var(--color-bg);
+  border-radius: 12px;
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.25);
+  outline: none;
+}
+
+.closeButton {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.85);
+  color: var(--color-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition-base);
+}
+
+.closeButton:hover {
+  background-color: var(--color-primary);
+  color: #ffffff;
+}
+
+/* Everything except the close button scrolls internally if it doesn't
+   fit — the close button stays outside this, at a fixed spot on the
+   dialog, so it's never pushed off-screen or scrolled out of reach. */
+.scrollArea {
+  max-height: min(600px, 85vh);
+  overflow-y: auto;
+  border-radius: 12px;
+}
+
+.imageWrapper {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  max-height: 40vh;
+  background-color: var(--color-bg-muted);
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.info {
+  padding: var(--space-3);
+  text-align: center;
+}
+
+.title {
+  font-size: 22px;
+  margin-bottom: 4px;
+}
+
+.year {
+  font-size: 14px;
+  color: var(--color-text-light);
+  margin-bottom: var(--space-2);
+}
+
+.ctaLink {
+  margin-top: var(--space-1);
+}
+
+@media (max-width: 480px) {
+  .dialog {
+    max-width: 100%;
+  }
+}

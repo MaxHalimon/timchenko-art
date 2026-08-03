@@ -37,7 +37,12 @@
     "prev": "Попереднє зображення",
     "next": "Наступне зображення",
     "goToGallery": "Перейти до галереї",
+    "buyThisPainting": "Придбати цю картину",
     "counter": "{current} з {total}"
+  },
+  "focusCard": {
+    "close": "Закрити",
+    "viewInGallery": "Дивитися в галереї"
   },
   "productCard": {
     "status": {
@@ -177,6 +182,11 @@
     "heading": "Галерея робіт",
     "count": "{count, plural, one {# робота} few {# роботи} other {# робіт}}",
     "empty": "Нічого не знайдено за цими фільтрами. Спробуйте зняти один з них.",
+    "launchTour": "Запустити інтерактивну екскурсію",
+    "viewExhibition": "Режим виставки",
+    "viewGrid": "Картки товарів",
+    "showingCount": "Показано {shown} з {total}",
+    "loadMore": "Показати ще",
     "filters": {
       "sizeAll": "Розмір: усі",
       "themeAll": "Тема: усі",

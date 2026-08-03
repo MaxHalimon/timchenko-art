@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
-import { ImageSlideshowModal } from "../ImageSlideshowModal/ImageSlideshowModal";
+import { FocusCardModal } from "../FocusCardModal/FocusCardModal";
 import styles from "./ShowcaseCarousel.module.css";
 
 export interface ShowcaseImage {
@@ -14,17 +14,22 @@ export interface ShowcaseImage {
 const AUTOPLAY_INTERVAL_MS = 7000;
 const STEP_TRANSITION = "transform 900ms cubic-bezier(0.25, 0.1, 0.25, 1)";
 const ARROW_FLASH_MS = 500;
+const SWIPE_THRESHOLD_PX = 40;
 
 /**
  * The home page "Вітрина" carousel: unlike ProductCarousel (used for
  * "related paintings", which shows full cards with price/status), this
  * shows just the paintings themselves, all at the same uniform size —
- * clicking one opens the full slideshow viewer (ImageSlideshowModal).
+ * clicking one opens a compact "focus card" popup (FocusCardModal),
+ * which nudges toward the full gallery experience rather than opening a
+ * full-screen viewer right here.
  *
  * The autoplay/infinite-loop/pause-on-hover/arrow-flash mechanics here
  * are intentionally the same proven approach as ProductCarousel — copied
  * rather than shared, so changes to one can't accidentally affect the
- * other (they now serve genuinely different roles).
+ * other (they now serve genuinely different roles). Touch swipe is new
+ * here: a swipe past SWIPE_THRESHOLD_PX advances/reverses the carousel
+ * and suppresses the tap-to-open click that would otherwise follow it.
  */
 export function ShowcaseCarousel({ images }: { images: ShowcaseImage[] }) {
   const t = useTranslations("home");
@@ -52,6 +57,30 @@ export function ShowcaseCarousel({ images }: { images: ShowcaseImage[] }) {
   const flashLeftTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
   const flashRightTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [openAt, setOpenAt] = useState<number | null>(null); // index into `images` (not `looped`), or null when closed
+  const touchStartX = useRef<number | null>(null);
+  const wasSwipe = useRef(false);
+
+  function handleTouchStart(e: React.TouchEvent) {
+    touchStartX.current = e.touches[0].clientX;
+  }
+
+  function handleTouchEnd(e: React.TouchEvent) {
+    if (touchStartX.current === null) return;
+    const deltaX = e.changedTouches[0].clientX - touchStartX.current;
+    if (Math.abs(deltaX) >= SWIPE_THRESHOLD_PX) {
+      advance(deltaX < 0 ? 1 : -1);
+      wasSwipe.current = true; // suppress the tap-to-open click that follows this touch
+    }
+    touchStartX.current = null;
+  }
+
+  function handleItemClick(imageIndex: number) {
+    if (wasSwipe.current) {
+      wasSwipe.current = false;
+      return;
+    }
+    setOpenAt(imageIndex);
+  }
 
   useEffect(() => {
     function measure() {
@@ -145,7 +174,7 @@ export function ShowcaseCarousel({ images }: { images: ShowcaseImage[] }) {
           </svg>
         </button>
 
-        <div className={styles.viewport}>
+        <div className={styles.viewport} onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
           <div
             className={styles.track}
             ref={trackRef}
@@ -160,7 +189,7 @@ export function ShowcaseCarousel({ images }: { images: ShowcaseImage[] }) {
                 type="button"
                 key={`${image.slug}-${i}`}
                 className={styles.item}
-                onClick={() => setOpenAt(i % count)}
+                onClick={() => handleItemClick(i % count)}
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={image.previewImageUrl} alt={image.title} className={styles.image} />
@@ -182,7 +211,7 @@ export function ShowcaseCarousel({ images }: { images: ShowcaseImage[] }) {
       </div>
 
       {openAt !== null && (
-        <ImageSlideshowModal images={images} initialIndex={openAt} onClose={() => setOpenAt(null)} />
+        <FocusCardModal image={images[openAt]} onClose={() => setOpenAt(null)} />
       )}
     </>
   );

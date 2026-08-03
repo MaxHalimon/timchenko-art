@@ -66,3 +66,14 @@
   text-align: center;
   margin-top: var(--space-4);
 }
+
+/* Layout only — width/spacing to match the content column. Colors come
+   from buttonStyles.galleryButton (applied alongside this in the tsx),
+   so this is always the site's normal accent button here, unlike
+   ManifestoStatement's .ctaLink which stays monochrome until hover. */
+.endCta {
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-top: var(--space-4);
+}

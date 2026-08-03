@@ -2,7 +2,6 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { AccentText } from "../AccentText/AccentText";
 import styles from "./ManifestoStatement.module.css";
-import buttonStyles from "../shared/Buttons.module.css";
 
 export function ManifestoStatement() {
   const t = useTranslations("hero");
@@ -14,7 +13,7 @@ export function ManifestoStatement() {
         <AccentText text={t("title")} />
       </h1>
       <p className={styles.description}>{t("description")}</p>
-      <Link href="/gallery" className={buttonStyles.galleryButton}>
+      <Link href="/gallery" className={styles.ctaLink}>
         {t("cta")}
       </Link>
     </section>

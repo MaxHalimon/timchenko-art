@@ -9,15 +9,19 @@
   margin-bottom: var(--space-2);
 }
 
-.count {
-  color: var(--color-text-light);
-  margin-bottom: var(--space-4);
-}
-
 .empty {
   padding: var(--space-5) 0;
   text-align: center;
   color: var(--color-text-light);
+}
+
+.controlPanel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
 }
 
 .grid {
@@ -25,4 +29,15 @@
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: var(--space-3);
   margin-top: var(--space-3);
+}
+
+.showingCount {
+  text-align: center;
+  color: var(--color-text-light);
+  font-size: 13px;
+  margin-top: var(--space-3);
+}
+
+.sentinel {
+  height: 1px;
 }

@@ -2,9 +2,9 @@ import { getTranslations } from "next-intl/server";
 import { Prisma } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 import { localizedText } from "@/lib/localizedText";
-import { ProductCard, type ProductStatus } from "../components/ProductCard/ProductCard";
-import { FilterBar } from "./FilterBar";
 import { AccentText } from "../components/AccentText/AccentText";
+import { GalleryView } from "./GalleryView";
+import type { ProductStatus } from "../components/ProductCard/ProductCard";
 import styles from "./page.module.css";
 
 // Size buckets used for filtering — matches on the painting's larger side.
@@ -23,6 +23,15 @@ interface GallerySearchParams {
   size?: SizeBucket;
   theme?: string;
   status?: ProductStatus;
+}
+
+function shuffle<T>(items: T[]): T[] {
+  const result = [...items];
+  for (let i = result.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [result[i], result[j]] = [result[j], result[i]];
+  }
+  return result;
 }
 
 export default async function GalleryPage({
@@ -74,36 +83,35 @@ export default async function GalleryPage({
     }),
   ]);
 
+  const resolved = products.map((product) => ({
+    slug: product.slug,
+    title: localizedText(product.title, locale),
+    previewImageUrl: product.previewImageKey,
+    widthCm: product.widthCm,
+    heightCm: product.heightCm,
+    priceUsd: Number(product.priceUsd),
+    status: product.status as ProductStatus,
+  }));
+
+  // "Стіна мистецтва" hero sample — drawn from the same (already filtered)
+  // list exhibition mode uses, so clicking a hero tile can jump straight
+  // to that painting's position in the slideshow. Capped at 9 per the
+  // masonry brief; gracefully smaller if the filtered catalog has fewer.
+  const heroPaintings = shuffle(resolved).slice(0, 9);
+
   return (
     <div className={styles.page}>
       <h1 className={styles.heading}>
         <AccentText text={t("heading")} />
       </h1>
-      <p className={styles.count}>{t("count", { count: products.length })}</p>
 
-      <FilterBar
+      <GalleryView
+        products={resolved}
+        heroPaintings={heroPaintings}
         themeOptions={themes.map((th) => th.theme!).filter(Boolean)}
         current={{ size, theme, status }}
+        defaultMode="exhibition"
       />
-
-      {products.length === 0 ? (
-        <p className={styles.empty}>{t("empty")}</p>
-      ) : (
-        <div className={styles.grid}>
-          {products.map((product) => (
-            <ProductCard
-              key={product.id}
-              slug={product.slug}
-              title={localizedText(product.title, locale)}
-              previewImageUrl={product.previewImageKey}
-              widthCm={product.widthCm}
-              heightCm={product.heightCm}
-              priceUsd={Number(product.priceUsd)}
-              status={product.status as ProductStatus}
-            />
-          ))}
-        </div>
-      )}
     </div>
   );
 }

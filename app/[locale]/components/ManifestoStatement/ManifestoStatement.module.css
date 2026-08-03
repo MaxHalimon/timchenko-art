@@ -15,7 +15,7 @@
 }
 
 .title {
-  font-size: clamp(32px, 4.5vw, 46px);
+  font-size: clamp(26px, 3.6vw, 37px);
   line-height: 1.25;
   margin-bottom: var(--space-3);
 }
@@ -24,4 +24,30 @@
   font-size: 17px;
   color: var(--color-text-light);
   margin-bottom: var(--space-4);
+}
+
+/* Monochrome/no-background by default, becomes the site's normal accent
+   button only on hover — same treatment as ArtistIntro's .endCta at the
+   bottom of the page (duplicated rather than shared, see that file's
+   comment for why). */
+.ctaLink {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 12px 24px;
+  border-radius: var(--radius-button);
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-text);
+  background-color: transparent;
+  transition: var(--transition-base);
+}
+
+.ctaLink:hover,
+.ctaLink:focus-visible {
+  background-color: var(--color-primary);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px #1a1a1a;
 }
