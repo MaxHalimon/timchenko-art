@@ -122,17 +122,6 @@
   white-space: nowrap;
 }
 
-.galleryLink {
-  border-color: rgba(255, 255, 255, 0.4);
-  color: #ffffff;
-}
-
-.galleryLink:hover {
-  border-color: var(--color-primary);
-  color: var(--color-primary);
-  background-color: #ffffff;
-}
-
 @media (max-width: 640px) {
   .circleButton {
     width: 36px;

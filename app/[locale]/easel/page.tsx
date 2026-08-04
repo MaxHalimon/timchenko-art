@@ -59,7 +59,10 @@ export default function EaselPage() {
       .catch(() => setLoaded(true));
   }, [slugs, hydrated, locale]);
 
-  const availableProducts = products.filter((p) => p.status === "AVAILABLE");
+  // SOLD pieces are still orderable — the artist repaints them on request —
+  // so only IN_PROGRESS (not yet finished, nothing to ship or repaint from
+  // yet) is excluded from the order.
+  const availableProducts = products.filter((p) => p.status !== "IN_PROGRESS");
   const totalUsd = availableProducts.reduce((sum, p) => sum + p.priceUsd, 0);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -152,9 +155,10 @@ export default function EaselPage() {
                   <img src={product.previewImageUrl} alt={product.title} className={styles.itemImage} />
                   <div className={styles.itemInfo}>
                     <p className={styles.itemTitle}>{product.title}</p>
-                    {product.status === "AVAILABLE" ? (
+                    {product.status !== "IN_PROGRESS" ? (
                       <p className={styles.itemMeta}>
                         {product.widthCm} × {product.heightCm} cm · <PriceTag amountUsd={product.priceUsd} />
+                        {product.status === "SOLD" && ` · ${tProductCard("status.SOLD")}`}
                       </p>
                     ) : (
                       <p className={styles.itemUnavailable}>{tProductCard(`status.${product.status}`)}</p>

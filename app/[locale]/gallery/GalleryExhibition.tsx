@@ -29,7 +29,22 @@ const SWIPE_THRESHOLD_PX = 50;
  * trap, no body-scroll lock — the visitor just uses the ViewSwitcher
  * above to leave it.
  */
-export function GalleryExhibition({ paintings, startIndex = 0 }: { paintings: ExhibitionPainting[]; startIndex?: number }) {
+export function GalleryExhibition({
+  paintings,
+  startIndex = 0,
+  launchToken = 0,
+  autoplayOnLaunch = false,
+}: {
+  paintings: ExhibitionPainting[];
+  startIndex?: number;
+  /** Increments on every launch (tile click or tour CTA) — the one
+   * reliable signal that "a new launch happened", since this component
+   * doesn't always remount (e.g. already in exhibition mode). */
+  launchToken?: number;
+  /** Whether *this particular* launch should start the slideshow playing —
+   * true only for the "Режим гіда" CTA, not for a plain tile click. */
+  autoplayOnLaunch?: boolean;
+}) {
   const t = useTranslations("slideshow");
   const tCard = useTranslations("productCard");
   const count = paintings.length;
@@ -38,12 +53,15 @@ export function GalleryExhibition({ paintings, startIndex = 0 }: { paintings: Ex
   const sectionRef = useRef<HTMLDivElement>(null);
   const touchStartX = useRef<number | null>(null);
 
-  // Jump to whichever painting was clicked in the hero wall, including
-  // re-jumping if the visitor clicks a different tile while already in
-  // exhibition mode.
+  // Jump to whichever painting was just launched, and turn autoplay on if
+  // this launch asked for it — keyed on launchToken (not startIndex),
+  // since that's the only value guaranteed to change on every single
+  // launch, remount or not.
   useEffect(() => {
     setIndex(Math.min(startIndex, Math.max(count - 1, 0)));
-  }, [startIndex, count]);
+    if (autoplayOnLaunch) setIsPlaying(true);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [launchToken]);
 
   function goTo(next: number) {
     if (count === 0) return;

@@ -1,0 +1,89 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.panelLeftIn,
+.panelLeftOut,
+.panelRightIn,
+.panelRightOut {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  background-color: #0a0a0a;
+}
+
+.panelLeftIn,
+.panelLeftOut {
+  left: 0;
+}
+
+.panelRightIn,
+.panelRightOut {
+  right: 0;
+}
+
+.panelLeftIn {
+  animation: slideInLeft 420ms cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+.panelRightIn {
+  animation: slideInRight 420ms cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+.panelLeftOut {
+  animation: slideOutLeft 420ms cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+.panelRightOut {
+  animation: slideOutRight 420ms cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOutLeft {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes slideOutRight {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .panelLeftIn,
+  .panelRightIn,
+  .panelLeftOut,
+  .panelRightOut {
+    animation-duration: 1ms;
+  }
+}

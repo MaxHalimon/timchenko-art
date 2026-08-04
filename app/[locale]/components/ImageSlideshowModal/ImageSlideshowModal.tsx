@@ -16,25 +16,30 @@ const AUTOPLAY_INTERVAL_MS = 4000;
 const SWIPE_THRESHOLD_PX = 50;
 
 /**
- * Full-screen slideshow viewer opened by clicking a painting in
- * ShowcaseCarousel. Controls: play/pause (auto-advance), prev/next
- * (click on desktop, swipe on touch — both always work regardless of
- * play state), a "go to gallery" link, and close via the × button, the
- * backdrop, or Escape.
+ * Full-screen slideshow viewer, opened from the gallery page (hero tile
+ * click, or the "Пройти на екскурсію" CTA). Controls: play/pause
+ * (auto-advance), prev/next (click on desktop, swipe on touch — both
+ * always work regardless of play state), a "buy this painting" link,
+ * and close via the × button, the backdrop, or Escape.
  */
 export function ImageSlideshowModal({
   images,
   initialIndex,
+  autoplayOnOpen = false,
   onClose,
 }: {
   images: SlideshowImage[];
   initialIndex: number;
+  /** True for the "guided tour" CTA — starts the slideshow auto-advancing
+   * immediately; false for a plain tile click, which just opens on that
+   * one painting without forcing autoplay. */
+  autoplayOnOpen?: boolean;
   onClose: () => void;
 }) {
   const t = useTranslations("slideshow");
   const count = images.length;
   const [index, setIndex] = useState(initialIndex);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(autoplayOnOpen);
   const dialogRef = useRef<HTMLDivElement>(null);
   const touchStartX = useRef<number | null>(null);
   const triggerElement = useRef<Element | null>(null);
@@ -178,14 +183,6 @@ export function ImageSlideshowModal({
             onClick={onClose}
           >
             {t("buyThisPainting")}
-          </Link>
-
-          <Link
-            href="/gallery"
-            className={`${buttonStyles.galleryButtonOutline} ${styles.galleryLink} ${styles.footerButton}`}
-            onClick={onClose}
-          >
-            {t("goToGallery")}
           </Link>
         </div>
       </div>

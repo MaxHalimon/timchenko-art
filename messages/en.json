@@ -8,7 +8,7 @@
       "openMenu": "Open menu",
       "closeMenu": "Close menu",
       "contact": "Write to the Artist",
-      "easel": "Easel"
+      "easel": "My Easel"
     },
     "footer": "Every piece is hand-painted by the artist.",
     "scrollHint": "Scroll down"
@@ -182,7 +182,7 @@
     "heading": "Gallery",
     "count": "{count, plural, one {# piece} other {# pieces}}",
     "empty": "No paintings match these filters. Try removing one.",
-    "launchTour": "Launch the interactive tour",
+    "launchTour": "Take the tour",
     "viewExhibition": "Exhibition mode",
     "viewGrid": "Product cards",
     "showingCount": "Showing {shown} of {total}",

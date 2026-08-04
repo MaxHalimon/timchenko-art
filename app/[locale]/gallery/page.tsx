@@ -25,14 +25,7 @@ interface GallerySearchParams {
   status?: ProductStatus;
 }
 
-function shuffle<T>(items: T[]): T[] {
-  const result = [...items];
-  for (let i = result.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [result[i], result[j]] = [result[j], result[i]];
-  }
-  return result;
-}
+const HERO_POOL_SIZE = 8;
 
 export default async function GalleryPage({
   params,
@@ -69,7 +62,7 @@ export default async function GalleryPage({
     ];
   }
 
-  const [products, themes] = await Promise.all([
+  const [products, themes, heroRows] = await Promise.all([
     prisma.product.findMany({
       where,
       orderBy: { createdAt: "desc" },
@@ -81,6 +74,14 @@ export default async function GalleryPage({
       select: { theme: true },
       where: { theme: { not: null } },
     }),
+    // Hero "greeting" strip — deliberately its OWN query, completely
+    // independent of the filters above (a fresh random sample every load,
+    // regardless of what's selected in FilterBar). ORDER BY RANDOM() runs
+    // in Postgres itself rather than shuffling the whole table in JS, so
+    // this stays cheap even once the catalog is at the ~200-painting scale.
+    prisma.$queryRaw<Array<{ slug: string; title: Prisma.JsonValue; previewImageKey: string }>>`
+      SELECT "slug", "title", "previewImageKey" FROM "products" ORDER BY RANDOM() LIMIT ${HERO_POOL_SIZE}
+    `,
   ]);
 
   const resolved = products.map((product) => ({
@@ -93,11 +94,11 @@ export default async function GalleryPage({
     status: product.status as ProductStatus,
   }));
 
-  // "Стіна мистецтва" hero sample — drawn from the same (already filtered)
-  // list exhibition mode uses, so clicking a hero tile can jump straight
-  // to that painting's position in the slideshow. Capped at 9 per the
-  // masonry brief; gracefully smaller if the filtered catalog has fewer.
-  const heroPaintings = shuffle(resolved).slice(0, 9);
+  const heroPaintings = heroRows.map((row) => ({
+    slug: row.slug,
+    title: localizedText(row.title, locale),
+    previewImageUrl: row.previewImageKey,
+  }));
 
   return (
     <div className={styles.page}>
@@ -110,7 +111,6 @@ export default async function GalleryPage({
         heroPaintings={heroPaintings}
         themeOptions={themes.map((th) => th.theme!).filter(Boolean)}
         current={{ size, theme, status }}
-        defaultMode="exhibition"
       />
     </div>
   );

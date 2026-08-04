@@ -8,7 +8,7 @@
       "openMenu": "Ouvrir le menu",
       "closeMenu": "Fermer le menu",
       "contact": "Écrire à l'artiste",
-      "easel": "Chevalet"
+      "easel": "Mon chevalet"
     },
     "footer": "Chaque œuvre est peinte à la main par l'artiste.",
     "scrollHint": "Faites défiler"
@@ -182,7 +182,7 @@
     "heading": "Galerie",
     "count": "{count, plural, one {# œuvre} other {# œuvres}}",
     "empty": "Aucune peinture ne correspond à ces filtres. Essayez d'en retirer un.",
-    "launchTour": "Lancer la visite interactive",
+    "launchTour": "Faire la visite",
     "viewExhibition": "Mode exposition",
     "viewGrid": "Fiches produits",
     "showingCount": "{shown} sur {total} affichées",

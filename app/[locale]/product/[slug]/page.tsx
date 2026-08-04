@@ -109,7 +109,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
           <div className={styles.priceRow}>
             <PriceTag amountUsd={Number(product.priceUsd)} className={styles.price} />
-            <EaselButton slug={product.slug} disabled={isSold} />
+            <EaselButton slug={product.slug} />
           </div>
 
           {description && (

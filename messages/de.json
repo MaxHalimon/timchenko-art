@@ -8,7 +8,7 @@
       "openMenu": "Menü öffnen",
       "closeMenu": "Menü schließen",
       "contact": "Schreiben Sie der Künstlerin",
-      "easel": "Staffelei"
+      "easel": "Meine Staffelei"
     },
     "footer": "Jedes Werk wird von Hand gemalt.",
     "scrollHint": "Nach unten scrollen"
@@ -182,7 +182,7 @@
     "heading": "Galerie",
     "count": "{count, plural, one {# Werk} other {# Werke}}",
     "empty": "Keine Werke entsprechen diesen Filtern. Entfernen Sie einen davon.",
-    "launchTour": "Interaktive Tour starten",
+    "launchTour": "Auf Tour gehen",
     "viewExhibition": "Ausstellungsmodus",
     "viewGrid": "Produktkarten",
     "showingCount": "{shown} von {total} angezeigt",

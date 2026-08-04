@@ -113,5 +113,120 @@
     "theme": "portrait",
     "status": "AVAILABLE",
     "previewImageFile": "twilight-figure.jpg"
+  },
+  {
+    "slug": "crimson-wings",
+    "title": {
+      "uk": "Багряні крила",
+      "en": "Crimson Wings",
+      "de": "Purpurne Flügel",
+      "fr": "Ailes pourpres",
+      "ja": "紅の翼"
+    },
+    "description": {
+      "uk": "Олія на холсті. Полум'яно-синя контрастна композиція з розкритими крилоподібними формами — тимчасовий опис-заглушка.",
+      "en": "Oil on canvas. A fiery blue-and-red contrast composition with open wing-like forms — a temporary placeholder description.",
+      "de": "Öl auf Leinwand. Eine feurige Blau-Rot-Kontrastkomposition mit geöffneten, flügelartigen Formen — eine vorläufige Platzhalterbeschreibung.",
+      "fr": "Huile sur toile. Une composition contrastée bleu et rouge flamboyant, aux formes évoquant des ailes déployées — description provisoire.",
+      "ja": "油彩、キャンバス。燃えるような青と赤のコントラスト、翼のように広がる形 — 仮の説明文です。"
+    },
+    "widthCm": 60,
+    "heightCm": 80,
+    "priceUsd": 560,
+    "theme": "abstract",
+    "status": "AVAILABLE",
+    "previewImageFile": "crimson-wings.jpg"
+  },
+  {
+    "slug": "solar-embrace",
+    "title": {
+      "uk": "Сонячні обійми",
+      "en": "Solar Embrace",
+      "de": "Sonnige Umarmung",
+      "fr": "Étreinte solaire",
+      "ja": "太陽の抱擁"
+    },
+    "description": {
+      "uk": "Олія на холсті. Насичена жовтогаряча палітра, тепла й енергійна композиція — тимчасовий опис-заглушка.",
+      "en": "Oil on canvas. A rich orange-and-yellow palette, a warm and energetic composition — a temporary placeholder description.",
+      "de": "Öl auf Leinwand. Eine satte Orange-Gelb-Palette, eine warme und energiegeladene Komposition — eine vorläufige Platzhalterbeschreibung.",
+      "fr": "Huile sur toile. Une palette riche d'orange et de jaune, une composition chaleureuse et énergique — description provisoire.",
+      "ja": "油彩、キャンバス。豊かなオレンジと黄色の配色、温かくエネルギッシュな構図 — 仮の説明文です。"
+    },
+    "widthCm": 70,
+    "heightCm": 70,
+    "priceUsd": 780,
+    "theme": "abstract",
+    "status": "AVAILABLE",
+    "previewImageFile": "solar-embrace.jpg"
+  },
+  {
+    "slug": "sapphire-gaze",
+    "title": {
+      "uk": "Сапфіровий погляд",
+      "en": "Sapphire Gaze",
+      "de": "Saphirblick",
+      "fr": "Regard saphir",
+      "ja": "サファイアの視線"
+    },
+    "description": {
+      "uk": "Олія на холсті. Кубістична композиція з насиченими кольоровими площинами — тимчасовий опис-заглушка.",
+      "en": "Oil on canvas. A cubist composition built from bold planes of color — a temporary placeholder description.",
+      "de": "Öl auf Leinwand. Eine kubistische Komposition aus kräftigen Farbflächen — eine vorläufige Platzhalterbeschreibung.",
+      "fr": "Huile sur toile. Une composition cubiste faite de plans de couleur audacieux — description provisoire.",
+      "ja": "油彩、キャンバス。大胆な色面で構成されたキュビズム的な作品 — 仮の説明文です。"
+    },
+    "widthCm": 65,
+    "heightCm": 80,
+    "priceUsd": 420,
+    "theme": "portrait",
+    "status": "IN_PROGRESS",
+    "previewImageFile": "sapphire-gaze.jpg"
+  },
+  {
+    "slug": "kaleidoscope-bloom",
+    "title": {
+      "uk": "Калейдоскопічний розквіт",
+      "en": "Kaleidoscope Bloom",
+      "de": "Kaleidoskopblüte",
+      "fr": "Floraison kaléidoscopique",
+      "ja": "万華鏡の開花"
+    },
+    "description": {
+      "uk": "Олія на холсті. Яскрава абстрактна композиція з дробленими кольоровими формами — тимчасовий опис-заглушка.",
+      "en": "Oil on canvas. A vivid abstract composition of fractured, colorful shapes — a temporary placeholder description.",
+      "de": "Öl auf Leinwand. Eine leuchtende abstrakte Komposition aus zersplitterten, farbigen Formen — eine vorläufige Platzhalterbeschreibung.",
+      "fr": "Huile sur toile. Une composition abstraite vive faite de formes colorées fragmentées — description provisoire.",
+      "ja": "油彩、キャンバス。色鮮やかに砕けた形の抽象構図 — 仮の説明文です。"
+    },
+    "widthCm": 75,
+    "heightCm": 75,
+    "priceUsd": 690,
+    "theme": "abstract",
+    "status": "AVAILABLE",
+    "previewImageFile": "kaleidoscope-bloom.jpg"
+  },
+  {
+    "slug": "azure-cry",
+    "title": {
+      "uk": "Блакитний крик",
+      "en": "Azure Cry",
+      "de": "Azurblauer Schrei",
+      "fr": "Cri azur",
+      "ja": "紺碧の叫び"
+    },
+    "description": {
+      "uk": "Олія на холсті. Експресивний портрет у синьо-жовтогарячих тонах, сильна емоція — тимчасовий опис-заглушка.",
+      "en": "Oil on canvas. An expressive portrait in blue-and-orange tones, charged with strong emotion — a temporary placeholder description.",
+      "de": "Öl auf Leinwand. Ein expressives Porträt in Blau-Orange-Tönen, voller starker Emotion — eine vorläufige Platzhalterbeschreibung.",
+      "fr": "Huile sur toile. Un portrait expressif en tons bleu et orange, chargé d'émotion forte — description provisoire.",
+      "ja": "油彩、キャンバス。青とオレンジの色調による表現主義的な肖像、強い感情を湛えて — 仮の説明文です。"
+    },
+    "widthCm": 70,
+    "heightCm": 70,
+    "priceUsd": 610,
+    "theme": "portrait",
+    "status": "AVAILABLE",
+    "previewImageFile": "azure-cry.jpg"
   }
 ]

@@ -3,7 +3,6 @@
 import { useEffect, useRef } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import buttonStyles from "../shared/Buttons.module.css";
 import styles from "./FocusCardModal.module.css";
 
 export interface FocusCardImage {
@@ -70,7 +69,7 @@ export function FocusCardModal({ image, onClose }: { image: FocusCardImage; onCl
           <div className={styles.info}>
             <h3 className={styles.title}>{image.title}</h3>
             {image.year && <p className={styles.year}>{image.year}</p>}
-            <Link href="/gallery" className={`${buttonStyles.galleryButton} ${styles.ctaLink}`} onClick={onClose}>
+            <Link href="/gallery" className={styles.viewLink} onClick={onClose}>
               {t("viewInGallery")}
             </Link>
           </div>

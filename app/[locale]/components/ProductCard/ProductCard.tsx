@@ -58,7 +58,7 @@ export function ProductCard({
 
       <div className={styles.actions}>
         <PriceTag amountUsd={priceUsd} className={styles.price} />
-        <EaselButton slug={slug} disabled={isSold} />
+        <EaselButton slug={slug} />
       </div>
     </div>
   );

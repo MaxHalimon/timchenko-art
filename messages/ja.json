@@ -8,7 +8,7 @@
       "openMenu": "メニューを開く",
       "closeMenu": "メニューを閉じる",
       "contact": "作家にメッセージを送る",
-      "easel": "イーゼル"
+      "easel": "マイイーゼル"
     },
     "footer": "すべての作品はアーティストによる手描きです。",
     "scrollHint": "下にスクロール"
@@ -182,7 +182,7 @@
     "heading": "ギャラリー",
     "count": "{count, plural, other {作品数: #}}",
     "empty": "条件に一致する作品が見つかりません。フィルターを一つ解除してみてください。",
-    "launchTour": "インタラクティブツアーを開始",
+    "launchTour": "ツアーに出発",
     "viewExhibition": "展示モード",
     "viewGrid": "商品カード",
     "showingCount": "{total}件中{shown}件を表示",

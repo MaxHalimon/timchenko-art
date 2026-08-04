@@ -2,21 +2,21 @@
   margin-bottom: var(--space-5);
 }
 
-/* A compact "welcome strip", not a full wall — more, smaller tiles, and
-   the whole thing capped to a modest height (extra rows a taller natural
-   layout would produce are simply clipped, which is fine for a teaser). */
-.masonry {
-  columns: 6;
-  column-gap: var(--space-2);
-  max-height: 220px;
-  overflow: hidden;
+/* Always exactly one row — flex-wrap is deliberately never "wrap", on
+   any screen size. Each tile is an equal 1/N share of the available
+   width (flex: 1 1 0), so the row itself scales down smoothly with the
+   viewport instead of ever stacking into a column. */
+.row {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--space-1);
 }
 
 .tile {
   display: block;
-  width: 100%;
-  break-inside: avoid;
-  margin-bottom: var(--space-2);
+  flex: 1 1 0;
+  min-width: 0;
+  aspect-ratio: 3 / 4;
   border: none;
   padding: 0;
   background: none;
@@ -44,16 +44,8 @@
   margin-top: var(--space-4);
 }
 
-@media (max-width: 900px) {
-  .masonry {
-    columns: 4;
-    max-height: 180px;
-  }
-}
-
 @media (max-width: 480px) {
-  .masonry {
-    columns: 3;
-    max-height: 150px;
+  .row {
+    gap: 4px;
   }
 }
