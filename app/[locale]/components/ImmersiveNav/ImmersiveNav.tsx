@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { LanguageSwitcher } from "../LanguageSwitcher/LanguageSwitcher";
@@ -26,6 +26,7 @@ export function ImmersiveNav() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { slugs } = useEasel();
+  const headerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     function handleScroll() {
@@ -42,12 +43,32 @@ export function ImmersiveNav() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Clicking anywhere outside the header (not just a nav link or the ×)
+  // also closes the dropdown — only listens while the menu is actually
+  // open, so it doesn't add overhead the rest of the time.
+  useEffect(() => {
+    if (!menuOpen) return;
+
+    function handleOutsideClick(event: MouseEvent | TouchEvent) {
+      if (headerRef.current && !headerRef.current.contains(event.target as Node)) {
+        setMenuOpen(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleOutsideClick);
+    document.addEventListener("touchstart", handleOutsideClick);
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+      document.removeEventListener("touchstart", handleOutsideClick);
+    };
+  }, [menuOpen]);
+
   function closeMenu() {
     setMenuOpen(false);
   }
 
   return (
-    <header className={scrolled ? `${styles.header} ${styles.headerSolid}` : styles.header}>
+    <header ref={headerRef} className={scrolled ? `${styles.header} ${styles.headerSolid}` : styles.header}>
       <Link href="/" className={styles.logo} onClick={closeMenu}>
         {t("siteName")}
       </Link>
