@@ -22,6 +22,7 @@ const ARROW_FLASH_MS = 500;
 export function ProductCarousel({ products }: { products: CarouselProduct[] }) {
   const t = useTranslations("home");
   const trackRef = useRef<HTMLDivElement>(null);
+  const viewportRef = useRef<HTMLDivElement>(null);
   const count = products.length;
 
   // Three back-to-back copies of the list so the track can always show one
@@ -47,6 +48,7 @@ export function ProductCarousel({ products }: { products: CarouselProduct[] }) {
   const [isPaused, setIsPaused] = useState(false);
   const [autoplayTick, setAutoplayTick] = useState(0);
   const [stepPx, setStepPx] = useState(284);
+  const [edgePadding, setEdgePadding] = useState(0);
   const [flashLeft, setFlashLeft] = useState(false);
   const [flashRight, setFlashRight] = useState(false);
   const flashLeftTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -58,18 +60,32 @@ export function ProductCarousel({ products }: { products: CarouselProduct[] }) {
   useEffect(() => {
     function measure() {
       const track = trackRef.current;
+      const viewport = viewportRef.current;
       if (!track) return;
       const first = track.children[0] as HTMLElement | undefined;
       const second = track.children[1] as HTMLElement | undefined;
+      let step = stepPx;
       if (first && second) {
-        setStepPx(second.offsetLeft - first.offsetLeft);
+        step = second.offsetLeft - first.offsetLeft;
+        setStepPx(step);
       } else if (first) {
-        setStepPx(first.offsetWidth);
+        step = first.offsetWidth;
+        setStepPx(step);
+      }
+
+      // If the viewport's width isn't an exact multiple of one card's
+      // width, split the leftover space evenly as left/right padding —
+      // "N whole cards + one partially cut-off on the right" becomes "N
+      // whole cards with a symmetric sliver peeking in on each side".
+      if (viewport && step > 0) {
+        const remainder = viewport.offsetWidth % step;
+        setEdgePadding(remainder / 2);
       }
     }
     measure();
     window.addEventListener("resize", measure);
     return () => window.removeEventListener("resize", measure);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [count]);
 
   // Autoplay: one card every 7s, moving forward (right-to-left). Paused
@@ -156,7 +172,7 @@ export function ProductCarousel({ products }: { products: CarouselProduct[] }) {
         </svg>
       </button>
 
-      <div className={styles.viewport}>
+      <div className={styles.viewport} ref={viewportRef} style={{ paddingLeft: edgePadding, paddingRight: edgePadding }}>
         <div
           className={styles.track}
           ref={trackRef}

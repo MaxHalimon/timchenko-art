@@ -34,6 +34,7 @@ const SWIPE_THRESHOLD_PX = 40;
 export function ShowcaseCarousel({ images }: { images: ShowcaseImage[] }) {
   const t = useTranslations("home");
   const trackRef = useRef<HTMLDivElement>(null);
+  const viewportRef = useRef<HTMLDivElement>(null);
   const count = images.length;
 
   const looped = count > 0 ? [...images, ...images, ...images] : [];
@@ -52,6 +53,7 @@ export function ShowcaseCarousel({ images }: { images: ShowcaseImage[] }) {
   const [isPaused, setIsPaused] = useState(false);
   const [autoplayTick, setAutoplayTick] = useState(0);
   const [stepPx, setStepPx] = useState(244);
+  const [edgePadding, setEdgePadding] = useState(0);
   const [flashLeft, setFlashLeft] = useState(false);
   const [flashRight, setFlashRight] = useState(false);
   const flashLeftTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -85,18 +87,35 @@ export function ShowcaseCarousel({ images }: { images: ShowcaseImage[] }) {
   useEffect(() => {
     function measure() {
       const track = trackRef.current;
+      const viewport = viewportRef.current;
       if (!track) return;
       const first = track.children[0] as HTMLElement | undefined;
       const second = track.children[1] as HTMLElement | undefined;
+      let step = stepPx;
       if (first && second) {
-        setStepPx(second.offsetLeft - first.offsetLeft);
+        step = second.offsetLeft - first.offsetLeft;
+        setStepPx(step);
       } else if (first) {
-        setStepPx(first.offsetWidth);
+        step = first.offsetWidth;
+        setStepPx(step);
+      }
+
+      // If the viewport's width isn't an exact multiple of one item's
+      // width, a whole extra item's worth of leftover space is left
+      // over. Splitting it evenly as left/right padding turns "N whole
+      // items + one partially cut-off item on the right" into "N whole
+      // items with a symmetric sliver peeking in on each side" — the
+      // clipped part still renders (overflow:hidden clips at the outer
+      // edge, which now includes this padding), it's just evenly split.
+      if (viewport && step > 0) {
+        const remainder = viewport.offsetWidth % step;
+        setEdgePadding(remainder / 2);
       }
     }
     measure();
     window.addEventListener("resize", measure);
     return () => window.removeEventListener("resize", measure);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [count]);
 
   useEffect(() => {
@@ -174,7 +193,13 @@ export function ShowcaseCarousel({ images }: { images: ShowcaseImage[] }) {
           </svg>
         </button>
 
-        <div className={styles.viewport} onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
+        <div
+          className={styles.viewport}
+          ref={viewportRef}
+          style={{ paddingLeft: edgePadding, paddingRight: edgePadding }}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+        >
           <div
             className={styles.track}
             ref={trackRef}

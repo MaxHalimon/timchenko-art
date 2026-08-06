@@ -228,5 +228,51 @@
     "theme": "portrait",
     "status": "AVAILABLE",
     "previewImageFile": "azure-cry.jpg"
+  },
+  {
+    "slug": "suspended-duet-violet",
+    "title": {
+      "uk": "Підвішений дует (фіолетовий)",
+      "en": "Suspended Duet (Violet)",
+      "de": "Schwebendes Duett (Violett)",
+      "fr": "Duo suspendu (violet)",
+      "ja": "宙吊りのデュエット（紫）"
+    },
+    "description": {
+      "uk": "Графічна ілюстрація. Стилізована композиція у фіолетово-жовтій гамі — тимчасовий опис-заглушка.",
+      "en": "Graphic illustration. A stylized composition in violet-and-yellow tones — a temporary placeholder description.",
+      "de": "Grafische Illustration. Eine stilisierte Komposition in Violett-Gelb-Tönen — eine vorläufige Platzhalterbeschreibung.",
+      "fr": "Illustration graphique. Une composition stylisée dans des tons violets et jaunes — description provisoire.",
+      "ja": "グラフィックイラスト。紫と黄色の色調によるスタイライズされた構図 — 仮の説明文です。"
+    },
+    "widthCm": 50,
+    "heightCm": 60,
+    "priceUsd": 320,
+    "theme": "abstract",
+    "status": "AVAILABLE",
+    "previewImageFile": "suspended-duet-violet.jpg"
+  },
+  {
+    "slug": "suspended-duet-crimson",
+    "title": {
+      "uk": "Підвішений дует (багряний)",
+      "en": "Suspended Duet (Crimson)",
+      "de": "Schwebendes Duett (Purpurrot)",
+      "fr": "Duo suspendu (pourpre)",
+      "ja": "宙吊りのデュエット（紅）"
+    },
+    "description": {
+      "uk": "Графічна ілюстрація. Той самий сюжет у контрастній червоно-синій гамі — тимчасовий опис-заглушка.",
+      "en": "Graphic illustration. The same composition in a contrasting red-and-blue palette — a temporary placeholder description.",
+      "de": "Grafische Illustration. Dieselbe Komposition in einer kontrastreichen Rot-Blau-Palette — eine vorläufige Platzhalterbeschreibung.",
+      "fr": "Illustration graphique. La même composition dans une palette contrastée rouge et bleu — description provisoire.",
+      "ja": "グラフィックイラスト。同じ構図を赤と青のコントラストで — 仮の説明文です。"
+    },
+    "widthCm": 50,
+    "heightCm": 60,
+    "priceUsd": 320,
+    "theme": "abstract",
+    "status": "AVAILABLE",
+    "previewImageFile": "suspended-duet-crimson.jpg"
   }
 ]
