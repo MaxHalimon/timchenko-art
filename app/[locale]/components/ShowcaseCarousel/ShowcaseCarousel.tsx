@@ -53,6 +53,7 @@ export function ShowcaseCarousel({ images }: { images: ShowcaseImage[] }) {
   const [isPaused, setIsPaused] = useState(false);
   const [autoplayTick, setAutoplayTick] = useState(0);
   const [stepPx, setStepPx] = useState(244);
+  const [gapPx, setGapPx] = useState(24);
   const [edgePadding, setEdgePadding] = useState(0);
   const [flashLeft, setFlashLeft] = useState(false);
   const [flashRight, setFlashRight] = useState(false);
@@ -95,6 +96,7 @@ export function ShowcaseCarousel({ images }: { images: ShowcaseImage[] }) {
       if (first && second) {
         step = second.offsetLeft - first.offsetLeft;
         setStepPx(step);
+        setGapPx(step - first.offsetWidth);
       } else if (first) {
         step = first.offsetWidth;
         setStepPx(step);
@@ -113,6 +115,18 @@ export function ShowcaseCarousel({ images }: { images: ShowcaseImage[] }) {
       }
     }
     measure();
+
+    // ResizeObserver instead of a plain window "resize" listener — it
+    // also catches layout shifts that aren't a window resize (fonts
+    // finishing loading, a scrollbar appearing/disappearing, etc.), so
+    // the measurement can't go stale from missing one of those.
+    const viewport = viewportRef.current;
+    if (viewport && typeof ResizeObserver !== "undefined") {
+      const observer = new ResizeObserver(() => measure());
+      observer.observe(viewport);
+      return () => observer.disconnect();
+    }
+
     window.addEventListener("resize", measure);
     return () => window.removeEventListener("resize", measure);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -205,7 +219,17 @@ export function ShowcaseCarousel({ images }: { images: ShowcaseImage[] }) {
             ref={trackRef}
             onTransitionEnd={handleTransitionEnd}
             style={{
-              transform: `translateX(-${index * stepPx}px)`,
+              // The extra "+ gapPx/2" is deliberate, not a rounding
+              // nicety: CSS `gap` only adds space *between* items, never
+              // before the first or after the last, so naively aligning
+              // this transform straight at "index * stepPx" lines the
+              // content-box boundary up flush with an item's edge —
+              // which puts almost the *entire* inter-item gap on one
+              // side of that boundary and almost none on the other.
+              // Shifting by half a gap moves the boundary to the middle
+              // of the gap instead, so the peek zones on the left and
+              // right end up showing equal slivers of actual image.
+              transform: `translateX(-${index * stepPx - gapPx / 2}px)`,
               transition: animate ? STEP_TRANSITION : "none",
             }}
           >

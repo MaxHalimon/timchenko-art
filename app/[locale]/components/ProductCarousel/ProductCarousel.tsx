@@ -48,6 +48,7 @@ export function ProductCarousel({ products }: { products: CarouselProduct[] }) {
   const [isPaused, setIsPaused] = useState(false);
   const [autoplayTick, setAutoplayTick] = useState(0);
   const [stepPx, setStepPx] = useState(284);
+  const [gapPx, setGapPx] = useState(24);
   const [edgePadding, setEdgePadding] = useState(0);
   const [flashLeft, setFlashLeft] = useState(false);
   const [flashRight, setFlashRight] = useState(false);
@@ -68,6 +69,7 @@ export function ProductCarousel({ products }: { products: CarouselProduct[] }) {
       if (first && second) {
         step = second.offsetLeft - first.offsetLeft;
         setStepPx(step);
+        setGapPx(step - first.offsetWidth);
       } else if (first) {
         step = first.offsetWidth;
         setStepPx(step);
@@ -83,6 +85,18 @@ export function ProductCarousel({ products }: { products: CarouselProduct[] }) {
       }
     }
     measure();
+
+    // ResizeObserver instead of a plain window "resize" listener — it
+    // also catches layout shifts that aren't a window resize (fonts
+    // finishing loading, a scrollbar appearing/disappearing, etc.), so
+    // the measurement can't go stale from missing one of those.
+    const viewport = viewportRef.current;
+    if (viewport && typeof ResizeObserver !== "undefined") {
+      const observer = new ResizeObserver(() => measure());
+      observer.observe(viewport);
+      return () => observer.disconnect();
+    }
+
     window.addEventListener("resize", measure);
     return () => window.removeEventListener("resize", measure);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -178,7 +192,13 @@ export function ProductCarousel({ products }: { products: CarouselProduct[] }) {
           ref={trackRef}
           onTransitionEnd={handleTransitionEnd}
           style={{
-            transform: `translateX(-${index * stepPx}px)`,
+            // See ShowcaseCarousel for the full explanation — CSS `gap`
+            // only adds space *between* items, never before the first
+            // or after the last, so the content-box boundary needs to
+            // sit at the *middle* of an inter-item gap (not flush with
+            // an item's edge) for the left/right peek slivers to end up
+            // showing equal amounts of actual image.
+            transform: `translateX(-${index * stepPx - gapPx / 2}px)`,
             transition: animate ? STEP_TRANSITION : "none",
           }}
         >
