@@ -2,20 +2,41 @@
   margin-bottom: var(--space-5);
 }
 
-/* Always exactly one row — flex-wrap is deliberately never "wrap", on
-   any screen size. Each tile is an equal 1/N share of the available
-   width (flex: 1 1 0), so the row itself scales down smoothly with the
-   viewport instead of ever stacking into a column. */
+/* The visible window — clips the track, which is twice as wide as this
+   (the painting list rendered back-to-back twice) so it can slide
+   continuously without ever showing a seam or an empty edge. */
+.marquee {
+  width: 100%;
+  overflow: hidden;
+}
+
+/* width: max-content so the row is exactly as wide as its (doubled)
+   content, never wrapping — animating between 0 and -50% of that width
+   is what makes translateX loop seamlessly back to an identical frame. */
 .row {
   display: flex;
-  flex-wrap: nowrap;
+  width: max-content;
   gap: var(--space-1);
+  animation-name: marqueeScroll;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes marqueeScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    /* Exactly half the (doubled) track's width = one full, original
+       list — so the instant it finishes, frame 0 and the "next" frame
+       are pixel-identical and the loop restarts invisibly. */
+    transform: translateX(-50%);
+  }
 }
 
 .tile {
   display: block;
-  flex: 1 1 0;
-  min-width: 0;
+  flex: 0 0 160px;
   aspect-ratio: 3 / 4;
   border: none;
   padding: 0;
@@ -44,8 +65,24 @@
   margin-top: var(--space-4);
 }
 
+@media (max-width: 900px) {
+  .tile {
+    flex-basis: 120px;
+  }
+}
+
 @media (max-width: 480px) {
+  .tile {
+    flex-basis: 90px;
+  }
+
   .row {
     gap: 4px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .row {
+    animation: none;
   }
 }
