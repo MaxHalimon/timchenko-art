@@ -23,8 +23,8 @@
   z-index: 2;
   /* Flat, uniform darkening — a tint film, not a gradient — so it reads
      the same whether the manifesto text lands over a bright or dark
-     frame of the loop. */
-  background-color: rgba(10, 10, 10, 0.4);
+     frame of the loop. 0.484 = previous 0.44 darkened another 10%. */
+  background-color: rgba(10, 10, 10, 0.484);
   pointer-events: none;
 }
 

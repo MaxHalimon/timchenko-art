@@ -1,10 +1,83 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useTranslations } from "next-intl";
 import styles from "./HeroManifestoOverlay.module.css";
 
+const START_DELAY_MS = 2000; // cursor blinks alone for 2s before typing starts
 const MS_PER_CHAR = 38;
+const HOLD_AFTER_DONE_MS = 5000; // full text stays up 5s after the last letter
+const FADE_OUT_MS = 1200; // must match the CSS transition duration below
+
+type Phase = "pending" | "typing" | "holding" | "cursorFadingOut" | "cursorHidden";
+
+// Mirrors AccentText's own word-selection algorithm (same hash → same
+// ~10%-of-words, min 1, deterministic pick) so this overlay's accented
+// words read as "the same visual language" as every heading on the page,
+// without importing AccentText itself — that component assumes it always
+// has the *complete* string up front to split and place accents, but here
+// the string is revealed a character at a time, so accent placement has
+// to be decided once (over the full final text) and then re-applied to
+// whatever prefix of the text is currently visible, word by word — see
+// renderTyped below.
+function hashString(str: string): number {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    hash = (hash * 31 + str.charCodeAt(i)) >>> 0;
+  }
+  return hash;
+}
+
+// Space-delimited languages (uk/en/de/fr/…) split cleanly into words. CJK
+// text (ja) has no spaces between words at all, so a plain `.split(" ")`
+// returns the *entire string* as one "word" — which then makes the whole
+// sentence count as the single accented word (100% of the text colored,
+// which is the bug being fixed here). Approximate "words" for that case as
+// 2-character clusters instead, so accenting ~10% of tokens still reads as
+// a light sprinkling rather than an all-or-nothing choice.
+function tokenize(text: string): { tokens: string[]; separator: string } {
+  if (text.includes(" ")) return { tokens: text.split(" "), separator: " " };
+  const chars = Array.from(text);
+  const tokens: string[] = [];
+  for (let i = 0; i < chars.length; i += 2) tokens.push(chars.slice(i, i + 2).join(""));
+  return { tokens, separator: "" };
+}
+
+function pickAccentedTokens(tokens: string[], separator: string): Set<number> {
+  const accentCount = Math.max(1, Math.round(tokens.length * 0.1));
+  const indices = new Set<number>();
+  let seed = hashString(tokens.join(separator)) || 1;
+  while (indices.size < accentCount && indices.size < tokens.length) {
+    seed = (seed * 1103515245 + 12345) >>> 0;
+    indices.add(seed % tokens.length);
+  }
+  return indices;
+}
+
+function renderTyped(text: string, visibleChars: number, accentedIndices: Set<number>) {
+  const { tokens, separator } = tokenize(text);
+  const nodes: React.ReactNode[] = [];
+  let cursor = 0;
+
+  for (let i = 0; i < tokens.length; i++) {
+    const token = tokens[i];
+    const start = cursor;
+    const end = start + token.length;
+    cursor = end + separator.length;
+
+    if (start >= visibleChars) break; // this token hasn't started appearing yet
+
+    const segment = text.slice(start, Math.min(end, visibleChars));
+    nodes.push(
+      <span key={i}>
+        {i > 0 ? separator : ""}
+        {accentedIndices.has(i) ? <span className={styles.accent}>{segment}</span> : segment}
+      </span>
+    );
+  }
+
+  return nodes;
+}
 
 /**
  * A short, distinct artist's-statement — deliberately *not* the same
@@ -12,51 +85,91 @@ const MS_PER_CHAR = 38;
  * (the full biography) further down the page. This one lives only here,
  * typed out over the hero video as if written by hand in the moment.
  *
- * Typing is driven by a plain interval advancing a character count,
- * rather than a CSS `steps()` width animation — a JS interval lets the
- * cadence stay 1 char / MS_PER_CHAR regardless of how long the string
- * is or how the text reflows across lines, which a fixed-duration CSS
- * animation can't guarantee. `prefers-reduced-motion` skips straight to
- * the full text. Screen readers get the full text immediately too (in a
- * visually-hidden node) — the letter-by-letter reveal is a visual effect
- * only, not something assistive tech should have to sit through.
+ * Timeline: 2s of just a blinking cursor → types out at a steady
+ * MS_PER_CHAR pace → holds for 5s with the cursor still blinking at the
+ * end of the line → the cursor fades out over FADE_OUT_MS and stops
+ * blinking. The typed text itself is never removed — only the cursor
+ * disappears, since a permanently-blinking cursor next to finished text
+ * reads as distracting rather than "still writing". `prefers-reduced-
+ * motion` skips the typing (shows the full text immediately) but still honors the initial
+ * delay and the hold-then-fade, so the text isn't just permanently stuck
+ * on screen — it still behaves like a considered, disappearing statement
+ * rather than a moving one. Screen readers get the full text immediately
+ * via a visually-hidden node, independent of any of this timing.
  */
 export function HeroManifestoOverlay() {
   const t = useTranslations("heroManifesto");
   const text = t("text");
   const [visibleChars, setVisibleChars] = useState(0);
+  const [phase, setPhase] = useState<Phase>("pending");
+
+  const accentedIndices = useMemo(() => {
+    const { tokens, separator } = tokenize(text);
+    return pickAccentedTokens(tokens, separator);
+  }, [text]);
 
   useEffect(() => {
-    // Reset on every (re-)mount, including React StrictMode's dev-only
-    // mount → cleanup → mount cycle — a "only run once" ref guard here
-    // would block that second, real mount from ever starting a timer.
-    // The cleanup below already handles not double-running: it clears
-    // whichever interval belongs to that particular effect invocation.
+    setPhase("pending");
     setVisibleChars(0);
 
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reducedMotion) {
-      setVisibleChars(text.length);
-      return;
+    const timers: ReturnType<typeof setTimeout>[] = [];
+    let typingInterval: ReturnType<typeof setInterval> | null = null;
+
+    function startHoldThenFadeCursor() {
+      setPhase("holding");
+      timers.push(
+        setTimeout(() => {
+          setPhase("cursorFadingOut");
+          timers.push(setTimeout(() => setPhase("cursorHidden"), FADE_OUT_MS));
+        }, HOLD_AFTER_DONE_MS)
+      );
     }
 
-    let count = 0;
-    const id = setInterval(() => {
-      count += 1;
-      setVisibleChars(count);
-      if (count >= text.length) clearInterval(id);
-    }, MS_PER_CHAR);
+    timers.push(
+      setTimeout(() => {
+        if (reducedMotion) {
+          setVisibleChars(text.length);
+          startHoldThenFadeCursor();
+          return;
+        }
 
-    return () => clearInterval(id);
+        setPhase("typing");
+        let count = 0;
+        typingInterval = setInterval(() => {
+          count += 1;
+          setVisibleChars(count);
+          if (count >= text.length) {
+            if (typingInterval) clearInterval(typingInterval);
+            startHoldThenFadeCursor();
+          }
+        }, MS_PER_CHAR);
+      }, START_DELAY_MS)
+    );
+
+    return () => {
+      timers.forEach(clearTimeout);
+      if (typingInterval) clearInterval(typingInterval);
+    };
   }, [text]);
 
-  const isDone = visibleChars >= text.length;
+  const isDone = phase === "holding" || phase === "cursorFadingOut" || phase === "cursorHidden";
 
   return (
     <div className={styles.wrapper}>
       <p className={styles.visible} aria-hidden="true">
-        {text.slice(0, visibleChars)}
-        <span className={isDone ? `${styles.cursor} ${styles.cursorSteady}` : styles.cursor} />
+        {renderTyped(text, visibleChars, accentedIndices)}
+        {phase !== "cursorHidden" && (
+          <span
+            className={
+              phase === "cursorFadingOut"
+                ? `${styles.cursor} ${styles.cursorSteady} ${styles.cursorFadingOut}`
+                : isDone
+                  ? `${styles.cursor} ${styles.cursorSteady}`
+                  : styles.cursor
+            }
+          />
+        )}
       </p>
       <p className={styles.srOnly}>{text}</p>
     </div>

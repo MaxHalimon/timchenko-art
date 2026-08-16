@@ -1,17 +1,13 @@
 .section {
   max-width: 760px;
   margin: 0 auto;
-  padding: var(--space-6) var(--space-4) var(--space-4);
-  /* Cancels SiteFooter's own fixed margin-top (also --space-6) via
-     standard CSS margin collapsing — <main> has no padding/border of its
-     own, so this section's negative bottom margin collapses straight
-     through it into the footer's top margin, netting to 0. What's left
-     visible is just this section's own padding-bottom above, which now
-     matches --space-4 — the same gap already used between the closing
-     text and the CTA button. If <main> ever gets padding/border of its
-     own, this collapsing stops working and the two gaps will need
-     re-syncing by hand. */
-  margin-bottom: calc(-1 * var(--space-6));
+  padding: var(--space-6) var(--space-4) 0;
+  /* No bottom padding here on purpose: the previous approach tried to
+     cancel SiteFooter's fixed margin-top via CSS margin collapsing
+     through <main>, which turned out not to net to 0 in practice. The
+     footer's margin-top is overridden directly and deterministically
+     for this page in globals.css (see the [data-last-section="artist-intro"]
+     rule), scoped so every other page keeps the default footer spacing. */
 }
 
 .heading {
