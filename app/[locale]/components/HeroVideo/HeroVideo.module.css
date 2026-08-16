@@ -17,6 +17,17 @@
   object-fit: cover;
 }
 
+.tint {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  /* Flat, uniform darkening — a tint film, not a gradient — so it reads
+     the same whether the manifesto text lands over a bright or dark
+     frame of the loop. */
+  background-color: rgba(10, 10, 10, 0.4);
+  pointer-events: none;
+}
+
 .scrollCue {
   position: absolute;
   bottom: var(--space-4);

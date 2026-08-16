@@ -324,5 +324,8 @@
     "itemUnavailableError": "Une des œuvres n'est plus disponible — veuillez actualiser votre chevalet.",
     "intro": "Voici les œuvres que vous avez pris le temps d'apprécier. Quand vous serez prêt, dites-nous où les envoyer.",
     "loading": "Chargement de votre chevalet..."
+  },
+  "heroManifesto": {
+    "text": "Je ne peins pas des corps — je peins l'instant où le masque tombe. La couleur dit la vérité plus vite que les mots, et une toile ne se tait qu'une fois qu'elle a tout dit."
   }
 }

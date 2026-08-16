@@ -324,5 +324,8 @@
     "itemUnavailableError": "Eines der Werke ist nicht mehr verfügbar — bitte aktualisieren Sie Ihre Staffelei.",
     "intro": "Hier sind die Werke, denen Sie etwas Zeit gegeben haben, bei Ihnen zu verweilen. Wenn Sie bereit sind, sagen Sie uns, wohin wir sie schicken sollen.",
     "loading": "Ihre Staffelei wird geladen..."
+  },
+  "heroManifesto": {
+    "text": "Ich male keine Körper — ich male den Moment, in dem die Maske fällt. Farbe sagt die Wahrheit schneller als Worte, und eine Leinwand schweigt erst, wenn sie alles gesagt hat, was sie sagen musste."
   }
 }

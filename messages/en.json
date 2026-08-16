@@ -324,5 +324,8 @@
     "itemUnavailableError": "One of the pieces is no longer available — please refresh your easel.",
     "intro": "Here are the pieces you've given a little time to sit with. When you're ready, tell us where to send them.",
     "loading": "Loading your easel..."
+  },
+  "heroManifesto": {
+    "text": "I don't paint bodies — I paint the moment the mask slips. Color tells the truth faster than words, and a canvas stays quiet only once it has said everything it needed to."
   }
 }

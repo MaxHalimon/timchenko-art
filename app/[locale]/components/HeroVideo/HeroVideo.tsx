@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
+import { HeroManifestoOverlay } from "../HeroManifestoOverlay/HeroManifestoOverlay";
 import styles from "./HeroVideo.module.css";
 
 export function HeroVideo({ src, poster }: { src: string; poster?: string }) {
@@ -44,6 +45,13 @@ export function HeroVideo({ src, poster }: { src: string; poster?: string }) {
         preload="auto"
         aria-hidden="true"
       />
+
+      {/* Uniform darkening film across the whole video — like tinted car
+          glass, not a bottom-only gradient — so the typed text stays
+          readable no matter where it sits over the loop. */}
+      <div className={styles.tint} aria-hidden="true" />
+
+      <HeroManifestoOverlay />
 
       <button type="button" className={styles.scrollCue} aria-label={t("scrollHint")} onClick={scrollToNextSection}>
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
