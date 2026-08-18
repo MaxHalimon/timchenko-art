@@ -314,7 +314,7 @@ export function renderOrderStatusEmail(params: OrderEmailParams): { subject: str
                 </p>
                 <p style="margin:0 0 24px;font-size:14px;line-height:1.7;color:#3a3a3a;">
                   ${escapeHtml(copy.questionsLabel)}
-                  <a href="${params.contactUrl}" style="color:#b3452b;">${escapeHtml(copy.contactUrl)}</a>.
+                  <a href="${params.contactUrl}" style="color:#b3452b;">${escapeHtml(params.contactUrl)}</a>.
                 </p>
                 <p style="margin:0 0 8px;font-size:14px;color:#6e6e6c;">${escapeHtml(copy.signOff)}</p>
               </td>
