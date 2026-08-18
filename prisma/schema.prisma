@@ -38,11 +38,13 @@ enum ProductStatus {
 
 /// Order state machine, in strict forward order.
 enum OrderStatus {
-  PREVIEW      // Client viewing watermarked preview, cart/checkout not yet paid
-  PAID         // Payment confirmed via webhook
-  IN_PROGRESS  // Marina is painting / preparing the physical piece
-  SHIPPED      // Tracking number added
-  DELIVERED    // Client confirmed receipt; artist commission released
+  PREVIEW       // Client viewing watermarked preview, cart/checkout not yet paid
+  PAID          // Payment confirmed via webhook
+  PAINTING      // Marina is actively painting the piece
+  DRYING        // Painting finished, curing before varnish/packing
+  READY_TO_SHIP // Dry, varnished, packed — waiting to hand off to courier
+  SHIPPED       // Tracking number added
+  DELIVERED     // Client confirmed receipt; artist commission released
 }
 
 enum PaymentProvider {
@@ -125,6 +127,7 @@ model Product {
 model Order {
   id        String      @id @default(cuid())
   status    OrderStatus @default(PREVIEW)
+  locale    String      @default("uk") // storefront language at checkout — used for every status-change email sent after this, since those fire from webhooks/admin actions with no request-scoped locale of their own
 
   items OrderItem[]
 

@@ -67,6 +67,7 @@ export async function POST(req: NextRequest) {
       platformCommissionUsd: 0, // set for real once the order reaches PAID
       artistPayoutUsd: 0,
       status: "PREVIEW",
+      locale,
       items: {
         create: products.map((p) => ({
           productId: p.id,

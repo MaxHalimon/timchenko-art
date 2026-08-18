@@ -4,8 +4,13 @@ import { TrackingForm } from "../components/TrackingForm/TrackingForm";
 import { AccentText } from "../components/AccentText/AccentText";
 import styles from "./page.module.css";
 
-export default async function TrackingPage() {
+export default async function TrackingPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ ref?: string }>;
+}) {
   const t = await getTranslations("tracking");
+  const { ref } = await searchParams;
 
   return (
     <div className={styles.page}>
@@ -14,7 +19,7 @@ export default async function TrackingPage() {
       </h1>
       <p className={styles.intro}>{t("intro")}</p>
 
-      <TrackingForm />
+      <TrackingForm initialReference={ref} />
 
       <div className={styles.filler}>
         <h2 className={styles.fillerHeading}>

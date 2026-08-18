@@ -4,7 +4,7 @@
     "nav": {
       "home": "Schaufenster",
       "gallery": "Galerie",
-      "tracking": "Tracking",
+      "tracking": "Bestellstatus",
       "openMenu": "Menü öffnen",
       "closeMenu": "Menü schließen",
       "contact": "Schreiben Sie der Künstlerin",
@@ -274,7 +274,7 @@
     "closing": "Entdecken Sie die Welt von Maryna Timchenko — Kunst, die die Seele berührt und echte Emotionen weckt."
   },
   "tracking": {
-    "title": "Tracking",
+    "title": "Bestellstatus",
     "intro": "Geben Sie Ihre Bestellnummer oder die nach der Zahlung erhaltene Sendungsnummer ein, um zu sehen, wo sich Ihr Gemälde gerade befindet — vom ersten Pinselstrich bis zu dem Moment, in dem es bei Ihnen ankommt.",
     "inputLabel": "Bestellnummer oder Sendungsnummer",
     "inputPlaceholder": "Nummer eingeben",
@@ -289,13 +289,16 @@
     "status": {
       "PREVIEW": "Zahlung ausstehend",
       "PAID": "Bezahlt — wird vorbereitet",
-      "IN_PROGRESS": "Marina arbeitet an Ihrem Gemälde",
+      "PAINTING": "Ihr Gemälde wird gerade gemalt",
+      "DRYING": "Das Gemälde trocknet",
+      "READY_TO_SHIP": "Das Gemälde ist fertig und wird für den Versand vorbereitet",
       "SHIPPED": "Versandt",
       "DELIVERED": "Zugestellt"
     },
     "fillerHeading": "So sorgen wir für Ihr Gemälde unterwegs",
     "fillerText": "Bevor es zu Ihnen reist, wird jedes Werk von Hand verpackt — mit derselben Sorgfalt, mit der es gemalt wurde. Stabiler Rahmenschutz, Eckenschutz, feuchtigkeitsbeständige Verpackung. Alle Details zu Fristen und internationalem Versand finden Sie in der",
-    "fillerLinkText": "Versandrichtlinie"
+    "fillerLinkText": "Versandrichtlinie",
+    "previewNotice": "Diese Bestellung wurde noch nicht bezahlt. Falls Sie gerade erst bezahlt haben, aktualisieren Sie die Seite in ein paar Minuten."
   },
   "easel": {
     "add": "Auf die Staffelei stellen",

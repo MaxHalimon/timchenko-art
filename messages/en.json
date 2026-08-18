@@ -4,7 +4,7 @@
     "nav": {
       "home": "Showcase",
       "gallery": "Gallery",
-      "tracking": "Tracking",
+      "tracking": "Order Status",
       "openMenu": "Open menu",
       "closeMenu": "Close menu",
       "contact": "Write to the Artist",
@@ -274,7 +274,7 @@
     "closing": "Discover the world of Maryna Timchenko — art that touches the soul and stirs real emotion."
   },
   "tracking": {
-    "title": "Tracking",
+    "title": "Order Status",
     "intro": "Enter your order number or the tracking number you received after payment to see where your painting is right now — from the first brushstroke to the moment it reaches you.",
     "inputLabel": "Order number or tracking number",
     "inputPlaceholder": "Enter number",
@@ -289,13 +289,16 @@
     "status": {
       "PREVIEW": "Awaiting payment",
       "PAID": "Paid — getting ready",
-      "IN_PROGRESS": "Marina is working on your painting",
+      "PAINTING": "Your painting is being created right now",
+      "DRYING": "The painting is drying",
+      "READY_TO_SHIP": "The painting is ready and being prepared for shipping",
       "SHIPPED": "Shipped",
       "DELIVERED": "Delivered"
     },
     "fillerHeading": "How we care for your painting in transit",
     "fillerText": "Before it travels to you, every piece is packed by hand — with the same care it was painted with. Rigid framing, protective corner guards, moisture-resistant wrapping. For full details on timelines and international shipping, see the",
-    "fillerLinkText": "Shipping Policy"
+    "fillerLinkText": "Shipping Policy",
+    "previewNotice": "This order hasn't been paid yet. If you just completed checkout, try refreshing in a few minutes."
   },
   "easel": {
     "add": "Put on the easel",

@@ -11,30 +11,13 @@ const FADE_OUT_MS = 1200; // must match the CSS transition duration below
 
 type Phase = "pending" | "typing" | "holding" | "cursorFadingOut" | "cursorHidden";
 
-// Mirrors AccentText's own word-selection algorithm (same hash → same
-// ~10%-of-words, min 1, deterministic pick) so this overlay's accented
-// words read as "the same visual language" as every heading on the page,
-// without importing AccentText itself — that component assumes it always
-// has the *complete* string up front to split and place accents, but here
-// the string is revealed a character at a time, so accent placement has
-// to be decided once (over the full final text) and then re-applied to
-// whatever prefix of the text is currently visible, word by word — see
-// renderTyped below.
-function hashString(str: string): number {
-  let hash = 0;
-  for (let i = 0; i < str.length; i++) {
-    hash = (hash * 31 + str.charCodeAt(i)) >>> 0;
-  }
-  return hash;
-}
-
 // Space-delimited languages (uk/en/de/fr/…) split cleanly into words. CJK
 // text (ja) has no spaces between words at all, so a plain `.split(" ")`
 // returns the *entire string* as one "word" — which then makes the whole
 // sentence count as the single accented word (100% of the text colored,
 // which is the bug being fixed here). Approximate "words" for that case as
-// 2-character clusters instead, so accenting ~10% of tokens still reads as
-// a light sprinkling rather than an all-or-nothing choice.
+// 2-character clusters instead, so accenting a handful of tokens still
+// reads as a light sprinkling rather than an all-or-nothing choice.
 function tokenize(text: string): { tokens: string[]; separator: string } {
   if (text.includes(" ")) return { tokens: text.split(" "), separator: " " };
   const chars = Array.from(text);
@@ -43,13 +26,13 @@ function tokenize(text: string): { tokens: string[]; separator: string } {
   return { tokens, separator: "" };
 }
 
-function pickAccentedTokens(tokens: string[], separator: string): Set<number> {
-  const accentCount = Math.max(1, Math.round(tokens.length * 0.1));
+// Randomized on purpose (Math.random(), not a hash of the text) — a
+// different 3-4 words light up on every page load. min/max are inclusive.
+function pickAccentedTokens(tokenCount: number, min = 3, max = 4): Set<number> {
+  const accentCount = Math.min(tokenCount, Math.floor(Math.random() * (max - min + 1)) + min);
   const indices = new Set<number>();
-  let seed = hashString(tokens.join(separator)) || 1;
-  while (indices.size < accentCount && indices.size < tokens.length) {
-    seed = (seed * 1103515245 + 12345) >>> 0;
-    indices.add(seed % tokens.length);
+  while (indices.size < accentCount) {
+    indices.add(Math.floor(Math.random() * tokenCount));
   }
   return indices;
 }
@@ -87,10 +70,14 @@ function renderTyped(text: string, visibleChars: number, accentedIndices: Set<nu
  *
  * Timeline: 2s of just a blinking cursor → types out at a steady
  * MS_PER_CHAR pace → holds for 5s with the cursor still blinking at the
- * end of the line → the cursor fades out over FADE_OUT_MS and stops
- * blinking. The typed text itself is never removed — only the cursor
- * disappears, since a permanently-blinking cursor next to finished text
- * reads as distracting rather than "still writing". `prefers-reduced-
+ * end of the line → the cursor fades to invisible over FADE_OUT_MS and
+ * stops blinking. The cursor element itself is never removed from the
+ * DOM — it just ends up permanently at opacity 0, still occupying its
+ * spot in the flow — rather than being unmounted, which would otherwise
+ * cause a (tiny) layout shift right as it disappears. The typed text
+ * itself is never removed either — only the cursor goes invisible,
+ * since a permanently-blinking cursor next to finished text reads as
+ * distracting rather than "still writing". `prefers-reduced-
  * motion` skips the typing (shows the full text immediately) but still honors the initial
  * delay and the hold-then-fade, so the text isn't just permanently stuck
  * on screen — it still behaves like a considered, disappearing statement
@@ -104,8 +91,8 @@ export function HeroManifestoOverlay() {
   const [phase, setPhase] = useState<Phase>("pending");
 
   const accentedIndices = useMemo(() => {
-    const { tokens, separator } = tokenize(text);
-    return pickAccentedTokens(tokens, separator);
+    const { tokens } = tokenize(text);
+    return pickAccentedTokens(tokens.length);
   }, [text]);
 
   useEffect(() => {
@@ -159,17 +146,15 @@ export function HeroManifestoOverlay() {
     <div className={styles.wrapper}>
       <p className={styles.visible} aria-hidden="true">
         {renderTyped(text, visibleChars, accentedIndices)}
-        {phase !== "cursorHidden" && (
-          <span
-            className={
-              phase === "cursorFadingOut"
-                ? `${styles.cursor} ${styles.cursorSteady} ${styles.cursorFadingOut}`
-                : isDone
-                  ? `${styles.cursor} ${styles.cursorSteady}`
-                  : styles.cursor
-            }
-          />
-        )}
+        <span
+          className={
+            phase === "cursorFadingOut" || phase === "cursorHidden"
+              ? `${styles.cursor} ${styles.cursorSteady} ${styles.cursorFadingOut}`
+              : isDone
+                ? `${styles.cursor} ${styles.cursorSteady}`
+                : styles.cursor
+          }
+        />
       </p>
       <p className={styles.srOnly}>{text}</p>
     </div>

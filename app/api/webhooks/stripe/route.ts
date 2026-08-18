@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { stripe } from "@/lib/stripe";
 import { prisma } from "@/lib/prisma";
-import { calculatePlatformCommissionUsd, calculateArtistPayoutUsd } from "@/lib/constants";
+import { markOrderPaid } from "@/lib/orderStatus";
 import type Stripe from "stripe";
 
 const WEBHOOK_SECRET = process.env.STRIPE_WEBHOOK_SECRET;
@@ -50,28 +50,9 @@ export async function POST(req: NextRequest) {
     });
 
     // Idempotency: Stripe retries webhooks, and can send the same event more
-    // than once — only transition an order that's still in PREVIEW.
-    if (payment.order.status === "PREVIEW") {
-      const amountUsd = Number(payment.order.amountUsd);
-
-      await prisma.$transaction([
-        prisma.order.update({
-          where: { id: payment.order.id },
-          data: {
-            status: "PAID",
-            platformCommissionUsd: calculatePlatformCommissionUsd(amountUsd),
-            artistPayoutUsd: calculateArtistPayoutUsd(amountUsd),
-          },
-        }),
-        prisma.product.updateMany({
-          where: { id: { in: payment.order.items.map((item) => item.productId) } },
-          data: { status: "SOLD" },
-        }),
-      ]);
-
-      // TODO: notify the artist (email/telegram) that a new order needs to
-      // move to IN_PROGRESS, and send the customer a payment confirmation.
-    }
+    // than once — markOrderPaid no-ops if the order isn't still in PREVIEW,
+    // so this is safe to call on every delivery of the same event.
+    await markOrderPaid(payment.order.id);
   }
 
   // Card payments can fail after the checkout session was created (declined,

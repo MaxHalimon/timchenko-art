@@ -4,7 +4,7 @@
     "nav": {
       "home": "Vitrine",
       "gallery": "Galerie",
-      "tracking": "Suivi",
+      "tracking": "Statut de la commande",
       "openMenu": "Ouvrir le menu",
       "closeMenu": "Fermer le menu",
       "contact": "Écrire à l'artiste",
@@ -274,7 +274,7 @@
     "closing": "Découvrez l'univers de Maryna Timchenko — un art qui touche l'âme et suscite une émotion sincère."
   },
   "tracking": {
-    "title": "Suivi",
+    "title": "Statut de la commande",
     "intro": "Saisissez votre numéro de commande ou le numéro de suivi reçu après le paiement pour voir où se trouve votre peinture en ce moment — du premier coup de pinceau jusqu'à sa livraison.",
     "inputLabel": "Numéro de commande ou numéro de suivi",
     "inputPlaceholder": "Saisissez le numéro",
@@ -289,13 +289,16 @@
     "status": {
       "PREVIEW": "En attente de paiement",
       "PAID": "Payé — en préparation",
-      "IN_PROGRESS": "Marina travaille sur votre peinture",
+      "PAINTING": "Votre tableau est en cours de création",
+      "DRYING": "Le tableau sèche",
+      "READY_TO_SHIP": "Le tableau est prêt et en préparation pour l'expédition",
       "SHIPPED": "Expédié",
       "DELIVERED": "Livré"
     },
     "fillerHeading": "Comment nous prenons soin de votre peinture en transit",
     "fillerText": "Avant de voyager jusqu'à vous, chaque œuvre est emballée à la main — avec le même soin qu'elle a été peinte. Encadrement rigide, protections d'angle, emballage résistant à l'humidité. Pour tous les détails sur les délais et l'expédition internationale, consultez la",
-    "fillerLinkText": "Politique d'expédition"
+    "fillerLinkText": "Politique d'expédition",
+    "previewNotice": "Cette commande n'a pas encore été payée. Si vous venez de finaliser l'achat, réessayez dans quelques minutes."
   },
   "easel": {
     "add": "Poser sur le chevalet",

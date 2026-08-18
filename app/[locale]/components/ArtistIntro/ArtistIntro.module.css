@@ -1,13 +1,7 @@
 .section {
   max-width: 760px;
   margin: 0 auto;
-  padding: var(--space-6) var(--space-4) 0;
-  /* No bottom padding here on purpose: the previous approach tried to
-     cancel SiteFooter's fixed margin-top via CSS margin collapsing
-     through <main>, which turned out not to net to 0 in practice. The
-     footer's margin-top is overridden directly and deterministically
-     for this page in globals.css (see the [data-last-section="artist-intro"]
-     rule), scoped so every other page keeps the default footer spacing. */
+  padding: var(--space-6) var(--space-4) var(--space-4);
 }
 
 .heading {

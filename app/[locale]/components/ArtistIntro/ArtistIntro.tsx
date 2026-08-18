@@ -17,7 +17,7 @@ export async function ArtistIntro() {
   const whyBuy = t.raw("whyBuy") as FeatureItem[];
 
   return (
-    <section className={styles.section} data-last-section="artist-intro">
+    <section className={styles.section}>
       <h2 className={styles.heading}>
         <AccentText text={t("heading")} />
       </h2>

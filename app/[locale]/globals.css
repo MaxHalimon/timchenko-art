@@ -113,23 +113,3 @@ img {
     scroll-behavior: auto !important;
   }
 }
-
-/* Homepage-only: make the gap between the "Перейти в галерею" CTA and the
-   footer equal the gap above that CTA (ArtistIntro's own closing-text →
-   button spacing, --space-4). SiteFooter's default margin-top (--space-6)
-   is deliberately left untouched everywhere else — this targets only the
-   footer that directly follows ArtistIntro's marked <section>, via :has().
-
-   The footer itself has no background/border, so what a visitor actually
-   perceives as "the footer starting" is its own text (copyright/legal
-   links) — offset from the footer element's own top edge by its own
-   padding: var(--space-4) (40px), already baked into SiteFooter.module.css
-   and left untouched here. So margin-top needs to contribute 0, not
-   another --space-4 on top of that — this was the earlier bug: the two
-   40px gaps were stacking into 80px instead of netting to 40px.
-   !important guards against any specificity surprises from CSS Modules
-   ordering, since getting this exactly right matters more here than
-   keeping the override "soft". */
-main:has(> [data-last-section="artist-intro"]) + footer {
-  margin-top: 0 !important;
-}

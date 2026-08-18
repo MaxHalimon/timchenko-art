@@ -75,11 +75,11 @@ export function SiteHeader() {
         <Link href="/gallery" className={linkClass("/gallery")} onClick={closeMenu}>
           {t("nav.gallery")}
         </Link>
-        <Link href="/tracking" className={linkClass("/tracking")} onClick={closeMenu}>
-          {t("nav.tracking")}
-        </Link>
         <Link href="/contacts" className={linkClass("/contacts")} onClick={closeMenu}>
           {t("nav.contact")}
+        </Link>
+        <Link href="/tracking" className={linkClass("/tracking")} onClick={closeMenu}>
+          {t("nav.tracking")}
         </Link>
         <Link href="/easel" className={linkClass("/easel")} onClick={closeMenu}>
           {t("nav.easel")}

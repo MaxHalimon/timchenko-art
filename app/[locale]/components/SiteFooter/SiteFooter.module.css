@@ -1,7 +1,7 @@
 .footer {
   box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.06);
   padding: var(--space-4);
-  margin-top: var(--space-6);
+  margin-top: calc(var(--space-6) / 2);
   font-size: 13px;
   color: var(--color-text-light);
   text-align: center;

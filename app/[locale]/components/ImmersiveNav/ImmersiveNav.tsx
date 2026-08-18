@@ -96,11 +96,11 @@ export function ImmersiveNav() {
         <Link href="/gallery" className={styles.navLink} onClick={closeMenu}>
           {t("nav.gallery")}
         </Link>
-        <Link href="/tracking" className={styles.navLink} onClick={closeMenu}>
-          {t("nav.tracking")}
-        </Link>
         <Link href="/contacts" className={styles.navLink} onClick={closeMenu}>
           {t("nav.contact")}
+        </Link>
+        <Link href="/tracking" className={styles.navLink} onClick={closeMenu}>
+          {t("nav.tracking")}
         </Link>
         <Link href="/easel" className={styles.navLink} onClick={closeMenu}>
           {t("nav.easel")}

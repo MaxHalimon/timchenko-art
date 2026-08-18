@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import crypto from "crypto";
 import { prisma } from "@/lib/prisma";
-import { calculatePlatformCommissionUsd, calculateArtistPayoutUsd } from "@/lib/constants";
+import { markOrderPaid } from "@/lib/orderStatus";
 
 /**
  * NOWPayments IPN callback.
@@ -80,28 +80,11 @@ export async function POST(req: NextRequest) {
     },
   });
 
-  // Idempotency: if this order is already past PREVIEW, don't re-process
-  // (NOWPayments can and will send the same IPN more than once).
-  if (PAID_STATUSES.has(paymentStatus) && payment.order.status === "PREVIEW") {
-    const amountUsd = Number(payment.order.amountUsd);
-
-    await prisma.$transaction([
-      prisma.order.update({
-        where: { id: payment.order.id },
-        data: {
-          status: "PAID",
-          platformCommissionUsd: calculatePlatformCommissionUsd(amountUsd),
-          artistPayoutUsd: calculateArtistPayoutUsd(amountUsd),
-        },
-      }),
-      prisma.product.updateMany({
-        where: { id: { in: payment.order.items.map((item) => item.productId) } },
-        data: { status: "SOLD" },
-      }),
-    ]);
-
-    // TODO: notify the artist (email/telegram) that a new order needs to
-    // move to IN_PROGRESS, and send the customer a payment confirmation.
+  // Idempotency: markOrderPaid no-ops if the order isn't still in PREVIEW,
+  // so this is safe even though NOWPayments can and will send the same IPN
+  // more than once.
+  if (PAID_STATUSES.has(paymentStatus)) {
+    await markOrderPaid(payment.order.id);
   }
 
   return NextResponse.json({ received: true });
