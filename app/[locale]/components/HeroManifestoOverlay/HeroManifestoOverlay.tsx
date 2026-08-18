@@ -6,6 +6,34 @@ import styles from "./HeroManifestoOverlay.module.css";
 
 const START_DELAY_MS = 2000; // cursor blinks alone for 2s before typing starts
 const MS_PER_CHAR = 60;
+
+/**
+ * Delay before the *next* character appears, given the character that
+ * was just typed (undefined for the very first one). Three layers, each
+ * modeling a real typing habit rather than pure noise:
+ *  - base jitter (0.6x-1.5x MS_PER_CHAR): no two keystrokes land exactly
+ *    MS_PER_CHAR apart for a real typist, so a flat interval reads as
+ *    mechanical no matter how the base speed is tuned.
+ *  - a brief extra pause right after a space: the tiny hesitation
+ *    between words.
+ *  - a longer pause after sentence/clause punctuation (,.;:!?…—): where
+ *    a person actually pauses to think about what comes next.
+ * Order matters here: check punctuation before the plain-space case,
+ * since "word… " ends in both a space *and* punctuation, and the
+ * punctuation pause should win.
+ */
+function nextCharDelay(prevChar: string | undefined): number {
+  const jitter = 0.6 + Math.random() * 0.9;
+  let delay = MS_PER_CHAR * jitter;
+
+  if (prevChar && /[.,;:!?…—]/.test(prevChar)) {
+    delay += 150 + Math.random() * 300;
+  } else if (prevChar === " ") {
+    delay += 30 + Math.random() * 70;
+  }
+
+  return delay;
+}
 const HOLD_AFTER_DONE_MS = 5000; // full text stays up 5s after the last letter
 const FADE_OUT_MS = 1200; // must match the CSS transition duration below
 
@@ -68,8 +96,8 @@ function renderTyped(text: string, visibleChars: number, accentedIndices: Set<nu
  * (the full biography) further down the page. This one lives only here,
  * typed out over the hero video as if written by hand in the moment.
  *
- * Timeline: 2s of just a blinking cursor → types out at a steady
- * MS_PER_CHAR pace → holds for 5s with the cursor still blinking at the
+ * Timeline: 2s of just a blinking cursor → types out at a human-like,
+ * variable pace (see nextCharDelay) → holds for 5s with the cursor still blinking at the
  * end of the line → the cursor fades to invisible over FADE_OUT_MS and
  * stops blinking. The cursor element itself is never removed from the
  * DOM — it just ends up permanently at opacity 0, still occupying its
@@ -101,7 +129,6 @@ export function HeroManifestoOverlay() {
 
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const timers: ReturnType<typeof setTimeout>[] = [];
-    let typingInterval: ReturnType<typeof setInterval> | null = null;
 
     function startHoldThenFadeCursor() {
       setPhase("holding");
@@ -123,20 +150,23 @@ export function HeroManifestoOverlay() {
 
         setPhase("typing");
         let count = 0;
-        typingInterval = setInterval(() => {
+
+        function typeNextChar() {
           count += 1;
           setVisibleChars(count);
           if (count >= text.length) {
-            if (typingInterval) clearInterval(typingInterval);
             startHoldThenFadeCursor();
+            return;
           }
-        }, MS_PER_CHAR);
+          timers.push(setTimeout(typeNextChar, nextCharDelay(text[count - 1])));
+        }
+
+        timers.push(setTimeout(typeNextChar, nextCharDelay(undefined)));
       }, START_DELAY_MS)
     );
 
     return () => {
       timers.forEach(clearTimeout);
-      if (typingInterval) clearInterval(typingInterval);
     };
   }, [text]);
 
