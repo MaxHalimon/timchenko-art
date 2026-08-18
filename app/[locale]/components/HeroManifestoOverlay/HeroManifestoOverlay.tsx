@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 import styles from "./HeroManifestoOverlay.module.css";
 
 const START_DELAY_MS = 2000; // cursor blinks alone for 2s before typing starts
-const MS_PER_CHAR = 38;
+const MS_PER_CHAR = 60;
 const HOLD_AFTER_DONE_MS = 5000; // full text stays up 5s after the last letter
 const FADE_OUT_MS = 1200; // must match the CSS transition duration below
 
