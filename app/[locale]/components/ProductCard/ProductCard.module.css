@@ -62,9 +62,9 @@
   font-size: 18px;
   line-height: 1.3;
   margin-bottom: 4px;
-  /* Резервуємо місце під два рядки незалежно від фактичної довжини назви,
-     щоб однорядкові назви не піднімали блок ціни/кнопки вище, ніж на
-     картках з назвою в два рядки в тому самому ряду. */
+  /* Reserve room for two lines regardless of actual title length, so
+     single-line titles don't let the price/button block sit higher than
+     on cards with a wrapped, two-line title in the same grid row. */
   min-height: calc(1.3em * 2);
 }
 
@@ -73,8 +73,9 @@
   line-height: 1.4;
   color: var(--color-text-light);
   margin-bottom: 8px;
-  /* Та ж логіка — деякі переклади розміру/матеріалу довші й можуть
-     зламатись на два рядки на вузьких картках. */
+  /* Same reasoning as .productTitle — some locales' material/dimension
+     strings are long enough to wrap on narrow cards; reserving two lines
+     keeps every card's price/button starting at the same height. */
   min-height: calc(1.4em * 2);
 }
 

@@ -15,6 +15,7 @@ interface LocaleCopy {
   trackLabel: string;
   trackButton: string;
   questionsLabel: string;
+  contactLinkLabel: string;
   signOff: string;
   statuses: Record<EmailableStatus, StatusCopy>;
 }
@@ -33,6 +34,7 @@ const COPY: Record<Locale, LocaleCopy> = {
     trackButton: "Переглянути статус замовлення",
     questionsLabel:
       "Виникли питання про замовлення, доставку чи саму роботу — просто дайте відповідь на цей лист, або напишіть нам через сторінку",
+    contactLinkLabel: "контактів",
     signOff: "Дякуємо, що обрали Timchenko Art.",
     statuses: {
       PAID: {
@@ -77,6 +79,7 @@ const COPY: Record<Locale, LocaleCopy> = {
     trackLabel: "You can check your order's status at any time using this number on the",
     trackButton: "View order status",
     questionsLabel: "Questions about your order, shipping, or the piece itself — just reply to this email, or reach us via the",
+    contactLinkLabel: "contact page",
     signOff: "Thank you for choosing Timchenko Art.",
     statuses: {
       PAID: {
@@ -121,6 +124,7 @@ const COPY: Record<Locale, LocaleCopy> = {
     trackLabel: "Den Status Ihrer Bestellung können Sie jederzeit mit dieser Nummer auf der Seite",
     trackButton: "Bestellstatus ansehen",
     questionsLabel: "Fragen zur Bestellung, zum Versand oder zum Werk selbst? Antworten Sie einfach auf diese E-Mail oder schreiben Sie uns über die",
+    contactLinkLabel: "Kontaktseite",
     signOff: "Vielen Dank, dass Sie sich für Timchenko Art entschieden haben.",
     statuses: {
       PAID: {
@@ -165,6 +169,7 @@ const COPY: Record<Locale, LocaleCopy> = {
     trackLabel: "Vous pouvez suivre le statut de votre commande à tout moment avec ce numéro sur la page",
     trackButton: "Voir le statut de la commande",
     questionsLabel: "Des questions sur votre commande, la livraison ou l'œuvre elle-même ? Répondez simplement à cet e-mail, ou contactez-nous via la page",
+    contactLinkLabel: "de contact",
     signOff: "Merci d'avoir choisi Timchenko Art.",
     statuses: {
       PAID: {
@@ -209,6 +214,7 @@ const COPY: Record<Locale, LocaleCopy> = {
     trackLabel: "この番号を使って、いつでも次のページで注文状況を確認できます:",
     trackButton: "注文状況を見る",
     questionsLabel: "ご注文、配送、作品についてご質問がありましたら、このメールにご返信いただくか、こちらのページからお問い合わせください:",
+    contactLinkLabel: "お問い合わせページへ",
     signOff: "Timchenko Artをお選びいただき、ありがとうございます。",
     statuses: {
       PAID: {
@@ -314,7 +320,7 @@ export function renderOrderStatusEmail(params: OrderEmailParams): { subject: str
                 </p>
                 <p style="margin:0 0 24px;font-size:14px;line-height:1.7;color:#3a3a3a;">
                   ${escapeHtml(copy.questionsLabel)}
-                  <a href="${params.contactUrl}" style="color:#b3452b;">${escapeHtml(params.contactUrl)}</a>.
+                  <a href="${params.contactUrl}" style="color:#b3452b;">${escapeHtml(copy.contactLinkLabel)}</a>.
                 </p>
                 <p style="margin:0 0 8px;font-size:14px;color:#6e6e6c;">${escapeHtml(copy.signOff)}</p>
               </td>
