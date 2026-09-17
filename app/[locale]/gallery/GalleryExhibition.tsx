@@ -174,7 +174,7 @@ export function GalleryExhibition({
             {!isSold && (
               <>
                 {" · "}
-                <PriceTag amountUsd={current.priceUsd} />
+                <PriceTag amountEur={current.priceEur} />
               </>
             )}
             {isSold && ` · ${tCard("status.SOLD")}`}
