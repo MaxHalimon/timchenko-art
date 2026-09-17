@@ -51,7 +51,13 @@
       "SOLD": "Verkauft"
     },
     "dimensions": "{width} × {height} cm",
-    "material": "Öl auf Leinwand"
+    "materials": {
+      "oilCanvas": "Öl auf Leinwand",
+      "acrylicCanvas": "Acryl auf Leinwand",
+      "woodAcrylic": "Acryl auf Holz",
+      "paperInkGlass": "Tusche auf Papier, Glas",
+      "watercolorPaperAcrylic": "Aquarell, Papier, Acryl"
+    }
   },
   "product": {
     "backToGallery": "← Zurück zur Galerie",
@@ -196,10 +202,12 @@
       "sizeLarge": "Über 80 cm"
     },
     "themes": {
-      "landscape": "Landschaft",
+      "nude": "Akt",
+      "symbolism": "Symbolismus",
+      "satire": "Satire",
+      "sacred": "Sakral",
       "portrait": "Porträt",
-      "stillLife": "Stillleben",
-      "abstract": "Abstrakt"
+      "mixedMedia": "Mischtechnik"
     }
   },
   "contact": {

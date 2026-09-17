@@ -51,7 +51,13 @@
       "SOLD": "Sold"
     },
     "dimensions": "{width} × {height} cm",
-    "material": "oil on canvas"
+    "materials": {
+      "oilCanvas": "oil on canvas",
+      "acrylicCanvas": "acrylic on canvas",
+      "woodAcrylic": "acrylic on wood",
+      "paperInkGlass": "ink on paper, glass",
+      "watercolorPaperAcrylic": "watercolor, paper, acrylic"
+    }
   },
   "product": {
     "backToGallery": "← Back to gallery",
@@ -196,10 +202,12 @@
       "sizeLarge": "Over 80 cm"
     },
     "themes": {
-      "landscape": "landscape",
+      "nude": "nude",
+      "symbolism": "symbolism",
+      "satire": "satire",
+      "sacred": "sacred",
       "portrait": "portrait",
-      "stillLife": "still life",
-      "abstract": "abstract"
+      "mixedMedia": "mixed media"
     }
   },
   "contact": {

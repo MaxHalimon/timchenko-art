@@ -29,8 +29,10 @@ interface PaintingInput {
   description: Record<string, string>; // same shape as title
   widthCm: number;
   heightCm: number;
-  priceUsd: number;
+  priceEur: number;
   theme?: string;
+  /** Stable slug into productCard.materials.* — see messages/*.json. */
+  material: string;
   status: "AVAILABLE" | "IN_PROGRESS" | "SOLD";
   previewImageFile: string; // filename only, must exist in /public/paintings/
 }
@@ -73,8 +75,9 @@ async function main() {
         description: painting.description,
         widthCm: painting.widthCm,
         heightCm: painting.heightCm,
-        priceUsd: painting.priceUsd,
+        priceEur: painting.priceEur,
         theme: painting.theme,
+        material: painting.material,
         status: painting.status as ProductStatus,
         previewImageKey: `/paintings/${painting.previewImageFile}`,
         originalImageKey: `/paintings/${painting.previewImageFile}`, // placeholder — see file header
@@ -85,8 +88,9 @@ async function main() {
         description: painting.description,
         widthCm: painting.widthCm,
         heightCm: painting.heightCm,
-        priceUsd: painting.priceUsd,
+        priceEur: painting.priceEur,
         theme: painting.theme,
+        material: painting.material,
         status: painting.status as ProductStatus,
         previewImageKey: `/paintings/${painting.previewImageFile}`,
         originalImageKey: `/paintings/${painting.previewImageFile}`, // placeholder — see file header

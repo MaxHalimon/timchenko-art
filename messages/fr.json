@@ -51,7 +51,13 @@
       "SOLD": "Vendu"
     },
     "dimensions": "{width} × {height} cm",
-    "material": "huile sur toile"
+    "materials": {
+      "oilCanvas": "huile sur toile",
+      "acrylicCanvas": "acrylique sur toile",
+      "woodAcrylic": "acrylique sur bois",
+      "paperInkGlass": "encre sur papier, verre",
+      "watercolorPaperAcrylic": "aquarelle, papier, acrylique"
+    }
   },
   "product": {
     "backToGallery": "← Retour à la galerie",
@@ -196,10 +202,12 @@
       "sizeLarge": "Plus de 80 cm"
     },
     "themes": {
-      "landscape": "paysage",
+      "nude": "nu",
+      "symbolism": "symbolisme",
+      "satire": "satire",
+      "sacred": "sacré",
       "portrait": "portrait",
-      "stillLife": "nature morte",
-      "abstract": "abstrait"
+      "mixedMedia": "technique mixte"
     }
   },
   "contact": {

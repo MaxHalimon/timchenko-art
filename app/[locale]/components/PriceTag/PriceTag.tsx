@@ -3,7 +3,7 @@
 import { formatPrice } from "@/lib/currency";
 import { useCurrency } from "../../providers/CurrencyProvider";
 
-export function PriceTag({ amountUsd, className }: { amountUsd: number; className?: string }) {
+export function PriceTag({ amountEur, className }: { amountEur: number; className?: string }) {
   const { currency } = useCurrency();
-  return <span className={className}>{formatPrice(amountUsd, currency)}</span>;
+  return <span className={className}>{formatPrice(amountEur, currency)}</span>;
 }

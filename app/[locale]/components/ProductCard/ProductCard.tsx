@@ -19,8 +19,10 @@ export interface ProductCardProps {
   previewImageUrl: string; // watermarked preview only — never the original asset
   widthCm: number;
   heightCm: number;
-  priceUsd: number;
+  priceEur: number;
   status: ProductStatus;
+  /** Stable slug into productCard.materials.* — see messages/*.json. */
+  material: string;
 }
 
 export function ProductCard({
@@ -29,8 +31,9 @@ export function ProductCard({
   previewImageUrl,
   widthCm,
   heightCm,
-  priceUsd,
+  priceEur,
   status,
+  material,
 }: ProductCardProps) {
   const t = useTranslations("productCard");
   const isSold = status === "SOLD";
@@ -51,13 +54,13 @@ export function ProductCard({
         <div className={styles.body}>
           <h3 className={styles.productTitle}>{title}</h3>
           <p className={styles.meta}>
-            {t("dimensions", { width: widthCm, height: heightCm })} · {t("material")}
+            {t("dimensions", { width: widthCm, height: heightCm })} · {t(`materials.${material}`)}
           </p>
         </div>
       </Link>
 
       <div className={styles.actions}>
-        <PriceTag amountUsd={priceUsd} className={styles.price} />
+        <PriceTag amountEur={priceEur} className={styles.price} />
         <EaselButton slug={slug} />
       </div>
     </div>

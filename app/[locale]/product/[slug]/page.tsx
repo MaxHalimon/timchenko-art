@@ -104,11 +104,12 @@ export default async function ProductPage({ params }: ProductPageProps) {
         <div className={styles.info}>
           <h1 className={styles.title}>{title}</h1>
           <p className={styles.meta}>
-            {tCard("dimensions", { width: product.widthCm, height: product.heightCm })} · {tCard("material")}
+            {tCard("dimensions", { width: product.widthCm, height: product.heightCm })} ·{" "}
+            {tCard(`materials.${product.material}`)}
           </p>
 
           <div className={styles.priceRow}>
-            <PriceTag amountUsd={Number(product.priceUsd)} className={styles.price} />
+            <PriceTag amountEur={Number(product.priceEur)} className={styles.price} />
             <EaselButton slug={product.slug} />
           </div>
 
@@ -128,7 +129,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
               </div>
               <div className={styles.detailRow}>
                 <dt>{t("materialLabel")}</dt>
-                <dd>{tCard("material")}</dd>
+                <dd>{tCard(`materials.${product.material}`)}</dd>
               </div>
               {themeLabel && (
                 <div className={styles.detailRow}>
@@ -157,8 +158,9 @@ export default async function ProductPage({ params }: ProductPageProps) {
               previewImageUrl: p.previewImageKey,
               widthCm: p.widthCm,
               heightCm: p.heightCm,
-              priceUsd: Number(p.priceUsd),
+              priceEur: Number(p.priceEur),
               status: p.status as ProductStatus,
+              material: p.material,
             }))}
           />
         </section>

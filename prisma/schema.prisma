@@ -93,14 +93,18 @@ model Product {
 
   widthCm  Int
   heightCm Int
-  material String  @default("Олія, полотно") // not shown directly yet — every piece currently displays the same translated productCard.material string; revisit if pieces in different media need distinct labels
+  material String  @default("oilCanvas") // stable slug into productCard.materials.* in messages/*.json (see `theme` below for the same pattern)
   /// Stable, language-independent slug used for catalog filtering (see
   /// gallery.themes.* in messages/*.json for the translated label shown
   /// to visitors). Free text is still accepted — untranslated themes just
   /// display as-is (see FilterBar.tsx / product/[slug]/page.tsx).
   theme    String? // for catalog filtering
 
-  priceUsd Decimal @db.Decimal(10, 2)
+  priceEur Decimal @db.Decimal(10, 2)
+  // Base currency is EUR — the artist sets and thinks in EUR, so that's
+  // the single source of truth stored here. Every other displayed
+  // currency (USD, UAH, GBP, JPY, ...) is a converted *display* value —
+  // see lib/currency.ts.
   // Commission is a fixed global constant (20%), not per-product —
   // see ARTIST_COMMISSION_PCT in lib/constants.ts. Not stored here so
   // there is a single source of truth if it's ever revisited.
@@ -135,9 +139,9 @@ model Order {
   customerName  String
   shippingAddress Json // { country, city, postalCode, line1, line2?, phone }
 
-  amountUsd            Decimal @db.Decimal(10, 2) // sum of all items' priceUsd at time of order
-  platformCommissionUsd Decimal @db.Decimal(10, 2) // your cut = amountUsd * PLATFORM_COMMISSION_PCT (20%)
-  artistPayoutUsd       Decimal @db.Decimal(10, 2) // what's owed to the artist = amountUsd - platformCommissionUsd (80%)
+  amountEur            Decimal @db.Decimal(10, 2) // sum of all items' priceEur at time of order, EUR base
+  platformCommissionEur Decimal @db.Decimal(10, 2) // your cut = amountEur * PLATFORM_COMMISSION_PCT (20%)
+  artistPayoutEur       Decimal @db.Decimal(10, 2) // what's owed to the artist = amountEur - platformCommissionEur (80%)
   // Both snapshotted once, when status → PAID, so a later price/rate change
   // never silently rewrites what's owed on an already-placed order.
 
@@ -174,7 +178,7 @@ model OrderItem {
   productId String  @unique
   product   Product @relation(fields: [productId], references: [id])
 
-  priceUsd Decimal @db.Decimal(10, 2) // snapshot of product.priceUsd when placed on the easel
+  priceEur Decimal @db.Decimal(10, 2) // snapshot of product.priceEur when placed on the easel
 
   createdAt DateTime @default(now())
 

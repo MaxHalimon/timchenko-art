@@ -15,7 +15,7 @@ interface EaselProduct {
   previewImageUrl: string;
   widthCm: number;
   heightCm: number;
-  priceUsd: number;
+  priceEur: number;
   status: "AVAILABLE" | "IN_PROGRESS" | "SOLD";
 }
 
@@ -63,7 +63,7 @@ export default function EaselPage() {
   // so only IN_PROGRESS (not yet finished, nothing to ship or repaint from
   // yet) is excluded from the order.
   const availableProducts = products.filter((p) => p.status !== "IN_PROGRESS");
-  const totalUsd = availableProducts.reduce((sum, p) => sum + p.priceUsd, 0);
+  const totalEur = availableProducts.reduce((sum, p) => sum + p.priceEur, 0);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -157,7 +157,7 @@ export default function EaselPage() {
                     <p className={styles.itemTitle}>{product.title}</p>
                     {product.status !== "IN_PROGRESS" ? (
                       <p className={styles.itemMeta}>
-                        {product.widthCm} × {product.heightCm} cm · <PriceTag amountUsd={product.priceUsd} />
+                        {product.widthCm} × {product.heightCm} cm · <PriceTag amountEur={product.priceEur} />
                         {product.status === "SOLD" && ` · ${tProductCard("status.SOLD")}`}
                       </p>
                     ) : (
@@ -181,7 +181,7 @@ export default function EaselPage() {
 
           <div className={styles.totalRow}>
             <span>{t("total")}</span>
-            <PriceTag amountUsd={totalUsd} />
+            <PriceTag amountEur={totalEur} />
           </div>
         </div>
 

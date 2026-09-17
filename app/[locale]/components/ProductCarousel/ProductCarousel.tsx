@@ -11,8 +11,9 @@ export interface CarouselProduct {
   previewImageUrl: string;
   widthCm: number;
   heightCm: number;
-  priceUsd: number;
+  priceEur: number;
   status: ProductStatus;
+  material: string;
 }
 
 const AUTOPLAY_INTERVAL_MS = 7000;

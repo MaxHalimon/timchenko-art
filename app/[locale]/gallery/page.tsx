@@ -90,7 +90,8 @@ export default async function GalleryPage({
     previewImageUrl: product.previewImageKey,
     widthCm: product.widthCm,
     heightCm: product.heightCm,
-    priceUsd: Number(product.priceUsd),
+    priceEur: Number(product.priceEur),
+    material: product.material,
     status: product.status as ProductStatus,
   }));
 

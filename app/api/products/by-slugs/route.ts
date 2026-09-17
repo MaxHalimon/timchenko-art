@@ -23,7 +23,7 @@ export async function POST(req: NextRequest) {
       previewImageUrl: p.previewImageKey,
       widthCm: p.widthCm,
       heightCm: p.heightCm,
-      priceUsd: Number(p.priceUsd),
+      priceEur: Number(p.priceEur),
       status: p.status,
     })),
   });

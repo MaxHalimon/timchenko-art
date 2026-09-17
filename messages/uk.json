@@ -51,7 +51,13 @@
       "SOLD": "Продано"
     },
     "dimensions": "{width} × {height} см",
-    "material": "олія, полотно"
+    "materials": {
+      "oilCanvas": "олія, полотно",
+      "acrylicCanvas": "акрил, полотно",
+      "woodAcrylic": "дерево, акрил",
+      "paperInkGlass": "папір, туш, скло",
+      "watercolorPaperAcrylic": "акварель, папір, акрил"
+    }
   },
   "product": {
     "backToGallery": "← До галереї",
@@ -196,10 +202,12 @@
       "sizeLarge": "Понад 80 см"
     },
     "themes": {
-      "landscape": "пейзаж",
+      "nude": "ню",
+      "symbolism": "символізм",
+      "satire": "сатира",
+      "sacred": "сакральне",
       "portrait": "портрет",
-      "stillLife": "натюрморт",
-      "abstract": "абстракція"
+      "mixedMedia": "змішана техніка"
     }
   },
   "contact": {

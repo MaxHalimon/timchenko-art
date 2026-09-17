@@ -2,7 +2,7 @@ import { prisma } from "./prisma";
 import { localizedText } from "./localizedText";
 import { sendEmail } from "./email";
 import { renderOrderStatusEmail, type EmailableStatus } from "./orderEmails";
-import { calculatePlatformCommissionUsd, calculateArtistPayoutUsd } from "./constants";
+import { calculatePlatformCommissionEur, calculateArtistPayoutEur } from "./constants";
 import type { Locale } from "@/i18n/config";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
@@ -50,14 +50,14 @@ export async function markOrderPaid(orderId: string) {
   });
   if (!order || order.status !== "PREVIEW") return; // already handled, or doesn't exist
 
-  const amountUsd = Number(order.amountUsd);
-  const platformCommissionUsd = calculatePlatformCommissionUsd(amountUsd);
-  const artistPayoutUsd = calculateArtistPayoutUsd(amountUsd);
+  const amountEur = Number(order.amountEur);
+  const platformCommissionEur = calculatePlatformCommissionEur(amountEur);
+  const artistPayoutEur = calculateArtistPayoutEur(amountEur);
 
   await prisma.$transaction([
     prisma.order.update({
       where: { id: orderId },
-      data: { status: "PAID", platformCommissionUsd, artistPayoutUsd },
+      data: { status: "PAID", platformCommissionEur, artistPayoutEur },
     }),
     ...order.items.map((item) =>
       prisma.product.update({

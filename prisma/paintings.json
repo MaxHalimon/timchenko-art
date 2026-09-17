@@ -1,278 +1,698 @@
 [
   {
-    "slug": "amber-still-life",
+    "slug": "dinner",
     "title": {
-      "uk": "Бурштинова тиша",
-      "en": "Amber Silence",
-      "de": "Bernsteinstille",
-      "fr": "Silence ambré",
-      "ja": "琥珀の静寂"
+      "uk": "Dinner",
+      "en": "Dinner",
+      "de": "Dinner",
+      "fr": "Dinner",
+      "ja": "Dinner"
     },
     "description": {
-      "uk": "Олія на холсті. Тепла натюрмортна композиція у бурштинових і карамельних тонах — тимчасовий опис-заглушка, буде замінено після завантаження реального Excel-файлу.",
-      "en": "Oil on canvas. A warm still-life composition in amber and caramel tones — a temporary placeholder description, to be replaced once the real Excel file is uploaded.",
-      "de": "Öl auf Leinwand. Eine warme Stillleben-Komposition in Bernstein- und Karamelltönen — eine vorläufige Platzhalterbeschreibung, die nach dem Hochladen der echten Excel-Datei ersetzt wird.",
-      "fr": "Huile sur toile. Une composition de nature morte chaleureuse dans des tons ambrés et caramel — description provisoire, qui sera remplacée une fois le fichier Excel réel importé.",
-      "ja": "油彩、キャンバス。琥珀とキャラメルの色調で描かれた温かみのある静物画 — これは仮の説明文で、実際のExcelファイルがアップロードされ次第、差し替えられます。"
+      "uk": "Фрагментарний, майже архітектурний погляд на тіло — теплі охристі й зелені тони ліплять форму, як барельєф. Назва звучить іронічно на тлі щільної, майже відчутної на дотик фактури мазка.",
+      "en": "A fragmented, almost architectural view of the body — warm ochres and greens model the form like a bas-relief. The title reads as quiet irony against the dense, almost tactile brushwork.",
+      "de": "Ein fragmentierter, fast architektonischer Blick auf den Körper — warme Ocker- und Grüntöne formen die Gestalt wie ein Relief. Der Titel wirkt ironisch vor der dichten, fast greifbaren Maloberfläche.",
+      "fr": "Un regard fragmenté, presque architectural, sur le corps — ocres et verts chauds modèlent la forme comme un bas-relief. Le titre sonne comme une ironie discrète face à une matière picturale dense, presque palpable.",
+      "ja": "身体を建築的なまでに断片化して捉えた作品。温かいオーカーとグリーンが浮彫のように形を作り出す。厚く触れられそうな筆致を前にすると、タイトルの響きはどこか皮肉めいて感じられる。"
     },
-    "widthCm": 60,
-    "heightCm": 75,
-    "priceUsd": 480,
-    "theme": "stillLife",
+    "widthCm": 80,
+    "heightCm": 80,
+    "priceEur": 2000,
+    "theme": "nude",
+    "material": "oilCanvas",
     "status": "AVAILABLE",
-    "previewImageFile": "amber-still-life.jpg"
+    "previewImageFile": "dinner.jpg"
   },
   {
-    "slug": "azure-reverie",
+    "slug": "bud",
     "title": {
-      "uk": "Блакитна мрійливість",
-      "en": "Azure Reverie",
-      "de": "Azurblaue Träumerei",
-      "fr": "Rêverie azurée",
-      "ja": "紺碧の夢想"
+      "uk": "BUD",
+      "en": "BUD",
+      "de": "BUD",
+      "fr": "BUD",
+      "ja": "BUD"
     },
     "description": {
-      "uk": "Олія на холсті. Прохолодна блакитно-синя гама, спокійний споглядальний настрій — тимчасовий опис-заглушка.",
-      "en": "Oil on canvas. A cool blue-and-azure palette, a calm, contemplative mood — a temporary placeholder description.",
-      "de": "Öl auf Leinwand. Eine kühle Blau-Azur-Palette, eine ruhige, kontemplative Stimmung — eine vorläufige Platzhalterbeschreibung.",
-      "fr": "Huile sur toile. Une palette bleu-azur fraîche, une ambiance calme et contemplative — description provisoire.",
-      "ja": "油彩、キャンバス。涼しげな青と紺碧の配色、静かで瞑想的な雰囲気 — 仮の説明文です。"
+      "uk": "Вертикальна композиція з розжареного червоного й чорного — форма ніби розкривається зсередини, як бутон або рана. Насичена, майже монохромна палітра створює відчуття внутрішнього тиску.",
+      "en": "A vertical composition in searing red and black — the form seems to open from within, like a bud or a wound. The near-monochrome palette carries a sense of pressure building underneath.",
+      "de": "Eine vertikale Komposition in glühendem Rot und Schwarz — die Form scheint sich von innen zu öffnen, wie eine Knospe oder eine Wunde. Die fast monochrome Palette erzeugt ein Gefühl von innerem Druck.",
+      "fr": "Une composition verticale de rouge incandescent et de noir — la forme semble s'ouvrir de l'intérieur, comme un bourgeon ou une blessure. La palette quasi monochrome installe une tension intérieure palpable.",
+      "ja": "灼熱の赤と黒による縦長の構図。内側から開くようなそのかたちは、蕾のようでもあり傷のようでもある。ほぼ単色に近いパレットが内に秘めた圧力を伝える。"
+    },
+    "widthCm": 80,
+    "heightCm": 80,
+    "priceEur": 2000,
+    "theme": "nude",
+    "material": "oilCanvas",
+    "status": "AVAILABLE",
+    "previewImageFile": "bud.jpg"
+  },
+  {
+    "slug": "welcome-to-the-jungle",
+    "title": {
+      "uk": "Welcome to the Jungle",
+      "en": "Welcome to the Jungle",
+      "de": "Welcome to the Jungle",
+      "fr": "Welcome to the Jungle",
+      "ja": "Welcome to the Jungle"
+    },
+    "description": {
+      "uk": "Гаряча жовто-оранжева гама й леопардовий принт перетворюють постать на впевненого господаря власних джунглів. Метровий формат звучить голосно й без вибачень.",
+      "en": "A hot yellow-orange palette and a leopard print turn the figure into the confident ruler of her own jungle. At a full metre square, the piece speaks loudly and without apology.",
+      "de": "Eine heiße Gelb-Orange-Palette und ein Leopardenmuster machen die Figur zur selbstbewussten Herrscherin ihres eigenen Dschungels. Im Meterformat spricht das Werk laut und unentschuldigt.",
+      "fr": "Une palette jaune-orange incandescente et un imprimé léopard font de la figure la souveraine assurée de sa propre jungle. Au format mètre carré, l'œuvre s'exprime haut et sans excuses.",
+      "ja": "燃えるような黄とオレンジ、そしてヒョウ柄が、人物を自らのジャングルの堂々たる支配者に変える。1メートル四方という大きさで、臆することなく声高に語りかけてくる。"
+    },
+    "widthCm": 100,
+    "heightCm": 100,
+    "priceEur": 3500,
+    "theme": "nude",
+    "material": "oilCanvas",
+    "status": "AVAILABLE",
+    "previewImageFile": "welcome-to-the-jungle.jpg"
+  },
+  {
+    "slug": "morning-coffee",
+    "title": {
+      "uk": "Morning coffee",
+      "en": "Morning coffee",
+      "de": "Morning coffee",
+      "fr": "Morning coffee",
+      "ja": "Morning coffee"
+    },
+    "description": {
+      "uk": "М'які персикові й кремові переливи ранкового світла огортають тіло, наче пара над чашкою кави. Плавні, майже текучі форми — про тишу й ніжність перших хвилин дня.",
+      "en": "Soft peach and cream washes of morning light wrap around the body like steam over a cup of coffee. Fluid, almost liquid forms speak to the quiet and tenderness of the day's first minutes.",
+      "de": "Sanfte Pfirsich- und Cremetöne des Morgenlichts umhüllen den Körper wie Dampf über einer Kaffeetasse. Fließende, fast flüssige Formen erzählen von der Stille und Zärtlichkeit der ersten Minuten des Tages.",
+      "fr": "De douces nuances pêche et crème de la lumière matinale enveloppent le corps comme la vapeur au-dessus d'une tasse de café. Des formes fluides, presque liquides, disent le calme et la tendresse des premières minutes du jour.",
+      "ja": "朝の光が桃色とクリーム色に溶け合いながら、コーヒーカップから立ちのぼる湯気のように身体を包み込む。流れるような、ほとんど液体的なフォルムが一日の最初の静けさと優しさを語る。"
+    },
+    "widthCm": 80,
+    "heightCm": 80,
+    "priceEur": 2000,
+    "theme": "nude",
+    "material": "oilCanvas",
+    "status": "AVAILABLE",
+    "previewImageFile": "morning-coffee.jpg"
+  },
+  {
+    "slug": "womens-games",
+    "title": {
+      "uk": "Women's Games",
+      "en": "Women's Games",
+      "de": "Women's Games",
+      "fr": "Women's Games",
+      "ja": "Women's Games"
+    },
+    "description": {
+      "uk": "Складна композиція з дзеркальним подвоєнням постаті й мотивами шибарі — гра з поглядом, владою й власним відображенням. Вохристо-брунатна палітра тримає роботу в напруженій інтимності.",
+      "en": "A layered composition with a mirrored double of the figure and shibari motifs — a play on gaze, power and self-reflection. The ochre-brown palette holds the piece in tense intimacy.",
+      "de": "Eine vielschichtige Komposition mit einem gespiegelten Doppel der Figur und Shibari-Motiven — ein Spiel mit Blick, Macht und Selbstreflexion. Die ocker-braune Palette hält das Werk in angespannter Intimität.",
+      "fr": "Une composition en couches, avec un double en miroir de la figure et des motifs de shibari — un jeu sur le regard, le pouvoir et le reflet de soi. La palette ocre-brun maintient l'œuvre dans une intimité tendue.",
+      "ja": "鏡に映る人物の分身と緊縛(志摩利)のモチーフが重なる、幾層にも織り込まれた構図。視線と支配、そして自己を見つめることをめぐる駆け引きが描かれる。オーカーと褐色のパレットが張り詰めた親密さを保つ。"
+    },
+    "widthCm": 80,
+    "heightCm": 80,
+    "priceEur": 2000,
+    "theme": "nude",
+    "material": "oilCanvas",
+    "status": "AVAILABLE",
+    "previewImageFile": "womens-games.jpg"
+  },
+  {
+    "slug": "ardent-life",
+    "title": {
+      "uk": "Ardent Life",
+      "en": "Ardent Life",
+      "de": "Ardent Life",
+      "fr": "Ardent Life",
+      "ja": "Ardent Life"
+    },
+    "description": {
+      "uk": "Вибухова, майже кубістична розбивка кольору — червоний, жовтий, синій зіштовхуються навколо оголеної постаті. Назва прямо говорить про пристрасть, яку не стримати в межах контуру.",
+      "en": "An explosive, almost cubist break-up of colour — red, yellow and blue collide around a nude figure. The title states plainly what the paint already shows: a passion no outline can contain.",
+      "de": "Ein explosiver, fast kubistischer Farbzerfall — Rot, Gelb und Blau prallen um eine Aktfigur aufeinander. Der Titel sagt unverblümt, was die Farbe bereits zeigt: eine Leidenschaft, die keine Kontur halten kann.",
+      "fr": "Un éclatement de couleur presque cubiste — rouge, jaune et bleu s'entrechoquent autour d'une figure nue. Le titre annonce sans détour ce que la peinture montre déjà : une passion qu'aucun contour ne peut contenir.",
+      "ja": "赤、黄、青がヌードの人物の周りでぶつかり合う、爆発的でキュビスム的な色彩の分解。タイトルはそのまま、輪郭線には収まりきらない情熱を物語っている。"
+    },
+    "widthCm": 80,
+    "heightCm": 80,
+    "priceEur": 2000,
+    "theme": "nude",
+    "material": "oilCanvas",
+    "status": "AVAILABLE",
+    "previewImageFile": "ardent-life.jpg"
+  },
+  {
+    "slug": "tequila",
+    "title": {
+      "uk": "Tequila",
+      "en": "Tequila",
+      "de": "Tequila",
+      "fr": "Tequila",
+      "ja": "Tequila"
+    },
+    "description": {
+      "uk": "Великий план, зведений до контуру губ і зустрічі двох профілів, — момент перед поцілунком, застиглий на гарячому жовтому тлі. Лаконічна графічність робить сцену майже плакатною.",
+      "en": "A close-up reduced to the outline of lips and the meeting of two profiles — the instant before a kiss, held against a hot yellow ground. The graphic economy makes the scene almost poster-like.",
+      "de": "Eine Nahaufnahme, reduziert auf die Kontur der Lippen und das Zusammentreffen zweier Profile — der Moment vor einem Kuss, festgehalten vor heißem Gelb. Die grafische Reduktion macht die Szene fast plakativ.",
+      "fr": "Un gros plan réduit au contour des lèvres et à la rencontre de deux profils — l'instant qui précède un baiser, figé sur un fond jaune brûlant. L'économie graphique donne à la scène des allures d'affiche.",
+      "ja": "唇の輪郭と二つの横顔が出会う瞬間だけに切り詰められたクローズアップ。燃えるような黄色の地の上で、口づけの直前が静止している。簡潔なグラフィックさが、ほとんどポスターのような印象を与える。"
     },
     "widthCm": 70,
     "heightCm": 90,
-    "priceUsd": 620,
-    "theme": "abstract",
+    "priceEur": 2500,
+    "theme": "nude",
+    "material": "oilCanvas",
     "status": "AVAILABLE",
-    "previewImageFile": "azure-reverie.jpg"
+    "previewImageFile": "tequila.jpg"
   },
   {
-    "slug": "crimson-hour",
+    "slug": "how-i-spent-my-summer",
     "title": {
-      "uk": "Багряна година",
-      "en": "Crimson Hour",
-      "de": "Purpurstunde",
-      "fr": "L'heure pourpre",
-      "ja": "紅の刻"
+      "uk": "How I spent my summer",
+      "en": "How I spent my summer",
+      "de": "How I spent my summer",
+      "fr": "How I spent my summer",
+      "ja": "How I spent my summer"
     },
     "description": {
-      "uk": "Олія на холсті. Насичена червоно-бордова палітра, драматичне освітлення — тимчасовий опис-заглушка.",
-      "en": "Oil on canvas. A rich red-and-burgundy palette, dramatic lighting — a temporary placeholder description.",
-      "de": "Öl auf Leinwand. Eine satte Rot-Bordeaux-Palette, dramatische Beleuchtung — eine vorläufige Platzhalterbeschreibung.",
-      "fr": "Huile sur toile. Une palette riche de rouge et bordeaux, un éclairage dramatique — description provisoire.",
-      "ja": "油彩、キャンバス。深みのある赤とボルドーの配色、ドラマチックな光の演出 — 仮の説明文です。"
+      "uk": "Тепле, насичене літо через обійми двох постатей на тлі яскравого папуги й контрастних кольорових площин. Назва звучить як щоденниковий запис — особистий і трохи іронічний.",
+      "en": "A warm, saturated summer told through the embrace of two figures against a bright parrot and clashing planes of colour. The title reads like a diary entry — personal, and a little wry.",
+      "de": "Ein warmer, satter Sommer, erzählt durch die Umarmung zweier Figuren vor einem leuchtenden Papagei und kontrastierenden Farbflächen. Der Titel klingt wie ein Tagebucheintrag — persönlich und leicht ironisch.",
+      "fr": "Un été chaud et saturé, raconté par l'étreinte de deux figures devant un perroquet éclatant et des aplats de couleur qui s'entrechoquent. Le titre sonne comme une entrée de journal intime — personnel et un peu ironique.",
+      "ja": "鮮やかなオウムと衝突し合う色面を背景に、二人の抱擁を通して描かれる濃密な夏。タイトルはまるで日記の一節のように、個人的でどこか皮肉めいた響きを持つ。"
+    },
+    "widthCm": 80,
+    "heightCm": 80,
+    "priceEur": 2000,
+    "theme": "nude",
+    "material": "oilCanvas",
+    "status": "AVAILABLE",
+    "previewImageFile": "how-i-spent-my-summer.jpg"
+  },
+  {
+    "slug": "girl-in-red",
+    "title": {
+      "uk": "Girl in red",
+      "en": "Girl in red",
+      "de": "Girl in red",
+      "fr": "Girl in red",
+      "ja": "Girl in red"
+    },
+    "description": {
+      "uk": "Самотня постать іде багряним полем під ясним небом — простір, витриманий майже в одному кольорі, робить сцену радше символічною, ніж побутовою. Далека фігура на горизонті лишає відкритим питання, чи це спогад, чи пересторога.",
+      "en": "A solitary figure walks across a crimson field under a clear sky — a space held in almost a single colour, which makes the scene symbolic rather than everyday. A distant figure on the horizon leaves it open whether this is memory or warning.",
+      "de": "Eine einsame Figur geht über ein purpurrotes Feld unter klarem Himmel — ein Raum, der fast in einer einzigen Farbe gehalten ist, macht die Szene eher symbolisch als alltäglich. Eine ferne Gestalt am Horizont lässt offen, ob dies Erinnerung oder Warnung ist.",
+      "fr": "Une figure solitaire traverse un champ pourpre sous un ciel clair — un espace tenu dans une couleur quasi unique, ce qui rend la scène symbolique plutôt qu'anecdotique. Une silhouette lointaine à l'horizon laisse en suspens : souvenir ou avertissement ?",
+      "ja": "澄んだ空の下、緋色の野を一人歩く人物。ほぼ単色に統一された空間が、日常的というより象徴的な情景をつくり出す。地平線に見える遠くの人影が、これが記憶なのか、それとも警告なのか、答えを開いたままにしている。"
+    },
+    "widthCm": 100,
+    "heightCm": 100,
+    "priceEur": 2000,
+    "theme": "nude",
+    "material": "acrylicCanvas",
+    "status": "AVAILABLE",
+    "previewImageFile": "girl-in-red.jpg"
+  },
+  {
+    "slug": "putins-death",
+    "title": {
+      "uk": "Putin's death",
+      "en": "Putin's death",
+      "de": "Putin's death",
+      "fr": "Putin's death",
+      "ja": "Putin's death"
+    },
+    "description": {
+      "uk": "Рогата, черепоподібна постать проступає з вогняно-чорного тла — образ, ближчий до алегорії, ніж до портрета. Назва перетворює роботу на прямий політичний жест, а не абстрактний жах.",
+      "en": "A horned, skull-like figure emerges from a fiery black ground — an image closer to allegory than portrait. The title turns the work into a direct political gesture rather than abstract dread.",
+      "de": "Eine gehörnte, schädelartige Gestalt tritt aus feurig-schwarzem Grund hervor — ein Bild, das eher Allegorie als Porträt ist. Der Titel macht das Werk zu einer direkten politischen Geste statt zu abstraktem Grauen.",
+      "fr": "Une silhouette cornue, semblable à un crâne, émerge d'un fond noir et incandescent — une image plus proche de l'allégorie que du portrait. Le titre fait de l'œuvre un geste politique direct plutôt qu'une angoisse abstraite.",
+      "ja": "燃えるような黒地から浮かび上がる、角を持つ髑髏のような姿。肖像画というより寓意画に近いイメージだ。タイトルによって、この作品は抽象的な恐怖ではなく、明確な政治的身振りとなる。"
+    },
+    "widthCm": 90,
+    "heightCm": 95,
+    "priceEur": 3500,
+    "theme": "satire",
+    "material": "oilCanvas",
+    "status": "AVAILABLE",
+    "previewImageFile": "putins-death.jpg"
+  },
+  {
+    "slug": "we-all-have-our-own-tastes-here",
+    "title": {
+      "uk": "We all have our own tastes here",
+      "en": "We all have our own tastes here",
+      "de": "We all have our own tastes here",
+      "fr": "We all have our own tastes here",
+      "ja": "We all have our own tastes here"
+    },
+    "description": {
+      "uk": "Лежача постать у мереживі на тлі розпечених червоних мазків, нанесених майстихином — щільно й рвучко. Назва додає роботі самоіронії: це радше про право на власний смак, ніж про засудження.",
+      "en": "A reclining figure in lace against searing red strokes laid on with a palette knife — dense and abrupt. The title adds self-irony: this is about the right to one's own taste, not about judgment.",
+      "de": "Eine liegende Figur in Spitze vor glühend roten, mit dem Spachtel dicht und ruckartig aufgetragenen Strichen. Der Titel bringt Selbstironie ins Spiel: Es geht um das Recht auf den eigenen Geschmack, nicht um ein Urteil.",
+      "fr": "Une figure allongée en dentelle devant des touches rouge incandescent posées au couteau, denses et abruptes. Le titre ajoute une pointe d'autodérision : il s'agit du droit à son propre goût, non d'un jugement.",
+      "ja": "パレットナイフで密に、荒々しく塗り重ねられた灼熱の赤を背景に、レースをまとって横たわる人物。タイトルには自嘲めいた響きがあり、断罪ではなく「好みは人それぞれ」という権利について語っている。"
+    },
+    "widthCm": 80,
+    "heightCm": 80,
+    "priceEur": 2000,
+    "theme": "nude",
+    "material": "oilCanvas",
+    "status": "AVAILABLE",
+    "previewImageFile": "we-all-have-our-own-tastes-here.jpg"
+  },
+  {
+    "slug": "great-love",
+    "title": {
+      "uk": "Great love",
+      "en": "Great love",
+      "de": "Great love",
+      "fr": "Great love",
+      "ja": "Great love"
+    },
+    "description": {
+      "uk": "Об'ємна, тепла постать лежить у майже скульптурному світлі — колір тут ліпить тіло, а не описує його. Назва перетворює інтимну сцену на щось монументальне.",
+      "en": "A voluminous, warm figure reclines in almost sculptural light — colour here models the body rather than describing it. The title turns an intimate scene into something monumental.",
+      "de": "Eine voluminöse, warme Figur liegt in fast skulpturalem Licht — Farbe formt hier den Körper, statt ihn zu beschreiben. Der Titel macht aus einer intimen Szene etwas Monumentales.",
+      "fr": "Une figure généreuse et chaude repose dans une lumière presque sculpturale — la couleur y modèle le corps plutôt qu'elle ne le décrit. Le titre transforme une scène intime en quelque chose de monumental.",
+      "ja": "彫刻のような光の中に横たわる、ボリュームのある温かな人物像。色彩は身体を描写するというより、それ自体で形づくっている。タイトルは親密な情景を記念碑的な何かへと変える。"
+    },
+    "widthCm": 90,
+    "heightCm": 100,
+    "priceEur": 2000,
+    "theme": "nude",
+    "material": "oilCanvas",
+    "status": "AVAILABLE",
+    "previewImageFile": "great-love.jpg"
+  },
+  {
+    "slug": "sixty-nine-seconds-before",
+    "title": {
+      "uk": "Sixty-nine seconds before",
+      "en": "Sixty-nine seconds before",
+      "de": "Sixty-nine seconds before",
+      "fr": "Sixty-nine seconds before",
+      "ja": "Sixty-nine seconds before"
+    },
+    "description": {
+      "uk": "Постать, оповита димом чи розпущеним волоссям на тлі глибокої темряви, — момент «до», зафіксований у напрузі очікування. Назва задає точний, майже кінематографічний відлік часу.",
+      "en": "A figure wrapped in smoke or loose hair against deep darkness — a moment of \"before\", held in the tension of waiting. The title sets a precise, almost cinematic countdown.",
+      "de": "Eine Figur, gehüllt in Rauch oder offenes Haar vor tiefer Dunkelheit — ein Moment des „Davor“, festgehalten in der Spannung des Wartens. Der Titel setzt einen präzisen, fast filmischen Countdown.",
+      "fr": "Une figure enveloppée de fumée ou de cheveux dénoués sur un fond de ténèbres profondes — un instant « d'avant », saisi dans la tension de l'attente. Le titre pose un compte à rebours précis, presque cinématographique.",
+      "ja": "深い闇を背景に、煙か、あるいはほどかれた髪に包まれた人物。「その前」の瞬間が、待つことの緊張感とともに捉えられている。タイトルは正確で、まるで映画のようなカウントダウンを設定する。"
     },
     "widthCm": 80,
     "heightCm": 100,
-    "priceUsd": 950,
-    "theme": "portrait",
-    "status": "SOLD",
-    "previewImageFile": "crimson-hour.jpg"
-  },
-  {
-    "slug": "verdant-study",
-    "title": {
-      "uk": "Зелений етюд",
-      "en": "Verdant Study",
-      "de": "Grüne Studie",
-      "fr": "Étude verdoyante",
-      "ja": "緑の習作"
-    },
-    "description": {
-      "uk": "Олія на холсті. Пейзажний етюд у відтінках зеленого, ще в роботі — тимчасовий опис-заглушка.",
-      "en": "Oil on canvas. A landscape study in shades of green, still in progress — a temporary placeholder description.",
-      "de": "Öl auf Leinwand. Eine Landschaftsstudie in Grüntönen, noch in Arbeit — eine vorläufige Platzhalterbeschreibung.",
-      "fr": "Huile sur toile. Une étude de paysage dans des tons de vert, encore en cours — description provisoire.",
-      "ja": "油彩、キャンバス。緑の濃淡で描かれた風景習作、現在制作中 — 仮の説明文です。"
-    },
-    "widthCm": 50,
-    "heightCm": 65,
-    "priceUsd": 390,
-    "theme": "landscape",
-    "status": "IN_PROGRESS",
-    "previewImageFile": "verdant-study.jpg"
-  },
-  {
-    "slug": "twilight-figure",
-    "title": {
-      "uk": "Сутінкова постать",
-      "en": "Twilight Figure",
-      "de": "Dämmerungsgestalt",
-      "fr": "Silhouette crépusculaire",
-      "ja": "たそがれの人影"
-    },
-    "description": {
-      "uk": "Олія на холсті. Фіолетово-сутінкова гама, м'які контури силуету — тимчасовий опис-заглушка.",
-      "en": "Oil on canvas. A violet, twilight-toned palette, softly outlined silhouette — a temporary placeholder description.",
-      "de": "Öl auf Leinwand. Eine violette Dämmerungspalette, weich konturierte Silhouette — eine vorläufige Platzhalterbeschreibung.",
-      "fr": "Huile sur toile. Une palette violette crépusculaire, silhouette aux contours doux — description provisoire.",
-      "ja": "油彩、キャンバス。紫がかった黄昏色の配色、柔らかな輪郭のシルエット — 仮の説明文です。"
-    },
-    "widthCm": 65,
-    "heightCm": 85,
-    "priceUsd": 540,
-    "theme": "portrait",
+    "priceEur": 2800,
+    "theme": "nude",
+    "material": "oilCanvas",
     "status": "AVAILABLE",
-    "previewImageFile": "twilight-figure.jpg"
+    "previewImageFile": "sixty-nine-seconds-before.jpg"
   },
   {
-    "slug": "crimson-wings",
+    "slug": "disco",
     "title": {
-      "uk": "Багряні крила",
-      "en": "Crimson Wings",
-      "de": "Purpurne Flügel",
-      "fr": "Ailes pourpres",
-      "ja": "紅の翼"
+      "uk": "DISCO",
+      "en": "DISCO",
+      "de": "DISCO",
+      "fr": "DISCO",
+      "ja": "DISCO"
     },
     "description": {
-      "uk": "Олія на холсті. Полум'яно-синя контрастна композиція з розкритими крилоподібними формами — тимчасовий опис-заглушка.",
-      "en": "Oil on canvas. A fiery blue-and-red contrast composition with open wing-like forms — a temporary placeholder description.",
-      "de": "Öl auf Leinwand. Eine feurige Blau-Rot-Kontrastkomposition mit geöffneten, flügelartigen Formen — eine vorläufige Platzhalterbeschreibung.",
-      "fr": "Huile sur toile. Une composition contrastée bleu et rouge flamboyant, aux formes évoquant des ailes déployées — description provisoire.",
-      "ja": "油彩、キャンバス。燃えるような青と赤のコントラスト、翼のように広がる形 — 仮の説明文です。"
+      "uk": "Обличчя розсипане на кольорові грані, мов дзеркальна куля дискотеки, — кожен трикутник ловить власне світло. Невеликий формат на дереві робить роботу камерною версією поп-культурного образу.",
+      "en": "A face broken into coloured facets, like a disco mirror ball — every triangle catches its own light. The small wood panel makes it an intimate take on a pop-culture image.",
+      "de": "Ein Gesicht, zerlegt in farbige Facetten wie eine Diskokugel — jedes Dreieck fängt sein eigenes Licht ein. Das kleine Holzformat macht daraus eine kammerartige Version eines Popkultur-Bildes.",
+      "fr": "Un visage éclaté en facettes colorées, telle une boule à facettes de discothèque — chaque triangle capte sa propre lumière. Le petit format sur bois en fait une version intimiste d'une image de pop culture.",
+      "ja": "ディスコのミラーボールのように、色とりどりの面へと砕かれた顔。一つひとつの三角形がそれぞれの光を捉える。木製の小さな作品は、ポップカルチャーのイメージを親密なスケールで語り直す。"
+    },
+    "widthCm": 30,
+    "heightCm": 30,
+    "priceEur": 300,
+    "theme": "portrait",
+    "material": "woodAcrylic",
+    "status": "AVAILABLE",
+    "previewImageFile": "disco.jpg"
+  },
+  {
+    "slug": "the-woman-is-coughing",
+    "title": {
+      "uk": "The woman is coughing",
+      "en": "The woman is coughing",
+      "de": "The woman is coughing",
+      "fr": "The woman is coughing",
+      "ja": "The woman is coughing"
+    },
+    "description": {
+      "uk": "Золотисто-охриста хвиля форм стискається в кулак у центрі композиції — тілесне й напружене водночас. Робота існує в авторському тиражі до десяти повторень, і цей примірник — один із небагатьох, доступних для продажу.",
+      "en": "A golden-ochre wave of forms tightens into a fist at the centre of the composition — bodily and tense at once. The work exists in an artist's edition of up to ten repetitions; this is one of the few copies currently available for sale.",
+      "de": "Eine goldocker Woge aus Formen ballt sich im Zentrum der Komposition zur Faust — körperlich und angespannt zugleich. Das Werk existiert in einer Künstlerauflage von bis zu zehn Wiederholungen; dies ist eines der wenigen derzeit käuflichen Exemplare.",
+      "fr": "Une vague de formes ocre doré se resserre en un poing au centre de la composition — charnelle et tendue à la fois. L'œuvre existe en édition d'artiste allant jusqu'à dix répétitions ; celui-ci est l'un des rares exemplaires actuellement à la vente.",
+      "ja": "金色がかったオーカーの形の波が、構図の中心で拳へと締まっていく——肉体的でありながら張り詰めている。この作品は作家自身による最大10点までの反復版として存在し、これは現在販売可能な数少ない一点である。"
+    },
+    "widthCm": 80,
+    "heightCm": 80,
+    "priceEur": 5500,
+    "theme": "nude",
+    "material": "oilCanvas",
+    "status": "AVAILABLE",
+    "previewImageFile": "the-woman-is-coughing.jpg"
+  },
+  {
+    "slug": "the-source-of-energy-the-power-of-time",
+    "title": {
+      "uk": "The source of energy, the power of time",
+      "en": "The source of energy, the power of time",
+      "de": "The source of energy, the power of time",
+      "fr": "The source of energy, the power of time",
+      "ja": "The source of energy, the power of time"
+    },
+    "description": {
+      "uk": "Постать серед вицвілих дерев і бузкових квітів на тлі кольору старого золота — алегорія плинності часу й прихованої життєвої сили. Далека фігура спостерігача додає сцені майже сновидного виміру.",
+      "en": "A figure among faded trees and lilac blossoms against an old-gold ground — an allegory of time's passing and a hidden life force. A distant onlooker adds an almost dreamlike dimension to the scene.",
+      "de": "Eine Figur zwischen verblassten Bäumen und lila Blüten vor altgoldenem Grund — eine Allegorie auf den Lauf der Zeit und eine verborgene Lebenskraft. Eine ferne Betrachterfigur verleiht der Szene eine fast traumhafte Dimension.",
+      "fr": "Une figure parmi des arbres fanés et des fleurs lilas sur un fond or vieilli — une allégorie du temps qui passe et d'une force vitale cachée. Un observateur lointain confère à la scène une dimension presque onirique.",
+      "ja": "色褪せた木々とライラック色の花々の中に立つ人物、その背景は古びた金色。時の流れと、内に秘められた生命力についての寓意である。遠くに佇む観察者の姿が、場面にほとんど夢のような次元を加えている。"
     },
     "widthCm": 60,
     "heightCm": 80,
-    "priceUsd": 560,
-    "theme": "abstract",
+    "priceEur": 3000,
+    "theme": "symbolism",
+    "material": "oilCanvas",
     "status": "AVAILABLE",
-    "previewImageFile": "crimson-wings.jpg"
+    "previewImageFile": "the-source-of-energy-the-power-of-time.jpg"
   },
   {
-    "slug": "solar-embrace",
+    "slug": "colorful-life-single",
     "title": {
-      "uk": "Сонячні обійми",
-      "en": "Solar Embrace",
-      "de": "Sonnige Umarmung",
-      "fr": "Étreinte solaire",
-      "ja": "太陽の抱擁"
+      "uk": "Colorful life",
+      "en": "Colorful life",
+      "de": "Colorful life",
+      "fr": "Colorful life",
+      "ja": "Colorful life"
     },
     "description": {
-      "uk": "Олія на холсті. Насичена жовтогаряча палітра, тепла й енергійна композиція — тимчасовий опис-заглушка.",
-      "en": "Oil on canvas. A rich orange-and-yellow palette, a warm and energetic composition — a temporary placeholder description.",
-      "de": "Öl auf Leinwand. Eine satte Orange-Gelb-Palette, eine warme und energiegeladene Komposition — eine vorläufige Platzhalterbeschreibung.",
-      "fr": "Huile sur toile. Une palette riche d'orange et de jaune, une composition chaleureuse et énergique — description provisoire.",
-      "ja": "油彩、キャンバス。豊かなオレンジと黄色の配色、温かくエネルギッシュな構図 — 仮の説明文です。"
+      "uk": "Графічний аркуш на межі малюнка й побутової сцени — тепла, дотикова композиція рук і тіла, натиснута тушшю на папері й укладена під скло. Продається як один окремий відбиток із авторської серії.",
+      "en": "A graphic sheet balanced between drawing and everyday scene — a warm, tactile composition of hands and body in ink on paper, set under glass. Sold as a single individual print from the artist's series.",
+      "de": "Ein grafisches Blatt zwischen Zeichnung und Alltagsszene — eine warme, taktile Komposition aus Händen und Körper in Tusche auf Papier, unter Glas gefasst. Wird als einzelner Abzug aus der Werkserie verkauft.",
+      "fr": "Une feuille graphique à mi-chemin entre le dessin et la scène du quotidien — une composition chaleureuse et tactile de mains et de corps à l'encre sur papier, montée sous verre. Vendue comme tirage unique de la série de l'artiste.",
+      "ja": "素描と日常の情景の間を漂うグラフィック作品。手と身体による温かく触覚的な構図が、紙にインクで描かれガラスの下に収められている。作家によるシリーズからの単独の一点として販売される。"
     },
-    "widthCm": 70,
-    "heightCm": 70,
-    "priceUsd": 780,
-    "theme": "abstract",
+    "widthCm": 21,
+    "heightCm": 21,
+    "priceEur": 150,
+    "theme": "mixedMedia",
+    "material": "paperInkGlass",
     "status": "AVAILABLE",
-    "previewImageFile": "solar-embrace.jpg"
+    "previewImageFile": "colorful-life.jpg"
   },
   {
-    "slug": "sapphire-gaze",
+    "slug": "colorful-life-set-of-9",
     "title": {
-      "uk": "Сапфіровий погляд",
-      "en": "Sapphire Gaze",
-      "de": "Saphirblick",
-      "fr": "Regard saphir",
-      "ja": "サファイアの視線"
+      "uk": "Colorful life",
+      "en": "Colorful life",
+      "de": "Colorful life",
+      "fr": "Colorful life",
+      "ja": "Colorful life"
     },
     "description": {
-      "uk": "Олія на холсті. Кубістична композиція з насиченими кольоровими площинами — тимчасовий опис-заглушка.",
-      "en": "Oil on canvas. A cubist composition built from bold planes of color — a temporary placeholder description.",
-      "de": "Öl auf Leinwand. Eine kubistische Komposition aus kräftigen Farbflächen — eine vorläufige Platzhalterbeschreibung.",
-      "fr": "Huile sur toile. Une composition cubiste faite de plans de couleur audacieux — description provisoire.",
-      "ja": "油彩、キャンバス。大胆な色面で構成されたキュビズム的な作品 — 仮の説明文です。"
+      "uk": "Повний авторський комплект із дев'яти графічних робіт у склі — послідовність фрагментів тіла й жестів, зібрана в єдину інсталяцію для стіни. Кожен аркуш самостійний, але разом вони складають цілісну історію.",
+      "en": "The complete artist's set of nine framed graphic works — a sequence of body fragments and gestures assembled into a single wall installation. Each sheet stands on its own, yet together they form one continuous story.",
+      "de": "Das vollständige Künstler-Set aus neun gerahmten Grafiken — eine Folge von Körperfragmenten und Gesten, zu einer einzigen Wandinstallation zusammengesetzt. Jedes Blatt steht für sich, gemeinsam ergeben sie eine durchgehende Geschichte.",
+      "fr": "L'ensemble complet de l'artiste, composé de neuf œuvres graphiques encadrées — une séquence de fragments de corps et de gestes réunis en une seule installation murale. Chaque feuille existe seule, mais ensemble elles racontent une histoire continue.",
+      "ja": "9点からなる作家自身の完全なグラフィック作品セット——身体の断片とジェスチャーの連なりが、ひとつの壁面インスタレーションへとまとめられている。各葉は独立していながら、全体としてひとつの物語を形づくる。"
     },
-    "widthCm": 65,
+    "widthCm": 35,
+    "heightCm": 35,
+    "priceEur": 1000,
+    "theme": "mixedMedia",
+    "material": "paperInkGlass",
+    "status": "AVAILABLE",
+    "previewImageFile": "colorful-life.jpg"
+  },
+  {
+    "slug": "everything-is-temporary",
+    "title": {
+      "uk": "Everything is temporary",
+      "en": "Everything is temporary",
+      "de": "Everything is temporary",
+      "fr": "Everything is temporary",
+      "ja": "Everything is temporary"
+    },
+    "description": {
+      "uk": "Постать, що розчиняється в багряному полі та примарних деревах, — колір тут важливіший за форму. Назва прямо промовляє те, на що сюжет лише натякає: нічого не тримається назавжди.",
+      "en": "A figure dissolving into a crimson field and ghostly trees — here colour matters more than form. The title states plainly what the scene only hints at: nothing holds forever.",
+      "de": "Eine Figur, die in einem purpurroten Feld und geisterhaften Bäumen zerfließt — hier zählt Farbe mehr als Form. Der Titel sagt unverblümt, was die Szene nur andeutet: Nichts hält für immer.",
+      "fr": "Une figure qui se dissout dans un champ pourpre et des arbres fantomatiques — ici, la couleur compte plus que la forme. Le titre dit sans détour ce que la scène ne fait que suggérer : rien ne dure pour toujours.",
+      "ja": "緋色の野と幽霊のような木々の中へ溶けていく人物像——ここでは形よりも色が優先される。タイトルは、情景がほのめかすだけのことをはっきりと言い切る。永遠に留まるものなど何もない、と。"
+    },
+    "widthCm": 80,
     "heightCm": 80,
-    "priceUsd": 420,
-    "theme": "portrait",
-    "status": "IN_PROGRESS",
-    "previewImageFile": "sapphire-gaze.jpg"
-  },
-  {
-    "slug": "kaleidoscope-bloom",
-    "title": {
-      "uk": "Калейдоскопічний розквіт",
-      "en": "Kaleidoscope Bloom",
-      "de": "Kaleidoskopblüte",
-      "fr": "Floraison kaléidoscopique",
-      "ja": "万華鏡の開花"
-    },
-    "description": {
-      "uk": "Олія на холсті. Яскрава абстрактна композиція з дробленими кольоровими формами — тимчасовий опис-заглушка.",
-      "en": "Oil on canvas. A vivid abstract composition of fractured, colorful shapes — a temporary placeholder description.",
-      "de": "Öl auf Leinwand. Eine leuchtende abstrakte Komposition aus zersplitterten, farbigen Formen — eine vorläufige Platzhalterbeschreibung.",
-      "fr": "Huile sur toile. Une composition abstraite vive faite de formes colorées fragmentées — description provisoire.",
-      "ja": "油彩、キャンバス。色鮮やかに砕けた形の抽象構図 — 仮の説明文です。"
-    },
-    "widthCm": 75,
-    "heightCm": 75,
-    "priceUsd": 690,
-    "theme": "abstract",
+    "priceEur": 3000,
+    "theme": "symbolism",
+    "material": "oilCanvas",
     "status": "AVAILABLE",
-    "previewImageFile": "kaleidoscope-bloom.jpg"
+    "previewImageFile": "everything-is-temporary.jpg"
   },
   {
-    "slug": "azure-cry",
+    "slug": "the-earth-is-covered-in-blood",
     "title": {
-      "uk": "Блакитний крик",
-      "en": "Azure Cry",
-      "de": "Azurblauer Schrei",
-      "fr": "Cri azur",
-      "ja": "紺碧の叫び"
+      "uk": "The earth is covered in blood",
+      "en": "The earth is covered in blood",
+      "de": "The earth is covered in blood",
+      "fr": "The earth is covered in blood",
+      "ja": "The earth is covered in blood"
     },
     "description": {
-      "uk": "Олія на холсті. Експресивний портрет у синьо-жовтогарячих тонах, сильна емоція — тимчасовий опис-заглушка.",
-      "en": "Oil on canvas. An expressive portrait in blue-and-orange tones, charged with strong emotion — a temporary placeholder description.",
-      "de": "Öl auf Leinwand. Ein expressives Porträt in Blau-Orange-Tönen, voller starker Emotion — eine vorläufige Platzhalterbeschreibung.",
-      "fr": "Huile sur toile. Un portrait expressif en tons bleu et orange, chargé d'émotion forte — description provisoire.",
-      "ja": "油彩、キャンバス。青とオレンジの色調による表現主義的な肖像、強い感情を湛えて — 仮の説明文です。"
-    },
-    "widthCm": 70,
-    "heightCm": 70,
-    "priceUsd": 610,
-    "theme": "portrait",
-    "status": "AVAILABLE",
-    "previewImageFile": "azure-cry.jpg"
-  },
-  {
-    "slug": "suspended-duet-violet",
-    "title": {
-      "uk": "Підвішений дует (фіолетовий)",
-      "en": "Suspended Duet (Violet)",
-      "de": "Schwebendes Duett (Violett)",
-      "fr": "Duo suspendu (violet)",
-      "ja": "宙吊りのデュエット（紫）"
-    },
-    "description": {
-      "uk": "Графічна ілюстрація. Стилізована композиція у фіолетово-жовтій гамі — тимчасовий опис-заглушка.",
-      "en": "Graphic illustration. A stylized composition in violet-and-yellow tones — a temporary placeholder description.",
-      "de": "Grafische Illustration. Eine stilisierte Komposition in Violett-Gelb-Tönen — eine vorläufige Platzhalterbeschreibung.",
-      "fr": "Illustration graphique. Une composition stylisée dans des tons violets et jaunes — description provisoire.",
-      "ja": "グラフィックイラスト。紫と黄色の色調によるスタイライズされた構図 — 仮の説明文です。"
+      "uk": "Оголена постать на тлі затопленого кров'яно-червоним пейзажу з силуетом фортеці — пряма, майже плакатна метафора війни. Малий формат не применшує ваги висловлювання.",
+      "en": "A nude figure against a landscape flooded blood-red, with a fortress silhouette in the distance — a direct, almost poster-like metaphor for war. The small format does not lessen the weight of the statement.",
+      "de": "Eine Aktfigur vor einer blutrot überfluteten Landschaft mit einer Festungssilhouette in der Ferne — eine direkte, fast plakative Metapher für Krieg. Das kleine Format schmälert das Gewicht der Aussage nicht.",
+      "fr": "Une figure nue devant un paysage inondé de rouge sang, avec la silhouette d'une forteresse au loin — une métaphore de la guerre directe, presque affichiste. Le petit format n'atténue en rien le poids du propos.",
+      "ja": "血のように赤く染まった風景と、遠くに浮かぶ要塞のシルエットを背景にしたヌードの人物像——戦争についての直接的な、ほとんどポスターのようなメタファーである。小さな画面がその言葉の重みを軽くすることはない。"
     },
     "widthCm": 50,
-    "heightCm": 60,
-    "priceUsd": 320,
-    "theme": "abstract",
+    "heightCm": 50,
+    "priceEur": 700,
+    "theme": "symbolism",
+    "material": "oilCanvas",
     "status": "AVAILABLE",
-    "previewImageFile": "suspended-duet-violet.jpg"
+    "previewImageFile": "the-earth-is-covered-in-blood.jpg"
   },
   {
-    "slug": "suspended-duet-crimson",
+    "slug": "duel",
     "title": {
-      "uk": "Підвішений дует (багряний)",
-      "en": "Suspended Duet (Crimson)",
-      "de": "Schwebendes Duett (Purpurrot)",
-      "fr": "Duo suspendu (pourpre)",
-      "ja": "宙吊りのデュエット（紅）"
+      "uk": "DUEL",
+      "en": "DUEL",
+      "de": "DUEL",
+      "fr": "DUEL",
+      "ja": "DUEL"
     },
     "description": {
-      "uk": "Графічна ілюстрація. Той самий сюжет у контрастній червоно-синій гамі — тимчасовий опис-заглушка.",
-      "en": "Graphic illustration. The same composition in a contrasting red-and-blue palette — a temporary placeholder description.",
-      "de": "Grafische Illustration. Dieselbe Komposition in einer kontrastreichen Rot-Blau-Palette — eine vorläufige Platzhalterbeschreibung.",
-      "fr": "Illustration graphique. La même composition dans une palette contrastée rouge et bleu — description provisoire.",
-      "ja": "グラフィックイラスト。同じ構図を赤と青のコントラストで — 仮の説明文です。"
+      "uk": "Акварельна сцена протистояння двох постатей в інтер'єрі — графічна, майже гравюрна манера підкреслює напругу конфлікту. Робота оформлена в паспарту, що збільшує її присутність на стіні до 58×58 см.",
+      "en": "A watercolour scene of two figures facing off indoors — a graphic, almost engraving-like manner underlines the tension of the encounter. The piece is matted, extending its wall presence to 58×58 cm.",
+      "de": "Eine Aquarellszene zweier Figuren im Widerstreit, in einem Innenraum — eine grafische, fast stichartige Manier unterstreicht die Spannung der Begegnung. Das Werk ist mit Passepartout gerahmt und wirkt so auf 58×58 cm an der Wand.",
+      "fr": "Une scène à l'aquarelle où deux figures s'affrontent dans un intérieur — une manière graphique, presque proche de la gravure, souligne la tension de la confrontation. L'œuvre est montée sous passe-partout, portant sa présence murale à 58×58 cm.",
+      "ja": "室内で対峙する二つの人物を描いた水彩の情景——版画のようなグラフィックな筆致が対立の緊張感を際立たせる。マットに収められ、壁面では58×58cmの存在感を持つ。"
     },
-    "widthCm": 50,
-    "heightCm": 60,
-    "priceUsd": 320,
-    "theme": "abstract",
+    "widthCm": 58,
+    "heightCm": 58,
+    "priceEur": 1000,
+    "theme": "mixedMedia",
+    "material": "watercolorPaperAcrylic",
     "status": "AVAILABLE",
-    "previewImageFile": "suspended-duet-crimson.jpg"
+    "previewImageFile": "duel.jpg"
+  },
+  {
+    "slug": "apples-with-honey",
+    "title": {
+      "uk": "Apples with honey",
+      "en": "Apples with honey",
+      "de": "Apples with honey",
+      "fr": "Apples with honey",
+      "ja": "Apples with honey"
+    },
+    "description": {
+      "uk": "Стиглі банани, яблука й мед зливаються в один щільний, майже тілесний потік кольору — межа між натюрмортом і оголеною формою навмисно стерта. Назва читається як пряме запрошення до чуттєвості.",
+      "en": "Ripe bananas, apples and honey merge into one dense, almost bodily flow of colour — the line between still life and nude form is deliberately blurred. The title reads as a direct invitation to sensuality.",
+      "de": "Reife Bananen, Äpfel und Honig verschmelzen zu einem dichten, fast körperlichen Farbfluss — die Grenze zwischen Stillleben und Aktform ist bewusst verwischt. Der Titel liest sich wie eine direkte Einladung zur Sinnlichkeit.",
+      "fr": "Bananes mûres, pommes et miel se fondent en un flux de couleur dense, presque charnel — la frontière entre nature morte et forme nue est volontairement brouillée. Le titre se lit comme une invitation directe à la sensualité.",
+      "ja": "熟したバナナ、リンゴ、そして蜂蜜が、密度の高い、ほとんど肉体的とも言える色の流れへと溶け合う——静物画とヌードの境界はあえて曖昧にされている。タイトルは官能への率直な誘いとして読める。"
+    },
+    "widthCm": 90,
+    "heightCm": 100,
+    "priceEur": 5000,
+    "theme": "nude",
+    "material": "oilCanvas",
+    "status": "AVAILABLE",
+    "previewImageFile": "apples-with-honey.jpg"
+  },
+  {
+    "slug": "adam-and-eve",
+    "title": {
+      "uk": "Adam and Eve",
+      "en": "Adam and Eve",
+      "de": "Adam and Eve",
+      "fr": "Adam and Eve",
+      "ja": "Adam and Eve"
+    },
+    "description": {
+      "uk": "Постать серед густого, майже непрохідного саду — сучасне прочитання біблійного сюжету без прикрас і повчань. Руде волосся й піднесені руки роблять Єву радше викликом, ніж жертвою.",
+      "en": "A figure amid a dense, almost impassable garden — a contemporary reading of the biblical story, stripped of ornament and moralising. Red hair and raised arms make this Eve a challenge rather than a victim.",
+      "de": "Eine Figur inmitten eines dichten, fast unpassierbaren Gartens — eine zeitgenössische Lesart der biblischen Erzählung, ohne Schmuck und ohne Moral. Rotes Haar und erhobene Arme machen diese Eva eher zur Herausforderung als zum Opfer.",
+      "fr": "Une figure au cœur d'un jardin dense, presque impénétrable — une lecture contemporaine du récit biblique, sans ornement ni morale. Cheveux roux et bras levés font de cette Ève un défi plutôt qu'une victime.",
+      "ja": "生い茂り、ほとんど分け入ることのできない庭の中に立つ人物——聖書の物語を、装飾も教訓もなく現代的に読み直した作品。赤い髪と掲げられた腕は、このイヴを犠牲者というより挑戦者として描き出す。"
+    },
+    "widthCm": 80,
+    "heightCm": 80,
+    "priceEur": 3000,
+    "theme": "sacred",
+    "material": "oilCanvas",
+    "status": "AVAILABLE",
+    "previewImageFile": "adam-and-eve.jpg"
+  },
+  {
+    "slug": "sin-and-the-church",
+    "title": {
+      "uk": "Sin and the church",
+      "en": "Sin and the church",
+      "de": "Sin and the church",
+      "fr": "Sin and the church",
+      "ja": "Sin and the church"
+    },
+    "description": {
+      "uk": "Багатофігурна нічна сцена розп'яття, де натовп унизу зайнятий власними справами, байдужий до драми над головою. Гаряча палітра вохри й темряви перетворює канонічний сюжет на гостре висловлювання про лицемірство.",
+      "en": "A crowded night scene of the Crucifixion, where the crowd below goes about its own business, indifferent to the drama overhead. A hot palette of ochre and darkness turns the canonical subject into a sharp statement on hypocrisy.",
+      "de": "Eine vielfigurige nächtliche Kreuzigungsszene, in der die Menge unten ihren eigenen Angelegenheiten nachgeht, gleichgültig gegenüber dem Drama über ihr. Eine heiße Palette aus Ocker und Dunkel macht aus dem kanonischen Motiv eine scharfe Aussage über Heuchelei.",
+      "fr": "Une scène nocturne foisonnante de la Crucifixion, où la foule en contrebas vaque à ses propres affaires, indifférente au drame qui se joue au-dessus. Une palette incandescente d'ocre et d'obscurité transforme le sujet canonique en un constat acéré sur l'hypocrisie.",
+      "ja": "群衆でひしめく夜の磔刑の場面。下にいる群衆は頭上の悲劇に無関心なまま、それぞれの用事に忙しい。オーカーと闇の燃えるようなパレットが、この伝統的な主題を偽善への鋭い批評へと変える。"
+    },
+    "widthCm": 60,
+    "heightCm": 100,
+    "priceEur": 3000,
+    "theme": "sacred",
+    "material": "oilCanvas",
+    "status": "AVAILABLE",
+    "previewImageFile": "sin-and-the-church.jpg"
+  },
+  {
+    "slug": "war-mode",
+    "title": {
+      "uk": "War Mode",
+      "en": "War Mode",
+      "de": "War Mode",
+      "fr": "War Mode",
+      "ja": "War Mode"
+    },
+    "description": {
+      "uk": "Кислотно-яскрава, кубістично розібрана постать серед символів ока, вуст і біткоїна — тривожний портрет часу, де гроші й увага стали новою зброєю. Назва задає тон: це не пейзаж бою, а стан психіки.",
+      "en": "An acid-bright, cubistically broken figure among symbols of an eye, lips and Bitcoin — an unsettling portrait of an age in which money and attention have become the new weapons. The title sets the tone: not a battlefield, but a state of mind.",
+      "de": "Eine grellbunte, kubistisch zerlegte Figur zwischen Symbolen eines Auges, von Lippen und Bitcoin — ein beunruhigendes Porträt einer Zeit, in der Geld und Aufmerksamkeit zu den neuen Waffen geworden sind. Der Titel gibt den Ton vor: kein Schlachtfeld, sondern ein Geisteszustand.",
+      "fr": "Une figure aux couleurs acides, décomposée à la manière cubiste, parmi des symboles d'œil, de lèvres et de bitcoin — un portrait troublant d'une époque où l'argent et l'attention sont devenus les nouvelles armes. Le titre donne le ton : non pas un champ de bataille, mais un état d'esprit.",
+      "ja": "目、唇、ビットコインの記号に囲まれ、キュビスム的に分解された鮮烈な色彩の人物像——お金と注意力が新たな武器となった時代の、落ち着かない肖像である。タイトルがその調子を決定づける。これは戦場の風景ではなく、ひとつの精神状態なのだ。"
+    },
+    "widthCm": 80,
+    "heightCm": 100,
+    "priceEur": 3500,
+    "theme": "satire",
+    "material": "oilCanvas",
+    "status": "AVAILABLE",
+    "previewImageFile": "war-mode.jpg"
+  },
+  {
+    "slug": "incredible-adventures-of-eskimo-and-varenyk",
+    "title": {
+      "uk": "Incredible Adventures of Eskimo and Varenyk",
+      "en": "Incredible Adventures of Eskimo and Varenyk",
+      "de": "Incredible Adventures of Eskimo and Varenyk",
+      "fr": "Incredible Adventures of Eskimo and Varenyk",
+      "ja": "Incredible Adventures of Eskimo and Varenyk"
+    },
+    "description": {
+      "uk": "Іронічна данина мультиплікаційній естетиці — впізнавані силуети тварин-персонажів у грайливо провокативній сцені з морозивом. Назва обіцяє комічну пригоду, а сама робота грає на контрасті наївної форми й дорослого змісту.",
+      "en": "An ironic tribute to cartoon aesthetics — recognisable animal-character silhouettes in a playfully provocative scene involving ice cream. The title promises a comic adventure, while the work itself plays on the clash between naive form and adult content.",
+      "de": "Eine ironische Hommage an die Cartoon-Ästhetik — erkennbare Tierfigur-Silhouetten in einer spielerisch-provokanten Szene mit Eis. Der Titel verspricht ein komisches Abenteuer, während das Werk selbst mit dem Kontrast zwischen naiver Form und erwachsenem Inhalt spielt.",
+      "fr": "Un hommage ironique à l'esthétique du dessin animé — des silhouettes reconnaissables de personnages animaux dans une scène ludiquement provocante autour d'une glace. Le titre promet une aventure comique, tandis que l'œuvre elle-même joue sur le contraste entre forme naïve et contenu adulte.",
+      "ja": "アニメ的な美学へのアイロニカルなオマージュ——見覚えのある動物キャラクターのシルエットが、アイスクリームをめぐる挑発的でユーモラスな場面に登場する。タイトルは愉快な冒険を予感させるが、作品自体は素朴な形式と大人向けの内容とのコントラストで遊んでいる。"
+    },
+    "widthCm": 100,
+    "heightCm": 130,
+    "priceEur": 5500,
+    "theme": "nude",
+    "material": "oilCanvas",
+    "status": "AVAILABLE",
+    "previewImageFile": "incredible-adventures-of-eskimo-and-varenyk.jpg"
+  },
+  {
+    "slug": "silence",
+    "title": {
+      "uk": "Silence",
+      "en": "Silence",
+      "de": "Silence",
+      "fr": "Silence",
+      "ja": "Silence"
+    },
+    "description": {
+      "uk": "Обличчя, наполовину сховане під червоною вуздечкою й кляпом, — погляд лишається єдиним каналом комунікації. Назва пояснює сюжет буквально: це портрет мовчання, нав'язаного ззовні.",
+      "en": "A face half-hidden under a red bridle and gag — the gaze remains the only channel left open. The title explains the scene literally: this is a portrait of silence imposed from outside.",
+      "de": "Ein Gesicht, halb verborgen unter einem roten Zaumzeug und Knebel — der Blick bleibt der einzig verbliebene Kanal. Der Titel erklärt die Szene wörtlich: Dies ist ein Porträt von von außen auferlegtem Schweigen.",
+      "fr": "Un visage à demi dissimulé sous une bride rouge et un bâillon — le regard reste le seul canal encore ouvert. Le titre explique la scène au sens littéral : le portrait d'un silence imposé de l'extérieur.",
+      "ja": "赤い轡と猿轡の下に半ば隠された顔——まなざしだけが残された唯一の伝達手段となる。タイトルはそのまま情景を説明している。これは外から強いられた沈黙の肖像である。"
+    },
+    "widthCm": 60,
+    "heightCm": 80,
+    "priceEur": 2000,
+    "theme": "nude",
+    "material": "oilCanvas",
+    "status": "AVAILABLE",
+    "previewImageFile": "silence.jpg"
+  },
+  {
+    "slug": "orange",
+    "title": {
+      "uk": "Orange",
+      "en": "Orange",
+      "de": "Orange",
+      "fr": "Orange",
+      "ja": "Orange"
+    },
+    "description": {
+      "uk": "Компактний, майже фотографічний фрагмент обличчя в тій самій напруженій, стриманій палітрі — назва відсилає радше до кольору шкіри в теплому світлі, ніж до сюжету. Невеликий формат робить роботу інтимним висловлюванням, а не масштабним жестом.",
+      "en": "A compact, almost photographic fragment of a face in the same tense, restrained palette — the title points more to the colour of skin in warm light than to the subject itself. The small format makes it an intimate statement rather than a grand gesture.",
+      "de": "Ein kompaktes, fast fotografisches Gesichtsfragment in derselben angespannten, zurückhaltenden Palette — der Titel verweist eher auf die Hautfarbe im warmen Licht als auf das Sujet. Das kleine Format macht daraus eine intime Aussage statt einer großen Geste.",
+      "fr": "Un fragment de visage compact, presque photographique, dans la même palette tendue et retenue — le titre renvoie davantage à la couleur de la peau sous une lumière chaude qu'au sujet lui-même. Le petit format en fait une déclaration intime plutôt qu'un geste d'ampleur.",
+      "ja": "同じ張り詰めた、抑制されたパレットで描かれた、写真のようにコンパクトな顔の断片——タイトルは主題そのものよりも、暖かな光の中の肌の色を指しているようだ。小さな画面が、大きな身振りではなく親密な発言たらしめている。"
+    },
+    "widthCm": 60,
+    "heightCm": 50,
+    "priceEur": 400,
+    "theme": "portrait",
+    "material": "oilCanvas",
+    "status": "AVAILABLE",
+    "previewImageFile": "orange.jpg"
+  },
+  {
+    "slug": "x14072024",
+    "title": {
+      "uk": "14072024",
+      "en": "14072024",
+      "de": "14072024",
+      "fr": "14072024",
+      "ja": "14072024"
+    },
+    "description": {
+      "uk": "Постать у костюмі, пофарбованому в кольори прапора, стоїть по коліна у кривавій воді на тлі смугастого полотнища. Назва фіксує конкретну дату 2024 року, перетворюючи роботу на прямий політичний коментар — найбільше й найдорожче полотно в колекції, 130×130 см.",
+      "en": "A figure in a flag-coloured suit stands knee-deep in blood-red water against a striped banner. The title pins the work to a specific date in 2024, turning it into a direct political commentary — the largest and most expensive canvas in the collection, at 130×130 cm.",
+      "de": "Eine Figur in einem flaggenfarbenen Anzug steht knietief in blutrotem Wasser vor einem gestreiften Banner. Der Titel legt das Werk auf ein konkretes Datum im Jahr 2024 fest und macht es zu einem direkten politischen Kommentar — das größte und teuerste Gemälde der Sammlung, 130×130 cm.",
+      "fr": "Une figure en costume aux couleurs d'un drapeau se tient jusqu'aux genoux dans une eau rouge sang, devant une bannière rayée. Le titre ancre l'œuvre à une date précise de 2024, en faisant un commentaire politique direct — la toile la plus grande et la plus chère de la collection, 130×130 cm.",
+      "ja": "国旗の色をまとったスーツ姿の人物が、縞模様の旗を背景に、血のように赤い水の中に膝まで浸かって立っている。タイトルは2024年のある特定の日付を指し示し、作品を直接的な政治的コメントへと変える——コレクション中最大かつ最も高価なキャンバス、130×130cm。"
+    },
+    "widthCm": 130,
+    "heightCm": 130,
+    "priceEur": 30000,
+    "theme": "satire",
+    "material": "acrylicCanvas",
+    "status": "AVAILABLE",
+    "previewImageFile": "x14072024.jpg"
   }
 ]

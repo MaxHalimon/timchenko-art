@@ -52,7 +52,7 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  const amountUsd = products.reduce((sum, p) => sum + Number(p.priceUsd), 0);
+  const amountEur = products.reduce((sum, p) => sum + Number(p.priceEur), 0);
 
   // Create the order in PREVIEW first — it only moves to PAID once the
   // relevant webhook confirms payment. Each OrderItem's unique productId
@@ -63,15 +63,15 @@ export async function POST(req: NextRequest) {
       customerEmail: body.customerEmail,
       customerName: body.customerName,
       shippingAddress: body.shippingAddress,
-      amountUsd,
-      platformCommissionUsd: 0, // set for real once the order reaches PAID
-      artistPayoutUsd: 0,
+      amountEur,
+      platformCommissionEur: 0, // set for real once the order reaches PAID
+      artistPayoutEur: 0,
       status: "PREVIEW",
       locale,
       items: {
         create: products.map((p) => ({
           productId: p.id,
-          priceUsd: p.priceUsd,
+          priceEur: p.priceEur,
         })),
       },
     },
@@ -88,14 +88,14 @@ export async function POST(req: NextRequest) {
   return createNowPaymentsInvoice(
     order.id,
     products.map((p) => ({ ...p, title: localizedText(p.title, locale) })),
-    amountUsd,
+    amountEur,
     locale,
   );
 }
 
 async function createStripeCheckout(
   orderId: string,
-  products: { slug: string; title: string; priceUsd: unknown }[],
+  products: { slug: string; title: string; priceEur: unknown }[],
   locale: Locale,
 ) {
   try {
@@ -106,8 +106,8 @@ async function createStripeCheckout(
       mode: "payment",
       line_items: products.map((product) => ({
         price_data: {
-          currency: "usd",
-          unit_amount: Math.round(Number(product.priceUsd) * 100),
+          currency: "eur",
+          unit_amount: Math.round(Number(product.priceEur) * 100),
           product_data: { name: `Timchenko Art — ${product.title}` },
         },
         quantity: 1,
@@ -141,7 +141,7 @@ async function createStripeCheckout(
 async function createNowPaymentsInvoice(
   orderId: string,
   products: { slug: string; title: string }[],
-  amountUsd: number,
+  amountEur: number,
   locale: Locale,
 ) {
   if (!NOWPAYMENTS_API_KEY) {
@@ -164,8 +164,8 @@ async function createNowPaymentsInvoice(
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      price_amount: amountUsd,
-      price_currency: "usd",
+      price_amount: amountEur,
+      price_currency: "eur",
       order_id: orderId,
       order_description: description,
       ipn_callback_url: `${process.env.NEXT_PUBLIC_SITE_URL}/api/webhooks/nowpayments`,

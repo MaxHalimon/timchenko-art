@@ -42,7 +42,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
   const cookieCurrency = cookieStore.get(CURRENCY_COOKIE)?.value as CurrencyCode | undefined;
   const initialCurrency: CurrencyCode = SUPPORTED_CURRENCIES.includes(cookieCurrency as CurrencyCode)
     ? (cookieCurrency as CurrencyCode)
-    : "USD";
+    : "EUR";
 
   return (
     <html lang={locale}>

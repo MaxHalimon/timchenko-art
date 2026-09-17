@@ -10,13 +10,13 @@
  */
 export const PLATFORM_COMMISSION_PCT = 20;
 
-export function calculatePlatformCommissionUsd(amountUsd: number): number {
-  return Math.round(amountUsd * (PLATFORM_COMMISSION_PCT / 100) * 100) / 100;
+export function calculatePlatformCommissionEur(amountEur: number): number {
+  return Math.round(amountEur * (PLATFORM_COMMISSION_PCT / 100) * 100) / 100;
 }
 
 /** What the artist is owed for a given sale — amount minus the platform's cut. */
-export function calculateArtistPayoutUsd(amountUsd: number): number {
-  return Math.round((amountUsd - calculatePlatformCommissionUsd(amountUsd)) * 100) / 100;
+export function calculateArtistPayoutEur(amountEur: number): number {
+  return Math.round((amountEur - calculatePlatformCommissionEur(amountEur)) * 100) / 100;
 }
 
 /** Preview images always carry a watermark; originals are private-bucket only. */

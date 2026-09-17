@@ -1,7 +1,8 @@
 /**
- * Currency support. Base currency for all stored prices (Product.priceUsd,
- * Order.amountUsd) stays USD — this module only concerns *display*
- * conversion and, eventually, checkout currency.
+ * Currency support. Base currency for all stored prices (Product.priceEur,
+ * Order.amountEur) is EUR — the artist sets and thinks in EUR, so that's
+ * the single source of truth. This module only concerns *display*
+ * conversion (and checkout currency, which also runs in EUR).
  *
  * IMPORTANT: EXCHANGE_RATES below are static placeholders, not live rates.
  * Before going live, wire this up to a real feed (e.g. exchangerate-api.com,
@@ -9,7 +10,7 @@
  * hardcoded rates to production.
  */
 
-export const SUPPORTED_CURRENCIES = ["USD", "UAH", "EUR", "GBP", "JPY"] as const;
+export const SUPPORTED_CURRENCIES = ["EUR", "USD", "UAH", "GBP", "JPY"] as const;
 export type CurrencyCode = (typeof SUPPORTED_CURRENCIES)[number];
 
 /** Cookie shared between middleware (initial geo guess) and the client-side
@@ -17,26 +18,26 @@ export type CurrencyCode = (typeof SUPPORTED_CURRENCIES)[number];
 export const CURRENCY_COOKIE = "timchenko-art-currency";
 
 export const CURRENCY_SYMBOLS: Record<CurrencyCode, string> = {
+  EUR: "€",
   USD: "$",
   UAH: "₴",
-  EUR: "€",
   GBP: "£",
   JPY: "¥",
 };
 
-/** Placeholder rates, USD base. Replace with a live feed before launch. */
-export const EXCHANGE_RATES_FROM_USD: Record<CurrencyCode, number> = {
-  USD: 1,
-  UAH: 41.5,
-  EUR: 0.92,
-  GBP: 0.79,
-  JPY: 157,
+/** Placeholder rates, EUR base. Replace with a live feed before launch. */
+export const EXCHANGE_RATES_FROM_EUR: Record<CurrencyCode, number> = {
+  EUR: 1,
+  USD: 1.14,
+  UAH: 45.7,
+  GBP: 0.87,
+  JPY: 172.5,
 };
 
 /**
  * Country (ISO 3166-1 alpha-2) → default currency. Only covers the
  * countries relevant to this storefront's languages/markets; anything
- * else falls back to USD.
+ * else falls back to EUR, the site's base/home currency.
  */
 export const COUNTRY_TO_CURRENCY: Record<string, CurrencyCode> = {
   UA: "UAH",
@@ -53,16 +54,16 @@ export const COUNTRY_TO_CURRENCY: Record<string, CurrencyCode> = {
 };
 
 export function currencyForCountry(countryCode: string | undefined): CurrencyCode {
-  if (!countryCode) return "USD";
-  return COUNTRY_TO_CURRENCY[countryCode.toUpperCase()] ?? "USD";
+  if (!countryCode) return "EUR";
+  return COUNTRY_TO_CURRENCY[countryCode.toUpperCase()] ?? "EUR";
 }
 
-export function convertFromUsd(amountUsd: number, currency: CurrencyCode): number {
-  return amountUsd * EXCHANGE_RATES_FROM_USD[currency];
+export function convertFromEur(amountEur: number, currency: CurrencyCode): number {
+  return amountEur * EXCHANGE_RATES_FROM_EUR[currency];
 }
 
-export function formatPrice(amountUsd: number, currency: CurrencyCode): string {
-  const converted = convertFromUsd(amountUsd, currency);
+export function formatPrice(amountEur: number, currency: CurrencyCode): string {
+  const converted = convertFromEur(amountEur, currency);
   // UAH and JPY are conventionally shown with no decimals; everything else uses 2.
   const decimals = currency === "UAH" || currency === "JPY" ? 0 : 2;
   return `${CURRENCY_SYMBOLS[currency]}${converted.toLocaleString("en-US", {

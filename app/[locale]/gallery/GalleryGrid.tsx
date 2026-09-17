@@ -11,8 +11,9 @@ export interface GridProduct {
   previewImageUrl: string;
   widthCm: number;
   heightCm: number;
-  priceUsd: number;
+  priceEur: number;
   status: ProductStatus;
+  material: string;
 }
 
 const PAGE_SIZE_DESKTOP = 12;

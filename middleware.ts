@@ -18,7 +18,8 @@ export default function middleware(request: NextRequest) {
   if (!request.cookies.get(CURRENCY_COOKIE)) {
     // Vercel populates this header automatically in production deploys.
     // It's absent when running locally / on other hosts, in which case
-    // we fall back to USD — swap in a geo-IP lookup there if needed.
+    // we fall back to EUR (the site's base currency) — swap in a geo-IP
+    // lookup there if needed.
     const country = request.headers.get("x-vercel-ip-country") ?? undefined;
     response.cookies.set(CURRENCY_COOKIE, currencyForCountry(country), {
       path: "/",

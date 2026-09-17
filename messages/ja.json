@@ -51,7 +51,13 @@
       "SOLD": "売約済み"
     },
     "dimensions": "{width} × {height} cm",
-    "material": "油彩、キャンバス"
+    "materials": {
+      "oilCanvas": "油彩、キャンバス",
+      "acrylicCanvas": "アクリル、キャンバス",
+      "woodAcrylic": "アクリル、木材",
+      "paperInkGlass": "インク、紙、ガラス",
+      "watercolorPaperAcrylic": "水彩、紙、アクリル"
+    }
   },
   "product": {
     "backToGallery": "← ギャラリーに戻る",
@@ -196,10 +202,12 @@
       "sizeLarge": "80cm以上"
     },
     "themes": {
-      "landscape": "風景",
+      "nude": "ヌード",
+      "symbolism": "象徴主義",
+      "satire": "風刺",
+      "sacred": "宗教画",
       "portrait": "肖像画",
-      "stillLife": "静物画",
-      "abstract": "抽象画"
+      "mixedMedia": "ミクストメディア"
     }
   },
   "contact": {
