@@ -1,19 +1,29 @@
 /**
  * Seeds the `products` table from prisma/paintings.json.
  *
- * DEV-ONLY SHORTCUT: this points previewImageKey at a local file under
- * /public/paintings/<file>, served directly by Next.js — NOT the private
- * S3 + watermark pipeline described in the README. That's fine for getting
- * the catalog working locally right now. Before launch, replace this with
- * real S3 keys (see README → "Наступні кроки" → lib/s3.ts + watermarking).
+ * Image storage has two modes, switched automatically by whether
+ * S3_PREVIEWS_PUBLIC_URL is set in .env:
  *
- * originalImageKey is set to the same local path as a placeholder — there
- * is no real "private original" yet. Update it once the S3 pipeline exists.
+ *  - S3_PREVIEWS_PUBLIC_URL set → previewImageKey points at the file's
+ *    public R2 URL (`${S3_PREVIEWS_PUBLIC_URL}/<file>`). Run
+ *    scripts/upload-paintings-to-r2.ts first so the files actually exist
+ *    there; local files in /public/paintings are no longer needed once
+ *    you've confirmed the gallery loads correctly from R2.
+ *  - S3_PREVIEWS_PUBLIC_URL unset → dev-only fallback: points at the
+ *    local file under /public/paintings/<file>, served directly by
+ *    Next.js. Fine for a quick local check, not for production.
+ *
+ * originalImageKey is still set to the same value as a placeholder —
+ * there's no real "private original + presigned download" consumer flow
+ * yet (lib/s3.ts has the pieces — getPresignedOriginalUrl — but nothing
+ * calls it). Wire that up once the "download your purchased original"
+ * flow is built.
  *
  * Usage:
  *   1. Fill in prisma/paintings.json with your real paintings.
- *   2. Drop the matching image files in /public/paintings/
- *      (filename must match "previewImageFile" in the JSON).
+ *   2. Either drop image files in /public/paintings/ (dev fallback) or
+ *      run scripts/upload-paintings-to-r2.ts and set S3_PREVIEWS_PUBLIC_URL
+ *      (filename must match "previewImageFile" in the JSON either way).
  *   3. Run: npx prisma db seed
  */
 
@@ -34,11 +44,16 @@ interface PaintingInput {
   /** Stable slug into productCard.materials.* — see messages/*.json. */
   material: string;
   status: "AVAILABLE" | "IN_PROGRESS" | "SOLD";
-  previewImageFile: string; // filename only, must exist in /public/paintings/
+  previewImageFile: string; // filename only, must exist in /public/paintings/ (or in the R2 bucket, once uploaded)
 }
 
 const DATA_PATH = path.join(__dirname, "paintings.json");
 const IMAGES_DIR = path.join(__dirname, "..", "public", "paintings");
+const R2_PUBLIC_URL = process.env.S3_PREVIEWS_PUBLIC_URL?.replace(/\/$/, ""); // strip trailing slash if present
+
+function imageUrl(filename: string): string {
+  return R2_PUBLIC_URL ? `${R2_PUBLIC_URL}/${filename}` : `/paintings/${filename}`;
+}
 
 /** For console logs only — picks any one name to display, preferring Ukrainian. */
 function displayTitle(title: Record<string, string>): string {
@@ -57,9 +72,16 @@ async function main() {
     return;
   }
 
+  console.log(
+    R2_PUBLIC_URL
+      ? `Джерело фото: R2 (${R2_PUBLIC_URL})\n`
+      : `Джерело фото: локальна папка public/paintings (R2 не налаштовано — S3_PREVIEWS_PUBLIC_URL порожній)\n`,
+  );
+
   let missingImages = 0;
 
   for (const painting of paintings) {
+    if (R2_PUBLIC_URL) continue; // can't check R2 existence without a network call — trust the upload script's own output instead
     const imagePath = path.join(IMAGES_DIR, painting.previewImageFile);
     if (!fs.existsSync(imagePath)) {
       console.warn(
@@ -79,8 +101,8 @@ async function main() {
         theme: painting.theme,
         material: painting.material,
         status: painting.status as ProductStatus,
-        previewImageKey: `/paintings/${painting.previewImageFile}`,
-        originalImageKey: `/paintings/${painting.previewImageFile}`, // placeholder — see file header
+        previewImageKey: imageUrl(painting.previewImageFile),
+        originalImageKey: imageUrl(painting.previewImageFile), // placeholder — see file header (no private-original pipeline yet)
       },
       create: {
         slug: painting.slug,
@@ -92,8 +114,8 @@ async function main() {
         theme: painting.theme,
         material: painting.material,
         status: painting.status as ProductStatus,
-        previewImageKey: `/paintings/${painting.previewImageFile}`,
-        originalImageKey: `/paintings/${painting.previewImageFile}`, // placeholder — see file header
+        previewImageKey: imageUrl(painting.previewImageFile),
+        originalImageKey: imageUrl(painting.previewImageFile), // placeholder — see file header (no private-original pipeline yet)
       },
     });
 
