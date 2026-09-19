@@ -9,6 +9,6 @@ if (!STRIPE_SECRET_KEY && process.env.NODE_ENV === "production") {
 }
 
 // lib/stripe.ts
-export const stripe = new Stripe(STRIPE_SECRET_KEY ?? "sk_test_placeholder", {
+export const stripe = new Stripe(STRIPE_SECRET_KEY || "sk_test_placeholder", {
   apiVersion: "2026-06-24.dahlia",
 });   
