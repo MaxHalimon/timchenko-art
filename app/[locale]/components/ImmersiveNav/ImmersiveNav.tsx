@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import { LogoMark } from "../LogoMark/LogoMark";
 import { LanguageSwitcher } from "../LanguageSwitcher/LanguageSwitcher";
 import { CurrencySwitcher } from "../CurrencySwitcher/CurrencySwitcher";
 import { useEasel } from "../../providers/EaselProvider";
@@ -70,6 +71,7 @@ export function ImmersiveNav() {
   return (
     <header ref={headerRef} className={scrolled ? `${styles.header} ${styles.headerSolid}` : styles.header}>
       <Link href="/" className={styles.logo} onClick={closeMenu}>
+        <LogoMark className={styles.logoMark} />
         {t("siteName")}
       </Link>
 
