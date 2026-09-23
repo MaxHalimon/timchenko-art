@@ -10,6 +10,10 @@ export interface HeroPainting {
   slug: string;
   title: string;
   previewImageUrl: string;
+  widthCm?: number;
+  heightCm?: number;
+  material?: string;
+  priceEur?: number;
 }
 
 // Constant crawl speed, in pixels/second — 9.8px/s (30% slower than the

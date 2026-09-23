@@ -79,8 +79,23 @@ export default async function GalleryPage({
     // regardless of what's selected in FilterBar). ORDER BY RANDOM() runs
     // in Postgres itself rather than shuffling the whole table in JS, so
     // this stays cheap even once the catalog is at the ~200-painting scale.
-    prisma.$queryRaw<Array<{ slug: string; title: Prisma.JsonValue; previewImageKey: string }>>`
-      SELECT "slug", "title", "previewImageKey" FROM "products" ORDER BY RANDOM() LIMIT ${HERO_POOL_SIZE}
+    prisma.$queryRaw<
+      Array<{
+        slug: string;
+        title: Prisma.JsonValue;
+        previewImageKey: string;
+        widthCm: number;
+        heightCm: number;
+        material: string;
+        // Raw queries don't go through Prisma's normal Decimal mapping —
+        // could come back as a string or number depending on driver
+        // version, so this is typed loosely and pushed through Number()
+        // below regardless.
+        priceEur: number | string;
+      }>
+    >`
+      SELECT "slug", "title", "previewImageKey", "widthCm", "heightCm", "material", "priceEur"
+      FROM "products" ORDER BY RANDOM() LIMIT ${HERO_POOL_SIZE}
     `,
   ]);
 
@@ -99,6 +114,10 @@ export default async function GalleryPage({
     slug: row.slug,
     title: localizedText(row.title, locale),
     previewImageUrl: row.previewImageKey,
+    widthCm: row.widthCm,
+    heightCm: row.heightCm,
+    material: row.material,
+    priceEur: Number(row.priceEur),
   }));
 
   return (

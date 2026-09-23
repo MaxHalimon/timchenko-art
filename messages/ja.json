@@ -42,7 +42,8 @@
   },
   "focusCard": {
     "close": "閉じる",
-    "viewInGallery": "ギャラリーで見る"
+    "viewInGallery": "ギャラリーで見る",
+    "viewFullscreen": "全画面で見る"
   },
   "productCard": {
     "status": {

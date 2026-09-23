@@ -40,6 +40,10 @@ export default async function HomePage({ params }: HomePageProps) {
       slug: product.slug,
       title: localizedText(product.title, locale),
       previewImageUrl: product.previewImageKey,
+      widthCm: product.widthCm,
+      heightCm: product.heightCm,
+      material: product.material,
+      priceEur: Number(product.priceEur),
     }));
 
   return (

@@ -9,6 +9,10 @@ export interface ShowcaseImage {
   slug: string;
   title: string;
   previewImageUrl: string;
+  widthCm?: number;
+  heightCm?: number;
+  material?: string;
+  priceEur?: number;
 }
 
 const AUTOPLAY_INTERVAL_MS = 7000;

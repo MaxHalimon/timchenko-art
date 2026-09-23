@@ -42,7 +42,8 @@
   },
   "focusCard": {
     "close": "Закрити",
-    "viewInGallery": "Дивитися в галереї"
+    "viewInGallery": "Дивитися в галереї",
+    "viewFullscreen": "Переглянути на весь екран"
   },
   "productCard": {
     "status": {

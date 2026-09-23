@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import { PriceTag } from "../PriceTag/PriceTag";
 import buttonStyles from "../shared/Buttons.module.css";
 import styles from "./ImageSlideshowModal.module.css";
 
@@ -10,6 +11,14 @@ export interface SlideshowImage {
   slug: string;
   title: string;
   previewImageUrl: string;
+  /** Optional: when present, a size/material/price line renders under
+   *  the title. All three come together (see productCard.dimensions/
+   *  materials in messages/*.json for the same formatting ProductCard
+   *  uses) — a caller either supplies the full set or none of it. */
+  widthCm?: number;
+  heightCm?: number;
+  material?: string;
+  priceEur?: number;
 }
 
 const AUTOPLAY_INTERVAL_MS = 4000;
@@ -37,6 +46,7 @@ export function ImageSlideshowModal({
   onClose: () => void;
 }) {
   const t = useTranslations("slideshow");
+  const tCard = useTranslations("productCard");
   const count = images.length;
   const [index, setIndex] = useState(initialIndex);
   const [isPlaying, setIsPlaying] = useState(autoplayOnOpen);
@@ -127,54 +137,66 @@ export function ImageSlideshowModal({
         onTouchEnd={handleTouchEnd}
       >
         <div className={styles.imageArea}>
-          <button
-            type="button"
-            className={`${styles.circleButton} ${styles.navArrow} ${styles.navArrowLeft}`}
-            aria-label={t("prev")}
-            onClick={() => goTo(index - 1)}
-          >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M15 18l-6-6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </button>
+          {count > 1 && (
+            <button
+              type="button"
+              className={`${styles.circleButton} ${styles.navArrow} ${styles.navArrowLeft}`}
+              aria-label={t("prev")}
+              onClick={() => goTo(index - 1)}
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M15 18l-6-6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+          )}
 
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src={current.previewImageUrl} alt={current.title} className={styles.image} />
 
-          <button
-            type="button"
-            className={`${styles.circleButton} ${styles.navArrow} ${styles.navArrowRight}`}
-            aria-label={t("next")}
-            onClick={() => goTo(index + 1)}
-          >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M9 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </button>
+          {count > 1 && (
+            <button
+              type="button"
+              className={`${styles.circleButton} ${styles.navArrow} ${styles.navArrowRight}`}
+              aria-label={t("next")}
+              onClick={() => goTo(index + 1)}
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M9 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+          )}
         </div>
 
         <div className={styles.footer}>
-          <button
-            type="button"
-            className={`${styles.circleButton} ${styles.playButton}`}
-            aria-label={isPlaying ? t("pause") : t("play")}
-            onClick={() => setIsPlaying((p) => !p)}
-          >
-            {isPlaying ? (
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <rect x="6" y="5" width="4" height="14" />
-                <rect x="14" y="5" width="4" height="14" />
-              </svg>
-            ) : (
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M7 5l12 7-12 7V5z" />
-              </svg>
-            )}
-          </button>
+          {count > 1 && (
+            <button
+              type="button"
+              className={`${styles.circleButton} ${styles.playButton}`}
+              aria-label={isPlaying ? t("pause") : t("play")}
+              onClick={() => setIsPlaying((p) => !p)}
+            >
+              {isPlaying ? (
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <rect x="6" y="5" width="4" height="14" />
+                  <rect x="14" y="5" width="4" height="14" />
+                </svg>
+              ) : (
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M7 5l12 7-12 7V5z" />
+                </svg>
+              )}
+            </button>
+          )}
 
           <div className={styles.caption}>
             <p className={styles.title}>{current.title}</p>
-            <p className={styles.counter}>{t("counter", { current: index + 1, total: count })}</p>
+            {current.widthCm != null && current.heightCm != null && current.material && current.priceEur != null && (
+              <p className={styles.meta}>
+                {tCard("dimensions", { width: current.widthCm, height: current.heightCm })} ·{" "}
+                {tCard(`materials.${current.material}`)} · <PriceTag amountEur={current.priceEur} />
+              </p>
+            )}
+            {count > 1 && <p className={styles.counter}>{t("counter", { current: index + 1, total: count })}</p>}
           </div>
 
           <Link

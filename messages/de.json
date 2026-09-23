@@ -42,7 +42,8 @@
   },
   "focusCard": {
     "close": "Schließen",
-    "viewInGallery": "In der Galerie ansehen"
+    "viewInGallery": "In der Galerie ansehen",
+    "viewFullscreen": "Vollbild anzeigen"
   },
   "productCard": {
     "status": {

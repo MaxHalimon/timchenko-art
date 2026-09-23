@@ -110,6 +110,14 @@
   color: rgba(255, 255, 255, 0.6);
 }
 
+.meta {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.75);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 /* Both footer action links share this base (sizing/flex behavior);
    .galleryButton/.galleryButtonOutline (from the shared Buttons module)
    already give them the exact same shape/padding/weight as every other
