@@ -88,7 +88,7 @@ export function FocusCardModal({ image, onClose }: { image: FocusCardImage; onCl
             <div className={styles.info}>
               <h3 className={styles.title}>{image.title}</h3>
               {image.year && <p className={styles.year}>{image.year}</p>}
-              <Link href={`/product/${image.slug}`} className={styles.viewLink} onClick={onClose}>
+              <Link href={`/gallery?focus=${image.slug}`} className={styles.viewLink} onClick={onClose}>
                 {t("viewInGallery")}
               </Link>
             </div>

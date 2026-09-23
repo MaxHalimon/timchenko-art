@@ -19,17 +19,19 @@ export function GalleryView({
   heroPaintings,
   themeOptions,
   current,
+  focusSlug,
 }: {
   products: GridProduct[];
   heroPaintings: HeroPainting[];
   themeOptions: string[];
   current: { size?: string; theme?: string; status?: string };
+  focusSlug?: string;
 }) {
   const t = useTranslations("gallery");
 
   return (
     <>
-      <GalleryHero paintings={heroPaintings} />
+      <GalleryHero paintings={heroPaintings} focusSlug={focusSlug} />
 
       <FilterBar themeOptions={themeOptions} current={current} />
 

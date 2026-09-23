@@ -21,11 +21,14 @@ export interface HeroPainting {
 const PIXELS_PER_SECOND = 9.8;
 
 /**
- * Just a greeting — a row of randomly-picked paintings, independent of
- * whatever filters are set below (this pool is fetched separately, see
- * page.tsx). Always a single horizontal row, even on mobile — it never
- * reflows into a stacked column, tile size just shrinks with the
- * viewport instead (see the CSS for how).
+ * Just a greeting — every painting on the site, in one row (this pool is
+ * fetched separately, see page.tsx; it's the whole catalog, not a
+ * sample, and stays correct on its own as paintings sell or new ones
+ * are added — nothing here is cached or hardcoded). Always a single
+ * horizontal row, even on mobile — it never reflows into a stacked
+ * column, tile size just shrinks with the viewport instead (see the
+ * CSS for how). Images past the first few load lazily
+ * (`loading="lazy"`) since the row can now be long.
  *
  * Moves as a continuous, slow, uninterrupted loop — no arrows, no
  * pause-on-hover, nothing to operate. Pure CSS `animation` (translateX
@@ -38,24 +41,39 @@ const PIXELS_PER_SECOND = 9.8;
  * row visibly sped up or slowed down as the viewport resized. Measuring
  * the real width keeps px/sec constant everywhere, including while the
  * window is being resized live (ResizeObserver re-measures on every
- * layout change). The one and only interaction stays exactly what it
- * already was: clicking any painting (moving or not — CSS transforms
- * don't affect click handling) opens the same slideshow as before; the
- * CTA still starts it on a random painting with autoplay on.
+ * layout change).
+ *
+ * `focusSlug` (arrives via ?focus= on the URL — see "переглянути в
+ * галереї" links) overrides all of that: the loop pauses, the row jumps
+ * to a fixed offset that centers that one painting in the visible strip,
+ * and that tile gets a highlight ring — so a visitor coming from a
+ * specific painting elsewhere on the site sees it immediately instead
+ * of having to catch it mid-scroll. It stays paused there for the rest
+ * of this page view (not just a few seconds) — the visitor came here
+ * for that one painting, not to watch the greeting strip keep moving.
+ *
+ * The one other interaction stays exactly what it already was: clicking
+ * any painting (moving, paused, or focused — none of that affects click
+ * handling) opens the same slideshow as before; the CTA still starts it
+ * on a random painting with autoplay on.
  */
-export function GalleryHero({ paintings }: { paintings: HeroPainting[] }) {
+export function GalleryHero({ paintings, focusSlug }: { paintings: HeroPainting[]; focusSlug?: string }) {
   const t = useTranslations("gallery");
   const [openState, setOpenState] = useState<{ index: number; autoplay: boolean } | null>(null);
   const rowRef = useRef<HTMLDivElement>(null);
   const [durationSeconds, setDurationSeconds] = useState<number | null>(null);
+  const [focusOffsetPx, setFocusOffsetPx] = useState<number | null>(null);
 
+  const focusIndex = focusSlug ? paintings.findIndex((p) => p.slug === focusSlug) : -1;
+
+  // Normal crawl-speed measuring — only matters while nothing is focused,
+  // but stays running regardless so it's ready if focusSlug is ever
+  // cleared (e.g. the visitor navigates to a plain /gallery link next).
   useEffect(() => {
     const row = rowRef.current;
     if (!row) return;
 
     function measure() {
-      // row holds the list twice back-to-back; one full loop (translateX
-      // 0 → -50%) covers exactly one copy, i.e. half the rendered width.
       const oneListWidth = row!.scrollWidth / 2;
       setDurationSeconds(oneListWidth / PIXELS_PER_SECOND);
     }
@@ -66,27 +84,63 @@ export function GalleryHero({ paintings }: { paintings: HeroPainting[] }) {
     return () => observer.disconnect();
   }, [paintings]);
 
+  // Centers the focused tile: offset = half the visible strip's width,
+  // minus how far into the (single, un-doubled) row that tile's center
+  // sits. Recomputed on resize so it stays centered if the viewport
+  // changes size while paused here.
+  useEffect(() => {
+    if (focusIndex === -1) {
+      setFocusOffsetPx(null);
+      return;
+    }
+
+    const row = rowRef.current;
+    const marquee = row?.parentElement;
+    if (!row || !marquee) return;
+
+    function center() {
+      const tile = row!.children[focusIndex] as HTMLElement | undefined;
+      if (!tile) return;
+      const tileCenter = tile.offsetLeft + tile.offsetWidth / 2;
+      setFocusOffsetPx(marquee!.clientWidth / 2 - tileCenter);
+    }
+
+    center();
+    const observer = new ResizeObserver(center);
+    observer.observe(marquee);
+    return () => observer.disconnect();
+  }, [focusIndex]);
+
   if (paintings.length === 0) return null;
 
   const looped = [...paintings, ...paintings];
 
+  const rowStyle =
+    focusOffsetPx !== null
+      ? { animation: "none", transform: `translateX(${focusOffsetPx}px)` }
+      : durationSeconds
+        ? { animationDuration: `${durationSeconds}s` }
+        : { animationPlayState: "paused" as const };
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.marquee}>
-        <div
-          ref={rowRef}
-          className={styles.row}
-          style={durationSeconds ? { animationDuration: `${durationSeconds}s` } : { animationPlayState: "paused" }}
-        >
+        <div ref={rowRef} className={styles.row} style={rowStyle}>
           {looped.map((painting, i) => (
             <button
               type="button"
               key={`${painting.slug}-${i}`}
-              className={styles.tile}
+              data-slug={painting.slug}
+              className={i === focusIndex ? `${styles.tile} ${styles.tileFocused}` : styles.tile}
               onClick={() => setOpenState({ index: i % paintings.length, autoplay: false })}
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={painting.previewImageUrl} alt={painting.title} className={styles.image} />
+              <img
+                src={painting.previewImageUrl}
+                alt={painting.title}
+                className={styles.image}
+                loading={i < 6 ? "eager" : "lazy"}
+              />
             </button>
           ))}
         </div>

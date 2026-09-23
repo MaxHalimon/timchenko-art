@@ -64,10 +64,12 @@ export function convertFromEur(amountEur: number, currency: CurrencyCode): numbe
 
 export function formatPrice(amountEur: number, currency: CurrencyCode): string {
   const converted = convertFromEur(amountEur, currency);
-  // UAH and JPY are conventionally shown with no decimals; everything else uses 2.
-  const decimals = currency === "UAH" || currency === "JPY" ? 0 : 2;
+  // Whole units only, in every currency — toLocaleString with
+  // maximumFractionDigits: 0 rounds (not truncates) to the nearest
+  // integer, which is what "round when conversion gives a non-integer"
+  // means here.
   return `${CURRENCY_SYMBOLS[currency]}${converted.toLocaleString("en-US", {
-    minimumFractionDigits: decimals,
-    maximumFractionDigits: decimals,
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
   })}`;
 }

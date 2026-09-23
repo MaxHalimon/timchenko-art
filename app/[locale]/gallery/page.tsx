@@ -23,9 +23,12 @@ interface GallerySearchParams {
   size?: SizeBucket;
   theme?: string;
   status?: ProductStatus;
+  /** Set by "переглянути в галереї" links (FocusCardModal, product
+   *  page, etc.) — the hero marquee shows every painting on the site,
+   *  so the target is always already in it; this just tells GalleryHero
+   *  which one to center + highlight on arrival. */
+  focus?: string;
 }
-
-const HERO_POOL_SIZE = 8;
 
 export default async function GalleryPage({
   params,
@@ -35,7 +38,7 @@ export default async function GalleryPage({
   searchParams: Promise<GallerySearchParams>;
 }) {
   const { locale } = await params;
-  const { size, theme, status } = await searchParams;
+  const { size, theme, status, focus } = await searchParams;
   const t = await getTranslations("gallery");
 
   const where: Prisma.ProductWhereInput = {};
@@ -75,10 +78,13 @@ export default async function GalleryPage({
       where: { theme: { not: null } },
     }),
     // Hero "greeting" strip — deliberately its OWN query, completely
-    // independent of the filters above (a fresh random sample every load,
-    // regardless of what's selected in FilterBar). ORDER BY RANDOM() runs
-    // in Postgres itself rather than shuffling the whole table in JS, so
-    // this stays cheap even once the catalog is at the ~200-painting scale.
+    // independent of the filters above (this always shows the full
+    // catalog regardless of what's selected in FilterBar, and naturally
+    // stays current as paintings sell or new ones are added — it's just
+    // a fresh query on every load, nothing cached/hardcoded). ORDER BY
+    // RANDOM() still shuffles the display order each visit; there's no
+    // LIMIT here on purpose — see GalleryHero's own comment for the
+    // client-side implications of that (lazy-loaded images, etc.).
     prisma.$queryRaw<
       Array<{
         slug: string;
@@ -95,7 +101,7 @@ export default async function GalleryPage({
       }>
     >`
       SELECT "slug", "title", "previewImageKey", "widthCm", "heightCm", "material", "priceEur"
-      FROM "products" ORDER BY RANDOM() LIMIT ${HERO_POOL_SIZE}
+      FROM "products" ORDER BY RANDOM()
     `,
   ]);
 
@@ -131,6 +137,7 @@ export default async function GalleryPage({
         heroPaintings={heroPaintings}
         themeOptions={themes.map((th) => th.theme!).filter(Boolean)}
         current={{ size, theme, status }}
+        focusSlug={focus}
       />
     </div>
   );
