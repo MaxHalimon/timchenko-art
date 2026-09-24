@@ -53,25 +53,26 @@
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.14);
 }
 
-/* The "you came here for this one" ring — pulses a few times to catch
-   the eye on arrival, then settles into a steady highlight so it's
-   still clearly marked as long as the visitor lingers on the page. */
-.tileFocused {
-  box-shadow: 0 0 0 3px var(--color-primary), 0 12px 28px rgba(0, 0, 0, 0.2);
-  animation: focusPulse 1.8s ease-in-out 3;
+/* A one-shot, brand-neutral flash — not the brand red, and not
+   persistent: it plays once on arrival and fades completely, since the
+   marquee itself never stops moving (the flash is the only cue that
+   this particular tile is "the one", not a lasting highlight). A
+   box-shadow/glow version was tried first and didn't read against the
+   page's white background, hence scale instead of color/shadow. */
+.tileFlash {
+  animation: scalePulse 1.3s ease-in-out 3;
+  transform-origin: center center;
+  position: relative;
+  z-index: 1;
 }
 
-@keyframes focusPulse {
+@keyframes scalePulse {
   0%,
   100% {
-    box-shadow:
-      0 0 0 3px var(--color-primary),
-      0 12px 28px rgba(0, 0, 0, 0.2);
+    transform: scale(1);
   }
   50% {
-    box-shadow:
-      0 0 0 7px var(--color-primary),
-      0 16px 32px rgba(0, 0, 0, 0.24);
+    transform: scale(1.05);
   }
 }
 
@@ -108,7 +109,7 @@
     animation: none;
   }
 
-  .tileFocused {
+  .tileFlash {
     animation: none;
   }
 }
