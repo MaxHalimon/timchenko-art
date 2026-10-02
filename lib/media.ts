@@ -17,11 +17,19 @@ import manifest from "./media-manifest.json";
 export function mediaUrl(key: string | null | undefined): string {
   if (!key) return "";
   if (/^https?:\/\//i.test(key) || key.startsWith("/")) return key;
-  const base = (process.env.S3_PREVIEWS_PUBLIC_URL ?? "").replace(/\/+$/, "");
+
+  const explicitBase = (process.env.S3_PREVIEWS_PUBLIC_URL ?? "").replace(/\/+$/, "");
+  const bucket = process.env.S3_PREVIEWS_BUCKET;
+  const accountId = process.env.S3_ACCOUNT_ID;
+  const base = explicitBase || (bucket && accountId ? `https://${bucket}.${accountId}.r2.dev` : "");
+
   if (!base) {
-    console.error(`[media] S3_PREVIEWS_PUBLIC_URL is not set - cannot resolve image key "${key}"`);
+    console.error(
+      `[media] S3_PREVIEWS_PUBLIC_URL is not set and no R2 public fallback could be derived for bucket "${bucket ?? "<unset>"}" / account "${accountId ?? "<unset>"}" - cannot resolve image key "${key}"`,
+    );
     return "";
   }
+
   return `${base}/${key.replace(/^\/+/, "")}`;
 }
 
