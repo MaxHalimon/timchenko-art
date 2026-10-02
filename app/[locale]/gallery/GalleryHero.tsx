@@ -10,6 +10,7 @@ export interface HeroPainting {
   slug: string;
   title: string;
   previewImageUrl: string;
+  thumbImageUrl?: string;
   widthCm?: number;
   heightCm?: number;
   material?: string;
@@ -146,7 +147,9 @@ export function GalleryHero({ paintings, focusSlug }: { paintings: HeroPainting[
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={painting.previewImageUrl}
+                src={painting.thumbImageUrl ?? painting.previewImageUrl}
+                decoding="async"
+                draggable={false}
                 alt={painting.title}
                 className={styles.image}
                 loading={i < 6 ? "eager" : "lazy"}

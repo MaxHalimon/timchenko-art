@@ -104,6 +104,10 @@ a {
 img {
   max-width: 100%;
   display: block;
+  /* Deterrent against casual image saving (see ImageGuard.tsx). */
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
+  user-select: none;
 }
 
 @media (prefers-reduced-motion: reduce) {

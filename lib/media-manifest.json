@@ -1,0 +1,150 @@
+{
+  "video": "videos/hero-loop-119e55dc.mp4",
+  "paintings": {
+    "dinner": {
+      "large": "paintings/dinner/large-9b1095d7.webp",
+      "thumb": "paintings/dinner/thumb-0bf7e688.webp",
+      "original": "paintings/dinner/original-1644e844.jpg"
+    },
+    "bud": {
+      "large": "paintings/bud/large-02db61ef.webp",
+      "thumb": "paintings/bud/thumb-833fec17.webp",
+      "original": "paintings/bud/original-523e051c.jpg"
+    },
+    "welcome-to-the-jungle": {
+      "large": "paintings/welcome-to-the-jungle/large-63c7d3d7.webp",
+      "thumb": "paintings/welcome-to-the-jungle/thumb-a56e8290.webp",
+      "original": "paintings/welcome-to-the-jungle/original-5b8c8846.jpg"
+    },
+    "morning-coffee": {
+      "large": "paintings/morning-coffee/large-53177c4b.webp",
+      "thumb": "paintings/morning-coffee/thumb-2432484b.webp",
+      "original": "paintings/morning-coffee/original-39fbdcef.jpg"
+    },
+    "womens-games": {
+      "large": "paintings/womens-games/large-a0c58850.webp",
+      "thumb": "paintings/womens-games/thumb-23432c1c.webp",
+      "original": "paintings/womens-games/original-73e94624.jpg"
+    },
+    "ardent-life": {
+      "large": "paintings/ardent-life/large-08e52675.webp",
+      "thumb": "paintings/ardent-life/thumb-689d2345.webp",
+      "original": "paintings/ardent-life/original-c0224dc4.jpg"
+    },
+    "tequila": {
+      "large": "paintings/tequila/large-bf014e68.webp",
+      "thumb": "paintings/tequila/thumb-68e1f1fe.webp",
+      "original": "paintings/tequila/original-7cbe3c87.jpg"
+    },
+    "how-i-spent-my-summer": {
+      "large": "paintings/how-i-spent-my-summer/large-3951b0ca.webp",
+      "thumb": "paintings/how-i-spent-my-summer/thumb-ffd1b62b.webp",
+      "original": "paintings/how-i-spent-my-summer/original-71f886e1.jpg"
+    },
+    "girl-in-red": {
+      "large": "paintings/girl-in-red/large-bf4b59b6.webp",
+      "thumb": "paintings/girl-in-red/thumb-d412ea00.webp",
+      "original": "paintings/girl-in-red/original-1372a97a.jpg"
+    },
+    "putins-death": {
+      "large": "paintings/putins-death/large-e56f7f5a.webp",
+      "thumb": "paintings/putins-death/thumb-b8eb4a12.webp",
+      "original": "paintings/putins-death/original-767a8c30.jpg"
+    },
+    "we-all-have-our-own-tastes-here": {
+      "large": "paintings/we-all-have-our-own-tastes-here/large-569faef1.webp",
+      "thumb": "paintings/we-all-have-our-own-tastes-here/thumb-2464d6a6.webp",
+      "original": "paintings/we-all-have-our-own-tastes-here/original-2d046fa4.jpg"
+    },
+    "great-love": {
+      "large": "paintings/great-love/large-77505a22.webp",
+      "thumb": "paintings/great-love/thumb-3856c4b2.webp",
+      "original": "paintings/great-love/original-8dee441c.jpg"
+    },
+    "sixty-nine-seconds-before": {
+      "large": "paintings/sixty-nine-seconds-before/large-a75975c7.webp",
+      "thumb": "paintings/sixty-nine-seconds-before/thumb-5a845caa.webp",
+      "original": "paintings/sixty-nine-seconds-before/original-1eef6852.jpg"
+    },
+    "disco": {
+      "large": "paintings/disco/large-9939a921.webp",
+      "thumb": "paintings/disco/thumb-e101efe5.webp",
+      "original": "paintings/disco/original-855415bf.jpg"
+    },
+    "the-woman-is-coughing": {
+      "large": "paintings/the-woman-is-coughing/large-496ce615.webp",
+      "thumb": "paintings/the-woman-is-coughing/thumb-f1d05d97.webp",
+      "original": "paintings/the-woman-is-coughing/original-1974f819.jpg"
+    },
+    "the-source-of-energy-the-power-of-time": {
+      "large": "paintings/the-source-of-energy-the-power-of-time/large-aa954afa.webp",
+      "thumb": "paintings/the-source-of-energy-the-power-of-time/thumb-98e9d754.webp",
+      "original": "paintings/the-source-of-energy-the-power-of-time/original-433c5b38.jpg"
+    },
+    "colorful-life-single": {
+      "large": "paintings/colorful-life-single/large-fc554442.webp",
+      "thumb": "paintings/colorful-life-single/thumb-cc9f8265.webp",
+      "original": "paintings/colorful-life-single/original-d0c3709b.jpg"
+    },
+    "colorful-life-set-of-9": {
+      "large": "paintings/colorful-life-set-of-9/large-fc554442.webp",
+      "thumb": "paintings/colorful-life-set-of-9/thumb-cc9f8265.webp",
+      "original": "paintings/colorful-life-set-of-9/original-d0c3709b.jpg"
+    },
+    "everything-is-temporary": {
+      "large": "paintings/everything-is-temporary/large-19939190.webp",
+      "thumb": "paintings/everything-is-temporary/thumb-5ecdbeb7.webp",
+      "original": "paintings/everything-is-temporary/original-61082d2f.jpg"
+    },
+    "the-earth-is-covered-in-blood": {
+      "large": "paintings/the-earth-is-covered-in-blood/large-f74da146.webp",
+      "thumb": "paintings/the-earth-is-covered-in-blood/thumb-0e11a32f.webp",
+      "original": "paintings/the-earth-is-covered-in-blood/original-07f402cf.jpg"
+    },
+    "duel": {
+      "large": "paintings/duel/large-68c6940d.webp",
+      "thumb": "paintings/duel/thumb-1303f8ba.webp",
+      "original": "paintings/duel/original-31ca5904.jpg"
+    },
+    "apples-with-honey": {
+      "large": "paintings/apples-with-honey/large-d0ac50ed.webp",
+      "thumb": "paintings/apples-with-honey/thumb-22faf904.webp",
+      "original": "paintings/apples-with-honey/original-cdce08c0.jpg"
+    },
+    "adam-and-eve": {
+      "large": "paintings/adam-and-eve/large-73cea093.webp",
+      "thumb": "paintings/adam-and-eve/thumb-0c93c35f.webp",
+      "original": "paintings/adam-and-eve/original-be5e05dc.jpg"
+    },
+    "sin-and-the-church": {
+      "large": "paintings/sin-and-the-church/large-6b51db84.webp",
+      "thumb": "paintings/sin-and-the-church/thumb-0133fc81.webp",
+      "original": "paintings/sin-and-the-church/original-da7a400c.jpg"
+    },
+    "war-mode": {
+      "large": "paintings/war-mode/large-8ff8046a.webp",
+      "thumb": "paintings/war-mode/thumb-0149c196.webp",
+      "original": "paintings/war-mode/original-af2a4543.jpg"
+    },
+    "incredible-adventures-of-eskimo-and-varenyk": {
+      "large": "paintings/incredible-adventures-of-eskimo-and-varenyk/large-f59380c8.webp",
+      "thumb": "paintings/incredible-adventures-of-eskimo-and-varenyk/thumb-3f05c070.webp",
+      "original": "paintings/incredible-adventures-of-eskimo-and-varenyk/original-6bb8ea99.jpg"
+    },
+    "silence": {
+      "large": "paintings/silence/large-b10faa5f.webp",
+      "thumb": "paintings/silence/thumb-063119f9.webp",
+      "original": "paintings/silence/original-75758b9d.jpg"
+    },
+    "orange": {
+      "large": "paintings/orange/large-84c10de2.webp",
+      "thumb": "paintings/orange/thumb-11d8211e.webp",
+      "original": "paintings/orange/original-83740488.jpg"
+    },
+    "x14072024": {
+      "large": "paintings/x14072024/large-c307ccdb.webp",
+      "thumb": "paintings/x14072024/thumb-792f799e.webp",
+      "original": "paintings/x14072024/original-b1bbab93.jpg"
+    }
+  }
+}

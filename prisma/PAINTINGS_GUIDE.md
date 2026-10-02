@@ -16,7 +16,7 @@
 | `theme` | рядок (необов'язково) | **Стабільний слаг**, не перекладений текст — один із `nude`, `symbolism`, `satire`, `sacred`, `portrait`, `mixedMedia` (див. нюанс нижче). Можна не вказувати. |
 | `material` | рядок | **Стабільний слаг** технік — один із `oilCanvas`, `acrylicCanvas`, `woodAcrylic`, `paperInkGlass`, `watercolorPaperAcrylic` (див. нюанс нижче). |
 | `status` | `"AVAILABLE"` \| `"IN_PROGRESS"` \| `"SOLD"` | Статус картини. |
-| `previewImageFile` | рядок | Ім'я файлу зображення (без шляху) — файл має лежати в `public/paintings/`. |
+| `previewImageFile` | рядок | Ім'я файлу зображення (без шляху) — вихідний файл має лежати в `media-src/paintings/` (не потрапляє в git). Сайт бере зображення з R2 — див. `MEDIA_GUIDE.md`. |
 
 Приклад полів `title`/`description`:
 
@@ -44,8 +44,9 @@
 
 ## 2. Додайте файли зображень
 
-Покладіть відповідні файли в `public/paintings/` — імена мають точно
-збігатися з `previewImageFile` у JSON.
+Покладіть відповідні файли в `media-src/paintings/` (папка не потрапляє в git) —
+імена мають точно збігатися з `previewImageFile` у JSON. Потім `npm run media:upload`
+і `npx prisma db seed` (див. `MEDIA_GUIDE.md`).
 
 ### У якому форматі краще подавати фото
 
@@ -100,10 +101,9 @@ Prisma-схемі є дефолт `oilCanvas` про всяк випадок). �
 той самий рецепт: новий слаг у `paintings.json` + переклад у
 `productCard.materials` кожного мовного файлу.
 
-## Це тимчасово
+## Де зберігаються зображення
 
-`previewImageKey`/`originalImageKey` зараз вказують на публічний файл у
-`/public/paintings/` — без watermark і без приватного доступу до оригіналу.
-Це ОК для розробки й перегляду каталогу зараз, але перед реальним запуском
-потрібно перенести на приватний S3 (детальніше — в кореневому `README.md`,
-розділ "Наступні кроки").
+У БД лежать лише відносні ключі (`previewImageKey`, `thumbImageKey`, `originalImageKey`).
+Файли — в Cloudflare R2: публічний бакет тримає лише WebP з водяним знаком
+(`large` ≤2000px і `thumb` ≤900px), приватний — повнорозмірний оригінал.
+Уся процедура — в `MEDIA_GUIDE.md`.

@@ -17,6 +17,8 @@ export interface ProductCardProps {
   slug: string;
   title: string;
   previewImageUrl: string; // watermarked preview only — never the original asset
+  /** Small (≤900px) watermarked variant for the card; falls back to previewImageUrl. */
+  thumbImageUrl?: string;
   widthCm: number;
   heightCm: number;
   priceEur: number;
@@ -29,6 +31,7 @@ export function ProductCard({
   slug,
   title,
   previewImageUrl,
+  thumbImageUrl,
   widthCm,
   heightCm,
   priceEur,
@@ -44,7 +47,10 @@ export function ProductCard({
         <div className={styles.imageWrapper}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={previewImageUrl}
+            src={thumbImageUrl ?? previewImageUrl}
+            loading="lazy"
+            decoding="async"
+            draggable={false}
             alt={title}
             className={isSold ? `${styles.image} ${styles.imageSold}` : styles.image}
           />

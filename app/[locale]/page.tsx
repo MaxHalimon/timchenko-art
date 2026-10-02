@@ -1,6 +1,8 @@
 import { getTranslations } from "next-intl/server";
 import { prisma } from "@/lib/prisma";
 import { localizedText } from "@/lib/localizedText";
+import { cardSelect } from "@/lib/productSelect";
+import { heroVideoUrl, productImages } from "@/lib/media";
 import { HeroVideo } from "./components/HeroVideo/HeroVideo";
 import { ArtistIntro } from "./components/ArtistIntro/ArtistIntro";
 import { ManifestoStatement } from "./components/ManifestoStatement/ManifestoStatement";
@@ -32,6 +34,7 @@ export default async function HomePage({ params }: HomePageProps) {
     where: { status: { not: "SOLD" } },
     orderBy: { createdAt: "desc" },
     take: 20,
+    select: cardSelect,
   });
 
   const showcaseImages = shuffle(pool)
@@ -39,7 +42,7 @@ export default async function HomePage({ params }: HomePageProps) {
     .map((product) => ({
       slug: product.slug,
       title: localizedText(product.title, locale),
-      previewImageUrl: product.previewImageKey,
+      ...productImages(product),
       widthCm: product.widthCm,
       heightCm: product.heightCm,
       material: product.material,
@@ -48,7 +51,7 @@ export default async function HomePage({ params }: HomePageProps) {
 
   return (
     <>
-      <HeroVideo src="/videos/hero-loop.mp4" poster="/videos/hero-poster.jpg" />
+      <HeroVideo src={heroVideoUrl()} poster="/videos/hero-poster.jpg" />
       <ManifestoStatement />
       <section className={styles.section}>
         <h2 className={styles.heading}>

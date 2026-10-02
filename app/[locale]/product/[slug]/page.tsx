@@ -3,6 +3,8 @@ import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import { prisma } from "@/lib/prisma";
 import { localizedText } from "@/lib/localizedText";
+import { cardSelect } from "@/lib/productSelect";
+import { mediaUrl, productImages } from "@/lib/media";
 import { Link } from "@/i18n/navigation";
 import { PriceTag } from "../../components/PriceTag/PriceTag";
 import { EaselButton } from "../../components/EaselButton/EaselButton";
@@ -37,6 +39,7 @@ async function getRelatedProducts(product: { id: string; theme: string | null })
         where: { theme: product.theme, id: { not: product.id }, status: { not: "SOLD" } },
         orderBy: { createdAt: "desc" },
         take: 8,
+        select: { ...cardSelect, id: true },
       })
     : [];
 
@@ -49,6 +52,7 @@ async function getRelatedProducts(product: { id: string; theme: string | null })
     },
     orderBy: { createdAt: "desc" },
     take: 8 - sameTheme.length,
+    select: { ...cardSelect, id: true },
   });
 
   return [...sameTheme, ...fillers];
@@ -94,7 +98,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
         <div className={styles.imageWrapper}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={product.previewImageKey}
+            src={mediaUrl(product.previewImageKey)}
             alt={title}
             className={isSold ? `${styles.image} ${styles.imageSold}` : styles.image}
           />
@@ -155,7 +159,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
             products={related.map((p) => ({
               slug: p.slug,
               title: localizedText(p.title, locale),
-              previewImageUrl: p.previewImageKey,
+              ...productImages(p),
               widthCm: p.widthCm,
               heightCm: p.heightCm,
               priceEur: Number(p.priceEur),

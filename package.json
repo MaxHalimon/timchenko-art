@@ -9,7 +9,10 @@
   "lint": "next lint",
   "prisma:generate": "prisma generate",
   "prisma:migrate": "prisma migrate dev",
-  "prisma:seed": "prisma db seed"
+  "prisma:seed": "prisma db seed",
+  "media:upload": "tsx scripts/upload-media.ts",
+  "media:verify": "tsx scripts/verify-media.ts",
+  "media:cleanup": "tsx scripts/cleanup-legacy-media.ts"
 },
   "prisma": {
     "seed": "tsx prisma/seed.ts"
@@ -35,6 +38,7 @@
     "@types/react": "^18.3.0",
     "@types/react-dom": "^18.3.0",
     "prisma": "^5.19.0",
+    "sharp": "^0.34.0",
     "tsx": "^4.19.0",
     "typescript": "^5.5.0"
   }

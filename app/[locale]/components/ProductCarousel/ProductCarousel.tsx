@@ -9,6 +9,7 @@ export interface CarouselProduct {
   slug: string;
   title: string;
   previewImageUrl: string;
+  thumbImageUrl?: string;
   widthCm: number;
   heightCm: number;
   priceEur: number;

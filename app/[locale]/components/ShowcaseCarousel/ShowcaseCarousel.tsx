@@ -9,6 +9,7 @@ export interface ShowcaseImage {
   slug: string;
   title: string;
   previewImageUrl: string;
+  thumbImageUrl?: string;
   widthCm?: number;
   heightCm?: number;
   material?: string;
@@ -245,7 +246,14 @@ export function ShowcaseCarousel({ images }: { images: ShowcaseImage[] }) {
                 onClick={() => handleItemClick(i % count)}
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={image.previewImageUrl} alt={image.title} className={styles.image} />
+                <img
+                  src={image.thumbImageUrl ?? image.previewImageUrl}
+                  alt={image.title}
+                  className={styles.image}
+                  loading="lazy"
+                  decoding="async"
+                  draggable={false}
+                />
               </button>
             ))}
           </div>

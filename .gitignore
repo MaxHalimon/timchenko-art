@@ -1,18 +1,18 @@
-# dependencies
+# dependencies / build
 node_modules/
-
-# next.js build output
 .next/
 out/
+*.tsbuildinfo
+next-env.d.ts
 
-# env files with real secrets — never commit these
+# secrets
 .env
 .env.local
-.env.*.local
+.env*.local
 
-# prisma
-prisma/*.db
-
-# misc
-.DS_Store
-*.log
+# Heavy media lives in Cloudflare R2, NOT in git (see MEDIA_GUIDE.md).
+# Keep your local originals in media-src/ - it is never committed.
+media-src/
+public/paintings/*
+!public/paintings/.gitkeep
+public/videos/*.mp4

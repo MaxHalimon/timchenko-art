@@ -8,6 +8,7 @@ import { SiteHeaderSwitch } from "./components/SiteHeaderSwitch/SiteHeaderSwitch
 import { SiteFooter } from "./components/SiteFooter/SiteFooter";
 import { BackToTop } from "./components/BackToTop/BackToTop";
 import { HtmlLangSync } from "./components/HtmlLangSync/HtmlLangSync";
+import { ImageGuard } from "./components/ImageGuard/ImageGuard";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -52,6 +53,7 @@ export default async function LocaleLayout({
   return (
     <NextIntlClientProvider messages={messages}>
       <HtmlLangSync locale={locale} />
+      <ImageGuard />
       {/* Blocks interaction until the visitor confirms they are 18+.
           State is persisted client-side (see AgeGate.tsx). */}
       <AgeGate />

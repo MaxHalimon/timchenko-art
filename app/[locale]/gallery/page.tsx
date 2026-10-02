@@ -2,6 +2,8 @@ import { getTranslations } from "next-intl/server";
 import { Prisma } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 import { localizedText } from "@/lib/localizedText";
+import { cardSelect } from "@/lib/productSelect";
+import { productImages } from "@/lib/media";
 import { AccentText } from "../components/AccentText/AccentText";
 import { GalleryView } from "./GalleryView";
 import type { ProductStatus } from "../components/ProductCard/ProductCard";
@@ -69,6 +71,7 @@ export default async function GalleryPage({
     prisma.product.findMany({
       where,
       orderBy: { createdAt: "desc" },
+      select: cardSelect,
     }),
     // Distinct themes for the filter dropdown — cheap enough to run inline
     // at this gallery size; move to a cached query if the catalog grows large.
@@ -90,6 +93,7 @@ export default async function GalleryPage({
         slug: string;
         title: Prisma.JsonValue;
         previewImageKey: string;
+        thumbImageKey: string | null;
         widthCm: number;
         heightCm: number;
         material: string;
@@ -100,7 +104,7 @@ export default async function GalleryPage({
         priceEur: number | string;
       }>
     >`
-      SELECT "slug", "title", "previewImageKey", "widthCm", "heightCm", "material", "priceEur"
+      SELECT "slug", "title", "previewImageKey", "thumbImageKey", "widthCm", "heightCm", "material", "priceEur"
       FROM "products" ORDER BY RANDOM()
     `,
   ]);
@@ -108,7 +112,7 @@ export default async function GalleryPage({
   const resolved = products.map((product) => ({
     slug: product.slug,
     title: localizedText(product.title, locale),
-    previewImageUrl: product.previewImageKey,
+    ...productImages(product),
     widthCm: product.widthCm,
     heightCm: product.heightCm,
     priceEur: Number(product.priceEur),
@@ -119,7 +123,7 @@ export default async function GalleryPage({
   const heroPaintings = heroRows.map((row) => ({
     slug: row.slug,
     title: localizedText(row.title, locale),
-    previewImageUrl: row.previewImageKey,
+    ...productImages(row),
     widthCm: row.widthCm,
     heightCm: row.heightCm,
     material: row.material,

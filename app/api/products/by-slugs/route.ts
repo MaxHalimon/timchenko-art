@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { localizedText } from "@/lib/localizedText";
+import { cardSelect } from "@/lib/productSelect";
+import { productImages } from "@/lib/media";
 import { locales, defaultLocale, type Locale } from "@/i18n/config";
 
 export async function POST(req: NextRequest) {
@@ -14,13 +16,14 @@ export async function POST(req: NextRequest) {
 
   const products = await prisma.product.findMany({
     where: { slug: { in: slugs } },
+    select: cardSelect,
   });
 
   return NextResponse.json({
     products: products.map((p) => ({
       slug: p.slug,
       title: localizedText(p.title, locale),
-      previewImageUrl: p.previewImageKey,
+      ...productImages(p),
       widthCm: p.widthCm,
       heightCm: p.heightCm,
       priceEur: Number(p.priceEur),

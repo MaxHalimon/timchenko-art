@@ -109,10 +109,13 @@ model Product {
   // see ARTIST_COMMISSION_PCT in lib/constants.ts. Not stored here so
   // there is a single source of truth if it's ever revisited.
 
-  // Private S3 keys — never exposed directly; original requires a presigned URL
-  // issued only after the related order reaches PAID.
-  previewImageKey String // watermarked, public via CDN
-  originalImageKey String // full-res original, private bucket
+  // Object keys (RELATIVE, e.g. "paintings/<slug>/large-ab12cd34.webp") —
+  // resolved to URLs by lib/media.ts. Legacy full URLs / "/paintings/x.jpg"
+  // values are still tolerated there. Paintings are sold as PHYSICAL
+  // canvases, so no file is ever delivered to a customer.
+  previewImageKey String // watermarked, ≤2000px WebP, public bucket (detail / modal / product page)
+  thumbImageKey   String? // watermarked, ≤900px WebP, public bucket (cards, carousels); null → falls back to previewImageKey
+  originalImageKey String // full-res master, PRIVATE bucket — never sent to the browser
   processVideoKey  String?
 
   createdAt DateTime @default(now())

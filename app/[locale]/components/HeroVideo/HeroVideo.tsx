@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 import { HeroManifestoOverlay } from "../HeroManifestoOverlay/HeroManifestoOverlay";
 import styles from "./HeroVideo.module.css";
 
-export function HeroVideo({ src, poster }: { src: string; poster?: string }) {
+export function HeroVideo({ src, poster }: { src?: string; poster?: string }) {
   const t = useTranslations("common");
   const videoRef = useRef<HTMLVideoElement>(null);
   const [reducedMotion, setReducedMotion] = useState(false);
@@ -42,7 +42,7 @@ export function HeroVideo({ src, poster }: { src: string; poster?: string }) {
         loop={!reducedMotion}
         autoPlay={!reducedMotion}
         playsInline
-        preload="auto"
+        preload={reducedMotion ? "none" : "auto"}
         aria-hidden="true"
       />
 

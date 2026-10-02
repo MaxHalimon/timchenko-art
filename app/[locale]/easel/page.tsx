@@ -13,6 +13,7 @@ interface EaselProduct {
   slug: string;
   title: string;
   previewImageUrl: string;
+  thumbImageUrl?: string;
   widthCm: number;
   heightCm: number;
   priceEur: number;
@@ -152,7 +153,7 @@ export default function EaselPage() {
               <div className={styles.item} key={product.slug}>
                 <Link href={`/product/${product.slug}`} className={styles.itemLink}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={product.previewImageUrl} alt={product.title} className={styles.itemImage} />
+                  <img src={product.thumbImageUrl ?? product.previewImageUrl} alt={product.title} className={styles.itemImage} />
                   <div className={styles.itemInfo}>
                     <p className={styles.itemTitle}>{product.title}</p>
                     {product.status !== "IN_PROGRESS" ? (
