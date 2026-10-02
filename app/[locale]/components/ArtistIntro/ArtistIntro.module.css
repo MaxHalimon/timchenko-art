@@ -60,6 +60,33 @@
   margin-bottom: var(--space-2);
 }
 
+.quote {
+  position: relative;
+  margin: var(--space-4) 0 var(--space-3);
+  padding: var(--space-3) var(--space-3) var(--space-2) calc(var(--space-3) + 18px);
+  border-left: 2px solid var(--color-primary);
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 10px;
+  color: var(--color-text-light);
+}
+
+.quoteMark {
+  position: absolute;
+  left: 10px;
+  top: 8px;
+  font-size: 36px;
+  line-height: 1;
+  color: var(--color-primary);
+  opacity: 0.8;
+}
+
+.quote p {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.7;
+  font-style: italic;
+}
+
 .closing {
   font-size: 17px;
   color: var(--color-text);

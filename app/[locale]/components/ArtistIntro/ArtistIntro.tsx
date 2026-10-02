@@ -13,6 +13,7 @@ export async function ArtistIntro() {
   const t = await getTranslations("artistIntro");
   const tHero = await getTranslations("hero");
   const paragraphs = t.raw("paragraphs") as string[];
+  const quote = t("quote");
   const features = t.raw("features") as FeatureItem[];
   const whyBuy = t.raw("whyBuy") as FeatureItem[];
 
@@ -27,6 +28,11 @@ export async function ArtistIntro() {
           {paragraph}
         </p>
       ))}
+
+      <blockquote className={styles.quote}>
+        <span className={styles.quoteMark} aria-hidden="true">“</span>
+        <p>{quote}</p>
+      </blockquote>
 
       <h3 className={styles.subheading}>
         <AccentText text={t("featuresHeading")} />
