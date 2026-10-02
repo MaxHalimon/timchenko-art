@@ -69,12 +69,9 @@ export function FocusCardModal({ image, onClose }: { image: FocusCardImage; onCl
           </button>
 
           <div className={styles.scrollArea}>
-            {/* The preview is watermarked and this is already its full
-                resolution (lib/... never serves the private original to
-                the browser) — "fullscreen" here means filling the
-                viewport at that same resolution, not a higher-quality
-                asset. See Product.originalImageKey's own comment in
-                schema.prisma: that file is private-bucket only. */}
+            {/* This is the public preview at max display size; the browser
+                never receives the private original asset. The fullscreen view
+                simply fills the viewport at that optimized resolution. */}
             <button
               type="button"
               className={styles.imageWrapper}

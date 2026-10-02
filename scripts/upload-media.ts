@@ -2,7 +2,7 @@
  * Готує й вантажить ВСІ медіа сайту в Cloudflare R2:
  *
  *  • картини:  оригінал → ПРИВАТНИЙ бакет (S3_ORIGINALS_BUCKET, майстер-копія)
- *              large.webp (≤2000px, водяний знак) + thumb.webp (≤900px, водяний знак)
+ *              large.webp (≤2000px) + thumb.webp (≤900px)
  *              → ПУБЛІЧНИЙ бакет (S3_PREVIEWS_BUCKET)
  *  • відео:    hero-loop.mp4 → публічний бакет
  *
@@ -34,12 +34,9 @@ const ROOT = path.join(__dirname, "..");
 const FORCE = process.argv.includes("--force");
 const IMMUTABLE = "public, max-age=31536000, immutable";
 
-// ── Налаштування якості та захисту ──────────────────────────────────────────
+// ── Налаштування якості для публічних прев'ю ─────────────────────────────────
 const LARGE = { maxSide: 2000, quality: 85 }; // достатньо для деталей на екрані, замало для друку
 const THUMB = { maxSide: 900, quality: 80 };
-// Водяний знак: сітка логотипу TA (векторний, без шрифтів — тому однаково
-// рендериться на Windows/macOS/Linux/Vercel). Хочете тонше/грубіше — міняйте тут.
-const WM = { tileRatio: 0.11, markRatio: 0.24, opacity: 0.36 }; // частки від довшої сторони зображення
 
 const previewsBucket = process.env.S3_PREVIEWS_BUCKET;
 const originalsBucket = process.env.S3_ORIGINALS_BUCKET;
@@ -79,41 +76,10 @@ async function preflight(): Promise<boolean> {
 const firstExisting = (...candidates: string[]) => candidates.map((c) => path.join(ROOT, c)).find((c) => fs.existsSync(c));
 const hash8 = (buf: Buffer) => crypto.createHash("sha1").update(buf).digest("hex").slice(0, 8);
 
-/** Прозорий SVG точно розміру картинки: цегляна сітка з логотипу (світла заливка + тонкий темний контур). */
-function watermarkSvg(w: number, h: number): Buffer {
-  const tile = Math.round(Math.max(w, h) * WM.tileRatio);
-  const mark = tile * WM.markRatio;
-  const s = mark / 64; // логотип намальований у viewBox 64×64
-  const bracket = "M8 8h24v7H15v17H8V8Z";
-  const logo = (x: number, y: number) => `
-    <g transform="translate(${x} ${y}) scale(${s})">
-      ${[0, 90, 180, 270]
-        .map(
-          (r) =>
-            `<path d="${bracket}" transform="rotate(${r} 32 32)" fill="#fff" fill-opacity="${WM.opacity}" stroke="#000" stroke-opacity="${WM.opacity * 0.6}" stroke-width="1.6"/>`,
-        )
-        .join("")}
-    </g>`;
-  return Buffer.from(
-    `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}">
-      <defs>
-        <pattern id="p" width="${tile}" height="${tile}" patternUnits="userSpaceOnUse">
-          ${logo((tile - mark) / 4, (tile - mark) / 4)}
-          ${logo(((tile - mark) * 3) / 4, ((tile - mark) * 3) / 4)}
-        </pattern>
-      </defs>
-      <rect width="100%" height="100%" fill="url(#p)"/>
-    </svg>`,
-  );
-}
-
 async function variant(src: Buffer, spec: { maxSide: number; quality: number }): Promise<Buffer> {
-  const { data, info } = await sharp(src)
+  return sharp(src)
     .rotate() // застосувати EXIF-орієнтацію; решту метаданих (EXIF/GPS) sharp за замовчуванням прибирає
     .resize({ width: spec.maxSide, height: spec.maxSide, fit: "inside", withoutEnlargement: true })
-    .toBuffer({ resolveWithObject: true });
-  return sharp(data)
-    .composite([{ input: watermarkSvg(info.width, info.height), top: 0, left: 0 }])
     .webp({ quality: spec.quality })
     .toBuffer();
 }

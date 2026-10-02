@@ -8,10 +8,9 @@ import { useEffect } from "react";
  * mobile is blocked in globals.css via -webkit-touch-callout.)
  *
  * This is NOT real security - screenshots and DevTools can't be
- * stopped in a browser. The real protection is server-side: only
- * watermarked, size-capped WebP files are ever published (see
- * scripts/upload-media.ts); the full-resolution master lives in a
- * private bucket.
+ * stopped in a browser. The real protection is server-side: the
+ * full-resolution master lives in a private bucket, while public
+ * previews are intentionally size-capped and optimized for the web.
  */
 export function ImageGuard() {
   useEffect(() => {

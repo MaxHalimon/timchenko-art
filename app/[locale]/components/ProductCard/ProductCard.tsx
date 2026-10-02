@@ -16,8 +16,8 @@ const STATUS_CLASS: Record<ProductStatus, string> = {
 export interface ProductCardProps {
   slug: string;
   title: string;
-  previewImageUrl: string; // watermarked preview only — never the original asset
-  /** Small (≤900px) watermarked variant for the card; falls back to previewImageUrl. */
+  previewImageUrl: string; // public preview only — never the original asset
+  /** Small (≤900px) preview variant for the card; falls back to previewImageUrl. */
   thumbImageUrl?: string;
   widthCm: number;
   heightCm: number;

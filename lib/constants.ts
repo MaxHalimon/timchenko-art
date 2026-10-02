@@ -19,7 +19,7 @@ export function calculateArtistPayoutEur(amountEur: number): number {
   return Math.round((amountEur - calculatePlatformCommissionEur(amountEur)) * 100) / 100;
 }
 
-/** Preview images always carry a watermark; originals are private-bucket only. */
+/** Public preview images are clean; originals remain private-bucket only. */
 export const S3_BUCKETS = {
   previews: process.env.S3_PREVIEWS_BUCKET ?? "timchenko-art-previews",
   originals: process.env.S3_ORIGINALS_BUCKET ?? "timchenko-art-originals",
