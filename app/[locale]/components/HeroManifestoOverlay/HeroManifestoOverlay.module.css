@@ -31,11 +31,15 @@
   margin-left: 2px;
   vertical-align: text-bottom;
   background-color: #ffffff;
-  animation: blink 0.9s step-end infinite;
+  animation: blink var(--blink-ms, 900ms) step-end infinite;
 }
 
+/* Applied the moment the line is finished. A different animation NAME (same
+   keyframes) makes the browser restart the blink from "visible" right then,
+   so the end-of-line blinks always start on a clean cycle no matter where the
+   typing happened to stop in the previous one. */
 .cursorSteady {
-  animation: blink 0.9s step-end infinite;
+  animation: blinkRestart var(--blink-ms, 900ms) step-end infinite;
 }
 
 .cursorFadingOut {
@@ -45,6 +49,11 @@
 }
 
 @keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes blinkRestart {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
 }

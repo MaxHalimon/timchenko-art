@@ -4,7 +4,14 @@ import { useEffect, useMemo, useState } from "react";
 import { useTranslations } from "next-intl";
 import styles from "./HeroManifestoOverlay.module.css";
 
-const START_DELAY_MS = 2000; // cursor blinks alone for 2s before typing starts
+// One full blink (visible -> hidden) takes BLINK_MS. Both delays below are
+// whole multiples of it, so "N blinks" is exact rather than approximate; the
+// same value is handed to the CSS animation via the --blink-ms variable.
+const BLINK_MS = 900;
+const BLINKS_BEFORE_TYPING = 1; // cursor blinks once, alone, before the first letter
+const BLINKS_AFTER_TYPING = 2; // ...and twice at the end of the finished line before fading out
+const START_DELAY_MS = BLINKS_BEFORE_TYPING * BLINK_MS;
+const HOLD_AFTER_DONE_MS = BLINKS_AFTER_TYPING * BLINK_MS;
 const MS_PER_CHAR = 45;
 
 /**
@@ -34,7 +41,6 @@ function nextCharDelay(prevChar: string | undefined): number {
 
   return delay;
 }
-const HOLD_AFTER_DONE_MS = 5000; // full text stays up 5s after the last letter
 const FADE_OUT_MS = 1200; // must match the CSS transition duration below
 
 type Phase = "pending" | "typing" | "holding" | "cursorFadingOut" | "cursorHidden";
@@ -96,10 +102,11 @@ function renderTyped(text: string, visibleChars: number, accentedIndices: Set<nu
  * (the full biography) further down the page. This one lives only here,
  * typed out over the hero video as if written by hand in the moment.
  *
- * Timeline: 2s of just a blinking cursor → types out at a human-like,
- * variable pace (see nextCharDelay) → holds for 5s with the cursor still blinking at the
- * end of the line → the cursor fades to invisible over FADE_OUT_MS and
- * stops blinking. The cursor element itself is never removed from the
+ * Timeline: the cursor blinks once on its own (BLINKS_BEFORE_TYPING) → types
+ * out at a human-like, variable pace (see nextCharDelay) → the cursor blinks
+ * twice more at the end of the line (BLINKS_AFTER_TYPING) → it fades to
+ * invisible over FADE_OUT_MS and stops blinking. The cursor element itself
+ * is never removed from the
  * DOM — it just ends up permanently at opacity 0, still occupying its
  * spot in the flow — rather than being unmounted, which would otherwise
  * cause a (tiny) layout shift right as it disappears. The typed text
@@ -173,7 +180,7 @@ export function HeroManifestoOverlay() {
   const isDone = phase === "holding" || phase === "cursorFadingOut" || phase === "cursorHidden";
 
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.wrapper} style={{ "--blink-ms": `${BLINK_MS}ms` } as React.CSSProperties}>
       <p className={styles.visible} aria-hidden="true">
         {renderTyped(text, visibleChars, accentedIndices)}
         <span

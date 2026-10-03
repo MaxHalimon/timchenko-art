@@ -82,34 +82,38 @@
   "legal": {
     "privacyPolicy": {
       "title": "Politique de confidentialité",
-      "lastUpdated": "Dernière mise à jour : [date]",
+      "lastUpdated": "Dernière mise à jour : {date}",
       "intro": "Cette politique de confidentialité explique quelles données personnelles Timchenko Art collecte lorsque vous utilisez ce site, comment nous les utilisons et quels droits vous avez sur vos données.",
       "sections": [
         {
           "heading": "Quelles données nous collectons",
-          "body": "Lorsque vous passez une commande, nous collectons votre nom, votre adresse e-mail, votre numéro de téléphone et votre adresse de livraison. Nous ne conservons pas les détails de votre carte bancaire — ceux-ci sont traités exclusivement par nos partenaires de paiement (Stripe, NOWPayments) selon leurs propres politiques de sécurité."
+          "body": "Lorsque vous passez une commande, nous collectons votre nom, votre adresse e-mail, votre numéro de téléphone et votre adresse de livraison. Si vous nous écrivez via le formulaire de contact, nous recevons votre nom, votre adresse e-mail et votre message. Nous ne conservons pas les détails de votre carte bancaire — ceux-ci sont traités exclusivement par nos partenaires de paiement (Stripe, NOWPayments) selon leurs propres politiques de sécurité."
         },
         {
           "heading": "Comment nous utilisons vos données",
-          "body": "Nous utilisons vos données pour traiter votre commande, communiquer sur le statut de livraison, et respecter nos obligations légales, y compris la tenue de registres fiscaux."
+          "body": "Nous utilisons vos données pour traiter votre commande, communiquer sur le statut de livraison, répondre à vos demandes, et respecter nos obligations légales, y compris la tenue de registres fiscaux."
         },
         {
           "heading": "Partage avec des tiers",
-          "body": "Nous ne partageons que le minimum de données nécessaire avec les prestataires de paiement et les transporteurs — uniquement pour exécuter votre commande. Nous ne vendons ni ne partageons vos données avec des réseaux publicitaires."
+          "body": "Nous ne partageons que le minimum de données nécessaire avec les prestataires de paiement et les transporteurs — uniquement pour exécuter votre commande. Pour faire fonctionner le site, nous faisons aussi appel à des prestataires : Vercel (hébergement), Supabase (base de données), Cloudflare (diffusion des images), Resend (e-mails de suivi de commande) et EmailJS (formulaire de contact). Certains peuvent traiter des données en dehors de votre pays. Nous ne vendons ni ne partageons vos données avec des réseaux publicitaires."
         },
         {
-          "heading": "Cookies",
-          "body": "Ce site utilise des cookies fonctionnels pour mémoriser votre langue, votre devise et votre confirmation d'âge. Nous n'utilisons pas de cookies publicitaires ou de suivi."
+          "heading": "Cookies et stockage local",
+          "body": "Le site enregistre votre langue et votre devise dans des cookies, et votre confirmation d'âge (18+) ainsi que le contenu de votre chevalet dans le stockage local de votre navigateur. Lors de votre première visite, le pays déduit de votre adresse IP sert uniquement à choisir une langue et une devise initiales ; nous ne conservons pas l'adresse IP elle-même. Nous n'utilisons ni cookies publicitaires ou de suivi, ni outils d'analyse. Les pages de paiement sont exploitées par Stripe et NOWPayments et soumises à leurs propres politiques."
+        },
+        {
+          "heading": "Durée de conservation",
+          "body": "Nous conservons les données de commande aussi longtemps que nécessaire pour exécuter votre commande et respecter les obligations comptables et fiscales. Les messages envoyés via le formulaire de contact ne sont conservés que le temps nécessaire pour vous répondre et assurer le suivi."
         },
         {
           "heading": "Vos droits",
-          "body": "Conformément à la législation applicable en matière de protection des données (y compris le RGPD pour les clients de l'UE), vous avez le droit d'accéder à vos données personnelles, de les corriger et de les supprimer. Contactez-nous à maryna.timchenko.art@gmail.com pour exercer ces droits."
+          "body": "Conformément à la législation applicable en matière de protection des données (y compris le RGPD pour les clients de l'UE), vous avez le droit d'accéder à vos données personnelles, de les corriger et de les supprimer. Les résidents de l'UE peuvent également déposer une plainte auprès de leur autorité locale de protection des données. Contactez-nous à maryna.timchenko.art@gmail.com pour exercer ces droits."
         }
       ]
     },
     "termsOfService": {
       "title": "Conditions générales de vente",
-      "lastUpdated": "Dernière mise à jour : [date]",
+      "lastUpdated": "Dernière mise à jour : {date}",
       "intro": "Ces conditions régissent votre utilisation du site Timchenko Art et l'achat des peintures qui y sont proposées.",
       "sections": [
         {
@@ -125,12 +129,20 @@
           "body": "Certaines pièces de la galerie peuvent être repeintes par l'artiste sur demande. Les commandes personnalisées sont peintes comme des originaux uniques et ne sont pas reproduites par la suite."
         },
         {
+          "heading": "Aspect des œuvres",
+          "body": "Chaque peinture est réalisée à la main à l'huile sur toile ; les couleurs affichées à l'écran peuvent donc différer légèrement de l'œuvre réelle, et une peinture reproduite par l'artiste ne sera pas identique à celle présentée sur le site."
+        },
+        {
+          "heading": "Droits d'auteur",
+          "body": "Toutes les œuvres, images et textes de ce site sont protégés par le droit d'auteur et appartiennent à l'artiste. Les images du site sont de simples aperçus destinés à la consultation ; toute copie, tout téléchargement ou autre utilisation sans autorisation écrite est interdit. L'achat d'une peinture transfère la propriété de l'œuvre physique, mais pas les droits d'auteur ni le droit de reproduction."
+        },
+        {
           "heading": "Prix et paiement",
-          "body": "Les prix peuvent être affichés dans la devise de votre choix pour plus de commodité ; le débit effectif est traité par notre prestataire de paiement (Stripe ou NOWPayments) et peut varier légèrement selon le taux de conversion au moment du paiement."
+          "body": "Les prix sont fixés en euros (EUR). Pour plus de commodité, ils peuvent être affichés dans la devise de votre choix à un taux approximatif, mais le paiement est prélevé en euros par notre prestataire de paiement (Stripe ou NOWPayments). Votre banque ou service de paiement peut appliquer sa propre conversion et ses propres frais."
         },
         {
           "heading": "Restriction d'âge",
-          "body": "Ce site est destiné à un public adulte (18 ans et plus), certaines œuvres présentées pouvant inclure des sujets dénudés."
+          "body": "Ce site est destiné à un public adulte (18 ans et plus), certaines œuvres présentées pouvant inclure des nus et des thèmes érotiques."
         },
         {
           "heading": "Loi applicable",
@@ -140,7 +152,7 @@
     },
     "shippingPolicy": {
       "title": "Politique d'expédition",
-      "lastUpdated": "Dernière mise à jour : [date]",
+      "lastUpdated": "Dernière mise à jour : {date}",
       "intro": "Cette page explique comment nous emballons, expédions et suivons votre commande.",
       "sections": [
         {
@@ -153,17 +165,17 @@
         },
         {
           "heading": "Expédition internationale",
-          "body": "Nous expédions vers l'Ukraine, les pays de l'UE, le Japon et ailleurs. Les droits de douane et taxes d'importation (le cas échéant) sont à la charge du destinataire."
+          "body": "Nous expédions vers l'Ukraine, les pays de l'UE, le Japon et ailleurs, à l'exception de la Fédération de Russie (voir les Conditions générales de vente). Les droits de douane et taxes d'importation (le cas échéant) sont à la charge du destinataire."
         },
         {
           "heading": "Suivi de commande",
-          "body": "Une fois votre commande expédiée, vous recevrez un numéro de suivi par e-mail. Le suivi de colis sur le site est actuellement en cours de développement."
+          "body": "Vous pouvez suivre votre commande — du paiement à la livraison — sur la page « Statut de la commande », via le lien présent dans nos e-mails ou en saisissant votre numéro de commande ou de suivi. Une fois la commande expédiée, vous recevrez également un numéro de suivi par e-mail."
         }
       ]
     },
     "returnsRefunds": {
       "title": "Retours et remboursements",
-      "lastUpdated": "Dernière mise à jour : [date]",
+      "lastUpdated": "Dernière mise à jour : {date}",
       "intro": "Cette politique explique les conditions de retour des peintures et de remboursement.",
       "sections": [
         {
@@ -181,6 +193,10 @@
         {
           "heading": "Comment demander un retour",
           "body": "Envoyez un e-mail à maryna.timchenko.art@gmail.com avec votre numéro de commande et le motif du retour. Nous répondrons sous [X] jours ouvrés."
+        },
+        {
+          "heading": "Vos droits légaux",
+          "body": "Cette politique ne limite pas les droits dont vous disposez en tant que consommateur en vertu de la législation applicable, y compris le droit de rétractation des consommateurs de l'UE lorsqu'il s'applique."
         }
       ]
     }
@@ -337,6 +353,14 @@
     "itemUnavailableError": "Une des œuvres n'est plus disponible — veuillez actualiser votre chevalet.",
     "intro": "Voici les œuvres que vous avez pris le temps d'apprécier. Quand vous serez prêt, dites-nous où les envoyer.",
     "loading": "Chargement de votre chevalet..."
+  },
+  "orderSuccess": {
+    "title": "Merci pour votre commande",
+    "intro": "Votre paiement est en cours de confirmation. Dès qu'il le sera, vous recevrez un e-mail de confirmation et l'artiste commencera à préparer votre peinture.",
+    "orderNumberLabel": "Votre numéro de commande",
+    "orderNumberHint": "Conservez-le : il vous permet de suivre votre commande à tout moment.",
+    "trackButton": "Suivre ma commande",
+    "galleryLink": "Retour à la galerie"
   },
   "heroManifesto": {
     "text": "Je ne peins pas des corps — je peins l'instant où le masque tombe. La couleur dit la vérité plus vite que les mots, et une toile ne se tait qu'une fois qu'elle a tout dit…"

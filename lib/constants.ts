@@ -19,6 +19,15 @@ export function calculateArtistPayoutEur(amountEur: number): number {
   return Math.round((amountEur - calculatePlatformCommissionEur(amountEur)) * 100) / 100;
 }
 
+/**
+ * "Last updated" date shown on all four legal pages (privacy, terms,
+ * shipping, returns). Single source of truth: bump this one line whenever
+ * ANY policy text in messages/*.json is changed, and every page and every
+ * language picks it up. Format: YYYY-MM-DD (rendered per locale by
+ * app/[locale]/components/LegalPage/LegalPage.tsx).
+ */
+export const LEGAL_LAST_UPDATED = "2026-10-01";
+
 /** Public preview images are clean; originals remain private-bucket only. */
 export const S3_BUCKETS = {
   previews: process.env.S3_PREVIEWS_BUCKET ?? "timchenko-art-previews",

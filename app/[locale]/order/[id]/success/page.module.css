@@ -1,0 +1,60 @@
+.page {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: var(--space-5) var(--space-4);
+}
+
+.title {
+  font-size: 40px;
+  margin-bottom: var(--space-2);
+}
+
+.intro {
+  font-size: 16px;
+  color: var(--color-text-light);
+  margin-bottom: var(--space-4);
+  line-height: 1.6;
+}
+
+.orderBox {
+  border: 1px solid var(--color-border);
+  padding: var(--space-3) var(--space-4);
+  margin-bottom: var(--space-4);
+}
+
+.orderLabel {
+  font-size: 13px;
+  color: var(--color-text-light);
+  margin-bottom: 6px;
+}
+
+.orderNumber {
+  font-size: 18px;
+  font-weight: 500;
+  word-break: break-all; /* order ids are long unbroken strings — never let them overflow on mobile */
+  margin-bottom: 10px;
+}
+
+.orderHint {
+  font-size: 14px;
+  color: var(--color-text-light);
+  line-height: 1.6;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.galleryLink {
+  font-size: 15px;
+  color: var(--color-text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.galleryLink:hover {
+  color: var(--color-primary);
+}

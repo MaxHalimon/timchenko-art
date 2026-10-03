@@ -82,34 +82,38 @@
   "legal": {
     "privacyPolicy": {
       "title": "Privacy Policy",
-      "lastUpdated": "Last updated: [date]",
+      "lastUpdated": "Last updated: {date}",
       "intro": "This Privacy Policy explains what personal data Timchenko Art collects when you use this site, how we use it, and what rights you have over your data.",
       "sections": [
         {
           "heading": "What data we collect",
-          "body": "When you place an order, we collect your name, email address, phone number, and shipping address. We do not store payment card details — these are handled exclusively by our payment partners (Stripe, NOWPayments) under their own security policies."
+          "body": "When you place an order, we collect your name, email address, phone number, and shipping address. If you write to us through the contact form, we receive your name, email address, and message. We do not store payment card details — these are handled exclusively by our payment partners (Stripe, NOWPayments) under their own security policies."
         },
         {
           "heading": "How we use your data",
-          "body": "We use your data to process your order, communicate about shipping status, and meet legal obligations, including tax record-keeping."
+          "body": "We use your data to process your order, communicate about shipping status, respond to your enquiries, and meet legal obligations, including tax record-keeping."
         },
         {
           "heading": "Sharing with third parties",
-          "body": "We share only the minimum necessary data with payment providers and shipping carriers — solely to fulfill your order. We do not sell or share your data with advertising networks."
+          "body": "We share only the minimum necessary data with payment providers and shipping carriers — solely to fulfill your order. To run the site we also rely on service providers: Vercel (hosting), Supabase (database), Cloudflare (image delivery), Resend (order status emails), and EmailJS (contact form). Some of them may process data outside your country. We do not sell or share your data with advertising networks."
         },
         {
-          "heading": "Cookies",
-          "body": "This site uses functional cookies to remember your selected language, currency, and age confirmation. We do not use advertising or tracking cookies."
+          "heading": "Cookies and local storage",
+          "body": "The site stores your selected language and currency in cookies, and your 18+ confirmation and the contents of your Easel in your browser's local storage. On your first visit, the country detected from your IP address is used only to pick an initial language and currency; we do not store the IP address itself. We do not use advertising or tracking cookies, or analytics. Payment pages are operated by Stripe and NOWPayments and are subject to their own policies."
+        },
+        {
+          "heading": "How long we keep data",
+          "body": "We keep order data for as long as needed to fulfill your order and to meet accounting and tax record-keeping requirements. Messages sent through the contact form are kept only as long as needed to answer you and follow up."
         },
         {
           "heading": "Your rights",
-          "body": "Under applicable data protection law (including GDPR for EU customers), you have the right to access, correct, and delete your personal data. Contact us at maryna.timchenko.art@gmail.com to exercise these rights."
+          "body": "Under applicable data protection law (including GDPR for EU customers), you have the right to access, correct, and delete your personal data. EU residents may also lodge a complaint with their local data protection authority. Contact us at maryna.timchenko.art@gmail.com to exercise these rights."
         }
       ]
     },
     "termsOfService": {
       "title": "Terms of Service",
-      "lastUpdated": "Last updated: [date]",
+      "lastUpdated": "Last updated: {date}",
       "intro": "These Terms govern your use of the Timchenko Art website and the purchase of paintings offered on it.",
       "sections": [
         {
@@ -125,12 +129,20 @@
           "body": "Some gallery pieces may be repainted by the artist on request. Custom commissions are painted as one-of-a-kind originals and are not reproduced afterward."
         },
         {
+          "heading": "Appearance of the artworks",
+          "body": "Every painting is made by hand in oil on canvas, so colors on your screen may differ slightly from the actual work, and a painting repeated by the artist will not be identical to the one shown on the site."
+        },
+        {
+          "heading": "Copyright",
+          "body": "All artworks, images, and texts on this site are protected by copyright and belong to the artist. Images on the site are previews for viewing only; copying, downloading, or any other use without written permission is prohibited. Buying a painting transfers ownership of the physical work, not its copyright or reproduction rights."
+        },
+        {
           "heading": "Pricing and payment",
-          "body": "Prices may be displayed in your selected currency for convenience; the actual charge is processed through our payment provider (Stripe or NOWPayments) and may vary slightly depending on the conversion rate at the time of payment."
+          "body": "Prices are set in euros (EUR). For convenience they may be displayed in your selected currency at an approximate rate, but payment is taken in euros through our payment provider (Stripe or NOWPayments). Your bank or payment service may apply its own conversion and fees."
         },
         {
           "heading": "Age restriction",
-          "body": "This site is intended for adult visitors (18+), as some of the artwork shown may include nude subjects."
+          "body": "This site is intended for adult visitors (18+), as some of the artwork shown may include nudity and erotic themes."
         },
         {
           "heading": "Governing law",
@@ -140,7 +152,7 @@
     },
     "shippingPolicy": {
       "title": "Shipping Policy",
-      "lastUpdated": "Last updated: [date]",
+      "lastUpdated": "Last updated: {date}",
       "intro": "This page explains how we pack, ship, and track your order.",
       "sections": [
         {
@@ -153,17 +165,17 @@
         },
         {
           "heading": "International shipping",
-          "body": "We ship to Ukraine, EU countries, Japan, and elsewhere. Customs duties and import taxes (where applicable) are the recipient's responsibility."
+          "body": "We ship to Ukraine, EU countries, Japan, and elsewhere, except the Russian Federation (see our Terms of Service). Customs duties and import taxes (where applicable) are the recipient's responsibility."
         },
         {
           "heading": "Order tracking",
-          "body": "Once your order ships, you'll receive a tracking number by email. On-site package tracking is currently in development."
+          "body": "You can follow your order — from payment to delivery — on the “Order Status” page, using the link in our emails or by entering your order number or tracking number. Once your order ships, you will also receive a tracking number by email."
         }
       ]
     },
     "returnsRefunds": {
       "title": "Returns & Refunds",
-      "lastUpdated": "Last updated: [date]",
+      "lastUpdated": "Last updated: {date}",
       "intro": "This policy explains the terms for returning paintings and receiving refunds.",
       "sections": [
         {
@@ -181,6 +193,10 @@
         {
           "heading": "How to request a return",
           "body": "Email maryna.timchenko.art@gmail.com with your order number and the reason for the return. We'll respond within [X] business days."
+        },
+        {
+          "heading": "Your statutory rights",
+          "body": "This policy does not limit the rights you have as a consumer under applicable law, including the right of withdrawal that applies to EU consumers where it is relevant."
         }
       ]
     }
@@ -337,6 +353,14 @@
     "itemUnavailableError": "One of the pieces is no longer available — please refresh your easel.",
     "intro": "Here are the pieces you've given a little time to sit with. When you're ready, tell us where to send them.",
     "loading": "Loading your easel..."
+  },
+  "orderSuccess": {
+    "title": "Thank you for your order",
+    "intro": "Your payment is being confirmed. As soon as it is, we'll email you a confirmation and the artist will begin preparing your painting.",
+    "orderNumberLabel": "Your order number",
+    "orderNumberHint": "Keep it — you can use it to follow your order at any time.",
+    "trackButton": "Follow my order",
+    "galleryLink": "Back to the gallery"
   },
   "heroManifesto": {
     "text": "I don't paint bodies — I paint the moment the mask slips. Color tells the truth faster than words, and a canvas stays quiet only once it has said everything it needed to…"

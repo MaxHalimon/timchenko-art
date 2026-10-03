@@ -82,34 +82,38 @@
   "legal": {
     "privacyPolicy": {
       "title": "Datenschutzerklärung",
-      "lastUpdated": "Zuletzt aktualisiert: [Datum]",
+      "lastUpdated": "Zuletzt aktualisiert: {date}",
       "intro": "Diese Datenschutzerklärung beschreibt, welche personenbezogenen Daten Timchenko Art bei der Nutzung dieser Website erhebt, wie wir sie verwenden und welche Rechte Sie in Bezug auf Ihre Daten haben.",
       "sections": [
         {
           "heading": "Welche Daten wir erheben",
-          "body": "Bei der Bestellung erheben wir Ihren Namen, Ihre E-Mail-Adresse, Telefonnummer und Lieferadresse. Zahlungskartendaten speichern wir nicht — diese werden ausschließlich von unseren Zahlungspartnern (Stripe, NOWPayments) gemäß deren eigenen Sicherheitsrichtlinien verarbeitet."
+          "body": "Bei der Bestellung erheben wir Ihren Namen, Ihre E-Mail-Adresse, Telefonnummer und Lieferadresse. Wenn Sie uns über das Kontaktformular schreiben, erhalten wir Ihren Namen, Ihre E-Mail-Adresse und Ihre Nachricht. Zahlungskartendaten speichern wir nicht — diese werden ausschließlich von unseren Zahlungspartnern (Stripe, NOWPayments) gemäß deren eigenen Sicherheitsrichtlinien verarbeitet."
         },
         {
           "heading": "Wie wir Ihre Daten verwenden",
-          "body": "Wir verwenden Ihre Daten zur Abwicklung Ihrer Bestellung, zur Kommunikation über den Versandstatus sowie zur Erfüllung gesetzlicher Pflichten, einschließlich steuerlicher Aufzeichnungen."
+          "body": "Wir verwenden Ihre Daten zur Abwicklung Ihrer Bestellung, zur Kommunikation über den Versandstatus, zur Beantwortung Ihrer Anfragen sowie zur Erfüllung gesetzlicher Pflichten, einschließlich steuerlicher Aufzeichnungen."
         },
         {
           "heading": "Weitergabe an Dritte",
-          "body": "Wir geben nur das notwendige Minimum an Daten an Zahlungsdienstleister und Versanddienste weiter — ausschließlich zur Erfüllung Ihrer Bestellung. Wir verkaufen oder teilen Ihre Daten nicht mit Werbenetzwerken."
+          "body": "Wir geben nur das notwendige Minimum an Daten an Zahlungsdienstleister und Versanddienste weiter — ausschließlich zur Erfüllung Ihrer Bestellung. Für den Betrieb der Website nutzen wir zudem Dienstleister: Vercel (Hosting), Supabase (Datenbank), Cloudflare (Bildauslieferung), Resend (E-Mails zum Bestellstatus) und EmailJS (Kontaktformular). Einige davon können Daten außerhalb Ihres Landes verarbeiten. Wir verkaufen oder teilen Ihre Daten nicht mit Werbenetzwerken."
         },
         {
-          "heading": "Cookies",
-          "body": "Diese Website verwendet funktionale Cookies, um Ihre gewählte Sprache, Währung und Altersbestätigung zu speichern. Wir verwenden keine Werbe- oder Tracking-Cookies."
+          "heading": "Cookies und lokaler Speicher",
+          "body": "Die Website speichert Ihre gewählte Sprache und Währung in Cookies sowie Ihre Altersbestätigung (18+) und den Inhalt Ihrer Staffelei im lokalen Speicher Ihres Browsers. Beim ersten Besuch wird das anhand Ihrer IP-Adresse erkannte Land ausschließlich zur Auswahl von Anfangssprache und -währung verwendet; die IP-Adresse selbst speichern wir nicht. Wir verwenden weder Werbe- oder Tracking-Cookies noch Analysedienste. Die Zahlungsseiten werden von Stripe und NOWPayments betrieben und unterliegen deren eigenen Richtlinien."
+        },
+        {
+          "heading": "Speicherdauer",
+          "body": "Bestelldaten bewahren wir so lange auf, wie es zur Erfüllung Ihrer Bestellung sowie zur Einhaltung buchhalterischer und steuerlicher Aufbewahrungspflichten erforderlich ist. Nachrichten aus dem Kontaktformular speichern wir nur so lange, wie es für die Beantwortung und weitere Kommunikation nötig ist."
         },
         {
           "heading": "Ihre Rechte",
-          "body": "Gemäß geltendem Datenschutzrecht (einschließlich der DSGVO für Kunden aus der EU) haben Sie das Recht auf Auskunft, Berichtigung und Löschung Ihrer personenbezogenen Daten. Kontaktieren Sie uns dazu unter maryna.timchenko.art@gmail.com."
+          "body": "Gemäß geltendem Datenschutzrecht (einschließlich der DSGVO für Kunden aus der EU) haben Sie das Recht auf Auskunft, Berichtigung und Löschung Ihrer personenbezogenen Daten. Einwohner der EU können sich zudem bei ihrer örtlichen Datenschutzbehörde beschweren. Kontaktieren Sie uns dazu unter maryna.timchenko.art@gmail.com."
         }
       ]
     },
     "termsOfService": {
       "title": "Allgemeine Geschäftsbedingungen",
-      "lastUpdated": "Zuletzt aktualisiert: [Datum]",
+      "lastUpdated": "Zuletzt aktualisiert: {date}",
       "intro": "Diese Bedingungen regeln die Nutzung der Website Timchenko Art sowie den Kauf der dort angebotenen Gemälde.",
       "sections": [
         {
@@ -125,12 +129,20 @@
           "body": "Manche Galeriewerke können von der Künstlerin auf Wunsch erneut gemalt werden. Individuelle Auftragsarbeiten werden als einzigartige Originale gemalt und danach nicht erneut angefertigt."
         },
         {
+          "heading": "Erscheinungsbild der Werke",
+          "body": "Jedes Gemälde wird von Hand in Öl auf Leinwand gemalt, daher können die Farben auf Ihrem Bildschirm leicht vom Original abweichen, und ein von der Künstlerin wiederholtes Gemälde ist nicht identisch mit dem auf der Website gezeigten."
+        },
+        {
+          "heading": "Urheberrecht",
+          "body": "Alle Kunstwerke, Bilder und Texte auf dieser Website sind urheberrechtlich geschützt und gehören der Künstlerin. Die Bilder auf der Website dienen nur der Ansicht; Kopieren, Herunterladen oder jede andere Nutzung ohne schriftliche Genehmigung ist untersagt. Mit dem Kauf eines Gemäldes geht das Eigentum am physischen Werk über, nicht jedoch das Urheberrecht oder das Vervielfältigungsrecht."
+        },
+        {
           "heading": "Preise und Zahlung",
-          "body": "Preise können zur besseren Übersicht in Ihrer gewählten Währung angezeigt werden; die tatsächliche Abbuchung erfolgt über unseren Zahlungsanbieter (Stripe oder NOWPayments) und kann je nach Umrechnungskurs zum Zahlungszeitpunkt leicht abweichen."
+          "body": "Die Preise werden in Euro (EUR) festgelegt. Zur besseren Übersicht können sie in Ihrer gewählten Währung zu einem ungefähren Kurs angezeigt werden, die Zahlung erfolgt jedoch in Euro über unseren Zahlungsanbieter (Stripe oder NOWPayments). Ihre Bank oder Ihr Zahlungsdienst kann eigene Umrechnungen und Gebühren berechnen."
         },
         {
           "heading": "Altersbeschränkung",
-          "body": "Diese Website richtet sich an erwachsene Besucher (18+), da einige gezeigte Kunstwerke Aktdarstellungen enthalten können."
+          "body": "Diese Website richtet sich an erwachsene Besucher (18+), da einige gezeigte Kunstwerke Aktdarstellungen und erotische Motive enthalten können."
         },
         {
           "heading": "Anwendbares Recht",
@@ -140,7 +152,7 @@
     },
     "shippingPolicy": {
       "title": "Versandrichtlinie",
-      "lastUpdated": "Zuletzt aktualisiert: [Datum]",
+      "lastUpdated": "Zuletzt aktualisiert: {date}",
       "intro": "Diese Seite beschreibt, wie wir Ihre Bestellung verpacken, versenden und nachverfolgen.",
       "sections": [
         {
@@ -153,17 +165,17 @@
         },
         {
           "heading": "Internationaler Versand",
-          "body": "Wir versenden in die Ukraine, EU-Länder, nach Japan und darüber hinaus. Zölle und Einfuhrsteuern (falls zutreffend) trägt der Empfänger."
+          "body": "Wir versenden in die Ukraine, EU-Länder, nach Japan und darüber hinaus, mit Ausnahme der Russischen Föderation (siehe Allgemeine Geschäftsbedingungen). Zölle und Einfuhrsteuern (falls zutreffend) trägt der Empfänger."
         },
         {
           "heading": "Sendungsverfolgung",
-          "body": "Nach dem Versand erhalten Sie eine Sendungsnummer per E-Mail. Eine Sendungsverfolgung direkt auf der Website befindet sich derzeit in Entwicklung."
+          "body": "Den Status Ihrer Bestellung — von der Zahlung bis zur Zustellung — können Sie auf der Seite „Bestellstatus“ verfolgen, über den Link in unseren E-Mails oder durch Eingabe Ihrer Bestellnummer oder Sendungsnummer. Nach dem Versand erhalten Sie außerdem eine Sendungsnummer per E-Mail."
         }
       ]
     },
     "returnsRefunds": {
       "title": "Rückgabe & Erstattung",
-      "lastUpdated": "Zuletzt aktualisiert: [Datum]",
+      "lastUpdated": "Zuletzt aktualisiert: {date}",
       "intro": "Diese Richtlinie beschreibt die Bedingungen für die Rückgabe von Gemälden und die Erstattung von Zahlungen.",
       "sections": [
         {
@@ -181,6 +193,10 @@
         {
           "heading": "So beantragen Sie eine Rückgabe",
           "body": "Schreiben Sie an maryna.timchenko.art@gmail.com mit Ihrer Bestellnummer und dem Grund der Rückgabe. Wir antworten innerhalb von [X] Werktagen."
+        },
+        {
+          "heading": "Ihre gesetzlichen Rechte",
+          "body": "Diese Richtlinie schränkt Ihre gesetzlichen Verbraucherrechte nicht ein, einschließlich des Widerrufsrechts für Verbraucher in der EU, soweit es Anwendung findet."
         }
       ]
     }
@@ -337,6 +353,14 @@
     "itemUnavailableError": "Eines der Werke ist nicht mehr verfügbar — bitte aktualisieren Sie Ihre Staffelei.",
     "intro": "Hier sind die Werke, denen Sie etwas Zeit gegeben haben, bei Ihnen zu verweilen. Wenn Sie bereit sind, sagen Sie uns, wohin wir sie schicken sollen.",
     "loading": "Ihre Staffelei wird geladen..."
+  },
+  "orderSuccess": {
+    "title": "Vielen Dank für Ihre Bestellung",
+    "intro": "Ihre Zahlung wird bestätigt. Sobald das geschehen ist, erhalten Sie eine Bestätigungs-E-Mail, und die Künstlerin beginnt mit der Vorbereitung Ihres Gemäldes.",
+    "orderNumberLabel": "Ihre Bestellnummer",
+    "orderNumberHint": "Bewahren Sie sie auf — damit können Sie Ihre Bestellung jederzeit verfolgen.",
+    "trackButton": "Bestellung verfolgen",
+    "galleryLink": "Zurück zur Galerie"
   },
   "heroManifesto": {
     "text": "Ich male keine Körper — ich male den Moment, in dem die Maske fällt. Farbe sagt die Wahrheit schneller als Worte, und eine Leinwand schweigt erst, wenn sie alles gesagt hat, was sie sagen musste…"
