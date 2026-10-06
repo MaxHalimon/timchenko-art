@@ -15,4 +15,5 @@ export const cardSelect = {
   material: true,
   priceEur: true,
   status: true,
+  exclusive: true,
 } satisfies Prisma.ProductSelect;

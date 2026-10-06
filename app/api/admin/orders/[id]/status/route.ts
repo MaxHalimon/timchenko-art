@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
+import { prisma } from "@/lib/prisma";
 import { advanceOrderStatus } from "@/lib/orderStatus";
+import { isPrintOnly } from "@/lib/orderItemText";
 import type { EmailableStatus } from "@/lib/orderEmails";
 
 const ADMIN_API_SECRET = process.env.ADMIN_API_SECRET;
@@ -47,6 +49,15 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
 
   if (status === "SHIPPED" && !body?.trackingNumber) {
     return NextResponse.json({ error: "trackingNumber is required when status is SHIPPED" }, { status: 400 });
+  }
+
+  // A canvas print is never "painted" or left to dry: for print-only orders
+  // the stages are PAINTING (shown as "in production") -> READY_TO_SHIP -> ...
+  if (status === "DRYING") {
+    const items = await prisma.orderItem.findMany({ where: { orderId }, select: { variant: true } });
+    if (isPrintOnly(items)) {
+      return NextResponse.json({ error: "DRYING is not used for print-only orders" }, { status: 400 });
+    }
   }
 
   await advanceOrderStatus(orderId, status, {

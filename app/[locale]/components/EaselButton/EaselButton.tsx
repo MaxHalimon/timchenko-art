@@ -1,13 +1,22 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { useEasel } from "../../providers/EaselProvider";
+import { useEasel, type EaselVariant } from "../../providers/EaselProvider";
 import styles from "./EaselButton.module.css";
 
-export function EaselButton({ slug, disabled }: { slug: string; disabled?: boolean }) {
+export function EaselButton({
+  slug,
+  disabled,
+  variant = "oil",
+}: {
+  slug: string;
+  disabled?: boolean;
+  /** "oil" (default) puts the painting on the easel, "print" puts a canvas print of it. */
+  variant?: EaselVariant;
+}) {
   const t = useTranslations("easel");
   const { isOnEasel, addToEasel, removeFromEasel } = useEasel();
-  const active = isOnEasel(slug);
+  const active = isOnEasel(slug, variant);
 
   function handleClick(event: React.MouseEvent) {
     // Prevent bubbling up to a surrounding <Link> (ProductCard wraps its
@@ -15,9 +24,9 @@ export function EaselButton({ slug, disabled }: { slug: string; disabled?: boole
     event.preventDefault();
     event.stopPropagation();
     if (active) {
-      removeFromEasel(slug);
+      removeFromEasel(slug, variant);
     } else {
-      addToEasel(slug);
+      addToEasel(slug, variant);
     }
   }
 
@@ -35,7 +44,7 @@ export function EaselButton({ slug, disabled }: { slug: string; disabled?: boole
       className={active ? `${styles.button} ${styles.buttonActive}` : styles.button}
       onClick={handleClick}
     >
-      {active ? t("onEasel") : t("add")}
+      {variant === "print" ? (active ? t("printOnEasel") : t("addPrint")) : active ? t("onEasel") : t("add")}
     </button>
   );
 }

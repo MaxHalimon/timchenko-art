@@ -3,7 +3,8 @@
 import { useEffect, useState, type FormEvent } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { useEasel } from "../providers/EaselProvider";
+import { useEasel, maxQuantity, type EaselLine } from "../providers/EaselProvider";
+import { HANDMADE_DAYS_MAX, HANDMADE_DAYS_MIN, PRINT_PRICE_EUR, PRINT_PRODUCTION_DAYS } from "@/lib/constants";
 import { PriceTag } from "../components/PriceTag/PriceTag";
 import { AccentText } from "../components/AccentText/AccentText";
 import buttonStyles from "../components/shared/Buttons.module.css";
@@ -18,16 +19,17 @@ interface EaselProduct {
   heightCm: number;
   priceEur: number;
   status: "AVAILABLE" | "IN_PROGRESS" | "SOLD";
+  exclusive?: boolean;
 }
 
 type PaymentMethod = "card" | "crypto";
-type SubmitState = "idle" | "submitting" | "error";
+type SubmitState = "idle" | "submitting" | "error" | "unavailable";
 
 export default function EaselPage() {
   const t = useTranslations("easel");
   const tProductCard = useTranslations("productCard");
   const locale = useLocale();
-  const { slugs, hydrated, removeFromEasel } = useEasel();
+  const { lines, slugs, hydrated, removeFromEasel, setQuantity } = useEasel();
 
   const [products, setProducts] = useState<EaselProduct[]>([]);
   const [loaded, setLoaded] = useState(false);
@@ -40,7 +42,7 @@ export default function EaselPage() {
     // hydration) and wrongly concludes the easel has nothing on it.
     if (!hydrated) return;
 
-    if (slugs.length === 0) {
+    if (lines.length === 0) {
       setProducts([]);
       setLoaded(true);
       return;
@@ -58,17 +60,47 @@ export default function EaselPage() {
         setLoaded(true);
       })
       .catch(() => setLoaded(true));
-  }, [slugs, hydrated, locale]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [slugs.join(","), hydrated, locale]);
 
-  // SOLD pieces are still orderable — the artist repaints them on request —
-  // so only IN_PROGRESS (not yet finished, nothing to ship or repaint from
-  // yet) is excluded from the order.
-  const availableProducts = products.filter((p) => p.status !== "IN_PROGRESS");
-  const totalEur = availableProducts.reduce((sum, p) => sum + p.priceEur, 0);
+  // One row per easel line (a painting can be there as oil AND as a print, each with its own quantity).
+  // IN_PROGRESS paintings aren't finished, so there is nothing to ship, repaint or print yet and they are
+  // excluded from the order. SOLD paintings stay orderable: oil copies are repainted, prints are always possible.
+  const productBySlug = new Map(products.map((p) => [p.slug, p]));
+  const rows = lines
+    .map((line) => ({ line, product: productBySlug.get(line.slug) }))
+    .filter((row): row is { line: EaselLine; product: EaselProduct } => row.product !== undefined);
+  // Exclusive paintings are never repainted or printed: only the one existing piece, while it is still in stock.
+  const isOrderable = ({ line, product }: { line: EaselLine; product: EaselProduct }) =>
+    product.status !== "IN_PROGRESS" &&
+    !(product.exclusive && (line.variant === "print" || product.status !== "AVAILABLE"));
+  const maxFor = ({ line, product }: { line: EaselLine; product: EaselProduct }) =>
+    product.exclusive ? 1 : maxQuantity(line.variant);
+  const orderableRows = rows.filter(isOrderable);
+
+  const unitPrice = (row: { line: EaselLine; product: EaselProduct }) =>
+    row.line.variant === "print" ? PRINT_PRICE_EUR : row.product.priceEur;
+  const totalEur = orderableRows.reduce((sum, row) => sum + unitPrice(row) * row.line.quantity, 0);
+
+  function lineNote(row: { line: EaselLine; product: EaselProduct }) {
+    if (row.line.variant === "print") return t("notePrint", { days: PRINT_PRODUCTION_DAYS });
+    const params = { count: row.line.quantity - 1, min: HANDMADE_DAYS_MIN, max: HANDMADE_DAYS_MAX };
+    if (row.product.status === "SOLD") {
+      return t("noteRepaintOnly", { ...params, count: row.line.quantity });
+    }
+    return row.line.quantity === 1 ? t("noteOriginal") : t("noteOriginalPlusRepaint", params);
+  }
+
+  const hasMixedTimes = (() => {
+    const kinds = new Set(
+      orderableRows.map((row) => (row.line.variant === "print" ? "print" : row.product.status === "AVAILABLE" && row.line.quantity === 1 ? "ready" : "handmade")),
+    );
+    return kinds.size > 1;
+  })();
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (availableProducts.length === 0) return;
+    if (orderableRows.length === 0) return;
 
     setSubmitState("submitting");
     const form = new FormData(event.currentTarget);
@@ -78,7 +110,11 @@ export default function EaselPage() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          productSlugs: availableProducts.map((p) => p.slug),
+          items: orderableRows.map((row) => ({
+            slug: row.line.slug,
+            variant: row.line.variant,
+            quantity: row.line.quantity,
+          })),
           customerName: form.get("name"),
           customerEmail: form.get("email"),
           paymentMethod,
@@ -94,6 +130,11 @@ export default function EaselPage() {
         }),
       });
 
+      if (response.status === 409) {
+        // The existing painting was bought or reserved by someone else while it sat on this easel.
+        setSubmitState("unavailable");
+        return;
+      }
       if (!response.ok) throw new Error("Checkout failed");
 
       const data = await response.json();
@@ -123,7 +164,7 @@ export default function EaselPage() {
     );
   }
 
-  if (slugs.length === 0) {
+  if (lines.length === 0) {
     return (
       <div className={styles.page}>
         <h1 className={styles.title}>
@@ -149,41 +190,78 @@ export default function EaselPage() {
         <div>
           <h2 className={styles.itemsHeading}>{t("itemsHeading")}</h2>
           <div className={styles.itemList}>
-            {products.map((product) => (
-              <div className={styles.item} key={product.slug}>
-                <Link href={`/product/${product.slug}`} className={styles.itemLink}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={product.thumbImageUrl ?? product.previewImageUrl} alt={product.title} className={styles.itemImage} />
-                  <div className={styles.itemInfo}>
-                    <p className={styles.itemTitle}>{product.title}</p>
-                    {product.status !== "IN_PROGRESS" ? (
-                      <p className={styles.itemMeta}>
-                        {product.widthCm} × {product.heightCm} cm · <PriceTag amountEur={product.priceEur} />
-                        {product.status === "SOLD" && ` · ${tProductCard("status.SOLD")}`}
-                      </p>
-                    ) : (
-                      <p className={styles.itemUnavailable}>{tProductCard(`status.${product.status}`)}</p>
-                    )}
-                  </div>
-                </Link>
-                <button
-                  type="button"
-                  className={styles.removeButton}
-                  aria-label={t("remove")}
-                  onClick={() => removeFromEasel(product.slug)}
-                >
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                    <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                  </svg>
-                </button>
-              </div>
-            ))}
+            {rows.map(({ line, product }) => {
+              const orderable = isOrderable({ line, product });
+              const max = maxFor({ line, product });
+              return (
+                <div className={styles.item} key={`${line.slug}:${line.variant}`}>
+                  <Link href={`/product/${product.slug}`} className={styles.itemLink}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={product.thumbImageUrl ?? product.previewImageUrl} alt={product.title} className={styles.itemImage} />
+                    <div className={styles.itemInfo}>
+                      <p className={styles.itemTitle}>{product.title}</p>
+                      <p className={styles.itemVariant}>{line.variant === "print" ? t("variantPrint") : t("variantOil")}</p>
+                      {orderable ? (
+                        <>
+                          <p className={styles.itemMeta}>
+                            {product.widthCm} × {product.heightCm} cm · <PriceTag amountEur={unitPrice({ line, product })} />
+                          </p>
+                          <p className={styles.itemNote}>{lineNote({ line, product })}</p>
+                        </>
+                      ) : (
+                        <p className={styles.itemUnavailable}>
+                          {product.exclusive ? t("exclusiveUnavailable") : tProductCard(`status.${product.status}`)}
+                        </p>
+                      )}
+                    </div>
+                  </Link>
+
+                  {orderable && (
+                    <div className={styles.qty} role="group" aria-label={t("quantity")}>
+                      <button
+                        type="button"
+                        className={styles.qtyButton}
+                        aria-label={t("decrease")}
+                        disabled={line.quantity <= 1}
+                        onClick={() => setQuantity(line.slug, line.variant, line.quantity - 1)}
+                      >
+                        −
+                      </button>
+                      <span className={styles.qtyValue} aria-live="polite">
+                        {line.quantity}
+                      </span>
+                      <button
+                        type="button"
+                        className={styles.qtyButton}
+                        aria-label={t("increase")}
+                        disabled={line.quantity >= max}
+                        onClick={() => setQuantity(line.slug, line.variant, line.quantity + 1)}
+                      >
+                        +
+                      </button>
+                    </div>
+                  )}
+
+                  <button
+                    type="button"
+                    className={styles.removeButton}
+                    aria-label={t("remove")}
+                    onClick={() => removeFromEasel(line.slug, line.variant)}
+                  >
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                    </svg>
+                  </button>
+                </div>
+              );
+            })}
           </div>
 
           <div className={styles.totalRow}>
             <span>{t("total")}</span>
             <PriceTag amountEur={totalEur} />
           </div>
+          {hasMixedTimes && <p className={styles.mixedNote}>{t("mixedNote")}</p>}
         </div>
 
         <div className={styles.checkoutCard}>
@@ -275,10 +353,16 @@ export default function EaselPage() {
             <button
               type="submit"
               className={`${buttonStyles.galleryButton} ${styles.submitButton}`}
-              disabled={submitState === "submitting" || availableProducts.length === 0}
+              disabled={submitState === "submitting" || orderableRows.length === 0}
             >
               {submitState === "submitting" ? t("form.submitting") : t("form.submit")}
             </button>
+
+            {submitState === "unavailable" && (
+              <p className={`${styles.statusMessage} ${styles.statusError}`} role="alert">
+                {t("itemUnavailableError")}
+              </p>
+            )}
 
             {submitState === "error" && (
               <p className={`${styles.statusMessage} ${styles.statusError}`} role="alert">

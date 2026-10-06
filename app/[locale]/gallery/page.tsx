@@ -118,6 +118,7 @@ export default async function GalleryPage({
     priceEur: Number(product.priceEur),
     material: product.material,
     status: product.status as ProductStatus,
+    exclusive: product.exclusive,
   }));
 
   const heroPaintings = heroRows.map((row) => ({

@@ -1,4 +1,6 @@
 import { getTranslations } from "next-intl/server";
+import { prisma } from "@/lib/prisma";
+import { localizedText } from "@/lib/localizedText";
 import { ContactForm } from "../components/ContactForm/ContactForm";
 import { SolidarityStatement } from "../components/SolidarityStatement/SolidarityStatement";
 import { AccentText } from "../components/AccentText/AccentText";
@@ -6,8 +8,30 @@ import styles from "./page.module.css";
 
 const ARTIST_EMAIL = "maryna.timchenko.art@gmail.com";
 
-export default async function ContactsPage() {
+export default async function ContactsPage({
+  params,
+  searchParams,
+}: {
+  params: Promise<{ locale: string }>;
+  searchParams: Promise<{ print?: string; custom?: string }>;
+}) {
+  const { locale } = await params;
+  const { print: printSlug, custom } = await searchParams;
   const t = await getTranslations("contact");
+  const tPrint = await getTranslations("print");
+
+  // "Order a print" links from the product page arrive as /contacts?print=<slug>:
+  // look the painting up and start the message for the visitor. Unknown slug =
+  // just an empty form, never an error.
+  let defaultMessage: string | undefined;
+  if (printSlug) {
+    const product = await prisma.product.findUnique({ where: { slug: printSlug }, select: { title: true } });
+    if (product) {
+      defaultMessage = tPrint(custom ? "contactMessageOtherSize" : "contactMessage", {
+        title: localizedText(product.title, locale),
+      });
+    }
+  }
 
   return (
     <div className={styles.page}>
@@ -20,7 +44,7 @@ export default async function ContactsPage() {
           <h2 className={styles.columnHeading}>
             <AccentText text={t("formHeading")} />
           </h2>
-          <ContactForm />
+          <ContactForm defaultMessage={defaultMessage} />
         </div>
 
         <div className={styles.infoColumn}>

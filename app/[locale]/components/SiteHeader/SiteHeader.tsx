@@ -12,7 +12,7 @@ import styles from "./SiteHeader.module.css";
 export function SiteHeader() {
   const t = useTranslations("common");
   const [menuOpen, setMenuOpen] = useState(false);
-  const { slugs } = useEasel();
+  const { count } = useEasel();
   const pathname = usePathname();
   const headerRef = useRef<HTMLElement>(null);
 
@@ -85,7 +85,7 @@ export function SiteHeader() {
         </Link>
         <Link href="/easel" className={linkClass("/easel")} onClick={closeMenu}>
           {t("nav.easel")}
-          {slugs.length > 0 && <span className={styles.easelCount}>{slugs.length}</span>}
+          {count > 0 && <span className={styles.easelCount}>{count}</span>}
         </Link>
         <div className={styles.navDivider} />
         <div className={styles.switchers}>

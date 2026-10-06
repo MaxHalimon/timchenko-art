@@ -38,7 +38,7 @@ enum ProductStatus {
 
 /// Order state machine, in strict forward order.
 enum OrderStatus {
-  PREVIEW       // Client viewing watermarked preview, cart/checkout not yet paid
+  PREVIEW       // Client viewing a preview, cart/checkout not yet paid
   PAID          // Payment confirmed via webhook
   PAINTING      // Marina is actively painting the piece
   DRYING        // Painting finished, curing before varnish/packing
@@ -48,7 +48,7 @@ enum OrderStatus {
 }
 
 enum PaymentProvider {
-  STRIPE       // primary — card, Apple Pay, Google Pay
+  STRIPE       // primary — card, Apple Pay, Google Pay, PayPal (wallets/PayPal are switched on in the Stripe Dashboard, not in code)
   NOWPAYMENTS  // crypto — offered as a customer-chosen alternative
   CRYPTOMUS
   MONOBANK
@@ -91,6 +91,12 @@ model Product {
   description Json
   status      ProductStatus @default(IN_PROGRESS)
 
+  // Exclusive = never repeated and never printed: a one-of-a-kind commission, or an
+  // existing painting that was withdrawn from sale for good by agreement with its
+  // buyer. An exclusive painting can be bought once (if still AVAILABLE) and that's it.
+  // Set it with POST /api/admin/products/<slug>/exclusive (or "exclusive": true in paintings.json).
+  exclusive   Boolean       @default(false)
+
   widthCm  Int
   heightCm Int
   material String  @default("oilCanvas") // stable slug into productCard.materials.* in messages/*.json (see `theme` below for the same pattern)
@@ -113,15 +119,15 @@ model Product {
   // resolved to URLs by lib/media.ts. Legacy full URLs / "/paintings/x.jpg"
   // values are still tolerated there. Paintings are sold as PHYSICAL
   // canvases, so no file is ever delivered to a customer.
-  previewImageKey String // watermarked, ≤2000px WebP, public bucket (detail / modal / product page)
-  thumbImageKey   String? // watermarked, ≤900px WebP, public bucket (cards, carousels); null → falls back to previewImageKey
+  previewImageKey String // ≤2000px WebP, public bucket (detail / modal / product page)
+  thumbImageKey   String? // ≤900px WebP, public bucket (cards, carousels); null → falls back to previewImageKey
   originalImageKey String // full-res master, PRIVATE bucket — never sent to the browser
   processVideoKey  String?
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  orderItem OrderItem? // a product maps to at most one (non-cancelled) order item once reserved/sold
+  orderItems OrderItem[] // many: prints and repainted copies of a painting can be ordered any number of times; only ONE row (variant ORIGINAL) ever holds the existing painting - see OrderItem.reservedProductId
 
   @@index([status])
   @@map("products")
@@ -129,8 +135,8 @@ model Product {
 
 /// One order can hold several paintings at once (the "Мольберт" / easel —
 /// pieces the customer has set aside before checking out). Each painting
-/// still only ever belongs to one active order — see OrderItem.productId's
-/// unique constraint below.
+/// The existing painting can still go to only one buyer (OrderItem.reservedProductId
+/// is unique); prints and repainted copies can be ordered in any quantity.
 model Order {
   id        String      @id @default(cuid())
   status    OrderStatus @default(PREVIEW)
@@ -144,15 +150,22 @@ model Order {
 
   amountEur            Decimal @db.Decimal(10, 2) // sum of all items' priceEur at time of order, EUR base
   platformCommissionEur Decimal @db.Decimal(10, 2) // your cut = amountEur * PLATFORM_COMMISSION_PCT (20%)
-  artistPayoutEur       Decimal @db.Decimal(10, 2) // what's owed to the artist = amountEur - platformCommissionEur (80%)
+  artistPayoutEur       Decimal @db.Decimal(10, 2) // what the artist keeps = amountEur - platformCommissionEur (80%)
   // Both snapshotted once, when status → PAID, so a later price/rate change
   // never silently rewrites what's owed on an already-placed order.
 
   trackingNumber   String?
   trackingCarrier  String?
 
-  artistPayoutSent Boolean   @default(false) // true once you've actually paid the artist her 80%
-  artistPayoutSentAt  DateTime?
+  // Money flow: ALL customer payments (Stripe, PayPal-via-Stripe, crypto) land
+  // on the seller's (the artist's) own accounts. The 20% commission is paid to
+  // the site operator by the artist afterwards, in a monthly batch against an
+  // invoice — these two fields track that settlement per order.
+  commissionSettled   Boolean   @default(false)
+  commissionSettledAt DateTime?
+
+  paidAt      DateTime? // set when status → PAID; its month decides which commission report the order is in
+  deliveredAt DateTime? // set when status → DELIVERED; the 14-day return window counts from here
 
   payment         Payment?
   progressPhotos  ProgressPhoto[]
@@ -178,14 +191,33 @@ model OrderItem {
   orderId String
   order   Order  @relation(fields: [orderId], references: [id], onDelete: Cascade)
 
-  productId String  @unique
+  productId String
   product   Product @relation(fields: [productId], references: [id])
 
-  priceEur Decimal @db.Decimal(10, 2) // snapshot of product.priceEur when placed on the easel
+  // What exactly is being bought. One easel line can become several rows: oil
+  // painting x3 of a painting that is still in stock = 1 ORIGINAL + 2 REPAINT.
+  variant  OrderItemVariant @default(ORIGINAL)
+  quantity Int              @default(1)
+
+  // Reservation of the ONE physical painting. Set to productId for ORIGINAL
+  // rows only (NULL for REPAINT / PRINT), and unique: Postgres allows many
+  // NULLs but only one non-NULL per value, so two customers can never both
+  // hold the same existing painting, while prints and repaints of it are
+  // unlimited. (Replaces the old unique constraint on productId.)
+  reservedProductId String? @unique
+
+  priceEur Decimal @db.Decimal(10, 2) // UNIT price at the time of ordering (line total = priceEur x quantity)
 
   createdAt DateTime @default(now())
 
+  @@index([productId])
   @@map("order_items")
+}
+
+enum OrderItemVariant {
+  ORIGINAL // the existing physical painting - exactly one buyer; marks the product SOLD once paid
+  REPAINT //  an additional hand-painted copy of the same painting, made to order (any quantity)
+  PRINT //    canvas print at the flat price (any painting, any quantity; never changes product status)
 }
 
 model Payment {

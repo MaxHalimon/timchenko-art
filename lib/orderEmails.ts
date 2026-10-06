@@ -254,6 +254,112 @@ const COPY: Record<Locale, LocaleCopy> = {
   },
 };
 
+// Orders made only of canvas prints skip painting and drying, so the three
+// e-mails whose wording is about *painting* are replaced for them. PAID keeps
+// the same "receipt + what happens next" role as the standard one.
+const PRINT_OVERRIDES: Record<Locale, Partial<Record<EmailableStatus, StatusCopy>>> = {
+  uk: {
+    PAID: {
+      subject: "Дякуємо за замовлення — {painting}",
+      heading: "Дякуємо за ваше замовлення!",
+      body: [
+        "Ми отримали оплату і вже беремося до виготовлення. Нижче — номер вашого замовлення: збережіть цей лист або сам номер, він знадобиться, щоб у будь-який момент перевірити статус.",
+        "Коротко про те, що далі: друк виготовляється, потім пакується й готується до відправки, і нарешті вирушає до вас із трек-номером перевізника. Ми надішлемо окремий лист на кожному з цих етапів.",
+      ],
+    },
+    PAINTING: {
+      subject: "Ваш друк виготовляється — {painting}",
+      heading: "Друк уже в роботі",
+      body: ["Ваш друк на холсті виготовляється просто зараз. Наступне оновлення — коли він буде готовий до відправки."],
+    },
+    READY_TO_SHIP: {
+      subject: "Замовлення готове до відправки — {painting}",
+      heading: "Ваш друк готовий!",
+      body: ["Друк виготовлено, упаковано й підготовлено до передачі перевізнику. Щойно з'явиться трек-номер, ми одразу надішлемо його вам окремим листом."],
+    },
+  },
+  en: {
+    PAID: {
+      subject: "Thank you for your order — {painting}",
+      heading: "Thank you for your order!",
+      body: [
+        "We've received your payment and are getting started on production. Below is your order number — keep this email or the number itself, you'll need it to check the status at any time.",
+        "Here's what happens next: your print is produced, then packed and prepared for shipping, and finally ships out with a courier tracking number. We'll send a short email at each of these steps.",
+      ],
+    },
+    PAINTING: {
+      subject: "Your print is being produced — {painting}",
+      heading: "Your print is in production",
+      body: ["Your canvas print is being produced right now. Next update will be when it's ready to ship."],
+    },
+    READY_TO_SHIP: {
+      subject: "Your order is ready to ship — {painting}",
+      heading: "Your print is ready!",
+      body: ["It's produced, packed, and being prepared for handoff to the courier. As soon as there's a tracking number, we'll send it in a separate email."],
+    },
+  },
+  de: {
+    PAID: {
+      subject: "Danke für Ihre Bestellung — {painting}",
+      heading: "Danke für Ihre Bestellung!",
+      body: [
+        "Wir haben Ihre Zahlung erhalten und beginnen mit der Herstellung. Unten finden Sie Ihre Bestellnummer — bewahren Sie diese E-Mail oder die Nummer selbst auf, Sie brauchen sie, um den Status jederzeit zu prüfen.",
+        "So geht es weiter: Ihr Druck wird hergestellt, dann verpackt und für den Versand vorbereitet und geht schließlich mit einer Sendungsnummer auf die Reise. Wir senden bei jedem dieser Schritte eine kurze E-Mail.",
+      ],
+    },
+    PAINTING: {
+      subject: "Ihr Druck wird hergestellt — {painting}",
+      heading: "Ihr Druck ist in Arbeit",
+      body: ["Ihr Leinwanddruck wird gerade hergestellt. Das nächste Update folgt, sobald er versandfertig ist."],
+    },
+    READY_TO_SHIP: {
+      subject: "Ihre Bestellung ist versandbereit — {painting}",
+      heading: "Ihr Druck ist fertig!",
+      body: ["Er ist hergestellt, verpackt und wird für die Übergabe an den Paketdienst vorbereitet. Sobald es eine Sendungsnummer gibt, schicken wir sie Ihnen in einer separaten E-Mail."],
+    },
+  },
+  fr: {
+    PAID: {
+      subject: "Merci pour votre commande — {painting}",
+      heading: "Merci pour votre commande !",
+      body: [
+        "Nous avons bien reçu votre paiement et nous lançons la fabrication. Vous trouverez ci-dessous votre numéro de commande : conservez cet e-mail ou le numéro lui-même, il vous servira à vérifier le statut à tout moment.",
+        "Voici la suite : votre impression est fabriquée, puis emballée et préparée pour l'expédition, et enfin elle part avec un numéro de suivi du transporteur. Nous vous enverrons un court e-mail à chacune de ces étapes.",
+      ],
+    },
+    PAINTING: {
+      subject: "Votre impression est en fabrication — {painting}",
+      heading: "Votre impression est en cours de fabrication",
+      body: ["Votre impression sur toile est en cours de fabrication. La prochaine mise à jour arrivera lorsqu'elle sera prête à être expédiée."],
+    },
+    READY_TO_SHIP: {
+      subject: "Votre commande est prête à être expédiée — {painting}",
+      heading: "Votre impression est prête !",
+      body: ["Elle est fabriquée, emballée et en cours de préparation pour la remise au transporteur. Dès qu'il y aura un numéro de suivi, nous vous l'enverrons dans un e-mail séparé."],
+    },
+  },
+  ja: {
+    PAID: {
+      subject: "ご注文ありがとうございます — {painting}",
+      heading: "ご注文ありがとうございます!",
+      body: [
+        "お支払いを確認しました。制作を開始します。下記がご注文番号です。いつでも状況を確認できるよう、このメールまたは番号を保管してください。",
+        "今後の流れ:プリントを制作し、梱包して発送準備を行い、最後に配送業者の追跡番号とともに発送します。各段階で短いメールをお送りします。",
+      ],
+    },
+    PAINTING: {
+      subject: "プリントを制作中です — {painting}",
+      heading: "プリントの制作が始まりました",
+      body: ["キャンバスプリントを現在制作しています。発送準備が整い次第、次のご連絡をお送りします。"],
+    },
+    READY_TO_SHIP: {
+      subject: "発送準備が整いました — {painting}",
+      heading: "プリントが完成しました!",
+      body: ["制作と梱包が完了し、配送業者への引き渡しを準備しています。追跡番号が発行され次第、別のメールでお知らせします。"],
+    },
+  },
+};
+
 function escapeHtml(str: string): string {
   return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 }
@@ -263,7 +369,12 @@ export interface OrderEmailParams {
   status: EmailableStatus;
   customerName: string;
   orderId: string;
-  paintingTitles: string[];
+  /** One readable line per order row ("Orange x2 - canvas print"), shown in the details box. */
+  itemSummaries: string[];
+  /** Short name for the subject line ("Orange" or "Orange +2"). */
+  subjectTitle: string;
+  /** True when every row is a canvas print (swaps the painting/drying wording). */
+  printOnly?: boolean;
   trackingUrl: string;
   trackingNumber?: string | null;
   trackingCarrier?: string | null;
@@ -272,10 +383,10 @@ export interface OrderEmailParams {
 
 export function renderOrderStatusEmail(params: OrderEmailParams): { subject: string; html: string } {
   const copy = COPY[params.locale] ?? COPY.uk;
-  const statusCopy = copy.statuses[params.status];
-  const paintingSummary = params.paintingTitles.join(", ");
+  const statusCopy = (params.printOnly ? PRINT_OVERRIDES[params.locale]?.[params.status] : undefined) ?? copy.statuses[params.status];
+  const itemsHtml = params.itemSummaries.map((line) => escapeHtml(line)).join("<br>");
 
-  const subject = statusCopy.subject.replace("{painting}", paintingSummary);
+  const subject = statusCopy.subject.replace("{painting}", params.subjectTitle);
 
   const html = `
 <!DOCTYPE html>
@@ -301,7 +412,7 @@ export function renderOrderStatusEmail(params: OrderEmailParams): { subject: str
                       <p style="margin:0 0 6px;color:#6e6e6c;">${escapeHtml(copy.orderLabel)}</p>
                       <p style="margin:0 0 12px;font-weight:bold;font-family:monospace;font-size:15px;">${escapeHtml(params.orderId)}</p>
                       <p style="margin:0 0 6px;color:#6e6e6c;">${escapeHtml(copy.paintingsLabel)}</p>
-                      <p style="margin:0;font-weight:bold;">${escapeHtml(paintingSummary)}</p>
+                      <p style="margin:0;font-weight:bold;line-height:1.6;">${itemsHtml}</p>
                       ${
                         params.status === "SHIPPED" && (params.trackingNumber || params.trackingCarrier)
                           ? `<p style="margin:12px 0 0;color:#6e6e6c;">${escapeHtml(params.trackingCarrier ?? "")}</p><p style="margin:0;font-weight:bold;font-family:monospace;">${escapeHtml(params.trackingNumber ?? "")}</p>`

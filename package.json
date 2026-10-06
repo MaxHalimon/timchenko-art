@@ -10,6 +10,7 @@
   "prisma:generate": "prisma generate",
   "prisma:migrate": "prisma migrate dev",
   "prisma:seed": "prisma db seed",
+  "catalog:fix": "tsx scripts/fix-catalog-prices.ts",
   "media:upload": "tsx scripts/upload-media.ts",
   "media:verify": "tsx scripts/verify-media.ts",
   "media:cleanup": "tsx scripts/cleanup-legacy-media.ts"

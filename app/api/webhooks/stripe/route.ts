@@ -25,12 +25,24 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Invalid signature" }, { status: 400 });
   }
 
-  if (event.type === "checkout.session.completed") {
+  // Payment methods split into two kinds. Cards, Apple Pay, Google Pay and
+  // PayPal confirm on the spot: `checkout.session.completed` arrives with
+  // payment_status "paid". Delayed methods (bank debits, some local methods)
+  // also fire `completed`, but with "unpaid" — the money only arrives later and
+  // is announced by `checkout.session.async_payment_succeeded` (or
+  // `..._failed`). Marking the order PAID on an "unpaid" session would ship a
+  // painting for money that may never come, so we wait for the real signal.
+  if (event.type === "checkout.session.completed" || event.type === "checkout.session.async_payment_succeeded") {
     const session = event.data.object as Stripe.Checkout.Session;
     const orderId = session.metadata?.orderId;
 
     if (!orderId) {
-      console.error("Stripe webhook: checkout.session.completed with no orderId in metadata");
+      console.error(`Stripe webhook: ${event.type} with no orderId in metadata`);
+      return NextResponse.json({ received: true });
+    }
+
+    if (session.payment_status === "unpaid") {
+      // Customer finished checkout, payment still in flight — nothing to do yet.
       return NextResponse.json({ received: true });
     }
 
@@ -53,6 +65,14 @@ export async function POST(req: NextRequest) {
     // than once — markOrderPaid no-ops if the order isn't still in PREVIEW,
     // so this is safe to call on every delivery of the same event.
     await markOrderPaid(payment.order.id);
+  }
+
+  if (event.type === "checkout.session.async_payment_failed") {
+    const session = event.data.object as Stripe.Checkout.Session;
+    const payment = await prisma.payment.findUnique({ where: { providerRef: session.id } });
+    if (payment) {
+      await prisma.payment.update({ where: { id: payment.id }, data: { status: "FAILED" } });
+    }
   }
 
   // Card payments can fail after the checkout session was created (declined,

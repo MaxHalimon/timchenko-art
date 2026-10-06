@@ -1,0 +1,74 @@
+/* Compact on purpose: the heading row and both columns are tight so the card
+   stays low and the grid below it is never pushed far down the page. */
+.section {
+  margin: var(--space-3) 0;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.header {
+  padding: 12px 20px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.heading {
+  font-size: 22px;
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.column {
+  display: flex;
+  flex-direction: column; /* lets the price line sink to the bottom (margin-top: auto) */
+  padding: 14px 20px;
+}
+
+.columnPrint {
+  background-color: var(--color-bg-muted);
+  border-left: 1px solid var(--color-border);
+}
+
+.title {
+  font-size: 17px;
+  margin-bottom: 4px;
+}
+
+.body {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--color-text-light);
+  margin-bottom: 8px;
+}
+
+.priceLine {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-top: auto; /* both columns end with their price on the same baseline */
+}
+
+.from {
+  font-size: 13px;
+  color: var(--color-text-light);
+}
+
+.price {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--color-text); /* plain text colour — the price is not an accent */
+}
+
+@media (max-width: 720px) {
+  .columns {
+    grid-template-columns: 1fr;
+  }
+
+  .columnPrint {
+    border-left: none;
+    border-top: 1px solid var(--color-border);
+  }
+}

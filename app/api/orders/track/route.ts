@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { localizedText } from "@/lib/localizedText";
+import { isPrintOnly } from "@/lib/orderItemText";
 import { locales, defaultLocale, type Locale } from "@/i18n/config";
 
 /**
@@ -37,6 +38,12 @@ export async function POST(req: NextRequest) {
     status: order.status,
     trackingNumber: order.trackingNumber,
     trackingCarrier: order.trackingCarrier,
-    paintingTitles: order.items.map((item) => localizedText(item.product.title, locale)),
+    // Print-only orders skip the painting / drying stages (the page draws a shorter timeline).
+    flow: isPrintOnly(order.items) ? "print" : "oil",
+    items: order.items.map((item) => ({
+      title: localizedText(item.product.title, locale),
+      variant: item.variant,
+      quantity: item.quantity,
+    })),
   });
 }

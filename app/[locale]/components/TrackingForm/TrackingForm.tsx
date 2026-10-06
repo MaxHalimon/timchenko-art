@@ -11,12 +11,16 @@ type OrderStatus = "PREVIEW" | "PAID" | "PAINTING" | "DRYING" | "READY_TO_SHIP" 
 // yet") — handled as its own message below rather than a timeline step.
 const STEP_ORDER: OrderStatus[] = ["PAID", "PAINTING", "DRYING", "READY_TO_SHIP", "SHIPPED", "DELIVERED"];
 
+// An order made only of canvas prints has no painting / drying stages.
+const PRINT_STEP_ORDER: OrderStatus[] = ["PAID", "PAINTING", "READY_TO_SHIP", "SHIPPED", "DELIVERED"];
+
 interface TrackResult {
   found: boolean;
   status?: OrderStatus;
   trackingNumber?: string | null;
   trackingCarrier?: string | null;
-  paintingTitles?: string[];
+  flow?: "oil" | "print";
+  items?: { title: string; variant: "ORIGINAL" | "REPAINT" | "PRINT"; quantity: number }[];
 }
 
 type SubmitState = "idle" | "checking" | "done" | "error";
@@ -30,6 +34,7 @@ interface TrackingFormProps {
 
 export function TrackingForm({ initialReference }: TrackingFormProps) {
   const t = useTranslations("tracking");
+  const tItem = useTranslations("orderItem");
   const locale = useLocale();
   const [reference, setReference] = useState(initialReference ?? "");
   const [state, setState] = useState<SubmitState>("idle");
@@ -114,9 +119,9 @@ export function TrackingForm({ initialReference }: TrackingFormProps) {
           <h2 className={styles.resultHeading}>{t("resultHeading")}</h2>
 
           <ol className={styles.timeline}>
-            {STEP_ORDER.map((step) => {
-              const currentIndex = STEP_ORDER.indexOf(result.status!);
-              const stepIndex = STEP_ORDER.indexOf(step);
+            {(result.flow === "print" ? PRINT_STEP_ORDER : STEP_ORDER).map((step, _i, steps) => {
+              const currentIndex = steps.indexOf(result.status!);
+              const stepIndex = steps.indexOf(step);
               const isDone = stepIndex < currentIndex;
               const isCurrent = stepIndex === currentIndex;
               return (
@@ -132,16 +137,26 @@ export function TrackingForm({ initialReference }: TrackingFormProps) {
                   aria-current={isCurrent ? "step" : undefined}
                 >
                   <span className={styles.timelineDot} aria-hidden="true" />
-                  <span className={styles.timelineLabel}>{t(`status.${step}`)}</span>
+                  <span className={styles.timelineLabel}>
+                    {result.flow === "print" && step === "PAINTING" ? t("statusPrint.PAINTING") : t(`status.${step}`)}
+                  </span>
                 </li>
               );
             })}
           </ol>
 
-          {result.paintingTitles && result.paintingTitles.length > 0 && (
-            <p className={styles.resultRow}>
-              <strong>{t("paintingLabel")}:</strong> {result.paintingTitles.join(", ")}
-            </p>
+          {result.items && result.items.length > 0 && (
+            <div className={styles.resultRow}>
+              <strong>{t("itemsLabel")}:</strong>
+              <ul>
+                {result.items.map((item, index) => (
+                  <li key={index}>
+                    {item.title}
+                    {item.quantity > 1 ? ` ×${item.quantity}` : ""} — {tItem(`variant.${item.variant}`)}
+                  </li>
+                ))}
+              </ul>
+            </div>
           )}
           {result.trackingCarrier && (
             <p className={styles.resultRow}>

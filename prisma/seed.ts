@@ -8,7 +8,7 @@
  *
  * Порядок:
  *   1. npx prisma migrate deploy
- *   2. npm run media:upload          (генерує WebP + водяний знак, вантажить в R2, пише manifest)
+ *   2. npm run media:upload          (генерує WebP, вантажить в R2, пише manifest)
  *   3. npx prisma db seed            (цей файл)
  *
  * (Раніше тут стояло `if (R2_PUBLIC_URL) continue;` ПЕРЕД upsert — коли R2
@@ -37,6 +37,8 @@ interface PaintingInput {
   /** Stable slug into productCard.materials.* — see messages/*.json. */
   material: string;
   status: "AVAILABLE" | "IN_PROGRESS" | "SOLD";
+  /** Optional. Exclusive paintings are never repainted or printed. Left out = unchanged. */
+  exclusive?: boolean;
   /** Ім'я вихідного файлу (для `media:upload`); сам сид його не читає. */
   previewImageFile: string;
 }
@@ -80,6 +82,7 @@ async function main() {
       theme: painting.theme,
       material: painting.material,
       status: painting.status as ProductStatus,
+      exclusive: painting.exclusive,
       previewImageKey: m.large,
       thumbImageKey: m.thumb,
       originalImageKey: m.original,

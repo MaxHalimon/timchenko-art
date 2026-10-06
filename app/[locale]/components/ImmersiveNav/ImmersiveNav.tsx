@@ -26,7 +26,7 @@ export function ImmersiveNav() {
   const t = useTranslations("common");
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const { slugs } = useEasel();
+  const { count } = useEasel();
   const headerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -106,7 +106,7 @@ export function ImmersiveNav() {
         </Link>
         <Link href="/easel" className={styles.navLink} onClick={closeMenu}>
           {t("nav.easel")}
-          {slugs.length > 0 && <span className={styles.easelCount}>{slugs.length}</span>}
+          {count > 0 && <span className={styles.easelCount}>{count}</span>}
         </Link>
         <div className={styles.navDivider} />
         <div className={styles.switchers}>

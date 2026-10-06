@@ -25,6 +25,8 @@ export interface ProductCardProps {
   status: ProductStatus;
   /** Stable slug into productCard.materials.* — see messages/*.json. */
   material: string;
+  /** Exclusive paintings are never repainted: once sold, they can't be ordered again. */
+  exclusive?: boolean;
 }
 
 export function ProductCard({
@@ -37,6 +39,7 @@ export function ProductCard({
   priceEur,
   status,
   material,
+  exclusive = false,
 }: ProductCardProps) {
   const t = useTranslations("productCard");
   const isSold = status === "SOLD";
@@ -67,7 +70,7 @@ export function ProductCard({
 
       <div className={styles.actions}>
         <PriceTag amountEur={priceEur} className={styles.price} />
-        <EaselButton slug={slug} />
+        <EaselButton slug={slug} disabled={exclusive && isSold} />
       </div>
     </div>
   );

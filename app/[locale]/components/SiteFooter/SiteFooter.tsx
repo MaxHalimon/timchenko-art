@@ -13,6 +13,7 @@ export function SiteFooter() {
         <Link href="/terms-of-service">{tLegal("termsOfService.title")}</Link>
         <Link href="/shipping-policy">{tLegal("shippingPolicy.title")}</Link>
         <Link href="/returns-refunds">{tLegal("returnsRefunds.title")}</Link>
+        <Link href="/impressum">{tLegal("impressum.title")}</Link>
       </nav>
       <p className={styles.copyright}>
         © {new Date().getFullYear()} {t("siteName")}. {t("footer")}

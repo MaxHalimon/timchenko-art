@@ -4,6 +4,7 @@ import { useTranslations } from "next-intl";
 import { GalleryHero, type HeroPainting } from "./GalleryHero";
 import { GalleryGrid, type GridProduct } from "./GalleryGrid";
 import { FilterBar } from "./FilterBar";
+import { PrintTeaser } from "../components/PrintTeaser/PrintTeaser";
 import styles from "./page.module.css";
 
 /**
@@ -32,6 +33,8 @@ export function GalleryView({
   return (
     <>
       <GalleryHero paintings={heroPaintings} focusSlug={focusSlug} />
+
+      <PrintTeaser />
 
       <FilterBar themeOptions={themeOptions} current={current} />
 

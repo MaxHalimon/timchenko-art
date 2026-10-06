@@ -28,6 +28,7 @@ export async function POST(req: NextRequest) {
       heightCm: p.heightCm,
       priceEur: Number(p.priceEur),
       status: p.status,
+      exclusive: p.exclusive,
     })),
   });
 }

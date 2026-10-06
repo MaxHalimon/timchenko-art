@@ -13,8 +13,8 @@ import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
  * against it - we point `endpoint` at R2 and always use region "auto".
  *
  * Two buckets, two access patterns:
- *  - previews  (S3_PREVIEWS_BUCKET)   PUBLIC. Holds ONLY watermarked,
- *    size-capped WebP files (thumb + large) and the hero video. Uploaded
+ *  - previews  (S3_PREVIEWS_BUCKET)   PUBLIC. Holds ONLY size-capped
+ *    WebP files (thumb + large) and the hero video. Uploaded
  *    by scripts/upload-media.ts; the DB stores the relative object key
  *    (see lib/media.ts), never a full URL.
  *  - originals (S3_ORIGINALS_BUCKET)  PRIVATE. Full-resolution source

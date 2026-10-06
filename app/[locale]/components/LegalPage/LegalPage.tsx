@@ -32,7 +32,7 @@ function formatLegalDate(locale: string): string {
 
 /**
  * Renders any `legal.<page>` translation namespace (privacyPolicy,
- * termsOfService, shippingPolicy, returnsRefunds — see messages/*.json)
+ * termsOfService, shippingPolicy, returnsRefunds, impressum — see messages/*.json)
  * as a title + intro + list of heading/body sections.
  *
  * Only the page-level title gets the AccentText treatment — section
@@ -40,8 +40,8 @@ function formatLegalDate(locale: string): string {
  * subheading of a legal document would undercut how seriously it reads.
  *
  * ⚠️ Content in messages/*.json is a starting template, not finished legal
- * copy — the remaining bracketed placeholders ([X] days, [jurisdiction])
- * must be filled in (the "last updated" date is no longer a placeholder: it
+ * copy — the one remaining bracketed placeholder ([jurisdiction] in the
+ * Terms) must be filled in (the "last updated" date is no longer a placeholder: it
  * comes from LEGAL_LAST_UPDATED in lib/constants.ts), and the whole set
  * should be reviewed by a lawyer before launch (see
  * prisma/PAINTINGS_GUIDE.md-style companion doc: LEGAL_PAGES_GUIDE.md).

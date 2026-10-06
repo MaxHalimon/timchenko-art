@@ -71,7 +71,8 @@
     "relatedHeading": "You might also like",
     "notFoundTitle": "Painting not found",
     "notFoundBody": "This piece may have been removed from the catalog, or the link is incorrect.",
-    "notFoundCta": "Go to the gallery"
+    "notFoundCta": "Go to the gallery",
+    "exclusiveNote": "Exclusive painting: one of a kind, never repainted or printed."
   },
   "languageSwitcher": {
     "label": "Language"
@@ -86,8 +87,12 @@
       "intro": "This Privacy Policy explains what personal data Timchenko Art collects when you use this site, how we use it, and what rights you have over your data.",
       "sections": [
         {
+          "heading": "Who is responsible for your data",
+          "body": "The controller of your personal data is the seller, the artist Marina (details on the “Legal Notice (Impressum)” page). Contact for data questions: maryna.timchenko.art@gmail.com."
+        },
+        {
           "heading": "What data we collect",
-          "body": "When you place an order, we collect your name, email address, phone number, and shipping address. If you write to us through the contact form, we receive your name, email address, and message. We do not store payment card details — these are handled exclusively by our payment partners (Stripe, NOWPayments) under their own security policies."
+          "body": "When you place an order, we collect your name, email address, phone number, and shipping address. If you write to us through the contact form, we receive your name, email address, and message. We do not store payment card details — these are handled exclusively by our payment partners (Stripe, PayPal, NOWPayments) under their own security policies."
         },
         {
           "heading": "How we use your data",
@@ -99,7 +104,7 @@
         },
         {
           "heading": "Cookies and local storage",
-          "body": "The site stores your selected language and currency in cookies, and your 18+ confirmation and the contents of your Easel in your browser's local storage. On your first visit, the country detected from your IP address is used only to pick an initial language and currency; we do not store the IP address itself. We do not use advertising or tracking cookies, or analytics. Payment pages are operated by Stripe and NOWPayments and are subject to their own policies."
+          "body": "The site stores your selected language and currency in cookies, and your 18+ confirmation and the contents of your Easel in your browser's local storage. On your first visit, the country detected from your IP address is used only to pick an initial language and currency; we do not store the IP address itself. We do not use advertising or tracking cookies, or analytics. Payment pages are operated by Stripe, PayPal, and NOWPayments and are subject to their own policies."
         },
         {
           "heading": "How long we keep data",
@@ -118,7 +123,7 @@
       "sections": [
         {
           "heading": "About this site",
-          "body": "Timchenko Art is the Merchant of Record for original oil paintings by the artist Marina. The artist creates the works and prepares them for shipment; all customer transactions are handled by the site."
+          "body": "This site is an online shop for original oil paintings. The seller and service provider is the artist Marina, who operates as a sole proprietor in Germany; her details are given on the “Legal Notice (Impressum)” page. The sales contract is concluded between you and the seller."
         },
         {
           "heading": "Order restrictions",
@@ -126,11 +131,11 @@
         },
         {
           "heading": "Paintings and uniqueness",
-          "body": "Some gallery pieces may be repainted by the artist on request. Custom commissions are painted as one-of-a-kind originals and are not reproduced afterward."
+          "body": "All paintings are made by hand by the artist, and each one is an original. A painting that is in stock goes to one buyer, and the artist can paint the same painting for you to order — that, too, is a hand-painted original (every canvas differs slightly). Exclusive paintings — made as individual commissions at an agreed price, and in-stock paintings withdrawn from sale for good by agreement with the buyer — are never repeated or printed. Any other painting in the gallery can also be ordered as a canvas print in the size of the original at a flat price of €300; for a print in a different size the price is agreed individually. It is the same image printed at a print shop, not a hand-painted work."
         },
         {
           "heading": "Appearance of the artworks",
-          "body": "Every painting is made by hand in oil on canvas, so colors on your screen may differ slightly from the actual work, and a painting repeated by the artist will not be identical to the one shown on the site."
+          "body": "Every painting is made by hand in oil on canvas, so colors on your screen may differ slightly from the actual work, and a painting made to order from an image on the site is an original in its own right and may differ slightly from the one shown."
         },
         {
           "heading": "Copyright",
@@ -138,7 +143,7 @@
         },
         {
           "heading": "Pricing and payment",
-          "body": "Prices are set in euros (EUR). For convenience they may be displayed in your selected currency at an approximate rate, but payment is taken in euros through our payment provider (Stripe or NOWPayments). Your bank or payment service may apply its own conversion and fees."
+          "body": "Prices are set in euros (EUR). For convenience they may be displayed in your selected currency at an approximate rate, but payment is taken in euros: by card (including Apple Pay and Google Pay) or PayPal through Stripe, or by cryptocurrency through NOWPayments. Your bank or payment service may apply its own conversion and fees."
         },
         {
           "heading": "Age restriction",
@@ -146,7 +151,7 @@
         },
         {
           "heading": "Governing law",
-          "body": "These Terms are governed by the laws of [jurisdiction — to confirm]."
+          "body": "These Terms are governed by the laws of the Federal Republic of Germany. Mandatory consumer protection rules of the country where you live remain unaffected."
         }
       ]
     },
@@ -157,7 +162,7 @@
       "sections": [
         {
           "heading": "Processing time",
-          "body": "Paintings marked \"Ready\" are typically shipped within [X] business days of payment. Custom commissions require time for the artist to complete the work — an estimated timeline is provided separately when you place the order."
+          "body": "Paintings marked “Ready” are shipped within 5 business days of payment. Paintings the artist makes by hand to order (oil on canvas) take 15–30 days to complete after payment and are then shipped within 5 business days. You can see the current stage of your order on the “Order Status” page. A canvas print takes 5 days to produce and is then shipped within 5 business days. If an order contains items with different production times, it is shipped in one parcel once all items are ready, unless we agree otherwise with you."
         },
         {
           "heading": "Packaging",
@@ -179,24 +184,47 @@
       "intro": "This policy explains the terms for returning paintings and receiving refunds.",
       "sections": [
         {
-          "heading": "Ready-made gallery pieces",
-          "body": "For paintings purchased ready-made (status \"Ready\" at the time of order), returns are accepted within [X] days of delivery, provided the item is in its original condition."
+          "heading": "Gallery paintings and prints",
+          "body": "For paintings from the gallery — both ready-made (status “Ready” at the time of order) and painted to order — and for canvas prints in the standard size, returns are accepted within 14 days of the day you receive them, provided the item is in its original condition. Return shipping is paid by the customer who placed the order."
         },
         {
           "heading": "Custom commissions",
-          "body": "Paintings made to a custom order are generally non-returnable given their personalized nature — except in cases of damage during shipping."
+          "body": "Paintings made to an individual commission (including exclusive paintings), as well as canvas prints in a non-standard size, are generally non-returnable given their personalized nature — except in cases of damage during shipping."
         },
         {
           "heading": "Damage in transit",
-          "body": "If your painting arrives damaged, contact us within 48 hours with photos of the damage — we'll arrange a replacement or a full refund."
+          "body": "If your painting or print arrives damaged, contact us within 48 hours with photos of the damage — we'll arrange a replacement or a refund."
+        },
+        {
+          "heading": "Refund amount and method",
+          "body": "A refund is 90% of the price of the painting or print; the remaining 10% covers the materials and production costs. Refunds go back via the payment method you used; for payments made in cryptocurrency, the refund is sent to the buyer's wallet."
         },
         {
           "heading": "How to request a return",
-          "body": "Email maryna.timchenko.art@gmail.com with your order number and the reason for the return. We'll respond within [X] business days."
+          "body": "Email maryna.timchenko.art@gmail.com with your order number and the reason for the return. We'll respond within 1 business day."
         },
         {
           "heading": "Your statutory rights",
-          "body": "This policy does not limit the rights you have as a consumer under applicable law, including the right of withdrawal that applies to EU consumers where it is relevant."
+          "body": "This policy does not limit the rights you have as a consumer under applicable law. If mandatory consumer law (including the right of withdrawal that applies to EU consumers) gives you greater rights than this policy, those rights prevail."
+        }
+      ]
+    },
+    "impressum": {
+      "title": "Legal Notice (Impressum)",
+      "lastUpdated": "Last updated: {date}",
+      "intro": "Information about the seller and service provider of this site as required by German law (§ 5 DDG).",
+      "sections": [
+        {
+          "heading": "Seller",
+          "body": "[Artist's full name], sole proprietor (Einzelunternehmerin), [street and number, postcode, city], Germany."
+        },
+        {
+          "heading": "Contact",
+          "body": "Email: maryna.timchenko.art@gmail.com. You can also write to us through the contact form on this site."
+        },
+        {
+          "heading": "Tax information",
+          "body": "[VAT identification number (USt-IdNr.) if any, or a note on the small-business VAT exemption under § 19 UStG]."
         }
       ]
     }
@@ -324,7 +352,11 @@
     "fillerHeading": "How we care for your painting in transit",
     "fillerText": "Before it travels to you, every piece is packed by hand — with the same care it was painted with. Rigid framing, protective corner guards, moisture-resistant wrapping. For full details on timelines and international shipping, see the",
     "fillerLinkText": "Shipping Policy",
-    "previewNotice": "This order hasn't been paid yet. If you just completed checkout, try refreshing in a few minutes."
+    "previewNotice": "This order hasn't been paid yet. If you just completed checkout, try refreshing in a few minutes.",
+    "statusPrint": {
+      "PAINTING": "Your print is being produced"
+    },
+    "itemsLabel": "Your order"
   },
   "easel": {
     "add": "Put on the easel",
@@ -352,7 +384,21 @@
     "error": "Something went wrong. Please try again.",
     "itemUnavailableError": "One of the pieces is no longer available — please refresh your easel.",
     "intro": "Here are the pieces you've given a little time to sit with. When you're ready, tell us where to send them.",
-    "loading": "Loading your easel..."
+    "loading": "Loading your easel...",
+    "quantity": "Quantity",
+    "decrease": "Decrease quantity",
+    "increase": "Increase quantity",
+    "variantOil": "Oil on canvas",
+    "variantPrint": "Canvas print",
+    "noteOriginal": "The original, ready to ship.",
+    "noteOriginalPlusRepaint": "1 is the finished painting; {count} more will be painted by hand to order ({min}–{max} days).",
+    "noteRepaintOnly": "The finished painting has found its owner — yours will be painted by hand to order ({min}–{max} days).",
+    "notePrint": "Size as in the original. Production: {days, plural, one {# day} other {# days}}.",
+    "addPrint": "Add print to easel",
+    "printOnEasel": "Print on the easel",
+    "itemsCount": "Items: {count}",
+    "mixedNote": "If your order mixes items with different production times, it ships in one parcel once everything is ready.",
+    "exclusiveUnavailable": "Exclusive painting — no longer available"
   },
   "orderSuccess": {
     "title": "Thank you for your order",
@@ -364,5 +410,26 @@
   },
   "heroManifesto": {
     "text": "I don't paint bodies — I paint the moment the mask slips. Color tells the truth faster than words, and a canvas stays quiet only once it has said everything it needed to…"
+  },
+  "print": {
+    "productHeading": "Canvas print",
+    "productSoldHeading": "Original sold — print available",
+    "productBody": "The same image, printed on canvas at a print shop — not hand-painted. Size as in the original; another size can be ordered, with the price agreed individually. Production: {days, plural, one {# day} other {# days}}, then shipping within {dispatch, plural, one {# business day} other {# business days}}.",
+    "homeHeading": "One painting, two versions",
+    "homeOriginalTitle": "The original",
+    "homeOriginalBody": "Painted by hand in oil on canvas by the artist — with real brushwork and texture.",
+    "homePrintTitle": "Canvas print",
+    "homePrintBody": "The same image, printed on canvas at a print shop. Available for gallery paintings other than exclusive ones — even if the original is already sold. Size as in the original, other sizes by arrangement. Production: {days, plural, one {# day} other {# days}}.",
+    "from": "from",
+    "contactMessage": "Hello! I'd like to order a canvas print of the painting “{title}”.",
+    "otherSize": "Need a different size? Write to us",
+    "contactMessageOtherSize": "Hello! I'd like to order a canvas print of the painting “{title}” in a different size: "
+  },
+  "orderItem": {
+    "variant": {
+      "ORIGINAL": "original, oil on canvas (ready)",
+      "REPAINT": "original, oil on canvas (painted to order)",
+      "PRINT": "canvas print"
+    }
   }
 }

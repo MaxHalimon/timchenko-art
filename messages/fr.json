@@ -71,7 +71,8 @@
     "relatedHeading": "Vous pourriez aussi aimer",
     "notFoundTitle": "Peinture introuvable",
     "notFoundBody": "Cette œuvre a peut-être été retirée du catalogue, ou le lien est incorrect.",
-    "notFoundCta": "Voir la galerie"
+    "notFoundCta": "Voir la galerie",
+    "exclusiveNote": "Peinture exclusive : pièce unique, jamais repeinte ni imprimée."
   },
   "languageSwitcher": {
     "label": "Langue"
@@ -86,8 +87,12 @@
       "intro": "Cette politique de confidentialité explique quelles données personnelles Timchenko Art collecte lorsque vous utilisez ce site, comment nous les utilisons et quels droits vous avez sur vos données.",
       "sections": [
         {
+          "heading": "Responsable du traitement",
+          "body": "Le responsable du traitement de vos données personnelles est la vendeuse, l'artiste Marina (coordonnées sur la page « Mentions légales (Impressum) »). Contact pour les questions relatives aux données : maryna.timchenko.art@gmail.com."
+        },
+        {
           "heading": "Quelles données nous collectons",
-          "body": "Lorsque vous passez une commande, nous collectons votre nom, votre adresse e-mail, votre numéro de téléphone et votre adresse de livraison. Si vous nous écrivez via le formulaire de contact, nous recevons votre nom, votre adresse e-mail et votre message. Nous ne conservons pas les détails de votre carte bancaire — ceux-ci sont traités exclusivement par nos partenaires de paiement (Stripe, NOWPayments) selon leurs propres politiques de sécurité."
+          "body": "Lorsque vous passez une commande, nous collectons votre nom, votre adresse e-mail, votre numéro de téléphone et votre adresse de livraison. Si vous nous écrivez via le formulaire de contact, nous recevons votre nom, votre adresse e-mail et votre message. Nous ne conservons pas les détails de votre carte bancaire — ceux-ci sont traités exclusivement par nos partenaires de paiement (Stripe, PayPal, NOWPayments) selon leurs propres politiques de sécurité."
         },
         {
           "heading": "Comment nous utilisons vos données",
@@ -99,7 +104,7 @@
         },
         {
           "heading": "Cookies et stockage local",
-          "body": "Le site enregistre votre langue et votre devise dans des cookies, et votre confirmation d'âge (18+) ainsi que le contenu de votre chevalet dans le stockage local de votre navigateur. Lors de votre première visite, le pays déduit de votre adresse IP sert uniquement à choisir une langue et une devise initiales ; nous ne conservons pas l'adresse IP elle-même. Nous n'utilisons ni cookies publicitaires ou de suivi, ni outils d'analyse. Les pages de paiement sont exploitées par Stripe et NOWPayments et soumises à leurs propres politiques."
+          "body": "Le site enregistre votre langue et votre devise dans des cookies, et votre confirmation d'âge (18+) ainsi que le contenu de votre chevalet dans le stockage local de votre navigateur. Lors de votre première visite, le pays déduit de votre adresse IP sert uniquement à choisir une langue et une devise initiales ; nous ne conservons pas l'adresse IP elle-même. Nous n'utilisons ni cookies publicitaires ou de suivi, ni outils d'analyse. Les pages de paiement sont exploitées par Stripe, PayPal et NOWPayments et soumises à leurs propres politiques."
         },
         {
           "heading": "Durée de conservation",
@@ -118,7 +123,7 @@
       "sections": [
         {
           "heading": "À propos de ce site",
-          "body": "Timchenko Art est le vendeur officiel (Merchant of Record) des peintures à l'huile originales de l'artiste Marina. L'artiste crée les œuvres et les prépare pour l'expédition ; toutes les transactions clients sont gérées par le site."
+          "body": "Ce site est une boutique en ligne de peintures à l'huile originales. La vendeuse et prestataire est l'artiste Marina, qui exerce en tant qu'entrepreneuse individuelle en Allemagne ; ses coordonnées figurent sur la page « Mentions légales (Impressum) ». Le contrat de vente est conclu entre vous et la vendeuse."
         },
         {
           "heading": "Restrictions de commande",
@@ -126,11 +131,11 @@
         },
         {
           "heading": "Peintures et unicité",
-          "body": "Certaines pièces de la galerie peuvent être repeintes par l'artiste sur demande. Les commandes personnalisées sont peintes comme des originaux uniques et ne sont pas reproduites par la suite."
+          "body": "Toutes les peintures sont réalisées à la main par l'artiste, et chacune est un original. Une peinture en stock est remise à un seul acheteur ; l'artiste peut aussi peindre la même peinture pour vous sur commande — il s'agit là aussi d'un original peint à la main (chaque toile diffère légèrement). Les peintures exclusives — réalisées sur commande individuelle à un prix convenu, ainsi que les peintures en stock définitivement retirées de la vente d'un commun accord avec l'acheteur — ne sont ni répétées ni imprimées. Toute autre peinture de la galerie peut aussi être commandée en impression sur toile à la taille de l'original au prix unique de 300 € ; pour une impression d'une autre taille, le prix est convenu individuellement. Il s'agit de la même image imprimée chez un imprimeur, et non d'une œuvre peinte à la main."
         },
         {
           "heading": "Aspect des œuvres",
-          "body": "Chaque peinture est réalisée à la main à l'huile sur toile ; les couleurs affichées à l'écran peuvent donc différer légèrement de l'œuvre réelle, et une peinture reproduite par l'artiste ne sera pas identique à celle présentée sur le site."
+          "body": "Chaque peinture est réalisée à la main à l'huile sur toile ; les couleurs affichées à l'écran peuvent donc différer légèrement de l'œuvre réelle, et une peinture réalisée sur commande d'après une image du site est un original à part entière qui peut différer légèrement de celle présentée."
         },
         {
           "heading": "Droits d'auteur",
@@ -138,7 +143,7 @@
         },
         {
           "heading": "Prix et paiement",
-          "body": "Les prix sont fixés en euros (EUR). Pour plus de commodité, ils peuvent être affichés dans la devise de votre choix à un taux approximatif, mais le paiement est prélevé en euros par notre prestataire de paiement (Stripe ou NOWPayments). Votre banque ou service de paiement peut appliquer sa propre conversion et ses propres frais."
+          "body": "Les prix sont fixés en euros (EUR). Pour plus de commodité, ils peuvent être affichés dans la devise de votre choix à un taux approximatif, mais le paiement est prélevé en euros : par carte (y compris Apple Pay et Google Pay) ou PayPal via Stripe, ou en cryptomonnaie via NOWPayments. Votre banque ou service de paiement peut appliquer sa propre conversion et ses propres frais."
         },
         {
           "heading": "Restriction d'âge",
@@ -146,7 +151,7 @@
         },
         {
           "heading": "Loi applicable",
-          "body": "Ces conditions sont régies par les lois de [juridiction — à confirmer]."
+          "body": "Ces conditions sont régies par le droit de la République fédérale d'Allemagne. Les dispositions impératives de protection des consommateurs du pays où vous résidez demeurent applicables."
         }
       ]
     },
@@ -157,7 +162,7 @@
       "sections": [
         {
           "heading": "Délai de traitement",
-          "body": "Les peintures marquées « Disponible » sont généralement expédiées sous [X] jours ouvrés après paiement. Les commandes personnalisées nécessitent un délai supplémentaire pour que l'artiste achève l'œuvre — une estimation vous est communiquée séparément lors de la commande."
+          "body": "Les peintures marquées « Disponible » sont expédiées sous 5 jours ouvrés après le paiement. Les peintures que l'artiste réalise à la main sur commande (huile sur toile) nécessitent 15 à 30 jours de réalisation après le paiement, puis sont expédiées sous 5 jours ouvrés. Vous pouvez voir l'étape en cours de votre commande sur la page « Statut de la commande ». Une impression sur toile est fabriquée en 5 jours, puis expédiée sous 5 jours ouvrés. Si une commande contient des articles aux délais de fabrication différents, elle est expédiée en un seul colis une fois que tous les articles sont prêts, sauf accord contraire avec vous."
         },
         {
           "heading": "Emballage",
@@ -179,24 +184,47 @@
       "intro": "Cette politique explique les conditions de retour des peintures et de remboursement.",
       "sections": [
         {
-          "heading": "Pièces de galerie déjà réalisées",
-          "body": "Pour les peintures achetées déjà réalisées (statut « Disponible » au moment de la commande), les retours sont acceptés dans les [X] jours suivant la livraison, à condition que l'article soit dans son état d'origine."
+          "heading": "Peintures de la galerie et impressions",
+          "body": "Pour les peintures de la galerie — qu'elles soient déjà réalisées (statut « Disponible » au moment de la commande) ou peintes sur commande — et pour les impressions sur toile au format standard, les retours sont acceptés dans les 14 jours suivant le jour de réception, à condition que l'article soit dans son état d'origine. Les frais de retour sont à la charge du client ayant passé la commande."
         },
         {
           "heading": "Commandes personnalisées",
-          "body": "Les peintures réalisées sur commande personnalisée ne sont généralement pas remboursables en raison de leur caractère personnalisé — sauf en cas de dommage pendant le transport."
+          "body": "Les peintures réalisées sur commande individuelle (y compris les peintures exclusives), ainsi que les impressions sur toile à un format non standard, ne sont en principe pas retournables en raison de leur caractère personnalisé — sauf en cas de dommage pendant le transport."
         },
         {
           "heading": "Dommage pendant le transport",
-          "body": "Si votre peinture arrive endommagée, contactez-nous dans les 48 heures avec des photos des dommages — nous organiserons un remplacement ou un remboursement intégral."
+          "body": "Si votre peinture ou impression arrive endommagée, contactez-nous dans les 48 heures avec des photos des dommages — nous organiserons un remplacement ou un remboursement."
+        },
+        {
+          "heading": "Montant et mode de remboursement",
+          "body": "Le remboursement correspond à 90 % du prix de la peinture ou de l'impression ; les 10 % restants couvrent les matériaux et les coûts de fabrication. Il est effectué par le moyen de paiement que vous avez utilisé ; pour les paiements en cryptomonnaie, il est envoyé sur le portefeuille de l'acheteur."
         },
         {
           "heading": "Comment demander un retour",
-          "body": "Envoyez un e-mail à maryna.timchenko.art@gmail.com avec votre numéro de commande et le motif du retour. Nous répondrons sous [X] jours ouvrés."
+          "body": "Envoyez un e-mail à maryna.timchenko.art@gmail.com avec votre numéro de commande et le motif du retour. Nous répondrons sous 1 jour ouvré."
         },
         {
           "heading": "Vos droits légaux",
-          "body": "Cette politique ne limite pas les droits dont vous disposez en tant que consommateur en vertu de la législation applicable, y compris le droit de rétractation des consommateurs de l'UE lorsqu'il s'applique."
+          "body": "Cette politique ne limite pas les droits dont vous disposez en tant que consommateur en vertu de la législation applicable. Si les règles impératives du droit de la consommation (y compris le droit de rétractation des consommateurs de l'UE) vous accordent davantage de droits que cette politique, ce sont ces droits qui prévalent."
+        }
+      ]
+    },
+    "impressum": {
+      "title": "Mentions légales (Impressum)",
+      "lastUpdated": "Dernière mise à jour : {date}",
+      "intro": "Informations sur la vendeuse et prestataire de ce site, conformément au droit allemand (§ 5 DDG).",
+      "sections": [
+        {
+          "heading": "Vendeuse",
+          "body": "[Nom complet de l'artiste], entrepreneuse individuelle (Einzelunternehmerin), [rue et numéro, code postal, ville], Allemagne."
+        },
+        {
+          "heading": "Contact",
+          "body": "E-mail : maryna.timchenko.art@gmail.com. Vous pouvez aussi nous écrire via le formulaire de contact de ce site."
+        },
+        {
+          "heading": "Informations fiscales",
+          "body": "[Numéro de TVA intracommunautaire (USt-IdNr.) le cas échéant, ou mention de la franchise en base de TVA des petites entreprises selon le § 19 UStG]."
         }
       ]
     }
@@ -324,7 +352,11 @@
     "fillerHeading": "Comment nous prenons soin de votre peinture en transit",
     "fillerText": "Avant de voyager jusqu'à vous, chaque œuvre est emballée à la main — avec le même soin qu'elle a été peinte. Encadrement rigide, protections d'angle, emballage résistant à l'humidité. Pour tous les détails sur les délais et l'expédition internationale, consultez la",
     "fillerLinkText": "Politique d'expédition",
-    "previewNotice": "Cette commande n'a pas encore été payée. Si vous venez de finaliser l'achat, réessayez dans quelques minutes."
+    "previewNotice": "Cette commande n'a pas encore été payée. Si vous venez de finaliser l'achat, réessayez dans quelques minutes.",
+    "statusPrint": {
+      "PAINTING": "Votre impression est en cours de fabrication"
+    },
+    "itemsLabel": "Votre commande"
   },
   "easel": {
     "add": "Poser sur le chevalet",
@@ -352,7 +384,21 @@
     "error": "Une erreur s'est produite. Veuillez réessayer.",
     "itemUnavailableError": "Une des œuvres n'est plus disponible — veuillez actualiser votre chevalet.",
     "intro": "Voici les œuvres que vous avez pris le temps d'apprécier. Quand vous serez prêt, dites-nous où les envoyer.",
-    "loading": "Chargement de votre chevalet..."
+    "loading": "Chargement de votre chevalet...",
+    "quantity": "Quantité",
+    "decrease": "Diminuer la quantité",
+    "increase": "Augmenter la quantité",
+    "variantOil": "Huile sur toile",
+    "variantPrint": "Impression sur toile",
+    "noteOriginal": "L'original, prêt à être expédié.",
+    "noteOriginalPlusRepaint": "1 est la peinture terminée ; {count, plural, one {# autre sera peinte} other {# autres seront peintes}} à la main sur commande ({min}–{max} jours).",
+    "noteRepaintOnly": "La peinture terminée a déjà trouvé son propriétaire — la vôtre sera peinte à la main sur commande ({min}–{max} jours).",
+    "notePrint": "Format identique à l'original. Fabrication : {days, plural, one {# jour} other {# jours}}.",
+    "addPrint": "Ajouter l'impression au chevalet",
+    "printOnEasel": "Impression sur le chevalet",
+    "itemsCount": "Articles : {count}",
+    "mixedNote": "Si votre commande mêle des articles aux délais de fabrication différents, elle est expédiée en un seul colis une fois que tout est prêt.",
+    "exclusiveUnavailable": "Peinture exclusive — plus disponible"
   },
   "orderSuccess": {
     "title": "Merci pour votre commande",
@@ -364,5 +410,26 @@
   },
   "heroManifesto": {
     "text": "Je ne peins pas des corps — je peins l'instant où le masque tombe. La couleur dit la vérité plus vite que les mots, et une toile ne se tait qu'une fois qu'elle a tout dit…"
+  },
+  "print": {
+    "productHeading": "Impression sur toile",
+    "productSoldHeading": "Original vendu — impression disponible",
+    "productBody": "La même image, imprimée sur toile chez un imprimeur — et non peinte à la main. Format identique à l'original ; un autre format est possible, avec un prix convenu individuellement. Fabrication : {days, plural, one {# jour} other {# jours}}, puis expédition sous {dispatch, plural, one {# jour ouvré} other {# jours ouvrés}}.",
+    "homeHeading": "Une peinture, deux versions",
+    "homeOriginalTitle": "L'original",
+    "homeOriginalBody": "Peint à la main à l'huile sur toile par l'artiste — avec une vraie touche et une vraie texture.",
+    "homePrintTitle": "Impression sur toile",
+    "homePrintBody": "La même image, imprimée sur toile chez un imprimeur. Disponible pour les peintures de la galerie, hors exclusives — même si l'original est déjà vendu. Format identique à l'original, autres formats sur demande. Fabrication : {days, plural, one {# jour} other {# jours}}.",
+    "from": "à partir de",
+    "contactMessage": "Bonjour ! Je souhaite commander une impression sur toile de la peinture « {title} ».",
+    "otherSize": "Un autre format ? Écrivez-nous",
+    "contactMessageOtherSize": "Bonjour ! Je souhaite commander une impression sur toile de la peinture « {title} » dans un autre format : "
+  },
+  "orderItem": {
+    "variant": {
+      "ORIGINAL": "original, huile sur toile (prêt)",
+      "REPAINT": "original, huile sur toile (peint sur commande)",
+      "PRINT": "impression sur toile"
+    }
   }
 }

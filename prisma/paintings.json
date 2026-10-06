@@ -329,7 +329,7 @@
     },
     "widthCm": 30,
     "heightCm": 30,
-    "priceEur": 300,
+    "priceEur": 3000,
     "theme": "portrait",
     "material": "woodAcrylic",
     "status": "AVAILABLE",
@@ -382,30 +382,6 @@
     "material": "oilCanvas",
     "status": "AVAILABLE",
     "previewImageFile": "the-source-of-energy-the-power-of-time.jpg"
-  },
-  {
-    "slug": "colorful-life-single",
-    "title": {
-      "uk": "Colorful life",
-      "en": "Colorful life",
-      "de": "Colorful life",
-      "fr": "Colorful life",
-      "ja": "Colorful life"
-    },
-    "description": {
-      "uk": "Графічний аркуш на межі малюнка й побутової сцени — тепла, дотикова композиція рук і тіла, натиснута тушшю на папері й укладена під скло. Продається як один окремий відбиток із авторської серії.",
-      "en": "A graphic sheet balanced between drawing and everyday scene — a warm, tactile composition of hands and body in ink on paper, set under glass. Sold as a single individual print from the artist's series.",
-      "de": "Ein grafisches Blatt zwischen Zeichnung und Alltagsszene — eine warme, taktile Komposition aus Händen und Körper in Tusche auf Papier, unter Glas gefasst. Wird als einzelner Abzug aus der Werkserie verkauft.",
-      "fr": "Une feuille graphique à mi-chemin entre le dessin et la scène du quotidien — une composition chaleureuse et tactile de mains et de corps à l'encre sur papier, montée sous verre. Vendue comme tirage unique de la série de l'artiste.",
-      "ja": "素描と日常の情景の間を漂うグラフィック作品。手と身体による温かく触覚的な構図が、紙にインクで描かれガラスの下に収められている。作家によるシリーズからの単独の一点として販売される。"
-    },
-    "widthCm": 21,
-    "heightCm": 21,
-    "priceEur": 150,
-    "theme": "mixedMedia",
-    "material": "paperInkGlass",
-    "status": "AVAILABLE",
-    "previewImageFile": "colorful-life.jpg"
   },
   {
     "slug": "colorful-life-set-of-9",
@@ -665,7 +641,7 @@
     },
     "widthCm": 60,
     "heightCm": 50,
-    "priceEur": 400,
+    "priceEur": 4000,
     "theme": "portrait",
     "material": "oilCanvas",
     "status": "AVAILABLE",

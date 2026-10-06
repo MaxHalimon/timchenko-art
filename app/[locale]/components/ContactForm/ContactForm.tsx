@@ -17,7 +17,7 @@ type SubmitState = "idle" | "sending" | "success" | "error";
  *   NEXT_PUBLIC_EMAILJS_TEMPLATE_ID
  *   NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
  */
-export function ContactForm() {
+export function ContactForm({ defaultMessage }: { defaultMessage?: string }) {
   const t = useTranslations("contact.form");
   const [state, setState] = useState<SubmitState>("idle");
 
@@ -86,6 +86,7 @@ export function ContactForm() {
           id="message"
           name="message"
           required
+          defaultValue={defaultMessage}
           placeholder={t("messagePlaceholder")}
           className={styles.textarea}
         />

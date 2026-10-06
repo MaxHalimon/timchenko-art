@@ -83,6 +83,13 @@
   margin-bottom: var(--space-3);
 }
 
+.exclusiveNote {
+  font-size: 14px;
+  color: var(--color-text-light);
+  margin-top: calc(-1 * var(--space-2));
+  margin-bottom: var(--space-3);
+}
+
 .priceRow {
   display: flex;
   align-items: center;

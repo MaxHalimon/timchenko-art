@@ -1,0 +1,61 @@
+/* Same vocabulary as the rest of the site: hairline border, 8px radius,
+   muted background, red used only as a small accent. */
+.card {
+  background-color: var(--color-bg-muted);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: var(--space-2) var(--space-3);
+  margin-bottom: var(--space-3);
+}
+
+/* Original sold -> the print is the way forward, so the card gets a red edge. */
+.cardHighlight {
+  border-color: var(--color-primary);
+}
+
+.top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-2);
+  margin-bottom: 6px;
+}
+
+.heading {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.price {
+  font-size: 20px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.body {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--color-text-light);
+  margin-bottom: var(--space-1);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.link {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text);
+  border-bottom: 1px solid var(--color-text);
+  padding-bottom: 1px;
+  transition: var(--transition-base);
+}
+
+.link:hover {
+  color: var(--color-primary);
+  border-bottom-color: var(--color-primary);
+}

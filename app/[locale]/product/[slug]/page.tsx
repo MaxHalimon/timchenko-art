@@ -8,6 +8,7 @@ import { mediaUrl, productImages } from "@/lib/media";
 import { Link } from "@/i18n/navigation";
 import { PriceTag } from "../../components/PriceTag/PriceTag";
 import { EaselButton } from "../../components/EaselButton/EaselButton";
+import { PrintOffer } from "../../components/PrintOffer/PrintOffer";
 import { AccentText } from "../../components/AccentText/AccentText";
 import { ProductCarousel } from "../../components/ProductCarousel/ProductCarousel";
 import type { ProductStatus } from "../../components/ProductCard/ProductCard";
@@ -83,6 +84,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
   const related = await getRelatedProducts(product);
   const isSold = product.status === "SOLD";
+  const isExclusive = product.exclusive;
   const status = product.status as ProductStatus;
   const title = localizedText(product.title, locale);
   const description = localizedText(product.description, locale);
@@ -114,8 +116,9 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
           <div className={styles.priceRow}>
             <PriceTag amountEur={Number(product.priceEur)} className={styles.price} />
-            <EaselButton slug={product.slug} />
+            <EaselButton slug={product.slug} disabled={isExclusive && isSold} />
           </div>
+          {isExclusive && <p className={styles.exclusiveNote}>{t("exclusiveNote")}</p>}
 
           {description && (
             <section className={styles.section}>
@@ -147,6 +150,10 @@ export default async function ProductPage({ params }: ProductPageProps) {
               </div>
             </dl>
           </section>
+
+          {/* Last thing in the column, after sizes and details. Not for exclusive paintings
+              (never printed) nor for ones still being painted. */}
+          {status !== "IN_PROGRESS" && !isExclusive && <PrintOffer slug={product.slug} originalSold={isSold} />}
         </div>
       </div>
 
@@ -165,6 +172,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
               priceEur: Number(p.priceEur),
               status: p.status as ProductStatus,
               material: p.material,
+              exclusive: p.exclusive,
             }))}
           />
         </section>

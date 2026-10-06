@@ -71,7 +71,8 @@
     "relatedHeading": "Das könnte Ihnen auch gefallen",
     "notFoundTitle": "Gemälde nicht gefunden",
     "notFoundBody": "Dieses Werk wurde möglicherweise aus dem Katalog entfernt, oder der Link ist fehlerhaft.",
-    "notFoundCta": "Zur Galerie"
+    "notFoundCta": "Zur Galerie",
+    "exclusiveNote": "Exklusives Gemälde: ein Unikat, wird weder wiederholt noch gedruckt."
   },
   "languageSwitcher": {
     "label": "Sprache"
@@ -86,8 +87,12 @@
       "intro": "Diese Datenschutzerklärung beschreibt, welche personenbezogenen Daten Timchenko Art bei der Nutzung dieser Website erhebt, wie wir sie verwenden und welche Rechte Sie in Bezug auf Ihre Daten haben.",
       "sections": [
         {
+          "heading": "Verantwortliche",
+          "body": "Verantwortlich für Ihre personenbezogenen Daten ist die Verkäuferin, die Künstlerin Marina (Angaben im Impressum). Kontakt für Datenschutzfragen: maryna.timchenko.art@gmail.com."
+        },
+        {
           "heading": "Welche Daten wir erheben",
-          "body": "Bei der Bestellung erheben wir Ihren Namen, Ihre E-Mail-Adresse, Telefonnummer und Lieferadresse. Wenn Sie uns über das Kontaktformular schreiben, erhalten wir Ihren Namen, Ihre E-Mail-Adresse und Ihre Nachricht. Zahlungskartendaten speichern wir nicht — diese werden ausschließlich von unseren Zahlungspartnern (Stripe, NOWPayments) gemäß deren eigenen Sicherheitsrichtlinien verarbeitet."
+          "body": "Bei der Bestellung erheben wir Ihren Namen, Ihre E-Mail-Adresse, Telefonnummer und Lieferadresse. Wenn Sie uns über das Kontaktformular schreiben, erhalten wir Ihren Namen, Ihre E-Mail-Adresse und Ihre Nachricht. Zahlungskartendaten speichern wir nicht — diese werden ausschließlich von unseren Zahlungspartnern (Stripe, PayPal, NOWPayments) gemäß deren eigenen Sicherheitsrichtlinien verarbeitet."
         },
         {
           "heading": "Wie wir Ihre Daten verwenden",
@@ -99,7 +104,7 @@
         },
         {
           "heading": "Cookies und lokaler Speicher",
-          "body": "Die Website speichert Ihre gewählte Sprache und Währung in Cookies sowie Ihre Altersbestätigung (18+) und den Inhalt Ihrer Staffelei im lokalen Speicher Ihres Browsers. Beim ersten Besuch wird das anhand Ihrer IP-Adresse erkannte Land ausschließlich zur Auswahl von Anfangssprache und -währung verwendet; die IP-Adresse selbst speichern wir nicht. Wir verwenden weder Werbe- oder Tracking-Cookies noch Analysedienste. Die Zahlungsseiten werden von Stripe und NOWPayments betrieben und unterliegen deren eigenen Richtlinien."
+          "body": "Die Website speichert Ihre gewählte Sprache und Währung in Cookies sowie Ihre Altersbestätigung (18+) und den Inhalt Ihrer Staffelei im lokalen Speicher Ihres Browsers. Beim ersten Besuch wird das anhand Ihrer IP-Adresse erkannte Land ausschließlich zur Auswahl von Anfangssprache und -währung verwendet; die IP-Adresse selbst speichern wir nicht. Wir verwenden weder Werbe- oder Tracking-Cookies noch Analysedienste. Die Zahlungsseiten werden von Stripe, PayPal und NOWPayments betrieben und unterliegen deren eigenen Richtlinien."
         },
         {
           "heading": "Speicherdauer",
@@ -118,7 +123,7 @@
       "sections": [
         {
           "heading": "Über diese Website",
-          "body": "Timchenko Art ist der Verkäufer (Merchant of Record) der Original-Ölgemälde der Künstlerin Marina. Die Künstlerin fertigt die Werke und bereitet sie für den Versand vor; sämtliche Kundentransaktionen werden über die Website abgewickelt."
+          "body": "Diese Website ist ein Online-Shop für Original-Ölgemälde. Verkäuferin und Anbieterin ist die Künstlerin Marina, die als Einzelunternehmerin in Deutschland tätig ist; ihre Angaben finden Sie im Impressum. Der Kaufvertrag kommt zwischen Ihnen und der Verkäuferin zustande."
         },
         {
           "heading": "Bestellbeschränkungen",
@@ -126,11 +131,11 @@
         },
         {
           "heading": "Gemälde und Einzigartigkeit",
-          "body": "Manche Galeriewerke können von der Künstlerin auf Wunsch erneut gemalt werden. Individuelle Auftragsarbeiten werden als einzigartige Originale gemalt und danach nicht erneut angefertigt."
+          "body": "Alle Gemälde werden von der Künstlerin von Hand gemalt, und jedes ist ein Original. Ein vorrätiges Gemälde geht an einen Käufer; dasselbe Motiv kann die Künstlerin auf Bestellung auch für Sie malen — auch das ist ein von Hand gemaltes Original (jede Leinwand weicht leicht ab). Exklusive Gemälde — als individuelle Auftragsarbeit zum vereinbarten Preis geschaffen sowie vorrätige Gemälde, die im Einvernehmen mit dem Käufer dauerhaft aus dem Verkauf genommen werden — werden weder wiederholt noch gedruckt. Jedes andere Gemälde der Galerie kann zudem als Leinwanddruck in der Größe des Originals zum Festpreis von 300 € bestellt werden; für einen Druck in anderer Größe wird der Preis individuell vereinbart. Es handelt sich um dasselbe Motiv, in einer Druckerei gedruckt, nicht um ein von Hand gemaltes Werk."
         },
         {
           "heading": "Erscheinungsbild der Werke",
-          "body": "Jedes Gemälde wird von Hand in Öl auf Leinwand gemalt, daher können die Farben auf Ihrem Bildschirm leicht vom Original abweichen, und ein von der Künstlerin wiederholtes Gemälde ist nicht identisch mit dem auf der Website gezeigten."
+          "body": "Jedes Gemälde wird von Hand in Öl auf Leinwand gemalt, daher können die Farben auf Ihrem Bildschirm leicht vom Original abweichen; ein nach einer Abbildung der Website auf Bestellung gemaltes Gemälde ist ein eigenständiges Original und kann leicht vom gezeigten abweichen."
         },
         {
           "heading": "Urheberrecht",
@@ -138,7 +143,7 @@
         },
         {
           "heading": "Preise und Zahlung",
-          "body": "Die Preise werden in Euro (EUR) festgelegt. Zur besseren Übersicht können sie in Ihrer gewählten Währung zu einem ungefähren Kurs angezeigt werden, die Zahlung erfolgt jedoch in Euro über unseren Zahlungsanbieter (Stripe oder NOWPayments). Ihre Bank oder Ihr Zahlungsdienst kann eigene Umrechnungen und Gebühren berechnen."
+          "body": "Die Preise werden in Euro (EUR) festgelegt. Zur besseren Übersicht können sie in Ihrer gewählten Währung zu einem ungefähren Kurs angezeigt werden, die Zahlung erfolgt jedoch in Euro: per Karte (auch über Apple Pay und Google Pay) oder PayPal über Stripe bzw. per Kryptowährung über NOWPayments. Ihre Bank oder Ihr Zahlungsdienst kann eigene Umrechnungen und Gebühren berechnen."
         },
         {
           "heading": "Altersbeschränkung",
@@ -146,7 +151,7 @@
         },
         {
           "heading": "Anwendbares Recht",
-          "body": "Diese Bedingungen unterliegen dem Recht [Gerichtsstand — zu bestätigen]."
+          "body": "Diese Bedingungen unterliegen dem Recht der Bundesrepublik Deutschland. Zwingende Verbraucherschutzvorschriften des Landes, in dem Sie Ihren Wohnsitz haben, bleiben unberührt."
         }
       ]
     },
@@ -157,7 +162,7 @@
       "sections": [
         {
           "heading": "Bearbeitungszeit",
-          "body": "Als „Verfügbar“ markierte Gemälde werden in der Regel innerhalb von [X] Werktagen nach Zahlungseingang versandt. Individuelle Auftragsarbeiten benötigen Zeit für die Fertigstellung durch die Künstlerin — eine geschätzte Zeitspanne wird bei der Bestellung gesondert angegeben."
+          "body": "Als „Verfügbar“ markierte Gemälde werden innerhalb von 5 Werktagen nach Zahlungseingang versandt. Gemälde, die die Künstlerin auf Bestellung von Hand anfertigt (Öl auf Leinwand), benötigen nach der Zahlung 15–30 Tage bis zur Fertigstellung und werden anschließend innerhalb von 5 Werktagen versandt. Den aktuellen Stand Ihrer Bestellung sehen Sie auf der Seite „Bestellstatus“. Ein Leinwanddruck wird in 5 Tagen hergestellt und anschließend innerhalb von 5 Werktagen versandt. Enthält eine Bestellung Positionen mit unterschiedlicher Herstellungszeit, wird sie in einer Sendung versandt, sobald alle Positionen fertig sind, sofern wir nichts anderes mit Ihnen vereinbaren."
         },
         {
           "heading": "Verpackung",
@@ -179,24 +184,47 @@
       "intro": "Diese Richtlinie beschreibt die Bedingungen für die Rückgabe von Gemälden und die Erstattung von Zahlungen.",
       "sections": [
         {
-          "heading": "Fertige Galeriewerke",
-          "body": "Für bereits fertige Gemälde (Status „Verfügbar“ zum Bestellzeitpunkt) ist eine Rückgabe innerhalb von [X] Tagen nach Erhalt möglich, sofern sich das Werk im Originalzustand befindet."
+          "heading": "Galerie-Gemälde und Drucke",
+          "body": "Für Gemälde aus der Galerie — sowohl fertige (Status „Verfügbar“ zum Bestellzeitpunkt) als auch auf Bestellung gemalte — sowie für Leinwanddrucke in Standardgröße ist eine Rückgabe innerhalb von 14 Tagen ab dem Tag des Erhalts möglich, sofern sich das Werk im Originalzustand befindet. Die Kosten der Rücksendung trägt der Kunde, der die Bestellung aufgegeben hat."
         },
         {
           "heading": "Individuelle Auftragsarbeiten",
-          "body": "Auf individuelle Bestellung angefertigte Gemälde sind aufgrund ihres personalisierten Charakters grundsätzlich von der Rückgabe ausgeschlossen — außer bei Transportschäden."
+          "body": "Als individuelle Auftragsarbeit angefertigte Gemälde (einschließlich exklusiver Gemälde) sowie Leinwanddrucke in Sondergröße sind aufgrund ihres individuellen Charakters in der Regel von der Rückgabe ausgeschlossen — außer bei Beschädigung auf dem Transportweg."
         },
         {
           "heading": "Transportschäden",
-          "body": "Sollte Ihr Gemälde beschädigt ankommen, kontaktieren Sie uns innerhalb von 48 Stunden mit Fotos des Schadens — wir bieten Ersatz oder vollständige Erstattung an."
+          "body": "Sollte Ihr Gemälde oder Druck beschädigt ankommen, kontaktieren Sie uns innerhalb von 48 Stunden mit Fotos des Schadens — wir bieten Ersatz oder eine Erstattung an."
+        },
+        {
+          "heading": "Höhe und Art der Erstattung",
+          "body": "Die Erstattung beträgt 90 % des Preises des Gemäldes oder Drucks; die übrigen 10 % decken Material und Herstellungskosten. Die Erstattung erfolgt über die von Ihnen genutzte Zahlungsart; bei Zahlungen in Kryptowährung wird sie an die Wallet des Käufers gesendet."
         },
         {
           "heading": "So beantragen Sie eine Rückgabe",
-          "body": "Schreiben Sie an maryna.timchenko.art@gmail.com mit Ihrer Bestellnummer und dem Grund der Rückgabe. Wir antworten innerhalb von [X] Werktagen."
+          "body": "Schreiben Sie an maryna.timchenko.art@gmail.com mit Ihrer Bestellnummer und dem Grund der Rückgabe. Wir antworten innerhalb von 1 Werktag."
         },
         {
           "heading": "Ihre gesetzlichen Rechte",
-          "body": "Diese Richtlinie schränkt Ihre gesetzlichen Verbraucherrechte nicht ein, einschließlich des Widerrufsrechts für Verbraucher in der EU, soweit es Anwendung findet."
+          "body": "Diese Richtlinie schränkt Ihre gesetzlichen Verbraucherrechte nicht ein. Gewähren Ihnen zwingende Verbraucherschutzvorschriften (einschließlich des Widerrufsrechts für Verbraucher in der EU) weitergehende Rechte als diese Richtlinie, gehen diese Rechte vor."
+        }
+      ]
+    },
+    "impressum": {
+      "title": "Impressum",
+      "lastUpdated": "Zuletzt aktualisiert: {date}",
+      "intro": "Angaben zur Verkäuferin und Diensteanbieterin dieser Website gemäß § 5 DDG.",
+      "sections": [
+        {
+          "heading": "Anbieterin",
+          "body": "[Vollständiger Name der Künstlerin], Einzelunternehmerin, [Straße und Hausnummer, PLZ, Ort], Deutschland."
+        },
+        {
+          "heading": "Kontakt",
+          "body": "E-Mail: maryna.timchenko.art@gmail.com. Sie erreichen uns außerdem über das Kontaktformular dieser Website."
+        },
+        {
+          "heading": "Umsatzsteuer",
+          "body": "[Umsatzsteuer-Identifikationsnummer (USt-IdNr.), falls vorhanden, oder Hinweis auf die Kleinunternehmerregelung nach § 19 UStG]."
         }
       ]
     }
@@ -324,7 +352,11 @@
     "fillerHeading": "So sorgen wir für Ihr Gemälde unterwegs",
     "fillerText": "Bevor es zu Ihnen reist, wird jedes Werk von Hand verpackt — mit derselben Sorgfalt, mit der es gemalt wurde. Stabiler Rahmenschutz, Eckenschutz, feuchtigkeitsbeständige Verpackung. Alle Details zu Fristen und internationalem Versand finden Sie in der",
     "fillerLinkText": "Versandrichtlinie",
-    "previewNotice": "Diese Bestellung wurde noch nicht bezahlt. Falls Sie gerade erst bezahlt haben, aktualisieren Sie die Seite in ein paar Minuten."
+    "previewNotice": "Diese Bestellung wurde noch nicht bezahlt. Falls Sie gerade erst bezahlt haben, aktualisieren Sie die Seite in ein paar Minuten.",
+    "statusPrint": {
+      "PAINTING": "Ihr Druck wird hergestellt"
+    },
+    "itemsLabel": "Ihre Bestellung"
   },
   "easel": {
     "add": "Auf die Staffelei stellen",
@@ -352,7 +384,21 @@
     "error": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.",
     "itemUnavailableError": "Eines der Werke ist nicht mehr verfügbar — bitte aktualisieren Sie Ihre Staffelei.",
     "intro": "Hier sind die Werke, denen Sie etwas Zeit gegeben haben, bei Ihnen zu verweilen. Wenn Sie bereit sind, sagen Sie uns, wohin wir sie schicken sollen.",
-    "loading": "Ihre Staffelei wird geladen..."
+    "loading": "Ihre Staffelei wird geladen...",
+    "quantity": "Anzahl",
+    "decrease": "Anzahl verringern",
+    "increase": "Anzahl erhöhen",
+    "variantOil": "Öl auf Leinwand",
+    "variantPrint": "Leinwanddruck",
+    "noteOriginal": "Das Original, versandfertig.",
+    "noteOriginalPlusRepaint": "1 ist das fertige Gemälde; {count} weitere werden von Hand auf Bestellung gemalt ({min}–{max} Tage).",
+    "noteRepaintOnly": "Das fertige Gemälde hat bereits einen Besitzer — Ihres wird von Hand auf Bestellung gemalt ({min}–{max} Tage).",
+    "notePrint": "Größe wie das Original. Herstellung: {days, plural, one {# Tag} other {# Tage}}.",
+    "addPrint": "Druck auf die Staffelei",
+    "printOnEasel": "Druck auf der Staffelei",
+    "itemsCount": "Positionen: {count}",
+    "mixedNote": "Enthält Ihre Bestellung Positionen mit unterschiedlicher Herstellungszeit, wird sie in einer Sendung versandt, sobald alles fertig ist.",
+    "exclusiveUnavailable": "Exklusives Gemälde — nicht mehr verfügbar"
   },
   "orderSuccess": {
     "title": "Vielen Dank für Ihre Bestellung",
@@ -364,5 +410,26 @@
   },
   "heroManifesto": {
     "text": "Ich male keine Körper — ich male den Moment, in dem die Maske fällt. Farbe sagt die Wahrheit schneller als Worte, und eine Leinwand schweigt erst, wenn sie alles gesagt hat, was sie sagen musste…"
+  },
+  "print": {
+    "productHeading": "Leinwanddruck",
+    "productSoldHeading": "Original verkauft — Druck verfügbar",
+    "productBody": "Dasselbe Motiv, in einer Druckerei auf Leinwand gedruckt — nicht von Hand gemalt. Größe wie das Original; eine andere Größe ist möglich, der Preis wird individuell vereinbart. Herstellung: {days, plural, one {# Tag} other {# Tage}}, danach Versand innerhalb von {dispatch, plural, one {# Werktag} other {# Werktagen}}.",
+    "homeHeading": "Ein Gemälde, zwei Varianten",
+    "homeOriginalTitle": "Das Original",
+    "homeOriginalBody": "Von der Künstlerin von Hand in Öl auf Leinwand gemalt — mit echter Pinselführung und Textur.",
+    "homePrintTitle": "Leinwanddruck",
+    "homePrintBody": "Dasselbe Motiv, in einer Druckerei auf Leinwand gedruckt. Für Gemälde der Galerie außer exklusiven erhältlich — auch wenn das Original bereits verkauft ist. Größe wie das Original, andere Größen nach Absprache. Herstellung: {days, plural, one {# Tag} other {# Tage}}.",
+    "from": "ab",
+    "contactMessage": "Guten Tag! Ich möchte einen Leinwanddruck des Gemäldes „{title}“ bestellen.",
+    "otherSize": "Andere Größe gewünscht? Schreiben Sie uns",
+    "contactMessageOtherSize": "Guten Tag! Ich möchte einen Leinwanddruck des Gemäldes „{title}“ in einer anderen Größe bestellen: "
+  },
+  "orderItem": {
+    "variant": {
+      "ORIGINAL": "Original, Öl auf Leinwand (fertig)",
+      "REPAINT": "Original, Öl auf Leinwand (auf Bestellung gemalt)",
+      "PRINT": "Leinwanddruck"
+    }
   }
 }

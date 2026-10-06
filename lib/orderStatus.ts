@@ -1,7 +1,7 @@
 import { prisma } from "./prisma";
-import { localizedText } from "./localizedText";
 import { sendEmail } from "./email";
 import { renderOrderStatusEmail, type EmailableStatus } from "./orderEmails";
+import { isPrintOnly, subjectTitle, summarizeItems } from "./orderItemText";
 import { calculatePlatformCommissionEur, calculateArtistPayoutEur } from "./constants";
 import type { Locale } from "@/i18n/config";
 
@@ -19,14 +19,15 @@ async function notifyOrderStatus(orderId: string, status: EmailableStatus) {
   if (!order) return;
 
   const locale = (order.locale as Locale) ?? "uk";
-  const paintingTitles = order.items.map((item) => localizedText(item.product.title, locale));
 
   const { subject, html } = renderOrderStatusEmail({
     locale,
     status,
     customerName: order.customerName,
     orderId: order.id,
-    paintingTitles,
+    itemSummaries: summarizeItems(locale, order.items),
+    subjectTitle: subjectTitle(locale, order.items),
+    printOnly: isPrintOnly(order.items),
     trackingUrl: `${SITE_URL}/${locale}/tracking?ref=${order.id}`,
     trackingNumber: order.trackingNumber,
     trackingCarrier: order.trackingCarrier,
@@ -57,14 +58,18 @@ export async function markOrderPaid(orderId: string) {
   await prisma.$transaction([
     prisma.order.update({
       where: { id: orderId },
-      data: { status: "PAID", platformCommissionEur, artistPayoutEur },
+      data: { status: "PAID", platformCommissionEur, artistPayoutEur, paidAt: new Date() },
     }),
-    ...order.items.map((item) =>
-      prisma.product.update({
-        where: { id: item.productId },
-        data: { status: "SOLD" },
-      })
-    ),
+    // Only the existing painting leaves the shop. Prints and repainted copies
+    // are made on demand, so they never change the painting's own status.
+    ...order.items
+      .filter((item) => item.variant === "ORIGINAL")
+      .map((item) =>
+        prisma.product.update({
+          where: { id: item.productId },
+          data: { status: "SOLD" },
+        })
+      ),
   ]);
 
   await notifyOrderStatus(orderId, "PAID");
@@ -88,6 +93,7 @@ export async function advanceOrderStatus(orderId: string, status: EmailableStatu
     where: { id: orderId },
     data: {
       status,
+      ...(status === "DELIVERED" ? { deliveredAt: new Date() } : {}),
       ...(options.trackingNumber ? { trackingNumber: options.trackingNumber } : {}),
       ...(options.trackingCarrier ? { trackingCarrier: options.trackingCarrier } : {}),
     },
